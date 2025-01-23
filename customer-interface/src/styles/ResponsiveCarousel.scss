@@ -1,0 +1,38 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #435B99;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font: "Merriweather", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+.carousel-background{
+    height: 280px;
+    background-color: $BC-blue;
+    display: flex;
+    align-items: center;
+
+    .carousel-container{
+        width: 1000px; /* Full width */
+        max-width: 1000px; /* Optional max width */
+        margin: 0 auto; /* Center carousel horizontally */
+        border-radius: 10px;
+        padding: 20px 0; /* Add padding around the carousel */
+
+        img{
+            width: 90%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            margin-left: 50px;
+        }
+    }
+}
