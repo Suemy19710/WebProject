@@ -1,0 +1,52 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #435B99;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font: "Merriweather", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+.topnav {
+    background-color: $BC-gray;
+    overflow: hidden;
+    padding: 0px 20px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    
+    .topnav-left{
+        img{
+            height: 80px;
+        }
+    }
+
+    .topnav-right {
+        a{
+            float: left;
+            color: $TC-black;
+            text-align: center;
+            padding: 10px 20px;
+            margin: 0;
+            text-decoration: none;
+            font-size: 25px;
+        }
+
+        a:hover {
+            background-color: #ddd;
+            color: $TC-yellow;
+            height: 30px;
+            border-radius: 30px;
+        }
+        a.active{
+            background-color: $BC-gray;
+            color: $TC-yellow;
+        }
+    }
+}
