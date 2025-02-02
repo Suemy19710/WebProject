@@ -17,9 +17,9 @@ class AboutCompany extends React.Component {
                             Tổng quan công ty Luật Kim Ngọc
                         </button>
                     </div>
-                    <div className="about-company-pic">
+                    <div className="about-company-right">
                         <div className="pic-background">
-                            <img src ={pic}/>
+                            <img src ={pic} className="about-company-pic"/>
                         </div>
                     </div>
                 </div>
