@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/AboutCompany.scss';
-import pic from '../assets/about-company.png';
+import '../../styles/client/AboutCompany.scss';
+import pic from '../../assets/about-company.png';
 
 class AboutCompany extends React.Component {
     render() {

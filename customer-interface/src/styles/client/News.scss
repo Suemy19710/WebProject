@@ -1,6 +1,6 @@
 $BC-white: #F8F9FA;
 $BC-gray: #EAECEE;
-$BC-blue: #435B99;
+$BC-blue: #2E3C61;
 $BC-yellow: #DAA520;
 $TC-black: #000;
 $TC-yellow: #DAA520;
@@ -14,82 +14,90 @@ html, body {
     font-family: font;
     box-sizing: border-box;
 }
-.background{
-    background-color: $BC-white;
-    background-image: url('../assets/back-ground.png');
-    padding: 20px;
-    width: 1217px;
-    // height: 1333px;
-    .head-title {
-        display: flex;
-        justify-content: flex-end;
-       
+.page{
+    background-color: $BC-gray;
+    .head{
+        margin-left: 10px;
         h{
-            color: $TC-yellow; /* Ensure this variable is defined */
+            color: $BC-blue; /* Ensure this variable is defined */
             font-size: 70px;
             padding-bottom: 10px;
             font-style: normal;
             font-weight: 600;
             line-height: 78px;
         }
-        span {
+        span{
             color: #1E1E1E;
-            font-family: 'Poppins', sans-serif;
             font-size: 75px;
             font-style: normal;
             font-weight: 600;
             line-height: 78px;
         }
     }
-    
-    
     .body{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 20px; //Space between cards;
+        // display: grid;
+        // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        width: 100%;
+        padding-top: 20px;
         justify-content: center;
-        padding: 0;
-        .service-card {
-            background-color: $BC-blue;
-            border: 1px solid #eaecee;
+        .news-card{
+            background-color: $BC-white;
+            border: 1px solid $BC-white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.2s ease;
-            padding-left: 10px;
-
-            &:hover {
-                transform: translateY(-5px);
-            }
-            .service-card-head {
+            padding: 5px 5px 5px;
+            width: 250px;
+            // &:hover {
+            //     transform: translateY(-5px);
+            // }        
+            .news-card-head{
                 height: 150px ;
                 display: flex;
-                margin-top: 10px;
 
                 img {
-                    width: 130px;
+                    width: 245px;
                     height: 130px;
                     object-fit: cover;
+                    border-radius: 10px;
                 }
             }
-            .service-card-body{
-                .service-card-body-title {
-                    color:$TC-white;
+            .news-card-body{
+
+                .time-post{
+                    display: flex;
+                    justify-content: flex-end;
+
+                    margin-right: 10px;
+                    gap: 7px;
+                    i{
+                        color: $BC-yellow;
+                    }
+                    .date{
+                        font-size: 15px;
+                    }
+                }
+                .news-card-body-title{
+                    color:$TC-black;
                     font-size: 20px;
                     font-style: normal;
                     font-weight: 900;
                     line-height: normal;
                 }
-                .service-card-body-description{
+                .news-card-body-description{
                     padding-top: 5px;
-                    color:$TC-white;
+                    color:$TC-black;
                     font-size: 13px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
                 }
             }
-            .service-card-footer{
+            .news-card-footer{
                 display: flex;
                 justify-content: flex-end;
                 padding-bottom: 10px;
@@ -98,14 +106,16 @@ html, body {
                     border: none;
                     color: $TC-yellow;
                     font-size: 15px;
-                    background-color: $BC-blue;
+                    background-color: $BC-white;
                     font-style: normal;
                     font-weight: 700;
-                    line-height: normal;
+                    line-height: normal;                    
+                    cursor: pointer;
+                        
+
                 }
             }
         }
-        
     }
     .footer{
         display: flex;
@@ -123,6 +133,8 @@ html, body {
             background-color: $BC-yellow;
             border-radius: 50px;
             border: none;
+            cursor: pointer;
+
         }
     }
 }

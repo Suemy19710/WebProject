@@ -1,0 +1,19 @@
+import React from 'react';
+import TopNavigation from '../../components/client/TopNavigation';
+import Header from '../../components/client/Header';
+import TinTucCard from '../../components/client/TinTucCard';
+import News from '../../components/client/News';
+import RegisterForm from '../../components/client/RegisterForm';
+
+function TinTucCardPage() {
+    return(
+        <>
+            <TopNavigation/>
+            <Header/>
+            <TinTucCard/>
+            <News/>
+            <RegisterForm/>
+        </>
+    )
+}
+export default TinTucCardPage;

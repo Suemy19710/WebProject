@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/OfferService.scss';
-import pic from '../assets/okay.jpg';
+import '../../styles/client/OfferService.scss';
+import pic from '../../assets/okay.jpg';
 
 class OfferService extends React.Component {
     render() {
