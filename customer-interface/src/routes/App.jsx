@@ -11,6 +11,7 @@ import DichVu from '../pages/client/DichVu';
 import TinTucCardPage from '../pages/client/TinTucCardPage';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
+import PreviewPostNews from '../components/admin/PreviewPostNews';
 
 
 function App() {
@@ -25,9 +26,9 @@ function App() {
         <Route path="/lien-he" element={<LienHe/>}/>
         <Route path="/dich-vu" element={<DichVu/>}/>
 
-        {/* Client Routes */}
+        {/* Admin Routes */}
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
-
+        <Route path="/admin/preview" element={<PreviewPostNews/>}/>
       </Routes>
     </Router>
 

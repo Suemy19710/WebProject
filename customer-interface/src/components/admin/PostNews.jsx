@@ -136,8 +136,11 @@ const PostNews = () => {
     // Function to preview the content and submit the form
     const handlePreviewContent = () => {
         const editorContent = textInputRef.current.innerHTML; // Get the editor's content
-        document.getElementById("contentInput").value = editorContent; // Set content in a hidden input
-        document.getElementById("previewForm").submit(); // Submit the preview form with the content
+        const encodedContent = encodeURIComponent(editorContent);
+        window.location.href = `/admin/preview/content=${encodedContent}`;
+        // this.props.history.push('/admin/preview');
+        // document.getElementById("contentInput").value = editorContent; // Set content in a hidden input
+        // document.getElementById("previewForm").submit(); // Submit the preview form with the content
     }
 
     // Function to save the current content as a draft
