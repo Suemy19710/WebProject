@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import '../../styles/admin/PreviewPostNews.scss';
 
 const PreviewPostNews = () => {
   const [content, setContent] = useState('');
@@ -12,14 +13,14 @@ const PreviewPostNews = () => {
   }, []);
 
   return (
-    <>
+    <div className="container-preview">
       <h1>Preview</h1>
       <div
         id="output"
         style={{ border: '1px solid #ddd', padding: '20px' }}
         dangerouslySetInnerHTML={{ __html: content }}
       ></div>
-    </>
+    </div>
   );
 };
 

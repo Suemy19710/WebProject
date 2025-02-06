@@ -8,8 +8,8 @@ const PostNews = () => {
         format: false,
         script: false,
     });
+    const [editorContent, setEditorContent] = useState('');
 
-    // Refs for DOM elements that we need to interact with (font name, font size, text input area)
     const fontNameRef = useRef(null);
     const fontSizeRef = useRef(null);
     const textInputRef = useRef(null);
@@ -25,15 +25,13 @@ const PostNews = () => {
         "Noto Sans",
     ];
 
-    // useEffect hook runs once when the component is mounted to initialize font and font size options
     useEffect(() => {
-        // Initialize font options
         if (fontNameRef.current && fontNameRef.current.children.length === 0) {
             fontList.forEach((value) => {
                 const option = document.createElement("option");
                 option.value = value;
                 option.innerHTML = value;
-                fontNameRef.current.appendChild(option); // Append the font option to the dropdown
+                fontNameRef.current.appendChild(option); 
             });
         }
 
@@ -42,15 +40,11 @@ const PostNews = () => {
                 const option = document.createElement("option");
                 option.value = i;
                 option.innerHTML = i;
-                fontSizeRef.current.appendChild(option); // Append font size option
+                fontSizeRef.current.appendChild(option); 
             }
-            fontSizeRef.current.value = 3; // Set the default font size to 3
+            fontSizeRef.current.value = 3;
         }
-    }, []); // Empty dependency array ensures this effect runs only once when the component is mounted
-
-    const handleFontSizeChange = (e) => {
-        textInputRef.current.style.fontSize = `${e.target.value}px`;
-    };
+    }, []);
 
     const handleFontChange = (e) => {
         textInputRef.current.style.fontFamily = e.target.value;
@@ -60,60 +54,49 @@ const PostNews = () => {
         textInputRef.current.style.color = e.target.value;
     };
 
-    // Function to modify text in the editor (executes commands like bold, italic, etc.)
-    const modifyText = (command, defaultUi, value) => {
+    const modifyText = (command, value) => {
         if (textInputRef.current) {
-            document.execCommand(command, defaultUi, value); // Executes the command on the text area
+            document.execCommand(command, false, value); 
         }
     };
 
-    // Handle button click for formatting (bold, italic, etc.)
     const handleButtonClick = (buttonId) => {
-        // if (activeButtons.buttonId) {
-        //     setActiveButtons(null);
-        // } else{
-        //     setActiveButtons(buttonId);
-        // }
         setActiveButtons((prev) => ({
             ...prev,
-            [buttonId]: !prev[buttonId], // Toggle active state
+            [buttonId]: !prev[buttonId], 
         }));
-        modifyText(buttonId, false, null); // Execute command based on button ID (e.g., bold, superscript)
+        modifyText(buttonId, false, null);
     }
 
-    // Handle changes for advanced options like font size, font family, etc.
     const handleAdvancedButtonChange = (e) => {
-        modifyText(e.target.id,false, e.target.value); // Apply changes to the text based on selected value
+        modifyText(e.target.id,false, e.target.value); 
     }
 
-    // Handle link creation by prompting the user for a URL
     const handleLinkButtonClick = () => {
         let userLink = prompt("Enter a URL?");
         if (/http/i.test(userLink)) {
-            modifyText("createLink", userLink); // Create the link with the URL
+            modifyText("createLink", userLink); 
         } else {
-            userLink = "http://" + userLink; // Add 'http://' if not included by the user
-            modifyText("createLink", userLink); // Create the link with the updated URL
+            userLink = "http://" + userLink; 
+            modifyText("createLink", userLink); 
         }
     }
 
-    // Toggle the active state of a button (to highlight the button when clicked)
-    const toggleActiveButton = (buttonType, buttonId) => {
-        setActiveButtons((prev) => ({
-            ...prev,
-            [buttonType]: prev[buttonType].buttonId ? null : buttonId,
-        }));
-    };
+    // const toggleActiveButton = (buttonType, buttonId) => {
+    //     setActiveButtons((prev) => ({
+    //         ...prev,
+    //         [buttonType]: prev[buttonType].buttonId ? null : buttonId,
+    //     }));
+    // };
 
-    // Handle image upload: preview the selected image in the editor
     const handleImageUpload = (e) => {
-        const file = e.target.files[0]; // Get the uploaded file
+        const file = e.target.files[0]; 
         if (file && textInputRef.current) {
             const reader = new FileReader();
             reader.onload = function (event) {
                 setImgSrc(event.target.result);
             };
-            reader.readAsDataURL(file); // Read the file as a data URL
+            reader.readAsDataURL(file); 
         }
     }
     const handleFileUpload =(event) => {
@@ -122,30 +105,69 @@ const PostNews = () => {
             const formData = new FormData();
             formData.append('image', file);
 
-             // Upload the file using your preferred method (e.g., fetch, axios)
         fetch('/upload', {
             method: 'POST',
             body: formData,
         }).then(response => response.json())
           .then(data => {
-              setImgSrc(data.imageUrl);  // assuming your server returns the image URL
+              setImgSrc(data.imageUrl); 
           });
         }
     }
 
-    // Function to preview the content and submit the form
     const handlePreviewContent = () => {
-        const editorContent = textInputRef.current.innerHTML; // Get the editor's content
-        const encodedContent = encodeURIComponent(editorContent);
-        window.location.href = `/admin/preview/content=${encodedContent}`;
-        // this.props.history.push('/admin/preview');
-        // document.getElementById("contentInput").value = editorContent; // Set content in a hidden input
-        // document.getElementById("previewForm").submit(); // Submit the preview form with the content
+        const editorContent = textInputRef.current.innerHTML;
+        const title = extractTitle(editorContent);
+        const body = extractBody(editorContent);
+    
+        const maxBodyLength = 1000;
+        const shortenedBody = body.length > maxBodyLength ? body.substring(0, maxBodyLength) + "..." : body;
+    
+        const encodedTitle = encodeURIComponent(title);
+        const encodedBody = encodeURIComponent(shortenedBody);
+    
+        console.log('Title:', encodedTitle);  
+        console.log('Body:', encodedBody);    
+    
+        const form = document.createElement('form');
+        form.method = 'POST'; 
+        form.action = '/admin/preview'; 
+        const inputTitle = document.createElement('input');
+        inputTitle.type = 'hidden';
+        inputTitle.name = 'title'; 
+        inputTitle.value = encodedTitle;
+    
+        const inputBody = document.createElement('input');
+        inputBody.type = 'hidden';
+        inputBody.name = 'body';
+        inputBody.value = encodedBody;
+    
+        console.log('Input Title Value:', inputTitle.value);
+        console.log('Input Body Value:', inputBody.value);
+    
+        form.appendChild(inputTitle);
+        form.appendChild(inputBody);
+    
+        console.log('Form Inputs:', form.elements);
+        document.body.appendChild(form);
+        form.submit();
+        document.body.removeChild(form);
+    };
+    
+    function extractTitle(content) {
+        const firstSentence = content.split('.')[0];
+        return firstSentence.trim();
     }
+    
+    function extractBody(content) {
+        const firstSentenceEnd = content.indexOf('.') + 1;
+        return content.substring(firstSentenceEnd).trim();
+    } 
+    
+    
 
-    // Function to save the current content as a draft
     const handleSaveDraft = () => {
-        alert("Draft Saved:\n" + textInputRef.current.innerHTML); // Show an alert with the draft content
+        alert("Draft Saved:\n" + textInputRef.current.innerHTML);
     }
     return (
         <div className="container-post-news">
@@ -155,13 +177,13 @@ const PostNews = () => {
                     <i className="fa-solid fa-bold"></i>
                 </button>
                 <button id="italic" className={`option-button ${activeButtons.italic ? 'active' : ''}`} onClick={() => handleButtonClick("italic")}>
-                    <i class="fa-solid fa-italic"></i>                
+                    <i className="fa-solid fa-italic"></i>                
                 </button>
                 <button id="underline" className={`option-button ${activeButtons.underline ? 'active' : ''}`} onClick={() => handleButtonClick("underline")}>
-                    <i class="fa-solid fa-underline"></i>                
+                    <i className="fa-solid fa-underline"></i>                
                 </button>
                 <button id="strikethrough" className={`option-button ${activeButtons.strikethrough ? 'active' : ''}`} onClick={() => handleButtonClick("strikethrough")}>
-                    <i class="fa-solid fa-strikethrough"></i>                
+                    <i className="fa-solid fa-strikethrough"></i>                
                 </button>
                 <button id="superscript" className={`option-button ${activeButtons.superscript ? 'active' : ''}`} onClick={() => handleButtonClick("superscript")}>
                     <i className="fa-solid fa-superscript"></i>
@@ -225,10 +247,10 @@ const PostNews = () => {
                     id="imageUpload"
                     accept="image/*"
                     style={{ display: 'none' }}
-                    onChange={handleFileUpload} // Handle the file upload
+                    onChange={handleImageUpload} // Handle the file upload
                 />
                 {/* Advanced options (font size, font name, colors) */}
-                <select id="formatBlock" className="adv-option-button" onClick={()=> toggleActiveButton()}>
+                <select id="formatBlock" className="adv-option-button" onChange={handleAdvancedButtonChange}>
                     <option value="H1">H1</option>
                     <option value="H2">H2</option>
                     <option value="H3">H3</option>
@@ -236,7 +258,7 @@ const PostNews = () => {
                     <option value="H5">H5</option>
                     <option value="H6">H6</option>
                 </select>
-                <select id="fontName" className="adv-option-button" ref={fontNameRef} onChange={(e) => handleFontChange(e)}></select>
+                <select id="fontName" className="adv-option-button" ref={fontNameRef}></select>
                 <select id="fontSize" className="adv-option-button" ref={fontSizeRef}></select>
 
                 {/* Color pickers for font and highlight color */}
