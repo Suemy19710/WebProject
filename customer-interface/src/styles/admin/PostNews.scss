@@ -96,6 +96,48 @@ html, body {
             background-color: $TC-white;
         }
     }
+    .post-container{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+
+        input{
+            font-size: 20px;
+            font-weight: 800px;
+            padding: 5px;
+            padding-left: 15px;
+            border-radius: 10px;
+            border: none;
+        }
+        textarea{
+            font-size: 15px;
+            font-family: $Font ;
+        }
+        .sumbit-btn{
+            display: flex;
+            justify-content: center;
+            button{
+                margin-top: 10px;
+                width: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 30px;
+                font-size: 18px;
+                font-weight: 700;
+                background-color: #DAA520;
+                border-radius: 30px;
+                border: none;
+                color: $BC-gray;
+                cursor: pointer;
+                &.active, :hover{
+                    background-color: $BC-blue;
+                    color: $TC-white;
+                }
+            }
+        }
+       
+    }
     .button-container{
         display: flex;
         gap: 10px;

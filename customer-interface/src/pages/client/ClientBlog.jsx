@@ -17,7 +17,7 @@ const ClientBlog =() =>{
                 <div key={post._id}>
                     <h3>{post.title}</h3>
                     <p>{post.content}</p>
-                    <p><strong>By:</strong> {post.author} | <em>{new Date(post.createdAt).toLocaleString()}</em></p>
+                    <p><em>{new Date(post.createdAt).toLocaleString()}</em></p>
                     <hr />
                 </div>
                 ))

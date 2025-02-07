@@ -13,7 +13,7 @@ import ClientBlog from '../pages/client/ClientBlog';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
-import AdminBlog from '../pages/admin/AdminBlog';
+// import AdminBlog from '../pages/admin/AdminBlog';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
         {/* Admin Routes */}
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
-        <Route path='/admin/blog' element={<AdminBlog/>}/>
+        {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
       </Routes>
     </Router>

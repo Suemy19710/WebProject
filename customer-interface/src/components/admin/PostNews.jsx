@@ -164,7 +164,27 @@ const PostNews = () => {
         return content.substring(firstSentenceEnd).trim();
     } 
     
-    
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+
+    const handlePost = async(e) => {
+        e.preventDefault();
+        const postData = {title, content};
+        try {
+            const response = await fetch('http://localhost:5000/api/blogs', {
+                method: 'POST', 
+                headers: {'Content-Type' : 'application/json'}, 
+                body: JSON.stringify(postData), 
+            });
+            if (!response.ok) throw new Error('Failed to create post');
+
+            alert('Post created successfully');
+            setTitle('');
+            setContent('');
+        } catch(error) {
+            alert(error.message);
+        }
+    }
 
     const handleSaveDraft = () => {
         alert("Draft Saved:\n" + textInputRef.current.innerHTML);
@@ -273,9 +293,25 @@ const PostNews = () => {
             </div>
 
             {/* Content editable area */}
+            {/* <input type="text" placeholder="Title" className="title-area" />
             <div id="text-input" contentEditable="true" ref={textInputRef}>
-            {imageSrc && <img src={imageSrc} alt="uploaded" style={{ maxWidth: "100%", height: "auto" }} />}
-            </div>
+            {imageSrc && <img src={imageSrc} alt="uploaded" style={{ maxWidth: "100%", height: "auto" }} />} */}
+            {/* </div> */}
+            <form onSubmit={handlePost} className="post-container">
+                <input type="text" placeholder="Title" value={title} onChange={(e) => setTitle(e.target.value)} required  />
+                <textarea
+                    placeholder="Content"
+                    value={content}
+                    id="text-input"
+                    ref={textInputRef}
+                    onChange={(e) => setContent(e.target.value)}
+                    required
+                ></textarea>
+                <div className="sumbit-btn">
+                    <button type="submit">Post</button>
+                </div>
+               
+            </form>
 
             {/* Form to preview content */}
             <form action="/preview" id="previewForm" method="GET">
@@ -285,7 +321,7 @@ const PostNews = () => {
             {/* Buttons for preview, posting, and saving drafts */}
             <div className="button-container">
                 <button className="preview" onClick={handlePreviewContent}>Preview</button>
-                <button className="post">Post</button>
+                {/* <button className="post">Post</button> */}
                 <button className="draft" onClick={handleSaveDraft}>Draft</button>
             </div>
         </div>
