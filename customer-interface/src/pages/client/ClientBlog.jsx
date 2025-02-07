@@ -3,11 +3,17 @@ const ClientBlog =() =>{
     const [blogs, setBlogs] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/blogs')
-          .then((res) => res.json())
-          .then((data) => setBlogs(data))
-          .catch((err) => console.error('Error fetching blogs:', err));
-      }, []);
+           fetch('http://localhost:5000/api/blogs')
+               .then((res) => {
+                   console.log("Response Status:", res.status); // Check if status is OK
+                   return res.json();
+               })
+               .then((data) => {
+                   console.log("Data received:", data); // Check if data is being received
+                   setBlogs(data);
+               })
+               .catch((err) => console.log('Error fetching post: ', err));
+       }, []);
 
     return (
         <div>

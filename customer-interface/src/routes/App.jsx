@@ -9,7 +9,8 @@ import GioiThieu from '../pages/client/GioiThieu';
 import LienHe from '../pages/client/LienHe';
 import DichVu from '../pages/client/DichVu';
 import TinTucCardPage from '../pages/client/TinTucCardPage';
-import ClientBlog from '../pages/client/ClientBlog';
+import SmallPost from '../components/client/SmallPost';
+// import ClientBlog from '../pages/client/ClientBlog';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
@@ -27,7 +28,7 @@ function App() {
         <Route path="/tin-tuc/card" element={<TinTucCardPage/>}/>
         <Route path="/lien-he" element={<LienHe/>}/>
         <Route path="/dich-vu" element={<DichVu/>}/>
-        <Route path='/blog' element={<ClientBlog/>}/>
+        <Route path='/blog' element={<SmallPost/>}/>
 
         {/* Admin Routes */}
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>

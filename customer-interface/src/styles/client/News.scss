@@ -18,7 +18,7 @@ html, body {
     background-color: $BC-gray;
     .head{
         margin-left: 10px;
-        h{
+        h1{
             color: $BC-blue; /* Ensure this variable is defined */
             font-size: 70px;
             padding-bottom: 10px;
@@ -35,14 +35,17 @@ html, body {
         }
     }
     .body{
-        // display: grid;
-        // grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-        display: flex;
-        flex-direction: row;
+        // display: flex;
+        // flex-direction: row;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, auto);
         gap: 30px;
         width: 100%;
+        height: auto;
         padding-top: 20px;
         justify-content: center;
+        align-items: flex-start;
         .news-card{
             background-color: $BC-white;
             border: 1px solid $BC-white;
@@ -52,6 +55,7 @@ html, body {
             transition: transform 0.2s ease;
             padding: 5px 5px 5px;
             width: 250px;
+            height: 310px;
             // &:hover {
             //     transform: translateY(-5px);
             // }        
@@ -89,6 +93,11 @@ html, body {
                     line-height: normal;
                 }
                 .news-card-body-description{
+                    display: -webkit-box;
+                    -webkit-line-clamp: 3; /* limit to 3 lines*/
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
                     padding-top: 5px;
                     color:$TC-black;
                     font-size: 13px;
@@ -137,4 +146,5 @@ html, body {
 
         }
     }
+
 }
