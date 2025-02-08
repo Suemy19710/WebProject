@@ -9,7 +9,9 @@ import GioiThieu from '../pages/client/GioiThieu';
 import LienHe from '../pages/client/LienHe';
 import DichVu from '../pages/client/DichVu';
 import TinTucCardPage from '../pages/client/TinTucCardPage';
-import SmallPost from '../components/client/SmallPost';
+import Blog from '../pages/client/Blog';
+import PostDetail from '../components/client/PostDetail';
+// import SmallPost from '../components/client/SmallPost';
 // import ClientBlog from '../pages/client/ClientBlog';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
@@ -24,11 +26,14 @@ function App() {
         {/* Client Routes */}
         <Route path="/" element={<Home/>}/>
         <Route path="/gioi-thieu" element={<GioiThieu/>}/>
-        <Route path="/tin-tuc" element={<TinTuc/>}/>
-        <Route path="/tin-tuc/card" element={<TinTucCardPage/>}/>
+        <Route path="/tin-tuc" element={<Blog/>}/>
+        <Route path="/tin-tuc/:title" element={<PostDetail/>}/>
+        {/* <Route path="/tin-tuc" element={<TinTuc/>}/> */}
+        {/* <Route path="/tin-tuc/card" element={<TinTucCardPage/>}/> */}
         <Route path="/lien-he" element={<LienHe/>}/>
         <Route path="/dich-vu" element={<DichVu/>}/>
-        <Route path='/blog' element={<SmallPost/>}/>
+        {/* <Route path='/blog' element={<Blog/>}/>
+        <Route path='/blog/:title' element={<PostDetail/>}/> */}
 
         {/* Admin Routes */}
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>

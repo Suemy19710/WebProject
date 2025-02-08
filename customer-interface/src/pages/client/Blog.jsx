@@ -1,14 +1,15 @@
 import React from 'react';
 import Header from '../../components/client/Header';
+import SmallPost from '../../components/client/SmallPost';
 import TopNavigation from '../../components/client/TopNavigation';
 
-function DichVu() {
-    return (
+function Blog() {
+    return(
         <>
             <TopNavigation/>
             <Header/>
-           <div>This is Dich Vu Page</div>
+            <SmallPost/>
         </>
     )
 }
-export default DichVu;
+export default Blog;

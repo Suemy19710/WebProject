@@ -23,8 +23,12 @@ const deleteBlogPost = async(id) => {
         throw error;
     }
 }
+const getBlogPostById =async(id) => {
+    return await Blog.findById(id);
+}
 module.exports = {
     createBlogPost, 
     getAllBlogPost, 
-    deleteBlogPost
+    deleteBlogPost, 
+    getBlogPostById
 }

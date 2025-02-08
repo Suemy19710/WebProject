@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import '../../styles/client/News.scss';
 import event from '../../assets/event.png';
+import { useNavigate } from 'react-router-dom';
+import { createSlugTitle } from '../../utils/slugUtils';
+// const Blog = require('../../../../backend/src/models/BlogModel');
+
 const SmallPost = () => {
     const[smallPost, setSmallPost] = useState([]);
     const truncateText = (text, length) => {
@@ -9,6 +13,12 @@ const SmallPost = () => {
         } 
         return text;
     };
+    const navigate = useNavigate();
+    const handleClick = (postId, postTitle) => {
+        const slugifiedTitle = createSlugTitle(postTitle);
+        navigate(`/tin-tuc/${slugifiedTitle}`);
+    };
+    
 
     useEffect(() => {
         fetch('http://localhost:5000/api/blogs')
@@ -31,6 +41,12 @@ const SmallPost = () => {
             <div className="body">
                 {smallPost.length > 0 ? (
                     smallPost.map((post) => {
+                        const postDate = new Date(post.createdAt);
+                        const formattedDate = postDate instanceof Date && !isNaN(postDate) 
+                            ? postDate.toLocaleString() 
+                            : 'Invalid date';                    
+                        console.log(new Date(post.createdAt));  // Check if the date is valid
+
                         return (
                             <div key={post._id}>
                              <div className="news-card">
@@ -40,13 +56,13 @@ const SmallPost = () => {
                             <div className="news-card-body">
                                 <div className="time-post">
                                     <i className="fa-regular fa-clock"></i>
-                                    <div className="date"><em>{new Date(post.createdAt).toLocaleString()}</em></div>
+                                    <div className="date"><em>{formattedDate}</em></div>
                                 </div>
                                 <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
                                 <div className="news-card-body-description">{truncateText(post.content, 100)}</div>
                             </div>
                             <div className="news-card-footer">
-                                <button className="view-more">Xem thêm</button>
+                                <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>
                             </div>
                         </div>
                         </div>
