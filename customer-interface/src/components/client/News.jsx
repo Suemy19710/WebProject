@@ -1,57 +1,88 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import '../../styles/client/News.scss';
 import event from '../../assets/event.png';
-import {Navigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
+import { createSlugTitle } from '../../utils/slugUtils';
 
-class News extends React.Component {
-    state = {
-        redirectToCardPage: false, 
-    };
 
-    handleViewMore = () => {
-        this.setState({ redirectToCardPage: true });  
-    };
-    render() {
-        if (this.state.redirectToCardPage) {
-            return <Navigate to="/tin-tuc/card" />;
+const News = () => {
+    const [news , setNews] = useState([]);
+    const truncateText = (text, length) => {
+        if (text.length > length) {
+            return text.substring(0, length) + '...';
         }
+        return text;
+    };
+    const navigate = useNavigate();
+    const handleClick = (postId, postTitle) => {
+        const slugifiedTitle = createSlugTitle(postTitle);
+        navigate(`/tin-tuc/${slugifiedTitle}`);
+    };
+    
+    useEffect(() => {
+        fetch('http://localhost:5000/api/blogs')
+            .then((res) => {
+                console.log("Response Status:", res.status); // Check if status is OK
+                return res.json();
+            })
+            .then((data) => {
+                console.log("Data received:", data); // Check if data is being received
+                setNews(data);
+            })
+            .catch((err) => console.log('Error fetching post: ', err));
+    }, []);
 
+    const handleViewMore = () => {
+       navigate(`/tin-tuc`); 
+    };
         return (
-            <>
-                <div className="page">
-                    <div className="head">
-                        <h>Tin tức <span>& Sự kiện</span></h>
-                    </div>
-                    {/* Body with service cards */}
-                    <div className="body">
-                        {[...Array(4)].map((_, index) => (
-                            <div key={index} className="news-card">
-                                <div className="news-card-head">
-                                    <img src={event} alt="event" />
-                                </div>
-                                <div className="news-card-body">
-                                    <div className="time-post">
-                                        <i className="fa-regular fa-clock"></i>
-                                        <div className="date">27/10/2015</div>
-                                    </div>
-                                    <div className="news-card-body-title">Khi nào cần tìm luật sư?</div>
-                                    <div className="news-card-body-description">
-                                        Lorem ipsum dolor sit amet. Ut quas internos 33 beatae temporibus et molestiae quisquam non rerum inventore!
-                                    </div>
-                                </div>
-                                <div className="news-card-footer">
-                                    <button className="view-more" onClick={() => this.handleViewMore()}>Xem thêm</button>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className="footer">
-                        <button className="footer-view-all">Xem tất cả</button>
-                    </div>
+            <div className="news-container">
+                <div className="head">
+                    <h1>Tin tức <span>& Sự kiện</span></h1>
                 </div>
-            </>
-        );
-    }
+                    <div className="body">
+                        {news.length > 0 ? (
+                            news.slice(0, 4).map((post) => {
+                                const postDate = new Date(post.createdAt);
+                                // Check if date is valid before formatting
+                                const formattedDate = !isNaN(postDate.getTime()) 
+                                    ? `${String(postDate.getDate()).padStart(2, '0')}/${String(postDate.getMonth() + 1).padStart(2, '0')}/${postDate.getFullYear()}`
+                                    : 'Invalid date';  
+                                
+                                console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
+                                return (
+                                    <div key={post._id}>
+                                        <div className="news-card">
+                                    <div className="news-card-head">
+                                        <img src={event} alt="event" />
+                                    </div>
+                                    <div className="news-card-body">
+                                        <div className="time-post">
+                                            <i className="fa-regular fa-clock"></i>
+                                            <div className="date"><em>{formattedDate}</em></div>
+                                        </div>
+                                        <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
+                                        <div className="news-card-body-description">{truncateText(post.content, 100)}</div>
+                                    </div>
+                                    <div className="news-card-footer">
+                                        <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>
+                                    </div>
+                                </div>
+                                </div>
+                                )
+                            })
+        
+                        ) : (
+                            <p>No blog posts available.</p>
+                        )}
+                    </div>
+
+                <div className="footer">
+                    <button className="footer-view-all" onClick={handleViewMore}>Xem tất cả</button>
+                </div>
+            </div>
+    );
 }
+
 
 export default News;

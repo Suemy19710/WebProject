@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from '../pages/client/Home';
-// import TinTuc from '../pages/client/TinTucPage';
 import GioiThieu from '../pages/client/GioiThieu';
 import LienHe from '../pages/client/LienHe';
 import DichVu from '../pages/client/DichVu';

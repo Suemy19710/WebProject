@@ -1,5 +1,5 @@
 import React from 'react';
-import TinTuc from '../../components/client/TinTuc';
+import TinTuc from '../../components/non-use/TinTuc';
 import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
 

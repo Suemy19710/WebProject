@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../../styles/client/News.scss';
+import '../../styles/client/SmallPost.scss';
 import event from '../../assets/event.png';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
@@ -34,9 +34,9 @@ const SmallPost = () => {
     }, []);
     
     return(
-        <div className="page">
+        <div className="smallPost-container">
             <div className="head">
-                <h1>Tin tức <span>& Sự kiện</span></h1>
+                <h1>Tin tức <span> & Sự kiện</span></h1>
             </div>
             <div className="body">
                 {smallPost.length > 0 ? (
