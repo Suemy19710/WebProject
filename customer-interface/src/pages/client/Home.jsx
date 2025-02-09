@@ -7,6 +7,7 @@ import AboutCompany from '../../components/client/AboutCompany';
 import OfferService from '../../components/client/OfferService';
 import News from '../../components/client/News';
 import RegisterForm from '../../components/client/RegisterForm';
+import Footer from '../../components/client/Footer';
 
 // import { BrowserRouter } from 'react-router-dom';
 // import '../styles/client/Header.scss';
@@ -28,6 +29,7 @@ function Home() {
       <OfferService/>
       <News/>
       <RegisterForm/>
+      <Footer/>
     </>
   );
 }

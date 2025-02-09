@@ -1,0 +1,95 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font: "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.footer-container{
+    background-color: $BC-gray;
+    color: $TC-black;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 20px 40px;
+    justify-content: space-between;
+    height: 100px;
+    .footer-right, .footer-middle, .footer-left{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-right{
+        display: flex;
+        justify-content: center;
+        margin-top: -10px;
+        margin-right: -40px;
+        img {
+            max-width: 150px;
+            margin: 0;
+        }
+        // h4{
+        //     font-size: 16px;
+        //     margin: 0;
+        //     color: #666;
+        //     font-size: 14px;
+        //     font-weight: 500;
+
+        // }
+    }
+    .footer-middle{
+        align-items: flex-start;
+        border-left: 4px solid $BC-blue;
+        min-height: 80px;
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: $BC-blue;
+            margin: 0;
+            padding-left: 20px;
+        }
+        h5 {
+            font-size: 14px;
+            color: #666;
+            margin: 0;
+            font-weight: 500;
+            padding-left: 20px;
+        }
+    }
+    .footer-left{
+        align-items: flex-start;
+        border-left: 4px solid $BC-blue;
+        margin-left: -40px;
+
+        h2 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #003366;
+            margin: 0;
+            padding-left: 20px;
+        }
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 20px;
+
+            .social-icon {
+                font-size: 14px;
+                color: #003366;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}

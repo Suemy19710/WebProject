@@ -2,6 +2,7 @@ import React from 'react';
 import Header from '../../components/client/Header';
 import GioiThieu from '../../components/client/GioiThieu';
 import TopNavigation from '../../components/client/TopNavigation';
+import Footer from '../../components/client/Footer';
 
 function GioiThieuPage() {
     return (
@@ -9,6 +10,7 @@ function GioiThieuPage() {
             <TopNavigation/>
             <Header/>
             <GioiThieu/>
+            <Footer/>
         </>
     )
 }

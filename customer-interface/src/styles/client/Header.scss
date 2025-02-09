@@ -42,14 +42,14 @@ html, body {
         }
 
         a:hover {
-            background-color: #ddd;
-            color: $TC-yellow;
+            // background-color: #ddd;
+            color: $BC-blue;
             height: 30px;
-            border-radius: 30px;
         }
         a.active{
-            background-color: $BC-gray;
+            // background-color: $BC-gray;
             color: $TC-yellow;
+            font-weight: 700;
         }
     }
 }
