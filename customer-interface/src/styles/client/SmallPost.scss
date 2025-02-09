@@ -18,14 +18,19 @@ html, body {
     .head{
         margin-block-start: 0;
         margin-block-end: 0;
-        background-color: $BC-yellow;
+        flex: 1;
+        background-image: url('../../assets/back-ground-3.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 300px;
         padding-left: 20px;
+        position: relative;
         h1{
             margin-block-start: 0;
             margin-block-end: 0;
-            background-color: $BC-yellow;
-            color: $BC-blue; /* Ensure this variable is defined */
-            font-size: 70px;
+            color: $TC-yellow; /* Ensure this variable is defined */
+            font-size: 80px;
             width: 100%;
             height: 150px;
             padding-bottom: 10px;
@@ -35,13 +40,18 @@ html, body {
             display: flex;
             align-items: center;
 
+            position: absolute;
+            top: 30%;
+            left: 50%;
+
         }
         span{
-            color: #1E1E1E;
-            font-size: 75px;
+            color: $TC-white;
+            font-size: 80px;
             font-style: normal;
             font-weight: 600;
             line-height: 78px;
+            padding-left: 13px;
         }
     }
     .body{

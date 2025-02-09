@@ -1,14 +1,15 @@
 import React from 'react';
 import Header from '../../components/client/Header';
+import GioiThieu from '../../components/client/GioiThieu';
 import TopNavigation from '../../components/client/TopNavigation';
 
-function GioiThieu() {
+function GioiThieuPage() {
     return (
         <>
             <TopNavigation/>
             <Header/>
-           <div>This is Gioi Thieu Page</div>
+            <GioiThieu/>
         </>
     )
 }
-export default GioiThieu;
+export default GioiThieuPage;

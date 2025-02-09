@@ -1,0 +1,230 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font: "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+.gioiThieu-container {
+    .container-header{
+        background-image: url('../../assets/back-ground-3.jpg');  
+        height: 300px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;     
+        h3{
+           color: $TC-white;
+            position: absolute;
+            top: 40%;
+            left: 70%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+        }
+    }
+    .container-body{
+        background-color: $BC-white;
+        background-image: url('../../assets/back-ground.png');
+        .container-body-1{
+            padding: 40px 20px;
+            .title{
+                text-align: left;
+                margin-bottom: 30px;
+                display: flex;
+                flex-direction: row;
+                padding: 0;
+                overflow: hidden;
+                h1{
+                    display: flex;
+                    align-items: center;
+                    font-size: 80px;
+                    margin: 0;
+                }
+                h3{
+                    display: flex;
+                    align-items:end;
+                    font-size: 40px;
+                    padding-left: 10px;
+                    padding-bottom: 10px;
+                    margin: 0;
+                }
+                span{
+                    padding-left: 10px;
+                    color: $TC-yellow;
+                }
+            }
+            .body{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                // gap: 40px;
+                .body-1,
+                .body-2 {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 10px;
+        
+                    h6 {
+                        flex: 1;
+                        font-size: 18px;
+                        line-height: 1.6;
+                        font-weight: 500;
+                        text-align: justify;
+                        color: #222;
+                        margin: 0;
+                        span {
+                            color: #F4A100;
+                            font-weight: 700;
+                        }
+                    }
+        
+                    .pic {
+                        flex: 1;
+                        min-height: 250px;
+                        background-size: 100%;
+                        background-position: center;
+                        border-radius: 10px;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                    }
+                }
+                .body-1 {
+                    .pic {
+                        background-image: url('../../assets/bi-thu-Kim-Ngoc.png'); // Replace with actual image path
+                    }
+                }
+        
+                .body-2 {
+                    flex-direction: row-reverse;
+                    .pic {
+                        background-image: url('../../assets/logo-2.jpg'); // Replace with actual image path
+                    }
+                }
+
+            }
+        }
+        .container-body-2{
+            padding: 40px 20px;
+            display: flex;
+
+            gap: 40px;
+            background-color: $BC-blue;
+            background-image: url('../../assets/back-ground.png');
+            .content{
+                flex: 1;
+                color: $TC-white;
+                font-size: 18px;
+                line-height: 1.6;
+                text-align: justify;
+            }
+            .images {
+                flex: 1;
+                display: flex;
+                flex-direction: column; // Change from column to row
+                gap: 20px;
+                
+                .img-1, .img-2 {
+                    flex: 1; 
+                    max-width: 100%; 
+
+                    height: auto; 
+                    border-radius: 10px;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                    object-fit: cover;
+                    background-size: cover;
+                    background-position: center;
+                }
+            
+                .img-1 {
+                    background-image: url('../../assets/img-1.jpg');
+                }
+            
+                .img-2 {
+                    background-image: url('../../assets/img-2.jpg');
+                }
+            }
+            
+            // // Responsive Fix for Small Screens
+            // @media (max-width: 768px) {
+            //     .images {
+            //         flex-direction: column; // Stack images in a column on smaller screens
+            //         .img-1, .img-2 {
+            //             max-width: 100%; // Ensures full width on small screens
+            //         }
+            //     }
+            // }
+            
+        }
+        .container-body-3{
+            .content{
+                background-color: $BC-white;
+                background-image: url('../../assets/back-ground.png');
+                padding: 40px 80px;
+                .content-1, .content-2, .content-3{
+                    flex: 1;
+                    color: $TC-black;
+                    font-size: 18px;
+                    line-height: 1.6;
+                    text-align: justify;
+                    padding-bottom: 10px;
+                    span{
+                        color: $TC-yellow;
+                    }
+                }
+            }
+        }
+        .container-body-4{
+            background-color: $BC-blue;
+            background-image: url('../../assets/back-ground.png');
+            padding: 40px 20px;
+            display: flex;
+            gap: 30px;
+            .content{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                // gap: 15px;
+                .content-1, .content-2, .content-3{
+                    color: $TC-white;
+                    font-size: 18px;
+                    line-height: 1.6;
+                    text-align: justify;
+                    padding-bottom: 10px;
+                    span {
+                        color: $TC-yellow;
+                    }
+                }
+            }
+            .images{
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                .img-3, .img-4 {
+                    flex: 1; 
+                    max-width: 100%; 
+
+                    height: auto; 
+                    border-radius: 10px;
+                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                    object-fit: cover;
+                    background-size: cover;
+                    background-position: center;
+                }
+                .img-3 {
+                    background-image: url('../../assets/img-3.jpg');
+                }
+            
+                .img-4 {
+                    background-image: url('../../assets/img-4.jpg');
+                }
+            }
+        }
+    }
+}

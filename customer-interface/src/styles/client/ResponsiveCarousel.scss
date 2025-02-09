@@ -11,19 +11,21 @@ html, body {
     padding: 0;
     width: 100%;
     box-sizing: border-box;
-  }
+}
 .carousel-background{
     height: 280px;
     background-color: $BC-blue;
     display: flex;
     align-items: center;
+    overflow: hidden;
+    position: relative;
 
     .carousel-container{
         width: 1000px; /* Full width */
         max-width: 1000px; /* Optional max width */
         margin: 0 auto; /* Center carousel horizontally */
         border-radius: 10px;
-        padding: 20px 0; /* Add padding around the carousel */
+        padding: 20px 0; /* Add padding around the carousel */        
 
         img{
             width: 90%;
