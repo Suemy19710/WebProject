@@ -20,10 +20,10 @@ app.get('/', (req, res) => {
 app.get('/api/blogs', async(req, res) => {
     try{
         const {slug} = req.query;
-        let blogPosts = slug ? await Blog.find({ slug }) : await Blog.find();
+        const blogPosts = slug ? await Blog.findOne({ slug }) : await Blog.find();
 
-        if (blogPosts.length === 0) {
-            return res.status(404).send('No blog posts found');
+        if (!blogPosts) {
+            return res.status(404).json({ error: 'No blog posts found' });
         }
         res.json(blogPosts);
     } catch(err) {

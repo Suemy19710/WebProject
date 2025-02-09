@@ -42,11 +42,12 @@ const SmallPost = () => {
                 {smallPost.length > 0 ? (
                     smallPost.map((post) => {
                         const postDate = new Date(post.createdAt);
-                        const formattedDate = postDate instanceof Date && !isNaN(postDate) 
-                            ? postDate.toLocaleString() 
-                            : 'Invalid date';                    
-                        console.log(new Date(post.createdAt));  // Check if the date is valid
-
+                        // Check if date is valid before formatting
+                        const formattedDate = !isNaN(postDate.getTime()) 
+                            ? `${String(postDate.getDate()).padStart(2, '0')}/${String(postDate.getMonth() + 1).padStart(2, '0')}/${postDate.getFullYear()}`
+                            : 'Invalid date';  
+                        
+                        console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
                         return (
                             <div key={post._id}>
                              <div className="news-card">

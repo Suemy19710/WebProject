@@ -5,15 +5,14 @@ import {Navigate} from 'react-router-dom';
 
 class News extends React.Component {
     state = {
-        redirectToCardPage: false,  // State to control redirection
+        redirectToCardPage: false, 
     };
 
     handleViewMore = () => {
-        this.setState({ redirectToCardPage: true });  // Set the state to trigger redirection
+        this.setState({ redirectToCardPage: true });  
     };
     render() {
         if (this.state.redirectToCardPage) {
-            // If the state is set to true, navigate to the /tin-tuc/card route
             return <Navigate to="/tin-tuc/card" />;
         }
 
