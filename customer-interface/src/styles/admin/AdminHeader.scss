@@ -1,0 +1,75 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font:  "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: font;
+    box-sizing: border-box;
+    background-color: $BC-blue;
+}
+
+.sidebar {
+    width: 180px;
+    background-color: #2d3b4f;
+    color: white;
+    height: 100vh;
+    // padding-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .sidebar .logo {
+    display: flex;
+    
+    justify-content: center;
+    align-items: center;
+    width: 140px;
+    padding: 0px 20px 0px 20px;
+    // padding-left: 0;
+    font-size: 20px;
+    color: #2d3b4f;
+    font-weight: bold;
+    background-color: $BC-gray;
+    img{
+      height: 80px;
+    }
+  }
+  
+  .sidebar .menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    .active {
+      color: $TC-yellow;
+      text-decoration: none;
+    }
+  }
+  
+  .sidebar .menu-item {
+    padding: 15px 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-bottom: 1px solid $BC-gray;
+
+  }
+  
+  .sidebar .menu-item:hover {
+    background-color: #3a4a63;
+  }
+  
+  .sidebar .menu-item i {
+    margin-right: 10px;
+  }
+  

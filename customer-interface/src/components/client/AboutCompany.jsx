@@ -8,7 +8,7 @@ class AboutCompany extends React.Component {
             <>
                 <div className="about-company">
                     <div className="about-company-content">
-                        <h1 className="title">Công ty Luật Kim Ngọc</h1>
+                        <h1 className="title">Công ty <span> Luật Kim Ngọc</span></h1>
                         <h className="description">
                             Lorem ipsum dolor sit amet. Ut quas internos 33 beatae temporibus et molestiae quisquam non rerum inventore! Et voluptas obcaecati in rerum animi ut odit facilis et assumenda nesciunt qui recusandae quae id voluptates pariatur eos molestiae voluptas. Ut temporibus quas quo consequuntur magni ut numquam doloremque.
                         </h>

@@ -12,7 +12,7 @@ class Header extends React.Component {
     };
     render() {
         if (this.state.redirectToCardPage) {
-            return <Navigate to ="/"/>;
+            return <Navigate to ="/" activeClassName="active" exact="true"/>;
         }
         return (
             <div className="topnav">

@@ -15,6 +15,7 @@ import Blog from '../pages/client/Blog';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
+import AdminDashboard from '../pages/admin/AdminDashboard';
 // import AdminBlog from '../pages/admin/AdminBlog';
 
 
@@ -31,6 +32,7 @@ function App() {
         <Route path="/dich-vu" element={<DichVu/>}/>
 
         {/* Admin Routes */}
+        <Route path="/admin" element={<AdminDashboard/>}/>
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}

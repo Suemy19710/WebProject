@@ -26,11 +26,15 @@ html, body {
         padding-right: 20px;
 
         .title {
-            font-size: 55px;
+            font-size: 50px;
             font-weight: bold;
-            color: $TC-yellow;
+            color: $TC-black;
             padding: 10px 10px;
             margin: 0;
+
+            span{
+                color: $TC-yellow;
+            }
         }
         .description{
             font-size: 14px;
@@ -40,12 +44,14 @@ html, body {
             padding: 10px;
         }
         .view-more-introduction{
-            font-size: 14px;
+            font-size: 15px;
+            font-weight: 700;
             color: $TC-white;
             background-color: $BC-yellow;
+            margin-top: 10px;
             padding: 10px 20px;
             border: none;
-            border-radius: 4px;
+            border-radius: 20px;
             cursor: pointer;
             transition: background-color 0.3s ease;
         }

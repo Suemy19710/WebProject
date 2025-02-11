@@ -18,7 +18,7 @@ html, body {
     background-color: $BC-gray;
     .head{
         h1{
-            color: $BC-blue; /* Ensure this variable is defined */
+            color: $BC-blue; 
             font-size: 75px;
             padding-bottom: 10px;
             font-style: normal;
@@ -27,6 +27,8 @@ html, body {
             margin:0;
             padding-left: 30px;
             padding-top: 10px;
+
+ 
         }
         span{
             color: #1E1E1E;
