@@ -34,7 +34,6 @@ html, body {
         }
         span {
             color: #1E1E1E;
-            font-family: 'Poppins', sans-serif;
             font-size: 75px;
             font-style: normal;
             font-weight: 600;
@@ -121,8 +120,13 @@ html, body {
             justify-content: center;
             align-items: center;
             background-color: $BC-yellow;
+
             border-radius: 50px;
             border: none;
+            &:hover{
+                background-color: $BC-blue;
+                color: $BC-gray;
+            }
         }
     }
 }

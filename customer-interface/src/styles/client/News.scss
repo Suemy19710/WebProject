@@ -139,9 +139,17 @@ html, body {
             justify-content: center;
             align-items: center;
             background-color: $BC-yellow;
+            background-image:  url('../../assets/back-ground.png');
+
             border-radius: 50px;
             border: none;
             cursor: pointer;
+
+            &:hover{
+                background-color: $BC-blue;
+                color: $BC-gray;
+                background-image:  url('../../assets/back-ground.png');
+            }
 
         }
     }

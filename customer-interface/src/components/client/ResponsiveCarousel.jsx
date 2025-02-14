@@ -15,6 +15,8 @@ class ResponsiveCarousel extends React.Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             arrows: true,
+            autoplay: true, 
+            autoplaySpeed: 3000, 
         };
         return (
             <div className="carousel-background">
@@ -30,8 +32,7 @@ class ResponsiveCarousel extends React.Component {
                             <img src={res1} alt="Slide 1" />   
                         </div>
                     </Slider>
-                    {/* <button className="previous">&lt;</button>
-                    <button className="next">&gt;</button> */}
+                  
                 </div>
             </div>
            
@@ -40,3 +41,4 @@ class ResponsiveCarousel extends React.Component {
 }
 
 export default ResponsiveCarousel;
+

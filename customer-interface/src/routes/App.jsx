@@ -13,7 +13,7 @@ import SoHuuTriTue from '../pages/client/SoHuuTriTue';
 import DanSu from '../pages/client/DanSu';
 import HinhSu from '../pages/client/HinhSu';
 import HanhChinh from '../pages/client/HanhChinh';
-
+import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
@@ -30,6 +30,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/gioi-thieu/y-nghia" element={<GioiThieuYNghia/>}/>
         <Route path="/gioi-thieu/luat-su" element={<GioiThieuLuatSu/>}/>
+        <Route path="/gioi-thieu/luat-su/detail" element={<LuatSuDetailPage/>}/>
         <Route path="/tin-tuc" element={<Blog/>}/>
         <Route path="/tin-tuc/:title" element={<TinTucCardPage/>}/>
         <Route path="/lien-he" element={<LienHe/>}/>
