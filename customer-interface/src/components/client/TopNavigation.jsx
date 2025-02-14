@@ -18,7 +18,7 @@ import React from 'react';
                          </span>
                          <span className="mail-contact">
                              <img src={mail} alt="Mail Icon"/>
-                             <span className="text">luatkimngoc@gmail.com</span>
+                             <span className="text"> kimngoclawfirm@gmail.com</span>
                          </span>
                          <span className="map-contact">
                              <img src={map} alt="Search Icon"/>

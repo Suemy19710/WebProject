@@ -32,15 +32,15 @@ const Header = () =>  {
                     </NavLink>
                     <div className="gioithieu">
                         <button className="dropbtn" onClick={toggleDropDown}>Giới thiệu
-                        <i class="fa-solid fa-caret-down"></i>
+                        <i class="fa fa-caret-down"></i>
                         </button>
                         {dropdownOpen && (
                         <div className="dropdown-content">
                             <NavLink to="/gioi-thieu/luat-su" activeClassName="active">
-                                Luật sư
+                                Đội Ngũ Luật sư
                             </NavLink>
                             <NavLink to="/gioi-thieu/y-nghia" activeClassName="active">
-                                Ý nghĩa
+                                Về Công ty
                             </NavLink>
                         </div>
                     )}

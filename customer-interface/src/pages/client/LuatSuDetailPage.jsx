@@ -10,7 +10,7 @@ const LuatSuDetailPage = () => {
             <TopNavigation/>
             <Header/>
             <LuatSuDetail/>
-           {/* <Footer/> */}
+           <Footer/>
         </>
     )
 }
