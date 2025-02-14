@@ -24,27 +24,7 @@ const Footer = ()=>{
                     <a href="#" className="social-icon youtube">YouTube</a>
                 </div>
             </div>
-        {/* <div className="container mt-5">
-                <div className="row">
-                    <div className="col-sm-4">
-                        <img src={logo} />
-                    </div>
-                    <div className="col-sm-4">
-                        <h2>C    ÔNG TY LUẬT KIM NGỌC</h2>
-                        <h5>Địa chỉ: luatkimngocluatkimngoc</h5>
-                        <h5>Điện thoại: 091234567 - Email:luatsuKimNgoc@gmail.com</h5> 
-                        <h5>Website: luatkimngocluatkimngoc</h5>
-                    </div>
-                    <div className="col-sm-4">
-                        <h2>LIÊN KẾT VỚI CHÚNG TÔI</h2>
-                        <div className="social-links">
-                        <a href="#" className="social-icon facebook">Facebook</a>
-                        <a href="#" className="social-icon linkedin">LinkedIn</a>
-                        <a href="#" className="social-icon youtube">YouTube</a>
-                    </div>
-                    </div>
-                </div>
-            </div> */}
+    
         </div>
     );
 };

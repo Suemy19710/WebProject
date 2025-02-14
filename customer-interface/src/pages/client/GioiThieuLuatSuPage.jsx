@@ -1,17 +1,14 @@
 import React from 'react';
 import Header from '../../components/client/Header';
-import GioiThieu from '../../components/client/GioiThieu';
 import TopNavigation from '../../components/client/TopNavigation';
-import Footer from '../../components/client/Footer';
 
-function GioiThieuPage() {
+function GioiThieuLuatSuPage() {
     return (
         <>
             <TopNavigation/>
             <Header/>
-            <GioiThieu/>
-            <Footer/>
+           <div>This is GioiThieuLuatSuPage Page</div>
         </>
     )
 }
-export default GioiThieuPage;
+export default GioiThieuLuatSuPage;
