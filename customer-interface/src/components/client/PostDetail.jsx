@@ -30,6 +30,8 @@ const PostDetail = () => {
                 console.log("Fetched data:", data); 
         
                 if (Array.isArray(data) && data.length > 0) {
+                    console.log("DATA");
+                    console.log(data);
                     const correctedPost = data.find((item) => item.slug === slugifiedTitle);
                     console.log("Post found using find():", correctedPost);
                     setPost(correctedPost || data[0]);

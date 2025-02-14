@@ -12,23 +12,27 @@ html, body {
     width: 100%;
     box-sizing: border-box;
 }
+
 .carousel-background{
+    // z-index: 0;
     height: 280px;
     background-color: $BC-blue;
     display: flex;
     align-items: center;
-    overflow: hidden;
-    position: relative;
+    // position: relative;
 
     .carousel-container{
-        width: 1000px; /* Full width */
-        max-width: 1000px; /* Optional max width */
-        margin: 0 auto; /* Center carousel horizontally */
+        z-index: 1;
+        width: 1000px; 
+        max-width: 1000px; 
+        margin: 0 auto; 
         border-radius: 10px;
-        padding: 20px 0; /* Add padding around the carousel */        
+        padding: 20px 0;      
 
         img{
+            position: relative;
             width: 90%;
+            z-index: 3 !important;
             height: auto;
             object-fit: cover;
             border-radius: 10px;

@@ -15,7 +15,7 @@ html, body {
   
 .topnav {
     background-color: $BC-gray;
-    overflow: hidden;
+    // overflow: hidden;
     padding: 0px 10px;
     height: 70px;
     display: flex;
@@ -50,51 +50,64 @@ html, body {
             color: $TC-yellow;
             font-weight: 700;
         }
-        // .dropdown-phapLuat{
-        //     // float: left;
-        //     // overflow: hidden;
-        //     position: relative;
-        //     display: inline-block;
-        //     .dropbtn{
-        //         float: left;
-        //         color: $TC-black;
-        //         text-align: center;
-        //         padding: 10px 20px;
-        //         margin: 0;
-        //         border: none;
-        //         text-decoration: none;
-        //         cursor: pointer;
-        //         font-size: 25px;
-        //         display: flex;
-        //         gap: 10px;
-        //         background-color: $BC-gray;
-        //     }
-        //     .dropdown-content{
-        //         // display: flex;
-        //         // flex-direction: column;
-        //         display: none;
-        //         flex-direction: column;
-        //         position: absolute;
-        //         background-color: $BC-gray;
-        //         min-width: 160px;
-        //         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        //         z-index: 9999;
-        //         width: 100%; 
-        //         a{
-        //             float: none;
-        //             color: black;
-        //             padding: 12px 16px;
-        //             text-decoration: none;
-        //             display: block;
-        //             text-align: left;
-        //         }
-        //         a:hover{
-        //             background-color: #ddd;
-        //         }
-        //       }
-        //       &:hover .dropdown-content {
-        //             display: block;
-        //         }
-        //     }
+        .gioithieu{
+            // position: relative; 
+            // display: inline-block;
+            position: relative !important;
+            display: flex !important;
+            .dropbtn{
+                color: $TC-black;
+                background-color: $BC-gray;
+                padding: 10px 10px;
+                font-size: 23px;
+                border: none;
+                cursor: pointer;
+                font-family: font;
+                gap: 10px;
+                i{
+                    padding-left: 8px;
+
+                }
+                
+                a:hover {
+                    color: $BC-blue;
+                    // height: 30px;
+                }
+                a.active{
+                    color: $TC-yellow;
+                    font-weight: 700;
+                }
+
+            }
+            .dropdown-content{
+                
+                position: absolute !important;
+                margin-top: 50px;
+                background-color: $BC-gray;
+                width: 140px;
+                background-color:$BC-gray ;
+                // box-shadow: 0px 0px 16px 0px rgba(0, 0, 0, 0.2);
+                z-index: 99999999 !important;
+
+                a {
+                    color: $TC-black;
+                    padding: 12px 16px;
+                    text-decoration: none;
+                    // display: block;
+                    z-index: 9999999999 !important;
+                }
+                a:hover {
+                    color: $BC-blue;
+                    // height: 30px;
+                }
+                a.active{
+                    color: $TC-yellow;
+                    font-weight: 700;
+                }
+            // &:hover .dropdown-content{
+            //     display: block;
+            // }
+        }
+    }
     }
 }
