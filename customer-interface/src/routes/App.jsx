@@ -18,7 +18,7 @@ import LuatSuDetailPage from '../pages/client/LuatSuDetailPage';
 import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
 import AdminDashboard from '../pages/admin/AdminDashboard';
-
+// import AdminDashboard from '../components/admin/AdminDashboard';
 
 
 
@@ -42,7 +42,7 @@ function App() {
 
 
         {/* Admin Routes */}
-        <Route path="/admin" element={<AdminDashboard/>}/>
+        <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}

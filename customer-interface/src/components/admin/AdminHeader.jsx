@@ -11,10 +11,13 @@ const AdminHeader = () => {
           <span>Admin</span>
         </div>
         <ul className="menu">
-          <li className="menu-item">
-              <i class="fa-solid fa-house"></i>            
-              <span>Dashboard</span>
-          </li>
+          <NavLink to ="/admin/dashboard" activeClassName="active">
+            <li className="menu-item">
+                <i class="fa-solid fa-house"></i>            
+                <span>Dashboard</span>
+            </li>
+          </NavLink>
+          
           <li className="menu-item">
             <i class="fa-solid fa-comment-dots"></i>            
             <span>Thông báo</span>

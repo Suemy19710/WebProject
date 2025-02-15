@@ -3,16 +3,18 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const express = require('express');
 const connectDB = require('./src/config/database');
-const blogRoutes = require('./src/routes/BlogRoutes');
+const BlogRoutes = require('./src/routes/BlogRoutes');
 const Blog = require('./src/models/BlogModel');
-
+const CustomerModel = require('./src/models/CustomerModel');
+const CustomerRoutes = require('./src/routes/CustomerRoutes');
 dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors());
 
 connectDB();
-app.use('/api/blogs', blogRoutes);
+app.use('/api/blogs', BlogRoutes);
+app.use('/api/customers', CustomerRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');
@@ -30,6 +32,7 @@ app.get('/api/blogs', async(req, res) => {
         res.status(500),json({error: 'Server error'});
     }
 });
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
