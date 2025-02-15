@@ -10,6 +10,9 @@ const PostDetail = () => {
     const [post, setPost] = useState(null);
     const [loading, setLoading] = useState(null);
     useEffect(() => {
+        window.scrollTo(0,0);
+    }, [title]);
+    useEffect(() => {
         const isSlug = !title.includes(" ");
         const slugifiedTitle = isSlug ? title : createSlugTitle(title);
 

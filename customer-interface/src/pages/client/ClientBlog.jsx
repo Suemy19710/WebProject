@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 const ClientBlog =() =>{
     const [blogs, setBlogs] = useState([]);
+      useEffect(() => {
+                window.scrollTo(0,0);
+            });
 
     useEffect(() => {
            fetch('http://localhost:5000/api/blogs')

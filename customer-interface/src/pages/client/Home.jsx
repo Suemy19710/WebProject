@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Slider from 'react-slick';
 import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
@@ -21,6 +21,9 @@ import DoiNguLuatSu from '../../components/client/DoiNguLuatSu';
 
 
 function Home() {
+    useEffect(() => {
+              window.scrollTo(0,0);
+          });
   return (
     <>
       <TopNavigation/>
