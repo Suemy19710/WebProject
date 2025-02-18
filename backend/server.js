@@ -8,7 +8,7 @@ const BlogRoutes = require('./src/routes/BlogRoutes');
 const CustomerRoutes = require('./src/routes/CustomerRoutes');
 const DanSuRoutes = require('./src/routes/DanSuRoutes');
 const HinhSuRoutes = require('./src/routes/HinhSuRoute');
-
+const HanhChinhRoutes = require('./src/routes/HanhChinhRoutes');
 dotenv.config();
 const app = express();
 app.use(express.json());
@@ -19,6 +19,7 @@ app.use('/api/blogs', BlogRoutes);
 app.use('/api/customers', CustomerRoutes);
 app.use('/api/dan-su', DanSuRoutes);
 app.use('/api/hinh-su', HinhSuRoutes);
+app.use('/api/hanh-chinh', HanhChinhRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');

@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminHeader from '../../components/admin/AdminHeader';
 import AdminDanSu from '../../components/admin/AdminDanSu';
-function AdminNotificationCustomerPage() {
+function AdminDanSuPage() {
     return (
         <>
             <AdminHeader/>
@@ -9,4 +9,4 @@ function AdminNotificationCustomerPage() {
         </>
     )
 }
-export default AdminNotificationCustomerPage;
+export default AdminDanSuPage;

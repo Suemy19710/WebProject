@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
-
-function HanhChinh() {
+import Footer from '../../components/client/Footer';
+import HanhChinh from '../../components/client/HanhChinh';
+function HanhChinhPage() {
     return (
         <>
             <TopNavigation/>
             <Header/>
-           <div>This is Hanh Chinh Page</div>
+            <HanhChinh/>
+            <Footer/>
         </>
     )
 }
-export default HanhChinh;
+export default HanhChinhPage;

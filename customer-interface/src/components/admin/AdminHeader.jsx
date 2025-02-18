@@ -45,10 +45,12 @@ const AdminHeader = () => {
             <span>Hình Sự</span>
           </li>
           </NavLink>
+          <NavLink to ="/admin/hanh-chinh" activeClassName="active">
           <li className="menu-item">
             <i class="fa-solid fa-folder"></i>            
             <span>Hành Chính</span>
           </li>
+          </NavLink>
         </ul>
     </div>
   

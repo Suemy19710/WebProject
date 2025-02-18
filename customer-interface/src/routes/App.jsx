@@ -12,7 +12,7 @@ import Blog from '../pages/client/Blog';
 import SoHuuTriTue from '../pages/client/SoHuuTriTue';
 import DanSuPage from '../pages/client/DanSuPage';
 import HinhSuPage from '../pages/client/HinhSuPage';
-import HanhChinh from '../pages/client/HanhChinh';
+import HanhChinhPage from '../pages/client/HanhChinhPage';
 import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
@@ -20,6 +20,7 @@ import PreviewPostNews from '../components/admin/PreviewPostNews';
 import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
 import AdminHinhSuPage from '../pages/admin/AdminHinhSuPage';
+import AdminHanhChinhPage from '../pages/admin/AdminHanhChinhPage';
 // import AdminDashboard from '../components/admin/AdminDashboard';
 
 
@@ -40,13 +41,15 @@ function App() {
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
         <Route path="/dan-su" element={<DanSuPage/>}/>
         <Route path="/hinh-su" element={<HinhSuPage/>}/>
-        <Route path="/hanh-chinh" element={<HanhChinh/>}/>
+        <Route path="/hanh-chinh" element={<HanhChinhPage/>}/>
 
 
         {/* Admin Routes */}
         <Route path="/admin/thong-bao" element={<AdminNotificationCustomerPage/>}/>
         <Route path ="/admin/dan-su" element={<AdminDanSuPage/>}/>
         <Route path ="/admin/hinh-su" element={<AdminHinhSuPage/>}/>
+        <Route path ="/admin/hanh-chinh" element={<AdminHanhChinhPage/>}/>
+
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
