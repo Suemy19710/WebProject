@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { getAllCustomers } from "../../services/api";
-import CustomerList from "./CustomerList";
 import '../../styles/admin/AdminDashboard.scss';
+import '../../styles/admin/CustomerList.scss';
 
-const AdminDashboard = () => {
+const AdminNotificationCustomer = () => {
   const [customers, setCustomers] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,4 +34,33 @@ const AdminDashboard = () => {
   );
 };
 
-export default AdminDashboard;
+const CustomerItem = ({ customer }) => {
+  return (
+    <li className="customer-item">
+      <h3>{customer.nameCustomer}</h3>
+      <p>Email: {customer.emailCustomer}</p>
+      <p>Phone: {customer.phoneCustomer}</p>
+      <p>Content: {customer.contentCustomer}</p>
+      <button>View Details</button>
+    </li>
+  );
+};
+
+const CustomerList = ({ customers }) => {
+  return (
+    <div className="customer-list">
+      {customers.length === 0 ? (
+        <p>No customers registered yet.</p>
+      ) : (
+        <ul>
+          {customers.map((customer) => (
+            <CustomerItem key={customer._id} customer={customer} />
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default AdminNotificationCustomer;
+

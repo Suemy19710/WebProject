@@ -1,4 +1,4 @@
-const { register } = require('module');
+// const { register } = require('module');
 const CustomerService = require('../services/CustomerService');
 
 const registerCustomer = async(req, res) => {

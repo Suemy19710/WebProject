@@ -1,0 +1,29 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font:  "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: font;
+    box-sizing: border-box;
+}
+.danSu-container{
+    background-color: $BC-white;
+    background-image: url('../../assets/back-ground.png');  
+    padding: 40px 100px 50px 100px;
+    .container{
+        background-color: $BC-white;
+        background-image: none;
+        padding: 40px 50px 50px 50px;
+        border-radius: 50px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+    }
+}
