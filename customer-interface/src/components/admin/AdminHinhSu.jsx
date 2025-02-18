@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-// import axios from 'axios';
 import '../../styles/admin/AdminDanSu.scss';
 
 const AdminUpload = () => {
@@ -19,7 +18,7 @@ const AdminUpload = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/api/dan-su',  {
+      const response = await fetch('http://localhost:5000/api/hinh-su',  {
         method: 'POST', 
         body: formData, 
     });
@@ -34,7 +33,7 @@ const AdminUpload = () => {
 
   return (
     <div className="adminDanSu-container">
-      <h1>Admin Dân Sự</h1>
+      <h1>Admin Hình Sự</h1>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Tải tài liệu</button>
       {message && <p>{message}</p>}

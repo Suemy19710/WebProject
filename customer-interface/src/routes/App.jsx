@@ -11,7 +11,7 @@ import TinTucCardPage from '../pages/client/TinTucCardPage';
 import Blog from '../pages/client/Blog';
 import SoHuuTriTue from '../pages/client/SoHuuTriTue';
 import DanSuPage from '../pages/client/DanSuPage';
-import HinhSu from '../pages/client/HinhSu';
+import HinhSuPage from '../pages/client/HinhSuPage';
 import HanhChinh from '../pages/client/HanhChinh';
 import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
 
@@ -19,6 +19,7 @@ import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
 import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
+import AdminHinhSuPage from '../pages/admin/AdminHinhSuPage';
 // import AdminDashboard from '../components/admin/AdminDashboard';
 
 
@@ -38,13 +39,14 @@ function App() {
         <Route path="/dich-vu" element={<DichVu/>}/>
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
         <Route path="/dan-su" element={<DanSuPage/>}/>
-        <Route path="/hinh-su" element={<HinhSu/>}/>
+        <Route path="/hinh-su" element={<HinhSuPage/>}/>
         <Route path="/hanh-chinh" element={<HanhChinh/>}/>
 
 
         {/* Admin Routes */}
         <Route path="/admin/thong-bao" element={<AdminNotificationCustomerPage/>}/>
         <Route path ="/admin/dan-su" element={<AdminDanSuPage/>}/>
+        <Route path ="/admin/hinh-su" element={<AdminHinhSuPage/>}/>
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}

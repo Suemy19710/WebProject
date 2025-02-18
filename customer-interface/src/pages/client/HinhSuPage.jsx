@@ -1,14 +1,17 @@
 import React from 'react';
 import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
+import HinhSu from '../../components/client/HinhSu';
+import Footer from '../../components/client/Footer';
 
-function HinhSu() {
+function HinhSuPage() {
     return (
         <>
             <TopNavigation/>
             <Header/>
-           <div>This is HinhSu Page</div>
+            <HinhSu/>
+            <Footer/>
         </>
     )
 }
-export default HinhSu;
+export default HinhSuPage;

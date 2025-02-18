@@ -1,14 +1,14 @@
 const mammoth = require('mammoth');
-const DanSuModel = require('../models/DanSuModel');
+const HinhSuModel = require('../models/HinhSuModel');
 
 const parseAndSaveDocument = async(fileBuffer) => {
     try{
-        const deleteResult =  await DanSuModel.deleteMany({});
+        const deleteResult =  await HinhSuModel.deleteMany({});
         console.log('Delete result: ', deleteResult);
         const result = await mammoth.convertToHtml({buffer: fileBuffer});
         const content = result.value;
 
-        const newDocument = new DanSuModel({content});
+        const newDocument = new HinhSuModel({content});
         const savedDocument = await newDocument.save();
 
         return savedDocument;
@@ -18,7 +18,7 @@ const parseAndSaveDocument = async(fileBuffer) => {
 };
 const getAllDocuments = async () => {
     try {
-        const documents = await DanSuModel.find();
+        const documents = await HinhSuModel.find();
         return documents;
     } catch (error) {
         throw new Error('Error fetching documents');

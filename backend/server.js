@@ -7,6 +7,7 @@ const Blog = require('./src/models/BlogModel');
 const BlogRoutes = require('./src/routes/BlogRoutes');
 const CustomerRoutes = require('./src/routes/CustomerRoutes');
 const DanSuRoutes = require('./src/routes/DanSuRoutes');
+const HinhSuRoutes = require('./src/routes/HinhSuRoute');
 
 dotenv.config();
 const app = express();
@@ -16,7 +17,8 @@ app.use(cors());
 connectDB();
 app.use('/api/blogs', BlogRoutes);
 app.use('/api/customers', CustomerRoutes);
-app.use('/api/danSu', DanSuRoutes);
+app.use('/api/dan-su', DanSuRoutes);
+app.use('/api/hinh-su', HinhSuRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');
