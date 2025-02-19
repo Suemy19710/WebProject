@@ -19,7 +19,7 @@ const AdminUpload = () => {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/api/hanh-chinh',  {
+      const response = await fetch('http://localhost:5000/api/so-huu-tri-tue',  {
         method: 'POST', 
         body: formData, 
     });
@@ -34,7 +34,7 @@ const AdminUpload = () => {
 
   return (
     <div className="adminDanSu-container">
-      <h1>Admin Hành Chính </h1>
+      <h1>Admin Sở Hữu Trí Tuệ </h1>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Tải tài liệu</button>
       {message && <p>{message}</p>}

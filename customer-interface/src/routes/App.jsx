@@ -9,7 +9,7 @@ import LienHe from '../pages/client/LienHe';
 import DichVu from '../pages/client/DichVu';
 import TinTucCardPage from '../pages/client/TinTucCardPage';
 import Blog from '../pages/client/Blog';
-import SoHuuTriTue from '../pages/client/SoHuuTriTue';
+import SoHuuTriTuePage from '../pages/client/SoHuuTriTuePage';
 import DanSuPage from '../pages/client/DanSuPage';
 import HinhSuPage from '../pages/client/HinhSuPage';
 import HanhChinhPage from '../pages/client/HanhChinhPage';
@@ -21,6 +21,8 @@ import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCusto
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
 import AdminHinhSuPage from '../pages/admin/AdminHinhSuPage';
 import AdminHanhChinhPage from '../pages/admin/AdminHanhChinhPage';
+import AdminSoHuuTriTuePage from '../pages/admin/AdminSoHuuTriTuePage';
+
 // import AdminDashboard from '../components/admin/AdminDashboard';
 
 
@@ -38,7 +40,7 @@ function App() {
         <Route path="/tin-tuc/:title" element={<TinTucCardPage/>}/>
         <Route path="/lien-he" element={<LienHe/>}/>
         <Route path="/dich-vu" element={<DichVu/>}/>
-        <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
+        <Route path="/so-huu-tri-tue" element={<SoHuuTriTuePage/>}/>
         <Route path="/dan-su" element={<DanSuPage/>}/>
         <Route path="/hinh-su" element={<HinhSuPage/>}/>
         <Route path="/hanh-chinh" element={<HanhChinhPage/>}/>
@@ -49,7 +51,7 @@ function App() {
         <Route path ="/admin/dan-su" element={<AdminDanSuPage/>}/>
         <Route path ="/admin/hinh-su" element={<AdminHinhSuPage/>}/>
         <Route path ="/admin/hanh-chinh" element={<AdminHanhChinhPage/>}/>
-
+        <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}

@@ -1,14 +1,16 @@
 import React from 'react';
 import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
-
-function SoHuuTriTue() {
+import SoHuuTriTue from '../../components/client/SoHuuTriTue';
+import Footer from '../../components/client/Footer';
+function SoHuuTriTuePage() {
     return (
         <>
             <TopNavigation/>
             <Header/>
-           <div>This is SoHuuTriTue Page</div>
+            <SoHuuTriTue/>
+            <Footer/>
         </>
     )
 }
-export default SoHuuTriTue;
+export default SoHuuTriTuePage;
