@@ -6,6 +6,7 @@ class GioiThieu extends React.Component {
         return (
             <div className="gioiThieu-container">
                 <div className="container-header">
+                    <div className="container-header-bg"></div>
                     <h3>Đế cân công lý trong logo được cách điệu từ hình ảnh mỏ neo, tượng trưng cho sự ổn định và kiên định trong công việc của mỗi luật sư tại Kim Ngọc.</h3>
                 </div>
                 <div className="container-body">

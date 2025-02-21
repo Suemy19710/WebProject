@@ -28,6 +28,11 @@ const ClientView = () => {
 
   return (
     <div className="danSu-container">
+    <div className="head">
+      <div className="head-bg"></div>
+      <h1>Hành Chính</h1>
+    </div>
+    <div className="body">
       {documents.length > 0 ? (
         documents.map((doc) => (
           <div key={doc._id} class="container">
@@ -38,6 +43,8 @@ const ClientView = () => {
         <p>No documents available.</p>
       )}
     </div>
+    
+  </div>
   );
 };
 

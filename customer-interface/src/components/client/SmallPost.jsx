@@ -36,6 +36,7 @@ const SmallPost = () => {
     return(
         <div className="smallPost-container">
             <div className="head">
+                <div className="head-bg"></div>
                 <h1>Tin tức <span> & Sự kiện</span></h1>
             </div>
             <div className="body">

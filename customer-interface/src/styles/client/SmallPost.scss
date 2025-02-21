@@ -16,38 +16,59 @@ html, body {
 }
 .smallPost-container{
     .head{
-        margin-block-start: 0;
-        margin-block-end: 0;
-        flex: 1;
+        // margin-block-start: 0;
+        // margin-block-end: 0;
+        // flex: 1;
         // z-index: -9999 !important;
-        background-image: url('../../assets/back-ground-3.jpg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 300px;
-        padding-left: 20px;
+        // background-image: url('../../assets/back-ground-4.jpeg');
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: cover;
+        // height: 300px;
+        // padding-left: 20px;
         // position:absolute ;
+        .head-bg{
+            background-image: url('../../assets/back-ground-4.jpeg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 200px;
+            filter: blur(2px);
+        }
         h1{
-            margin-block-start: 0;
-            margin-block-end: 0;
-            color: $TC-yellow; /* Ensure this variable is defined */
-            font-size: 80px;
-            width: 100%;
-            height: 150px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 78px;
-            display: flex;
-            align-items: center;
-            // justify-content: flex-end;
-            padding-top: 80px;
-            padding-left: 550px;
-            text-shadow: 1px 1px 2px black, 0 0 25px black;
+            // margin-block-start: 0;
+            // margin-block-end: 0;
+            // color: $TC-yellow; /* Ensure this variable is defined */
+            // font-size: 80px;
+            // // width: 100%;
+            // // height: 150px;
+            // font-style: normal;
+            // font-weight: 600;
+            // line-height: 78px;
+            // display: flex;
+            // align-items: center;
+            // // justify-content: flex-end;
+            // padding-top: 80px;
+            // padding-left: 550px;
+            // text-shadow: 1px 1px 2px black, 0 0 25px black;
 
             // position: absolute;
             // top: 30%;
             // left: 50%;
             // z-index: -1 !important;
+            color: $TC-yellow;
+            position: absolute;
+            font-size: 80px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 78px;
+            top: 25%;
+            left: 70%;
+            filter: none;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            text-shadow: 1px 1px 2px $BC-blue, 0 0 25px black;
+
 
         }
         span{

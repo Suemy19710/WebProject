@@ -28,15 +28,22 @@ const ClientView = () => {
 
   return (
     <div className="danSu-container">
-      {documents.length > 0 ? (
-        documents.map((doc) => (
-          <div key={doc._id} class="container">
-            <div dangerouslySetInnerHTML={{ __html: doc.content }} />
-          </div>
-        ))
-      ) : (
-        <p>No documents available.</p>
-      )}
+      <div className="head">
+        <div className="head-bg"></div>
+        <h1>Hình Sự</h1>
+      </div>
+      <div className="body">
+        {documents.length > 0 ? (
+          documents.map((doc) => (
+            <div key={doc._id} class="container">
+              <div dangerouslySetInnerHTML={{ __html: doc.content }} />
+            </div>
+          ))
+        ) : (
+          <p>No documents available.</p>
+        )}
+      </div>
+      
     </div>
   );
 };
