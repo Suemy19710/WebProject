@@ -56,7 +56,23 @@ html, body {
             padding: 40px 50px 50px 50px;
             border-radius: 50px;
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    
+        }
+        .buttons{
+            .back{
+                background-color: $BC-yellow;
+                border: none;
+                width: 100px;
+                height: 30px;
+                color: $BC-blue;
+                margin-left: 35px;
+                border-radius: 30px;
+                cursor: pointer;
+
+                &:hover{
+                    background-color: $BC-blue;
+                    color:$TC-yellow;
+                }
+            }
         }
     }
     

@@ -4,6 +4,9 @@ import logo from '../../assets/logo.png';
 import {Link, NavLink, Navigate} from "react-router-dom";
 
 const AdminHeader = () => {
+ 
+
+
     return(
       <div className="sidebar">
         <div className="logo">
@@ -27,6 +30,12 @@ const AdminHeader = () => {
             <li className="menu-item">
               <i class="fa-solid fa-file"></i>            
               <span>Tin Tức & Sự Kiện </span>
+            </li>
+          </NavLink>
+          <NavLink to ="/admin/xem-truoc" activeClassName="active">
+            <li className="menu-item">
+            <i class="fa-solid fa-file-pdf"></i>              
+            <span>Xem trước </span>
             </li>
           </NavLink>
           <NavLink to ="/admin/so-huu-tri-tue" activeClassName="active">

@@ -22,7 +22,7 @@ import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
 import AdminHinhSuPage from '../pages/admin/AdminHinhSuPage';
 import AdminHanhChinhPage from '../pages/admin/AdminHanhChinhPage';
 import AdminSoHuuTriTuePage from '../pages/admin/AdminSoHuuTriTuePage';
-
+import AdminPreview from '../pages/admin/AdminPreviewPage';
 // import AdminDashboard from '../components/admin/AdminDashboard';
 
 
@@ -54,6 +54,7 @@ function App() {
         <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/preview" element={<PreviewPostNews/>}/>
+        <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
       </Routes>

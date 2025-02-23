@@ -10,6 +10,7 @@ const DanSuRoutes = require('./src/routes/DanSuRoutes');
 const HinhSuRoutes = require('./src/routes/HinhSuRoute');
 const HanhChinhRoutes = require('./src/routes/HanhChinhRoutes');
 const SoHuuTriTueRoutes = require('./src/routes/SoHuuTriTueRoute');
+const PreviewRoutes = require('./src/routes/PreviewRoute');
 
 dotenv.config();
 const app = express();
@@ -23,6 +24,7 @@ app.use('/api/dan-su', DanSuRoutes);
 app.use('/api/hinh-su', HinhSuRoutes);
 app.use('/api/hanh-chinh', HanhChinhRoutes);
 app.use('/api/so-huu-tri-tue',SoHuuTriTueRoutes );
+app.use('/api/preview', PreviewRoutes);
 
 app.get('/', (req, res) => {
     res.send('API is running...');
