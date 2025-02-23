@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
 import Header from '../../components/client/Header';
-import GioiThieu from '../../components/client/GioiThieu';
 import TopNavigation from '../../components/client/TopNavigation';
 import Footer from '../../components/client/Footer';
-
-function GioiThieuYNghiaPage() {
+import ServiceDetail from '../../components/client/ServiceDetail';
+function DichVuPage() {
     useEffect(() => {
                       window.scrollTo(0,0);
                   });
@@ -12,9 +11,9 @@ function GioiThieuYNghiaPage() {
         <>
             <TopNavigation/>
             <Header/>
-            <GioiThieu/>
+            <ServiceDetail/>
             <Footer/>
         </>
     )
 }
-export default GioiThieuYNghiaPage;
+export default DichVuPage;

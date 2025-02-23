@@ -1,10 +1,10 @@
 import React, {useEffect} from 'react';
 import Header from '../../components/client/Header';
-import GioiThieu from '../../components/client/GioiThieu';
 import TopNavigation from '../../components/client/TopNavigation';
+import ServicePartDetail from '../../components/client/ServicePartDetail';
 import Footer from '../../components/client/Footer';
 
-function GioiThieuYNghiaPage() {
+const ServicePartDetailPage = () => {
     useEffect(() => {
                       window.scrollTo(0,0);
                   });
@@ -12,9 +12,9 @@ function GioiThieuYNghiaPage() {
         <>
             <TopNavigation/>
             <Header/>
-            <GioiThieu/>
-            <Footer/>
+            <ServicePartDetail/>
+           <Footer/>
         </>
     )
 }
-export default GioiThieuYNghiaPage;
+export default ServicePartDetailPage;

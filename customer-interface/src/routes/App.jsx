@@ -6,7 +6,7 @@ import Home from '../pages/client/Home';
 import GioiThieuYNghia from '../pages/client/GioiThieuYNghiaPage';
 import GioiThieuLuatSu from '../pages/client/GioiThieuLuatSuPage';
 import LienHe from '../pages/client/LienHe';
-import DichVu from '../pages/client/DichVu';
+import DichVuPage from '../pages/client/DichVuPage';
 import TinTucCardPage from '../pages/client/TinTucCardPage';
 import Blog from '../pages/client/Blog';
 import SoHuuTriTuePage from '../pages/client/SoHuuTriTuePage';
@@ -14,6 +14,7 @@ import DanSuPage from '../pages/client/DanSuPage';
 import HinhSuPage from '../pages/client/HinhSuPage';
 import HanhChinhPage from '../pages/client/HanhChinhPage';
 import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
+import ServicePartDetailPage from '../pages/client/ServiceDetailPartPage';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
 import PreviewPostNews from '../components/admin/PreviewPostNews';
@@ -39,7 +40,8 @@ function App() {
         <Route path="/tin-tuc" element={<Blog/>}/>
         <Route path="/tin-tuc/:title" element={<TinTucCardPage/>}/>
         <Route path="/lien-he" element={<LienHe/>}/>
-        <Route path="/dich-vu" element={<DichVu/>}/>
+        <Route path="/dich-vu" element={<DichVuPage/>}/>
+        <Route path="/dich-vu/detail" element={<ServicePartDetailPage/>}/>
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTuePage/>}/>
         <Route path="/dan-su" element={<DanSuPage/>}/>
         <Route path="/hinh-su" element={<HinhSuPage/>}/>

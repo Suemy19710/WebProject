@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import TopNavigation from '../../components/client/TopNavigation';
 import Header from '../../components/client/Header';
 import PostDetail from '../../components/client/PostDetail';
@@ -7,6 +7,9 @@ import RegisterForm from '../../components/client/RegisterForm';
 import Footer from '../../components/client/Footer';
 
 function TinTucCardPage() {
+    useEffect(() => {
+                      window.scrollTo(0,0);
+                  });
     return(
         <>
             <TopNavigation/>

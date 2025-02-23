@@ -21,14 +21,6 @@ const PostDetail = () => {
                 console.log("Response Status:", res.status);
                 return res.json();
             })
-            // .then((data) => {
-            //     if (data && !data.error) {
-            //         setPost(data[0]);}
-            //     else {
-            //         console.log('Post not found.');
-            //     }
-            //     setLoading(false);
-            // })
             .then((data) => {
                 console.log("Fetched data:", data); 
         
@@ -49,13 +41,7 @@ const PostDetail = () => {
             });
     }, [title]);
 
-    // const formattedDate = post ? (() => {
-    //     const postDate = new Date(post.createdAt);
-    //     console.log('PostDate: ', postDate);
-    //     return postDate instanceof Date && !isNaN(postDate)
-    //         ? postDate.toLocaleString()
-    //         : 'Invalid date';
-    // })() : null;
+ 
     const formattedDate = post?.createdAt
     ? (() => {
         try {

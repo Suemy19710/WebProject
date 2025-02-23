@@ -9,16 +9,7 @@ import News from '../../components/client/News';
 import RegisterForm from '../../components/client/RegisterForm';
 import Footer from '../../components/client/Footer';
 import DoiNguLuatSu from '../../components/client/DoiNguLuatSu';
-
-// import { BrowserRouter } from 'react-router-dom';
-// import '../styles/client/Header.scss';
-// import '../styles/client/TopNavigation.scss';
-// import '../styles/client/ResponsiveCarousel.scss';
-// import '../styles/client/AboutCompany.scss';
-// import'../styles/client/OfferService.scss';
-// import '../styles/client/News.scss';
-// import '../styles/client/RegisterForm.scss';
-
+import Service from '../../components/client/Service';
 
 function Home() {
     useEffect(() => {
@@ -30,7 +21,8 @@ function Home() {
       <Header/>
       <ResponsiveCarousel/>
       <AboutCompany/>
-      <OfferService/>
+      <Service/>
+      {/* <OfferService/> */}
       <DoiNguLuatSu/>
       <News/>
       <RegisterForm/>
