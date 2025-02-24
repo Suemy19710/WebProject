@@ -4,7 +4,7 @@ import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
 import ResponsiveCarousel from '../../components/client/ResponsiveCarousel';
 import AboutCompany from '../../components/client/AboutCompany';
-import OfferService from '../../components/client/OfferService';
+// import OfferService from '../../components/client/OfferService';
 import News from '../../components/client/News';
 import RegisterForm from '../../components/client/RegisterForm';
 import Footer from '../../components/client/Footer';
@@ -22,7 +22,6 @@ function Home() {
       <ResponsiveCarousel/>
       <AboutCompany/>
       <Service/>
-      {/* <OfferService/> */}
       <DoiNguLuatSu/>
       <News/>
       <RegisterForm/>

@@ -1,12 +1,24 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import '../../styles/client/Service.scss';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Service = () => {
     const navigate = useNavigate();
+    const location = useLocation();
     const handleViewMore = () => {
         navigate('/dich-vu');
     }
+    const handleClick = (path) => {
+        navigate(path);
+    }
+    useEffect( () => {
+        if (window.location.hash) {
+            const targetElement = document.getElementById(window.location.hash.substring(1));
+            if (targetElement) {
+                targetElement.scrollIntoView({behavior: 'smooth'});
+            }
+        }
+    }, [location]);
         return(
             <div className="service-container">
                 <div className="head">
@@ -29,7 +41,8 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                            <button onClick={() => handleClick('/dich-vu#tu-van-phap-ly')}>Xem thêm</button>
+                        <div/>
                         </div>
                     </div>
                     <div className="service-card">
@@ -45,7 +58,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                            <button onClick={() => handleClick('/dich-vu#dai-dien-phap-ly')}>Xem thêm</button>
                         </div>
                     </div>
                     <div className="service-card">
@@ -62,7 +75,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                        <button onClick={() => handleClick('/dich-vu#tranh-tung-tai-toa-an')}>Xem thêm</button>
                         </div>
                     </div>
                     <div className="service-card">
@@ -79,7 +92,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                        <button onClick={() => handleClick('/dich-vu#soan-thao')}>Xem thêm</button>
                         </div>
                     </div>
                     <div className="service-card">
@@ -96,7 +109,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                        <button onClick={() => handleClick('/dich-vu#phap-ly-doanh-nghiep')}>Xem thêm</button>
                         </div>
                     </div>
                     <div className="service-card">
@@ -112,7 +125,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                        <button onClick={() => handleClick('/dich-vu#ho-tro-thu-tuc')}>Xem thêm</button>
                         </div>
                     </div>
                     <div className="service-card">
@@ -127,7 +140,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                        <button onClick={() => handleClick('/dich-vu#luat-su-rieng-ca-nhan')}>Xem thêm</button>
                         </div>
                     </div>
                     <div className="service-card">
@@ -142,7 +155,7 @@ const Service = () => {
                             -... <br/>
                         </div>
                         <div className="service-card-footer">
-                            <button>Xem thêm</button>
+                            <button onClick={() => handleClick('/dich-vu#luat-su-rieng-doanh-nghiep')}>Xem thêm</button>
                         </div>
                     </div>
                 </div>
@@ -152,4 +165,5 @@ const Service = () => {
             </div>
         )
     }
+
 export default Service;

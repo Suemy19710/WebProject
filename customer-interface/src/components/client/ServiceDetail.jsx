@@ -15,7 +15,7 @@ const ServiceDetail = () => {
             <div className="container-body">
                 <div className="body">
                     <div className="small-container">
-                        <h1>Dịch vụ <span>tư vấn pháp lý</span></h1>
+                        <h1 id="tu-van-phap-ly">Dịch vụ <span>tư vấn pháp lý</span></h1>
                         <div className="small-container-description">
                             <p onClick={() => handleNavigate('/dich-vu/detail')}>Tư vấn luật doanh nghiệp (thành lập, giải thể, thay đổi đăng ký kinh doanh, hợp đồng…)</p>
                             <p>Tư vấn luật đất đai, bất động sản (mua bán, chuyển nhượng, thừa kế, tranh chấp…)</p>
@@ -29,7 +29,7 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span>đại diện pháp lý</span></h1>
+                        <h1 id="dai-dien-phap-ly">Dịch vụ <span>đại diện pháp lý</span></h1>
                         <div className="small-container-description">
                             <p>Đại diện đàm phán hợp đồng, giải quyết tranh chấp thương mại
                             </p>    
@@ -40,7 +40,7 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span> tranh tụng tại tòa án</span></h1>
+                        <h1 id="tranh-tung-tai-toa-an">Dịch vụ <span> tranh tụng tại tòa án</span></h1>
                         <div className="small-container-description">
                             <p>Luật sư bào chữa trong các vụ án hình sự                            </p> 
                             <p>Luật sư đại diện trong các vụ án dân sự (tranh chấp hợp đồng, thừa kế, đất đai…)</p>
@@ -49,7 +49,7 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span>soạn thảo và rà soát hợp đồng, văn bản pháp lý</span></h1>
+                        <h1 id="soan-thao">Dịch vụ <span>soạn thảo và rà soát hợp đồng, văn bản pháp lý</span></h1>
                         <div className="small-container-description">
                          <p>Soạn thảo hợp đồng thương mại, hợp đồng lao động, hợp đồng thuê nhà…</p>
                          <p>Rà soát, đánh giá rủi ro pháp lý của hợp đồng</p>
@@ -57,7 +57,7 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span>pháp lý cho doanh nghiệp</span></h1>
+                        <h1 id="phap-ly-doanh-nghiep">Dịch vụ <span>pháp lý cho doanh nghiệp</span></h1>
                         <div className="small-container-description">
                             <p>Thành lập, giải thể, mua bán, sáp nhập doanh nghiệp</p>
                             <p>Xây dựng điều lệ công ty, nội quy lao động, quy chế hoạt động
@@ -69,7 +69,7 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span>hỗ trợ thủ tục hành chính</span></h1>
+                        <h1 id="ho-tro-thu-tuc">Dịch vụ <span>hỗ trợ thủ tục hành chính</span></h1>
                         <div className="small-container-description">
                             <p>Đăng ký kinh doanh, giấy phép đầu tư, giấy phép lao động cho người nước ngoài</p>
                             <p>Đăng ký nhãn hiệu, bản quyền, sáng chế
@@ -78,13 +78,13 @@ const ServiceDetail = () => {
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span>Luật sư Riêng cho Cá nhân</span></h1>
+                        <h1 id="luat-su-rieng-ca-nhan">Dịch vụ <span>Luật sư Riêng cho Cá nhân</span></h1>
                         <div className="small-container-description">
                           <p>Chi tiet</p>
                         </div>
                     </div>
                     <div className="small-container">
-                        <h1>Dịch vụ <span>Luật sư Riêng cho Doanh nghiệp</span></h1>
+                        <h1 id="luat-su-rieng-doanh-nghiep">Dịch vụ <span>Luật sư Riêng cho Doanh nghiệp</span></h1>
                         <div className="small-container-description">
                           <p>Chi tiet</p>
                         </div>
