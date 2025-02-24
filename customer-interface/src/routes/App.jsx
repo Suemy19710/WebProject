@@ -14,6 +14,7 @@ import DanSuPage from '../pages/client/DanSuPage';
 import HinhSuPage from '../pages/client/HinhSuPage';
 import HanhChinhPage from '../pages/client/HanhChinhPage';
 import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
+import LuatSuDetailPage2 from '../pages/client/LuatSuDetailPage2';
 import ServicePartDetailPage from '../pages/client/ServiceDetailPartPage';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';
@@ -36,7 +37,8 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/gioi-thieu/y-nghia" element={<GioiThieuYNghia/>}/>
         <Route path="/gioi-thieu/luat-su" element={<GioiThieuLuatSu/>}/>
-        <Route path="/gioi-thieu/luat-su/detail" element={<LuatSuDetailPage/>}/>
+        <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/>
+        <Route path="/gioi-thieu/luat-su-thai-thanh-van" element={<LuatSuDetailPage2/>}/>
         <Route path="/tin-tuc" element={<Blog/>}/>
         <Route path="/tin-tuc/:title" element={<TinTucCardPage/>}/>
         <Route path="/lien-he" element={<LienHe/>}/>
