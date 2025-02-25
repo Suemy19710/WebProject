@@ -2,6 +2,7 @@ const cors = require('cors'); // import cors middleware
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const express = require('express');
+const bodyParser = require('body-parser');
 const connectDB = require('./src/config/database');
 const Blog = require('./src/models/BlogModel');
 const BlogRoutes = require('./src/routes/BlogRoutes');
@@ -11,6 +12,10 @@ const HinhSuRoutes = require('./src/routes/HinhSuRoute');
 const HanhChinhRoutes = require('./src/routes/HanhChinhRoutes');
 const SoHuuTriTueRoutes = require('./src/routes/SoHuuTriTueRoute');
 const PreviewRoutes = require('./src/routes/PreviewRoute');
+
+
+const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
+const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
 
 dotenv.config();
 const app = express();
@@ -26,9 +31,27 @@ app.use('/api/hanh-chinh', HanhChinhRoutes);
 app.use('/api/so-huu-tri-tue',SoHuuTriTueRoutes );
 app.use('/api/preview', PreviewRoutes);
 
-app.get('/', (req, res) => {
-    res.send('API is running...');
+// middileware for login
+app.use(bodyParser.urlencoded({extended: true}));
+// app.use(express.static(path.join(__dirname, 'public')));
+
+app.get('/admin', (req, res) => {
+    res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
 });
+
+app.post('/api/login', (req, res) => {
+    const { username, password } = req.body;
+
+    if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
+        res.json({ success: true, message: 'Login successful! Welcome to the admin dashboard.' });
+    } else {
+        res.status(401).json({ success: false, message: 'Invalid credentials, please try again.' });
+    }
+});
+
+// app.get('/', (req, res) => {
+//     res.send('API is running...');
+// });
 app.get('/api/blogs', async(req, res) => {
     try{
         const {slug} = req.query;

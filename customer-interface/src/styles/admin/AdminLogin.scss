@@ -1,0 +1,75 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font:  "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: font;
+    box-sizing: border-box;
+    background-color: $BC-blue;
+    background-image: url('../../assets/back-ground.png');  
+
+}
+.adminLogin-container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        font-size: 60px;
+        color: $TC-white;
+    }
+    form{
+        background-color: $BC-white;
+        width: 500px;
+        height: 200px;
+        border-radius: 50px;
+        padding-left: 50px;
+        padding-top: 30px;
+
+        label{
+            color: $BC-blue;
+            line-height: 1.4;
+            font-weight: 900;
+            font-size: 30px;
+            padding-right: 10px;
+        }
+        input{
+            font-size: 20px;
+            border: none;
+            color: $TC-black;
+            background-color: $BC-gray;
+            padding: 8px;
+            border-radius: 20px;
+        }
+        button{
+            margin-top: 20px;
+            display: flex;
+            width: 200px;
+            padding: 8px;
+            font-size: 20px;
+            font-weight: 700;
+            background-color: $BC-yellow;
+            border: none;
+            border-radius: 30px;
+            color: $BC-gray;
+            display: flex;
+            align-items: center;
+            padding-left: 70px;
+            margin-left: 120px;
+            &:hover{
+                background-color: $BC-blue;
+                color: $TC-yellow
+            }
+       
+        }
+    }
+}
