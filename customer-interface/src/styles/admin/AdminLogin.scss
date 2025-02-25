@@ -14,18 +14,21 @@ html, body {
     font-family: font;
     box-sizing: border-box;
     background-color: $BC-blue;
-    background-image: url('../../assets/back-ground.png');  
 
 }
 .adminLogin-container {
     align-items: center;
-    justify-content: center;
     display: flex;
+    padding-top: 20px;
+    height: 570px;
     flex-direction: column;
+    background-image: url('../../assets/back-ground.png');  
+
 
     h2{
         font-size: 60px;
         color: $TC-white;
+        margin-bottom: 10px;
     }
     form{
         background-color: $BC-white;
