@@ -18,6 +18,8 @@ html, body {
     z-index: 1;
     height: 280px;
     background-color: $BC-blue;
+    background-image: url('../../assets/back-ground.png');  
+    -webkit-backdrop-filter: blur(2px);
     display: flex;
     align-items: center;
     // position: relative;
