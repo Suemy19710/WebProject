@@ -1,10 +1,12 @@
 const cors = require('cors'); // import cors middleware
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./src/config/database');
 const Blog = require('./src/models/BlogModel');
+const NewsModel = require('./src/models/NewsModel');
 const BlogRoutes = require('./src/routes/BlogRoutes');
 const CustomerRoutes = require('./src/routes/CustomerRoutes');
 const DanSuRoutes = require('./src/routes/DanSuRoutes');
@@ -12,7 +14,7 @@ const HinhSuRoutes = require('./src/routes/HinhSuRoute');
 const HanhChinhRoutes = require('./src/routes/HanhChinhRoutes');
 const SoHuuTriTueRoutes = require('./src/routes/SoHuuTriTueRoute');
 const PreviewRoutes = require('./src/routes/PreviewRoute');
-
+const NewsRoutes = require('./src/routes/NewsRoutes');
 
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
@@ -30,6 +32,9 @@ app.use('/api/hinh-su', HinhSuRoutes);
 app.use('/api/hanh-chinh', HanhChinhRoutes);
 app.use('/api/so-huu-tri-tue',SoHuuTriTueRoutes );
 app.use('/api/preview', PreviewRoutes);
+app.use('/api/tin-tuc', NewsRoutes);
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // middileware for login
 app.use(bodyParser.urlencoded({extended: true}));
@@ -49,6 +54,21 @@ app.post('/api/login', (req, res) => {
     }
 });
 
+// app.get('/api/tin-tuc', async(req, res) => {
+//     try{
+//         const {slug} = req.query;
+//         const news = slug ? await NewsModel.findOne({slug}) : await NewsModel.find();
+
+//         if (!news){
+//             return res.status(404).json({ error: 'No blog posts found' });
+//         }
+//         res.json(news);
+//     }
+//     catch(err) {
+//         res.status(500),json({error: 'Server error'});
+//     }
+// });
+
 // app.get('/', (req, res) => {
 //     res.send('API is running...');
 // });
@@ -62,7 +82,7 @@ app.get('/api/blogs', async(req, res) => {
         }
         res.json(blogPosts);
     } catch(err) {
-        res.status(500),json({error: 'Server error'});
+        res.status(500).json({error: 'Server error'});
     }
 });
 

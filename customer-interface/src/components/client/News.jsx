@@ -20,7 +20,7 @@ const News = () => {
     };
     
     useEffect(() => {
-        fetch('http://localhost:5000/api/blogs')
+        fetch('http://localhost:5000/api/tin-tuc')
             .then((res) => {
                 console.log("Response Status:", res.status); // Check if status is OK
                 return res.json();
@@ -54,7 +54,11 @@ const News = () => {
                                     <div key={post._id}>
                                         <div className="news-card">
                                     <div className="news-card-head">
-                                        <img src={event} alt="event" />
+                                        {post.image ? (
+                                            <img src={`http://localhost:5000/uploads/${post.image}`} alt="event"/>
+                                        ) : (
+                                            <img src={event} alt="event"/>
+                                        )}
                                     </div>
                                     <div className="news-card-body">
                                         <div className="time-post">

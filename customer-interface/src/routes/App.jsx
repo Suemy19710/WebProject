@@ -7,8 +7,10 @@ import GioiThieuYNghia from '../pages/client/GioiThieuYNghiaPage';
 import GioiThieuLuatSu from '../pages/client/GioiThieuLuatSuPage';
 import LienHe from '../pages/client/LienHe';
 import DichVuPage from '../pages/client/DichVuPage';
-import TinTucCardPage from '../pages/client/TinTucCardPage';
-import Blog from '../pages/client/Blog';
+// import TinTucCardPage from '../pages/client/TinTucCardPage';
+// import Blog from '../pages/client/Blog';
+import TinTucPage from '../pages/client/TinTucPage';
+import TinTucDetailPage from '../pages/client/TinTucDetailPage';
 import SoHuuTriTuePage from '../pages/client/SoHuuTriTuePage';
 import DanSuPage from '../pages/client/DanSuPage';
 import HinhSuPage from '../pages/client/HinhSuPage';
@@ -27,6 +29,7 @@ import AdminSoHuuTriTuePage from '../pages/admin/AdminSoHuuTriTuePage';
 import AdminPreview from '../pages/admin/AdminPreviewPage';
 import AdminLogin from '../components/admin/AdminLogin';
 import AdminDashboard from '../pages/admin/AdminDashboardPage';
+import AdminNewsPage from '../pages/admin/AdminNewsPage';
 
 
 
@@ -40,8 +43,8 @@ function App() {
         <Route path="/gioi-thieu/luat-su" element={<GioiThieuLuatSu/>}/>
         <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/>
         <Route path="/gioi-thieu/luat-su-thai-thanh-van" element={<LuatSuDetailPage2/>}/>
-        <Route path="/tin-tuc" element={<Blog/>}/>
-        <Route path="/tin-tuc/:title" element={<TinTucCardPage/>}/>
+        <Route path="/tin-tuc" element={<TinTucPage/>}/>
+        <Route path="/tin-tuc/:title" element={<TinTucDetailPage/>}/>
         <Route path="/lien-he" element={<LienHe/>}/>
         <Route path="/dich-vu" element={<DichVuPage/>}/>
         <Route path="/dich-vu/detail" element={<ServicePartDetailPage/>}/>
@@ -61,6 +64,7 @@ function App() {
         <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
         <Route path="/admin/post-news" element={<AdminPostNews/>}/>
         <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
+        <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} />
 
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 

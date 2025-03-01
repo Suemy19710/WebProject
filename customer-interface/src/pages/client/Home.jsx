@@ -5,11 +5,11 @@ import TopNavigation from '../../components/client/TopNavigation';
 import ResponsiveCarousel from '../../components/client/ResponsiveCarousel';
 import AboutCompany from '../../components/client/AboutCompany';
 // import OfferService from '../../components/client/OfferService';
-import News from '../../components/client/News';
 import RegisterForm from '../../components/client/RegisterForm';
 import Footer from '../../components/client/Footer';
 import DoiNguLuatSu from '../../components/client/DoiNguLuatSu';
 import Service from '../../components/client/Service';
+import News from '../../components/client/News';
 
 function Home() {
     useEffect(() => {
