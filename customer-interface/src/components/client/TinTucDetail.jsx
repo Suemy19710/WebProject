@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import event from  '../../assets/event.png';
-import '../../styles/client/TinTucCard.scss';
+import '../../styles/client/TinTucDetail.scss';
 
 
 const TinTucDetail = () => {
@@ -60,6 +60,7 @@ const TinTucDetail = () => {
     
     return (
         <div className="tintuc-detail">
+            <div className="tintuc-device">
             {post ? (
                 <div className="container-card">
                     <div className="title">
@@ -88,6 +89,7 @@ const TinTucDetail = () => {
             ):(
                 <p>Loading...</p>
             )}
+            </div>
         </div>
     );
 };

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/client/DanSu.scss';
+import '../../styles/client/Legal.scss';
 
 const ClientView = () => {
   const [documents, setDocuments] = useState([]);
@@ -27,21 +27,23 @@ const ClientView = () => {
   }, []);
 
   return (
-    <div className="danSu-container">
-      <div className="head">
-        <div className="head-bg"></div>
-        <h1>Sở hữu <span>trí tuệ</span></h1>
+    <div className="container">
+      <div className="device">
+        <div className="head">
+          <div className="head-bg"></div>
+          <h1>Sở hữu <span>trí tuệ</span></h1>
+        </div>
+        <div className="body">
+          {documents.length > 0 ? (
+            documents.map((doc) => (
+              <div key={doc._id} class="container">
+                <div dangerouslySetInnerHTML={{ __html: doc.content }} />
+              </div>
+            ))
+          ) : (
+            <p>No documents available.</p>
+          )}
       </div>
-      <div className="body">
-        {documents.length > 0 ? (
-          documents.map((doc) => (
-            <div key={doc._id} class="container">
-              <div dangerouslySetInnerHTML={{ __html: doc.content }} />
-            </div>
-          ))
-        ) : (
-          <p>No documents available.</p>
-        )}
       </div>
       
     </div>

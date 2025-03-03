@@ -26,112 +26,123 @@ html, body {
   padding-left: 280px;
   padding-right: 250px;
   padding-top: 10px;
-
-  .form-title {
-      font-size: 65px;
-      text-align: center;
-      font-weight: bold;
-      margin-bottom: 20px;
-
-      margin-top: 0;
-  }
-
-  .form-group {
-      margin-bottom: 15px;
-
-      label {
-        // font-family: $Font;
-          font-size: 25px;
-          font-weight: 700;
-          display: block;
-          margin-bottom: 5px;
-      }
-
-      input, textarea {
-          width: 500px;
-          padding: 10px;
-          font-size: 18px;
-          font-weight: 300;
-        //   font-family: $Font;
-          border-radius: 30px;
-        //   font-family: $Font;
-          border: 1px solid #ccc;
-          outline: none;
-          box-sizing: border-box;
-          background-color: #f8f8f8;
-
-          &:focus {
-              border-color: #FF9900;
-          }
-      }
-
-      textarea {
-          height: 100px;
-          width: 100%;
-          font-size: 18px;
-          font-weight: 300;
-          padding: 10px;
-
-      }
-  }
-
-  .form-group-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 10px;
-      margin-bottom: 15px;
-
-      .col {
-          flex: 1;
-          // margin-right: 20px;
-          // padding-left: 20px;
-          label {
+  .register-form-device{
+    width: 1208px;
+    .form-title {
+        font-size: 65px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+  
+        margin-top: 0;
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+  
+        label {
+          // font-family: $Font;
             font-size: 25px;
             font-weight: 700;
-
-          }
-          input {
-              width: 300px;
-              font-size: 18px;
-              font-weight: 300;
-              padding: 8px;
-              border-radius: 30px;
-              border: none;
-          }
-      }
+            display: block;
+            margin-bottom: 5px;
+        }
+  
+        input, textarea {
+            width: 500px;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 300;
+          //   font-family: $Font;
+            border-radius: 30px;
+          //   font-family: $Font;
+            border: 1px solid #ccc;
+            outline: none;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+  
+            &:focus {
+                border-color: #FF9900;
+            }
+        }
+  
+        textarea {
+            height: 100px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 300;
+            padding: 10px;
+  
+        }
+    }
+  
+    .form-group-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 15px;
+  
+        .col {
+            flex: 1;
+            // margin-right: 20px;
+            // padding-left: 20px;
+            label {
+              font-size: 25px;
+              font-weight: 700;
+  
+            }
+            input {
+                width: 300px;
+                font-size: 18px;
+                font-weight: 300;
+                padding: 8px;
+                border-radius: 30px;
+                border: none;
+            }
+        }
+    }
+  
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        padding-bottom: 20px;
+        .submit-btn {
+            padding: 10px 50px;
+            font-size: 25px;
+            font-weight: 500;
+            font-family:"Roboto", serif;
+            background-color: $BC-yellow;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+  
+            cursor: pointer;
+  
+            &:hover {
+                background-color: $BC-gray;
+                color: $TC-yellow;
+            }
+        }
+    }
   }
 
-  .footer {
-      text-align: center;
-      margin-top: 20px;
-      padding-bottom: 20px;
-      .submit-btn {
-          padding: 10px 50px;
-          font-size: 25px;
-          font-weight: 500;
-          font-family:"Roboto", serif;
-          background-color: $BC-yellow;
-          color: #fff;
-          border: none;
-          border-radius: 30px;
-
-          cursor: pointer;
-
-          &:hover {
-              background-color: $BC-gray;
-              color: $TC-yellow;
-          }
-      }
-  }
 }
 
-@media (max-width: 768px) {
-  .register-form {
-      padding: 20px;
-      .form-group-row {
-          flex-direction: column;
-      }
-  }
-}
+// @media (max-width: 768px) {
+//   .register-form {
+//       padding: 20px;
+//       .form-group-row {
+//           flex-direction: column;
+//       }
+//   }
+// }
 
+@media only screen and (min-device-width: 1208px){
+    .register-form{
+        display: flex; 
+        align-items: center ;
+        justify-content: center;
+        
+    }
+}
 

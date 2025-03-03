@@ -1,0 +1,80 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font:  "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: font;
+    box-sizing: border-box;
+}
+
+.tintuc-detail{
+    background-color: $BC-white;
+    background-image: url('../../assets/back-ground.png');  
+    padding: 40px 80px 50px 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    .tintuc-device{
+        width: 100%; 
+        max-width: 1256px;
+        .container-card {
+            .title{
+                h1{
+                    font-size: 40px;
+                    padding: 0;
+                    margin: 0;
+                }
+                .time-post{
+                    display: flex;
+                    // margin-left: 30px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    gap: 7px;
+                    i{
+                        color: $BC-yellow;
+                        
+                    }
+                    .date{
+                        color:$TC-black;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+                
+            }
+            .body{
+                .img{
+                    img{
+                        width: 1000px;
+                        height: 300px; 
+                        border-radius: 30px;
+                        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                        margin : 0 30px 0 30px;
+                    }
+                }
+                .body-description{
+                    margin-top: 15px;
+                    width: auto;
+                    color: $TC-black;
+                    font-size: 20px;
+                    line-height: 1.6;
+                    font-weight: 500;
+                    text-align: justify;
+                    
+                    margin-bottom:20px;
+                
+                }
+            }
+        }
+    }
+}

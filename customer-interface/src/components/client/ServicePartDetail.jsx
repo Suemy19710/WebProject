@@ -3,6 +3,7 @@ import '../../styles/client/ServiceDetailPart.scss';
 const ServiceDetailPart = () => {
     return(
         <div className="serviceDetailPart-container">
+            <div className="serviceDetailPart-device">
             <div className="container-head">
                 <div className="container-head-bg"></div>
                 <h1>Dịch Vụ</h1>
@@ -45,6 +46,7 @@ const ServiceDetailPart = () => {
                     <h2>4. Kết luận</h2>
                     <p>Công ty Luật Kim Ngọc tự hào là người bạn đồng hành đáng tin cậy của doanh nghiệp trên hành trình phát triển. Với phương châm “Pháp lý vững chắc – cuộc sống bình yên”, chúng tôi luôn sẵn sàng hỗ trợ doanh nghiệp trong mọi vấn đề pháp lý, giúp doanh nghiệp vận hành thuận lợi, tuân thủ pháp luật và vươn xa trên thương trường. Hãy để chúng tôi cùng bạn xây dựng nền tảng pháp lý vững chắc cho sự thành công lâu dài.</p>
                 </div>
+            </div>
             </div>
         </div>
     )

@@ -11,23 +11,24 @@ html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    font-family: font;
+    font-family: $Font;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
-.serviceDetailPart-container{
+.container{
+    background-image: url('../../assets/back-ground.png');
+    width: 100%;
     background-color: $BC-white;
-    background-image: url('../../assets/back-ground.png');  
     display: flex;
-    width: 100%; 
     justify-content: center;
-    .serviceDetailPart-device{
+    .device{
         width: 100%; 
-        max-width:1256px ;
-        .container-head{
+        max-width: 1256px;
+        .head{
             position: relative; 
             width: 100%; 
             height: 200px;
-            .container-head-bg{
+            .head-bg{
                 background-image: url('../../assets/back-ground-4.jpeg');  
                 height: 100%;
                 filter: blur(2px);
@@ -46,25 +47,47 @@ html, body {
                 left: 80%;
                 filter: none;
                 transform: translate(-50%, -50%);
-                width: 500px;
+                width: 700px;
                 text-shadow: 1px 1px 2px $BC-blue, 0 0 25px black;
-               
+            }
+            span{
+                color: $TC-white;
+                font-size: 80px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 78px;
             }
         }
-        .container-body{
+        .body{
             background-color: $BC-white;
             background-image: url('../../assets/back-ground.png');  
-            padding: 40px 50px 50px 40px;
-            .body{
+            padding: 40px 100px 50px 100px;
+            .container{
                 background-color: $BC-white;
                 background-image: none;
-                padding: 10px 50px 50px 50px;
+                width: 950px;
+                padding: 40px 50px 50px 50px;
                 border-radius: 50px;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                h1{
-                    font-size: 50px;
+            }
+            .buttons{
+                .back{
+                    background-color: $BC-yellow;
+                    border: none;
+                    width: 100px;
+                    height: 30px;
+                    color: $BC-blue;
+                    margin-left: 35px;
+                    border-radius: 30px;
+                    cursor: pointer;
+    
+                    &:hover{
+                        background-color: $BC-blue;
+                        color:$TC-yellow;
+                    }
                 }
             }
-        }
+        }  
     }
+    
 }

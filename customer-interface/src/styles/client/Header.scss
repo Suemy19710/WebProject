@@ -15,7 +15,6 @@ html, body {
   
 .topnav {
     background-color: $BC-gray;
-    // overflow: hidden;
     padding: 0px 10px;
     height: 70px;
     display: flex;
@@ -117,96 +116,118 @@ html, body {
     }
 }
 
-// Mobile-specific styles
-@media (max-width: 768px) {
-    .topnav {
-        flex-direction: column;
-        padding: 10px;
+// @media (max-width: 768px) {
+//     .topnav {
+//         flex-direction: column;
+//         padding: 10px;
+        
+//         .topnav-left {
+//             img {
+//                 height: 60px;
+//             }
+//         }
 
-        .topnav-left {
-            img {
-                height: 60px;
-            }
-        }
+//         .topnav-right {
+//             width: 100%;
+//             display: block;
+//             a {
+//                 font-size: 18px;
+//                 padding: 8px 0;
+//                 text-align: left;
+//                 width: 100%;
+//                 box-sizing: border-box;
+//             }
 
-        .topnav-right {
-            width: 100%;
-            display: block;
-            a {
-                font-size: 18px;
-                padding: 8px 0;
-                text-align: left;
-                width: 100%;
-                box-sizing: border-box;
-            }
+//             .gioithieu {
+//                 width: 100%;
+//                 display: block;
+//                 .dropbtn {
+//                     width: 100%;
+//                     font-size: 18px;
+//                     padding: 10px;
+//                     text-align: left;
+//                 }
 
-            .gioithieu {
-                width: 100%;
-                display: block;
-                .dropbtn {
-                    width: 100%;
-                    font-size: 18px;
-                    padding: 10px;
-                    text-align: left;
-                }
+//                 .dropdown-content {
+//                     width: 100%;
+//                     margin-top: 10px;
+//                     position: relative !important;
+//                     a {
+//                         font-size: 18px;
+//                         padding: 12px 20px;
+//                     }
+//                 }
+//             }
+//         }
+//     }
 
-                .dropdown-content {
-                    width: 100%;
-                    margin-top: 10px;
-                    position: relative !important;
-                    a {
-                        font-size: 18px;
-                        padding: 12px 20px;
-                    }
-                }
-            }
-        }
+//     // Mobile sidebar with hamburger menu (from the image)
+//     .sidebar {
+//         position: fixed;
+//         top: 0;
+//         left: 0;
+//         width: 250px;
+//         height: 100%;
+//         background-color: $BC-gray;
+//         display: none; // Initially hidden
+//         z-index: 999999;
+//         transition: transform 0.3s ease-in-out;
+        
+//         &.active {
+//             display: block;
+//             transform: translateX(0);
+//         }
+
+//         .menu-item {
+//             padding: 15px;
+//             border-bottom: 1px solid $TC-white;
+//             color: $TC-white;
+//             font-size: 18px;
+//             text-decoration: none;
+//             display: block;
+
+//             &:hover {
+//                 background-color: $BC-blue;
+//             }
+//         }
+
+//         .submenu {
+//             display: none;
+//             padding-left: 20px;
+//             .submenu-item {
+//                 padding: 10px 0;
+//             }
+//         }
+
+//         .menu-item:hover .submenu {
+//             display: block;
+//         }
+//     }
+
+//     // Add hamburger menu button
+//     .hamburger-menu {
+//         display: block;
+//         cursor: pointer;
+//         font-size: 30px;
+//         color: $TC-white;
+//     }
+// }
+
+// // Toggle sidebar on hamburger menu click
+// @media (max-width: 768px) {
+//     .hamburger-menu {
+//         display: block;
+//         z-index: 10000;
+//     }
+// }
+@media only screen and (min-device-width: 1208px){
+    .topnav{
+        display: flex; 
+        align-items: center ;
+        justify-content: center;
     }
 }
 
-// Mobile landscape and smaller devices (portrait & landscape tablets)
-@media (max-width: 1024px) and (min-width: 769px) {
-    .topnav {
-        flex-direction: column;
-        padding: 10px;
+@media only screen and (max-device-width: 480px){
 
-        .topnav-left {
-            img {
-                height: 70px;
-            }
-        }
-
-        .topnav-right {
-            width: 100%;
-            display: block;
-            a {
-                font-size: 20px;
-                padding: 10px 0;
-                text-align: left;
-                width: 100%;
-                box-sizing: border-box;
-            }
-
-            .gioithieu {
-                width: 100%;
-                display: block;
-                .dropbtn {
-                    width: 100%;
-                    font-size: 20px;
-                    padding: 12px;
-                    text-align: left;
-                }
-
-                .dropdown-content {
-                    width: 100%;
-                    margin-top: 15px;
-                    position: relative !important;
-                    a {
-                        font-size: 20px;
-                        padding: 12px 20px;
-                    }
-                }
-            }
-        }
-    }
 }

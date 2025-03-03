@@ -10,98 +10,113 @@ $Font:  "Roboto", serif;
 
 .headerClass{
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     padding: 10px 80px;
     background-color: $BC-white;
     height: 20px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    .nav-left{
-        flex: 2; 
-        display: flex;
-        justify-content: normal;
-        align-items: center;
-        gap: 40px;
-        font-size: 14px;
-        color: $TC-black;
-        
-        .phone-contact,
-        .mail-contact,
-        .map-contact {
+    .top-navigation-device{
+        width: 1208px;
+        .nav-left{
+            flex: 2; 
             display: flex;
+            justify-content: center;
+            width: 1208px;
+            // justify-content: flex-start;
             align-items: center;
-            gap: 8px;
-
-            img{
-                width: 16px;
-                height: 16px;
+            gap: 40px;
+            font-size: 14px;
+            color: $TC-black;
+            
+            .phone-contact,
+            .mail-contact,
+            .map-contact {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+    
+                img{
+                    width: 16px;
+                    height: 16px;
+                }
+                .text{
+                    font-family: $Font;
+                    font-size: 10px;
+                    color: $TC-black;
+                }
             }
-            .text{
+            
+        }
+        .nav-right{
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            // width: fit-content;
+            // height: fit-content;
+            // position: relative;
+            .input-search{
+                height: 10px;
+                width: 0;
+                border-style: none;
+                padding: 10px;
+                font-size: 10px;
+                // letter-spacing: 2px;
+                outline: none;
+                border-radius: 30px;
+                transition: all 0.5s ease-in-out;
+                background-color: $BC-blue;
+                padding-right: 20px;
+                color: black;
+            }
+            .input-search::placeholder {
+                color: $TC-black;
                 font-family: $Font;
                 font-size: 10px;
-                color: $TC-black;
+                // letter-spacing: 2px;
+            }
+    
+            
+            .btn-search{
+                width: 30px;
+                height: 30px;
+                border-style: none;
+                font-size: 10px;
+                font-weight: bold;
+                outline: none;
+                cursor: pointer;
+                border-radius: 50%;
+                position: absolute;
+                right: 0px;
+                color:#ffffff ;
+                background-color:$BC-blue;
+                pointer-events: painted;  
+            }
+            .btn-search:focus ~ .input-search{
+                width: 250px;
+                border-radius: 30px;
+                background-color: $BC-gray;
+                border-bottom:1px solid rgba(255,255,255,.5);
+                transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
+            }
+            .input-search:focus{
+                width: 300px;
+                border-radius: 30px;
+                background-color: $BC-gray;
+                border-bottom:1px solid rgba(255,255,255,.5);
+                transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
             }
         }
-        
     }
-    .nav-right{
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        width: fit-content;
-        height: fit-content;
-        position: relative;
-        .input-search{
-            height: 10px;
-            width: 0;
-            border-style: none;
-            padding: 10px;
-            font-size: 10px;
-            // letter-spacing: 2px;
-            outline: none;
-            border-radius: 30px;
-            transition: all 0.5s ease-in-out;
-            background-color: $BC-blue;
-            padding-right: 20px;
-            color: black;
-        }
-        .input-search::placeholder {
-            color: $TC-black;
-            font-family: $Font;
-            font-size: 10px;
-            // letter-spacing: 2px;
-        }
 
-        
-        .btn-search{
-            width: 30px;
-            height: 30px;
-            border-style: none;
-            font-size: 10px;
-            font-weight: bold;
-            outline: none;
-            cursor: pointer;
-            border-radius: 50%;
-            position: absolute;
-            right: 0px;
-            color:#ffffff ;
-            background-color:$BC-blue;
-            pointer-events: painted;  
-        }
-        .btn-search:focus ~ .input-search{
-            width: 250px;
-            border-radius: 30px;
-            background-color: $BC-gray;
-            border-bottom:1px solid rgba(255,255,255,.5);
-            transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-        }
-        .input-search:focus{
-            width: 300px;
-            border-radius: 30px;
-            background-color: $BC-gray;
-            border-bottom:1px solid rgba(255,255,255,.5);
-            transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-        }
+}
+
+@media only screen and (min-device-width: 1208px){
+    .headerClass{
+        display: flex; 
+        align-items: center ;
+        justify-content: center ;
+
     }
 }

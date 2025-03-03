@@ -37,6 +37,7 @@ const News = () => {
     };
         return (
             <div className="news-container">
+                <div className="news-device">
                 <div className="head">
                     <h1>Tin tức <span>& Sự kiện</span></h1>
                 </div>
@@ -52,26 +53,25 @@ const News = () => {
                                 // console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
                                 return (
                                     <div key={post._id}>
-                                        <div className="news-card">
-                                    <div className="news-card-head">
-                                        {post.image ? (
-                                            <img src={`http://localhost:5000/uploads/${post.image}`} alt="event"/>
-                                        ) : (
-                                            <img src={event} alt="event"/>
-                                        )}
-                                    </div>
-                                    <div className="news-card-body">
-                                        <div className="time-post">
-                                            <i className="fa-regular fa-clock"></i>
-                                            <div className="date"><em>{formattedDate}</em></div>
+                                        <div className="news-card">                                                <div className="news-card-head">
+                                                    {post.image ? (
+                                                        <img src={`http://localhost:5000/uploads/${post.image}`} alt="event"/>
+                                                    ) : (
+                                                        <img src={event} alt="event"/>
+                                                    )}
+                                                </div>
+                                                <div className="news-card-body">
+                                                    <div className="time-post">
+                                                        <i className="fa-regular fa-clock"></i>
+                                                        <div className="date"><em>{formattedDate}</em></div>
+                                                    </div>
+                                                    <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
+                                                    <div className="news-card-body-description">{truncateText(post.content, 100)}</div>
+                                                </div>
+                                                <div className="news-card-footer">
+                                                    <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>
+                                                </div>
                                         </div>
-                                        <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
-                                        <div className="news-card-body-description">{truncateText(post.content, 100)}</div>
-                                    </div>
-                                    <div className="news-card-footer">
-                                        <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>
-                                    </div>
-                                </div>
                                 </div>
                                 )
                             })
@@ -84,6 +84,8 @@ const News = () => {
                 <div className="footer">
                     <button className="footer-view-all" onClick={handleViewMore}>Xem tất cả</button>
                 </div>
+                </div>
+                
             </div>
     );
 }

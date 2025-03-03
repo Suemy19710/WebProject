@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/client/DanSu.scss';
+import '../../styles/client/Legal.scss';
 
 const ClientView = () => {
   const [documents, setDocuments] = useState([]);
@@ -25,8 +25,9 @@ const ClientView = () => {
   }, []);
 
   return (
-    <div className="danSu-container">
-    <div className="head">
+    <div className="container">
+      <div className="device">
+      <div className="head">
       <div className="head-bg"></div>
       <h1>Hành Chính</h1>
     </div>
@@ -41,6 +42,7 @@ const ClientView = () => {
         <p>No documents available.</p>
       )}
     </div>
+      </div>
     
   </div>
   );

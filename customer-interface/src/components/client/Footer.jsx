@@ -7,6 +7,7 @@ import '../../styles/client/Footer.scss';
 const Footer = ()=>{
     return(
         <div className="footer-container">
+            <div className="footer-device">
             <div className="footer-right">
                 <img src={logo}/>
             </div>
@@ -23,6 +24,7 @@ const Footer = ()=>{
                     <a href="#" className="social-icon linkedin">LinkedIn</a>
                     <a href="#" className="social-icon youtube">YouTube</a>
                 </div>
+            </div>
             </div>
     
         </div>

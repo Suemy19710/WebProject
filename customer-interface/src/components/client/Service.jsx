@@ -21,6 +21,7 @@ const Service = () => {
     }, [location]);
         return(
             <div className="service-container">
+                <div className="service-device">
                 <div className="head">
                         <h>Dịch vụ <span>tiêu biểu</span></h>
                 </div>
@@ -161,6 +162,7 @@ const Service = () => {
                 </div>
                 <div className="footer">
                         <button className="footer-view-all" onClick={handleViewMore}>Xem tất cả</button>
+                </div>
                 </div>
             </div>
         )

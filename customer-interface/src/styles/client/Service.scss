@@ -18,118 +18,131 @@ html, body {
     background-color: $BC-white;
     background-image: url('../../assets/back-ground.png');
     padding: 20px;
-    width: 1216.5px;
-    .head{
+    // width: 1216.5px;
+    .service-device{
         display: flex;
-        justify-content: flex-end;
-        h{
-            color: $TC-yellow;
-            font-size: 70px;
-            padding-bottom: 10px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 78px;
-        }
-        span {
-            color: #1E1E1E;
-            font-size: 75px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 78px;
-        }
-    }
-    .body{
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(4, auto);        
-        justify-content: center;
-        padding-left: 30px;
-        padding-top: 20px;
-
-
-        .service-card{
-            background-color: $BC-blue;
-            border-radius: 20px;
-            overflow: hidden;
-            width: 200px;
-            height: auto;
-            margin: 0;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            transition: transform 0.2s ease;
-            padding: 10px 20px 10px 20px;
-            margin-bottom: 20px;
-            .service-card-head{
-                display: flex;
-                flex-direction: column;
-                margin-top: 10px;
-                .card-logo{
-                    height: 20px;
-                    background-color: $BC-white;
-                    width: 35px;
-                    padding: 10px 20px 25px 20px;
-                    border-radius: 50px;
-                    i{
-                        color: $BC-blue;
-                        font-size: 35px;
-                    }
-                }
-                h1{
-                    color: $TC-white;
-                    font-size: 20px;
-                    font-style: normal;
-                    font-weight: 900;
-                    line-height: normal;
-                }
-            }
-            .service-card-body{
-                color:$TC-white;
-                line-height: 1.4;
-                font-size: 13px;
-                font-style: normal;
-                font-weight: 500;
-            }
-            .service-card-footer{
-                display: flex;
-                justify-content: flex-end;
-                padding-bottom: 10px;
-                padding-right: 5px;
-                button{
-                    border: none;
-                    color: $TC-yellow;
-                    font-size: 15px;
-                    background-color: $BC-blue;
-                    font-style: normal;
-                    font-weight: 700;
-                    line-height: normal;
-                    &:hover{
-                        background-color: $BC-blue;
-                        color: $BC-gray;
-                    }
-                }
-            }
-        }
-    }
-    .footer{
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        padding-bottom: 10px;
-        .footer-view-all{
+        flex-direction: column;
+        width: 1208px;
+        .head{
             display: flex;
-            width: 300px;
-            height: 40px;
-            font-size: 20px;
-            color: $TC-white;
-            justify-content: center;
-            align-items: center;
-            background-color: $BC-yellow;
-
-            border-radius: 50px;
-            border: none;
-            &:hover{
-                background-color: $BC-blue;
-                color: $BC-gray;
+            justify-content: flex-end;
+            h{
+                color: $TC-yellow;
+                font-size: 70px;
+                padding-bottom: 10px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 78px;
+            }
+            span {
+                color: #1E1E1E;
+                font-size: 75px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 78px;
             }
         }
+        .body{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, auto);        
+            justify-content: center;
+            padding-left: 30px;
+            padding-top: 20px;
+    
+    
+            .service-card{
+                background-color: $BC-blue;
+                border-radius: 20px;
+                overflow: hidden;
+                width: 200px;
+                height: auto;
+                margin: 0;
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                transition: transform 0.2s ease;
+                padding: 10px 20px 10px 20px;
+                margin-bottom: 20px;
+                .service-card-head{
+                    display: flex;
+                    flex-direction: column;
+                    margin-top: 10px;
+                    .card-logo{
+                        height: 20px;
+                        background-color: $BC-white;
+                        width: 35px;
+                        padding: 10px 20px 25px 20px;
+                        border-radius: 50px;
+                        i{
+                            color: $BC-blue;
+                            font-size: 35px;
+                        }
+                    }
+                    h1{
+                        color: $TC-white;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 900;
+                        line-height: normal;
+                    }
+                }
+                .service-card-body{
+                    color:$TC-white;
+                    line-height: 1.4;
+                    font-size: 13px;
+                    font-style: normal;
+                    font-weight: 500;
+                }
+                .service-card-footer{
+                    display: flex;
+                    justify-content: flex-end;
+                    padding-bottom: 10px;
+                    padding-right: 5px;
+                    button{
+                        border: none;
+                        color: $TC-yellow;
+                        font-size: 15px;
+                        background-color: $BC-blue;
+                        font-style: normal;
+                        font-weight: 700;
+                        line-height: normal;
+                        &:hover{
+                            background-color: $BC-blue;
+                            color: $BC-gray;
+                        }
+                    }
+                }
+            }
+        }
+        .footer{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            padding-bottom: 10px;
+            .footer-view-all{
+                display: flex;
+                width: 300px;
+                height: 40px;
+                font-size: 20px;
+                color: $TC-white;
+                justify-content: center;
+                align-items: center;
+                background-color: $BC-yellow;
+    
+                border-radius: 50px;
+                border: none;
+                &:hover{
+                    background-color: $BC-blue;
+                    color: $BC-gray;
+                }
+            }
+        }
+    }
+}
+@media only screen and (min-device-width: 1208px){
+    .service-container{
+        display: flex; 
+        align-items: center ;
+        justify-content: center;
+        
     }
 }

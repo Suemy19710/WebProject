@@ -36,6 +36,7 @@
         }
         return (
           <div className="register-form">
+            <div className="register-form-device">
             <h2 className="form-title">Đăng ký tư vấn</h2>
             <form onSubmit={handleSubmit}>
                 <div className="form-group">
@@ -84,6 +85,8 @@
                     <button type="submit" className="submit-btn">Đăng ký</button>
                 </div>
             </form>
+            </div>
+           
             </div>  
         );
       }

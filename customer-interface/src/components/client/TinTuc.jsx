@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import '../../styles/client/SmallPost.scss';
+import '../../styles/client/TinTuc.scss';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import event from  '../../assets/event.png';
@@ -31,6 +31,7 @@ const TinTuc = () => {
     }, [])
     return(
         <div className="tinTuc-container">
+            <div className="tinTuc-device">
             <div className="head">
                 <div className="head-bg"></div>
                     <h1>Tin tức <span> & Sự kiện</span></h1>
@@ -79,6 +80,8 @@ const TinTuc = () => {
                     <p>No blog posts available.</p>
                 )}
             </div>
+            </div>
+          
         </div>
     );
 }

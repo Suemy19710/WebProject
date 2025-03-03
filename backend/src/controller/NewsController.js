@@ -36,37 +36,6 @@ const createNews = async (req, res) => {
     }
 };
 
-// const createNews = async (req, res) => {
-//     if (!req.body.title || !req.body.slug || !req.files['content'] || !req.files['image']) {
-//         return res.status(400).json({ error: 'Title, slug, content file, and image are required.' });
-//     }
-    
-//     const slug = req.body.slug || req.body.title.toLowerCase().replace(/\s+/g, '-');
-//     const fileBuffer = req.files['content'][0].path;
-//     const image = req.files['image'][0].filename;
-//     try {
-//         const result = await mammoth.convertToHtml({ buffer: fileBuffer });
-//         const content = result.value; 
-
-//         const newNews = new NewsModel({
-//             title: req.body.title,
-//             slug: slug,
-//             content: content,
-//             image: image,
-//         });
-
-//         const savedNews = await newNews.save();
-//         res.json({
-//             message: 'News created successfully!',
-//             news: savedNews,
-//         });
-       
-//     } catch (error) {
-//         console.error('Error creating news:', error);
-//         res.status(500).json({ error: 'Server error' });
-//     }
-// };
-
 
 
 

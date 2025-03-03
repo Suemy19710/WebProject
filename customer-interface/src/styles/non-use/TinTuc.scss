@@ -5,7 +5,7 @@ $BC-yellow: #DAA520;
 $TC-black: #000;
 $TC-yellow: #DAA520;
 $TC-white:#FFF;
-$Font: "Roboto", serif;
+$Font:  "Roboto", serif;
 
 html, body {
     margin: 0;
@@ -14,28 +14,23 @@ html, body {
     font-family: font;
     box-sizing: border-box;
 }
-.news-container{
+.body-page {
     background-color: $BC-gray;
-    .head{
-        h1{
-            color: $BC-blue; 
-            font-size: 75px;
-            padding-bottom: 10px;
+    background-image: none;
+    margin: 0;
+    .body-head{
+        background-color: $BC-blue;
+        // height: 80px;
+        p{
+            color: $BC-gray; /* Ensure this variable is defined */
+            font-size: 70px;
+            padding-bottom: 30px;
+            padding-top: 30px;
+            padding-left: 20px;
             font-style: normal;
             font-weight: 600;
             line-height: 78px;
-            margin:0;
-            padding-left: 30px;
-            padding-top: 10px;
-            z-index: 1;
- 
-        }
-        span{
-            color: #1E1E1E;
-            font-size: 75px;
-            font-style: normal;
-            font-weight: 600;
-            line-height: 78px;
+            margin: 0;
         }
     }
     .body{
@@ -43,13 +38,13 @@ html, body {
         // flex-direction: row;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(1, auto);
+        grid-template-rows: repeat(4, auto);
         gap: 30px;
-        width: 100%;
-        // height: auto;
+        padding-left: 20px;
         padding-top: 20px;
         justify-content: center;
-        align-items: flex-start;
+        background-color: $BC-blue;
+        background-image: url('../../assets/back-ground.png');        
         .news-card{
             background-color: $BC-white;
             border: 1px solid $BC-white;
@@ -59,8 +54,9 @@ html, body {
             transition: transform 0.2s ease;
             padding: 5px 5px 5px;
             width: 250px;
-            height: 300px;    
-            margin-left:13px;  
+            // &:hover {
+            //     transform: translateY(-5px);
+            // }        
             .news-card-head{
                 height: 150px ;
                 display: flex;
@@ -73,10 +69,10 @@ html, body {
                 }
             }
             .news-card-body{
-
                 .time-post{
                     display: flex;
                     justify-content: flex-end;
+
                     margin-right: 10px;
                     gap: 7px;
                     i{
@@ -94,11 +90,6 @@ html, body {
                     line-height: normal;
                 }
                 .news-card-body-description{
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3; /* limit to 3 lines*/
-                    -webkit-box-orient: vertical;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
                     padding-top: 5px;
                     color:$TC-black;
                     font-size: 13px;
@@ -119,49 +110,11 @@ html, body {
                     background-color: $BC-white;
                     font-style: normal;
                     font-weight: 700;
-                    line-height: normal;                    
+                    line-height: normal;
                     cursor: pointer;
                 }
+
             }
         }
-    }
-    .footer{
-        display: flex;
-        justify-content: center;
-        padding-top: 20px;
-        padding-bottom: 10px;
-        .footer-view-all{
-            display: flex;
-            width: 300px;
-            height: 40px;
-            font-size: 20px;
-            color: $TC-white;
-            justify-content: center;
-            align-items: center;
-            background-color: $BC-yellow;
-            background-image:  url('../../assets/back-ground.png');
-
-            border-radius: 50px;
-            border: none;
-            cursor: pointer;
-
-            &:hover{
-                background-color: $BC-blue;
-                color: $BC-gray;
-                background-image:  url('../../assets/back-ground.png');
-            }
-
-        }
-    }
-
-}
-
-@media only screen and (min-device-width: 1208px){
-    .news-container{
-        display: flex;
-        flex-direction: column; 
-        align-items: center ;
-        justify-content: center;
-
     }
 }

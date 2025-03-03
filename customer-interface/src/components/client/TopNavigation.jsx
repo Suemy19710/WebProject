@@ -11,7 +11,8 @@ import React from 'react';
          return (
              <header>
                  <nav className="headerClass">
-                     <div className="nav-left">
+                    <div className="top-navigation-device">
+                    <div className="nav-left">
                          <span className="phone-contact">
                              <img src={phone} alt="Phone Icon"/>
                              <span className="text">0912345678</span>
@@ -25,10 +26,11 @@ import React from 'react';
                              <span className="text">luatkimngoc</span>
                          </span>  
                      </div>
-                     <div className="nav-right">
+                     {/* <div className="nav-right">
                          <button className="btn-search"><i class="fas fa-search"></i></button>
                          <input className="input-search" type="text" placeholder="Từ khóa tìm kiếm.."/>
-                     </div>
+                     </div> */}
+                    </div>
                  </nav>
              </header>
          )
