@@ -14,10 +14,10 @@ const ClientView = () => {
       if (!response.ok) {
         throw new Error('Failed to fetch documents');
       }
-        console.log('Response: ', response);
+        // console.log('Response: ', response);
         const data = await response.json();
         setDocuments(data); 
-        console.log('Response: ', data);
+        // console.log('Response: ', data);
       } catch (error) {
         console.error('Error fetching documents:', error);
       }

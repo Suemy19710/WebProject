@@ -10,7 +10,7 @@ const Header = () =>  {
     const handleLogo = () => {
         navigate('/');
     };
-    console.log("DropDownBool:", dropdownOpen);
+    // console.log("DropDownBool:", dropdownOpen);
     const toggleDropDown = () => {
         setDropdownOpen(prevState => !prevState);
     };

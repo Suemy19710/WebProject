@@ -22,11 +22,11 @@ const News = () => {
     useEffect(() => {
         fetch('http://localhost:5000/api/tin-tuc')
             .then((res) => {
-                console.log("Response Status:", res.status); // Check if status is OK
+                // console.log("Response Status:", res.status); // Check if status is OK
                 return res.json();
             })
             .then((data) => {
-                console.log("Data received:", data); // Check if data is being received
+                // console.log("Data received:", data); // Check if data is being received
                 setNews(data);
             })
             .catch((err) => console.log('Error fetching post: ', err));
@@ -49,7 +49,7 @@ const News = () => {
                                     ? `${String(postDate.getDate()).padStart(2, '0')}/${String(postDate.getMonth() + 1).padStart(2, '0')}/${postDate.getFullYear()}`
                                     : 'Invalid date';  
                                 
-                                console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
+                                // console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
                                 return (
                                     <div key={post._id}>
                                         <div className="news-card">

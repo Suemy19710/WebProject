@@ -4,8 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import event from  '../../assets/event.png';
 
-// const Blog = require('../../../../backend/src/models/BlogModel');
-
 const TinTuc = () => {
     const[posts, setPosts] = useState([]);
     const truncateText = (text, length) => {
@@ -22,11 +20,11 @@ const TinTuc = () => {
     useEffect(() => {
         fetch('http://localhost:5000/api/tin-tuc')
             .then((res) => {
-                console.log("Response Status:", res.status);
+                // console.log("Response Status:", res.status);
                 return res.json();
             })
             .then((data) => {
-                console.log("Data received:", data); // Check if data is being received
+                // console.log("Data received:", data); // Check if data is being received
                 setPosts(data);
             })
             .catch((err) => console.log('Error fetching post: ', err));
@@ -45,7 +43,7 @@ const TinTuc = () => {
                             ? `${String(postDate.getDate()).padStart(2, '0')}/${String(postDate.getMonth() + 1).padStart(2, '0')}/${postDate.getFullYear()}`
                             : 'Invalid date';  
                         
-                        console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
+                        // console.log("Parsed Date:", postDate, "Formatted Date:", formattedDate); // Debugging
                         return (
                             <div key={post._id}>
                                 <div className="news-card">

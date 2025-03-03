@@ -11,13 +11,9 @@ const createSlugTitle = (title) => {
 
 const NewsSchema = new mongoose.Schema({
     content: {type:String}, 
-    // image: {
-    //     data: Buffer, 
-    //     contentType: String
-    // }, 
     image: {type: String}, 
     title: {type: String, required: true},
-    slug: {type: String, required: true, unique: true}, 
+    slug: {type: String, required: true}, 
     createdAt: {type: Date, default: Date.now}
 }); 
 

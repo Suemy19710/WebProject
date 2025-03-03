@@ -18,14 +18,11 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage });
 
 const router = express.Router();
-// router.post('/', upload.single('image'), NewsController.createNews);
 router.post('/', upload.fields([
     {name: 'content', maxCount: 1}, 
     {name: 'image', maxCount: 1}
 ]), NewsController.createNews);
 router.get('/', NewsController.getAllNews);
-// router.get('/:id', NewsController.getNewsById);
-// router.get('/:id', NewsController.getNewsBySlug);
 router.delete('/:id', NewsController.deleteNewsById);
 router.get('/:slug', NewsController.getNewsBySlug);
 

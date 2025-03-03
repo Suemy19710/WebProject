@@ -116,3 +116,97 @@ html, body {
     }
     }
 }
+
+// Mobile-specific styles
+@media (max-width: 768px) {
+    .topnav {
+        flex-direction: column;
+        padding: 10px;
+
+        .topnav-left {
+            img {
+                height: 60px;
+            }
+        }
+
+        .topnav-right {
+            width: 100%;
+            display: block;
+            a {
+                font-size: 18px;
+                padding: 8px 0;
+                text-align: left;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .gioithieu {
+                width: 100%;
+                display: block;
+                .dropbtn {
+                    width: 100%;
+                    font-size: 18px;
+                    padding: 10px;
+                    text-align: left;
+                }
+
+                .dropdown-content {
+                    width: 100%;
+                    margin-top: 10px;
+                    position: relative !important;
+                    a {
+                        font-size: 18px;
+                        padding: 12px 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile landscape and smaller devices (portrait & landscape tablets)
+@media (max-width: 1024px) and (min-width: 769px) {
+    .topnav {
+        flex-direction: column;
+        padding: 10px;
+
+        .topnav-left {
+            img {
+                height: 70px;
+            }
+        }
+
+        .topnav-right {
+            width: 100%;
+            display: block;
+            a {
+                font-size: 20px;
+                padding: 10px 0;
+                text-align: left;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .gioithieu {
+                width: 100%;
+                display: block;
+                .dropbtn {
+                    width: 100%;
+                    font-size: 20px;
+                    padding: 12px;
+                    text-align: left;
+                }
+
+                .dropdown-content {
+                    width: 100%;
+                    margin-top: 15px;
+                    position: relative !important;
+                    a {
+                        font-size: 20px;
+                        padding: 12px 20px;
+                    }
+                }
+            }
+        }
+    }
+}

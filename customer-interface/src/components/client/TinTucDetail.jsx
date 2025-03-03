@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
-import '../../styles/client/TinTucCard.scss';
 import { createSlugTitle } from '../../utils/slugUtils';
 import event from  '../../assets/event.png';
+import '../../styles/client/TinTucCard.scss';
 
 
 const TinTucDetail = () => {
@@ -18,15 +18,12 @@ const TinTucDetail = () => {
 
         fetch(`http://localhost:5000/api/tin-tuc?slug=${slugifiedTitle}`)
             .then((res) => {
-                console.log("Response Status:", res.status);
                 return res.json();
             })
-            .then((data) => {
-                console.log("Fetched data:", data); 
-        
+            .then((data) => {        
                 if (Array.isArray(data) && data.length > 0) {
-                    console.log("DATA");
-                    console.log(data);
+                    // console.log("DATA");
+                    // console.log(data);
                     const correctedPost = data.find((item) => item.slug === slugifiedTitle);
                     console.log("Post found using find():", correctedPost);
                     setPost(correctedPost || data[0]);
@@ -62,7 +59,7 @@ const TinTucDetail = () => {
 
     
     return (
-        <div className="post-detail">
+        <div className="tintuc-detail">
             {post ? (
                 <div className="container-card">
                     <div className="title">
@@ -82,6 +79,7 @@ const TinTucDetail = () => {
                         </div>
                         <div className="body-description">
                             {post.content}
+                        
                         </div>
                     </div>
                     

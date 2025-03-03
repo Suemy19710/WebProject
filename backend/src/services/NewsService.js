@@ -1,33 +1,24 @@
 const mammoth = require('mammoth');
 const NewsModel = require('../models/NewsModel');
 
-const createNews = async(title, contentBuffer, imageFile) => {
-    try{
-        const result = await mammoth.convertToHtml({buffer: contentBuffer });
-        const content = result.value; 
-
-        // if image file provided
-        let imageData = null;
-        if (imageFile) {
-            imageData = {
-                data: imageFile.buffer, 
-                contentType: imageFile.mimetype
-            };
-        }
-
-        const newDocument = new NewsModel({
-            title, 
-            content, 
-            image: imageData, 
-            imageName: imageFile ? imageFile.originalname: null
+const createNews = async (req, res) => {
+    try {
+        const result = await mammoth.convertToHtml({ buffer: fileBuffer});
+        const content = result.value;
+        const newNews = new NewsModel({
+            title: req.body.title,
+            slug: slug,
+            content: content,
+            image: req.files['image'][0].filename,
         });
-        const savedDocument = await newDocument.save();
-        return savedDocument;
+
+        const postNews = await newNews.save();
+
+        return postNews;
+    } catch (error) {
+        console.error('Error creating news:', error);
+        res.status(500).json({ error: 'Server error' });
     }
-    catch(error) {
-        throw new Error('Error parsing file');
-    }
-    
 };
 const getAllNews = async() => {
     try{
