@@ -49,52 +49,125 @@ html, body {
         padding-bottom: 20px;
         justify-content: center;
         align-items: flex-start;
-        .luatSu-card{
+        // .luatSu-card{
+        //     background-color: $BC-white;
+        //     border-radius: 8px;
+        //     overflow: hidden;
+        //     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+        //     transition: transform 0.2s ease;
+        //     // padding: 5px 5px 5px;
+        //     width: 250px;
+        //     height: auto;   
+        //     cursor: pointer; 
+        //     .luatSu-card-head{
+        //         img{
+        //             width: 100%;
+        //             height: 250px; 
+        //             object-fit: cover;
+        //         }
+        //     }
+        //     .luatSu-card-body{
+        //         padding-top: 10px;
+        //         padding-left: 12px;
+        //         padding-bottom: 10px;
+        //         .luatSu-card-body-name{
+        //             font-size: 22px;
+        //             color: $BC-blue;
+        //             font-weight: 900;
+        //             font-style: 20px;
+        //             padding-bottom: 3px;
+        //             &:hover{
+        //                 color: $TC-yellow;
+        //             }
+
+        //         }.luatSu-card-body-title{
+        //             font-size: 17px;
+        //             color: $TC-black;
+        //             font-weight: 900;
+        //             font-style: 20px;
+        //             padding-bottom: 3px;
+
+        //         }
+        //         .luatSu-card-body-description{
+        //             color:$TC-black;
+        //             font-size: 13px;
+        //             font-style: normal;
+        //             font-weight: 500;
+        //             line-height: normal;
+
+        //         }
+        //     }
+        // }
+        .luatSu-card {
             background-color: $BC-white;
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-            // padding: 5px 5px 5px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease; /* Expanded transition */
             width: 250px;
             height: auto;   
             cursor: pointer; 
-            .luatSu-card-head{
-                img{
+        
+            &:hover {
+                transform: scale(1.03); /* Slightly scale up the card */
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+                opacity: 0.97; /* Subtle opacity change for smoothness */
+        
+                .luatSu-card-head {
+                    img {
+                        transform: scale(1.05); /* Slightly zoom the image */
+                        transition: transform 0.3s ease; /* Smooth image zoom */
+                    }
+                }
+        
+                .luatSu-card-body {
+                    .luatSu-card-body-name {
+                        color: $TC-yellow; /* Change name color on hover (already defined in your CSS) */
+                        transition: color 0.2s ease; /* Smooth color transition */
+                    }
+                }
+            }
+        
+            .luatSu-card-head {
+                img {
                     width: 100%;
                     height: 250px; 
                     object-fit: cover;
+                    transition: transform 0.3s ease; /* Ensure the image has its own transition */
                 }
             }
-            .luatSu-card-body{
+        
+            .luatSu-card-body {
                 padding-top: 10px;
                 padding-left: 12px;
                 padding-bottom: 10px;
-                .luatSu-card-body-name{
+        
+                .luatSu-card-body-name {
                     font-size: 22px;
                     color: $BC-blue;
                     font-weight: 900;
                     font-style: 20px;
                     padding-bottom: 3px;
-                    &:hover{
-                        color: $TC-yellow;
+                    transition: color 0.2s ease; /* Add transition for smooth color change */
+                    &:hover {
+                        color: $TC-yellow; /* Already defined, kept for clarity */
                     }
-
-                }.luatSu-card-body-title{
+                }
+        
+                .luatSu-card-body-title {
                     font-size: 17px;
                     color: $TC-black;
                     font-weight: 900;
                     font-style: 20px;
                     padding-bottom: 3px;
-
                 }
-                .luatSu-card-body-description{
-                    color:$TC-black;
+        
+                .luatSu-card-body-description {
+                    color: $TC-black;
                     font-size: 13px;
                     font-style: normal;
                     font-weight: 500;
                     line-height: normal;
-
                 }
             }
         }

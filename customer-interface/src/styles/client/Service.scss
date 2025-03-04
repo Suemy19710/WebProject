@@ -51,7 +51,69 @@ html, body {
             padding-top: 20px;
     
     
-            .service-card{
+            // .service-card{
+            //     background-color: $BC-blue;
+            //     border-radius: 20px;
+            //     overflow: hidden;
+            //     width: 200px;
+            //     height: auto;
+            //     margin: 0;
+            //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            //     transition: transform 0.2s ease;
+            //     padding: 10px 20px 10px 20px;
+            //     margin-bottom: 20px;
+            //     .service-card-head{
+            //         display: flex;
+            //         flex-direction: column;
+            //         margin-top: 10px;
+            //         .card-logo{
+            //             height: 20px;
+            //             background-color: $BC-white;
+            //             width: 35px;
+            //             padding: 10px 20px 25px 20px;
+            //             border-radius: 50px;
+            //             i{
+            //                 color: $BC-blue;
+            //                 font-size: 35px;
+            //             }
+            //         }
+            //         h1{
+            //             color: $TC-white;
+            //             font-size: 20px;
+            //             font-style: normal;
+            //             font-weight: 900;
+            //             line-height: normal;
+            //         }
+            //     }
+            //     .service-card-body{
+            //         color:$TC-white;
+            //         line-height: 1.4;
+            //         font-size: 13px;
+            //         font-style: normal;
+            //         font-weight: 500;
+            //     }
+            //     .service-card-footer{
+            //         display: flex;
+            //         justify-content: flex-end;
+            //         padding-bottom: 10px;
+            //         padding-right: 5px;
+            //         button{
+            //             border: none;
+            //             color: $TC-yellow;
+            //             font-size: 15px;
+            //             background-color: $BC-blue;
+            //             font-style: normal;
+            //             font-weight: 700;
+            //             line-height: normal;
+            //             cursor: pointer;
+            //             &:hover{
+            //                 background-color: $BC-blue;
+            //                 color: $BC-gray;
+            //             }
+            //         }
+            //     }
+            // }
+            .service-card {
                 background-color: $BC-blue;
                 border-radius: 20px;
                 overflow: hidden;
@@ -59,25 +121,35 @@ html, body {
                 height: auto;
                 margin: 0;
                 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-                transition: transform 0.2s ease;
+                transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease; /* Expanded transition */
                 padding: 10px 20px 10px 20px;
                 margin-bottom: 20px;
-                .service-card-head{
+            
+                &:hover {
+                    transform: scale(1.05); /* Slightly scale up the card */
+                    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3), 0 12px 40px 0 rgba(0, 0, 0, 0.25); /* Increase shadow for depth */
+                    opacity: 0.95; /* Subtle opacity change for smoothness */
+                }
+            
+                .service-card-head {
                     display: flex;
                     flex-direction: column;
                     margin-top: 10px;
-                    .card-logo{
+            
+                    .card-logo {
                         height: 20px;
                         background-color: $BC-white;
                         width: 35px;
                         padding: 10px 20px 25px 20px;
                         border-radius: 50px;
-                        i{
+            
+                        i {
                             color: $BC-blue;
                             font-size: 35px;
                         }
                     }
-                    h1{
+            
+                    h1 {
                         color: $TC-white;
                         font-size: 20px;
                         font-style: normal;
@@ -85,19 +157,22 @@ html, body {
                         line-height: normal;
                     }
                 }
-                .service-card-body{
-                    color:$TC-white;
+            
+                .service-card-body {
+                    color: $TC-white;
                     line-height: 1.4;
                     font-size: 13px;
                     font-style: normal;
                     font-weight: 500;
                 }
-                .service-card-footer{
+            
+                .service-card-footer {
                     display: flex;
                     justify-content: flex-end;
                     padding-bottom: 10px;
                     padding-right: 5px;
-                    button{
+            
+                    button {
                         border: none;
                         color: $TC-yellow;
                         font-size: 15px;
@@ -105,7 +180,9 @@ html, body {
                         font-style: normal;
                         font-weight: 700;
                         line-height: normal;
-                        &:hover{
+                        cursor: pointer;
+            
+                        &:hover {
                             background-color: $BC-blue;
                             color: $BC-gray;
                         }
@@ -130,6 +207,7 @@ html, body {
     
                 border-radius: 50px;
                 border: none;
+                cursor: pointer;
                 &:hover{
                     background-color: $BC-blue;
                     color: $BC-gray;

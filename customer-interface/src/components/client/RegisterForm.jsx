@@ -23,7 +23,9 @@
                     headers: {'Content-Type' : 'application/json'}, 
                     body: JSON.stringify(formData), 
                 });
+                console.log('Respone: ', response);
                 const result = await response.json();
+                console.log('Result: ', result);
                 if(response.ok) {
                     alert("Đăng ký thành công!");
                 } else {

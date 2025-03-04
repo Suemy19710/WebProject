@@ -69,7 +69,7 @@ const TinTuc = () => {
                                 <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
                                 {/* <div className="news-card-body-description">{truncateText(post.content, 100)}</div> */}
                                 <div className="news-card-body-description">
-                                    <div dangerouslySetInnerHTML={{ __html: truncateText(post.content, 100)}}></div>
+                                    <div dangerouslySetInnerHTML={{ __html: truncateText(post.content, 200)}}></div>
                                 </div>
                             </div>
                             <div className="news-card-footer">

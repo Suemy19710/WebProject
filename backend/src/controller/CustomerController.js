@@ -31,7 +31,22 @@ const getAllCustomer = async(req, res) => {
         res.status(500).json({ message: "Failed to fetch customers", error: error.message });
     }
 }
+
+const updateReadStatus = async(req, res) => {
+    try{
+        const {customerId} = req.params; 
+        const {isRead} = req.body; 
+        const updatedCustomer = await CustomerService.updateCustomerReadStatus(customerId, isRead); 
+        res.status(200).json({
+            message: "Customer status updated successfully", 
+            customer: updatedCustomer
+        }); 
+    } catch (error) {
+        res.status(500).json({message: "Failed to update customer status", error: error.message});
+    }
+}
 module.exports = {
     registerCustomer, 
     getAllCustomer,
+    updateReadStatus
 }

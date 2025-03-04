@@ -40,7 +40,7 @@ html, body {
                 }
             }
             .description{
-                font-size: 14px;
+                font-size: 17px;
                 line-height: 1.5;
                 color: $TC-black;
                 // margin-bottom: 16px;
@@ -57,6 +57,11 @@ html, body {
                 border-radius: 20px;
                 cursor: pointer;
                 transition: background-color 0.3s ease;
+
+                &:hover{
+                    background-color: $BC-blue;; 
+                    color: $TC-yellow; 
+                }
             }
         }
         .about-company-right{

@@ -11,8 +11,26 @@ const AdminNotificationCustomer = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const data = await getAllCustomers();
-        setCustomers(data);
+        const response = await fetch('http://localhost:5000/api/customers',  
+        { method: 'GET', 
+          headers: {
+            'Content-Type': 'application/json'
+          }
+
+        });
+if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        // add read status to each customer 
+        const updatedCustomers = data.map(customer => ({
+          ...customer, 
+          isRead: customer.isRead || false
+        }));
+
+        updatedCustomers.sort((a,b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setCustomers(updatedCustomers);
         setLoading(false);
       } catch (error) {
         console.error("Error fetching customers", error);
@@ -22,42 +40,114 @@ const AdminNotificationCustomer = () => {
     fetchCustomers();
   }, []);
 
+  const handleReadStatus = async (customerId) => {
+    try {
+      const customer = customers.find(c => c._id === customerId);
+      const newStatus = !customer.isRead;
+
+      // Optimistic update
+      setCustomers(prevCustomers =>
+        prevCustomers.map(c =>
+          c._id === customerId ? { ...c, isRead: newStatus } : c
+        )
+      );
+
+      // Update in database
+      const response = await fetch(`http://localhost:5000/api/customers/${customerId}/read-status`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ isRead: newStatus })
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const updatedCustomer = await response.json();
+      // Update state with server response
+      setCustomers(prevCustomers =>
+        prevCustomers.map(c =>
+          c._id === customerId ? updatedCustomer.customer : c
+        )
+      );
+    } catch (error) {
+      // Revert on error
+      setCustomers(prevCustomers =>
+        prevCustomers.map(c =>
+          c._id === customerId ? { ...c, isRead: !c.isRead } : c
+        )
+      );
+      setError("Failed to update customer status");
+      console.error("Error updating read status", error);
+    }
+  };
   if (loading) {
     return <div>Loading...</div>;
   }
 
   return (
-    <div className="admin-dashboard">
+    <div className="adminNotificationCustomer-container">
       <h2>Customer Registrations</h2>
-      <CustomerList customers={customers} />
+      <div className="customer-columns">
+        <CustomerList 
+          title ="New Notifcations"
+          className="customer-columns-item"
+          customers={customers.filter(c => !c.isRead)}
+          onReadStatus= {handleReadStatus}
+          />
+        <CustomerList
+          title="Reviewed Notifications"
+          className="customer-columns-item"
+          customers={customers.filter(c => c.isRead)}
+          onReadStatus={handleReadStatus}
+          />
+      </div>
     </div>
   );
 };
 
-const CustomerItem = ({ customer }) => {
+const CustomerItem = ({ customer, onReadStatus }) => {
   return (
     <li className="customer-item">
-      <h3>{customer.nameCustomer}</h3>
-      <p>Email: {customer.emailCustomer}</p>
-      <p>Phone: {customer.phoneCustomer}</p>
-      <p>Content: {customer.contentCustomer}</p>
-      <button>View Details</button>
+      <div className="customer-details">
+        <h3>{customer.nameCustomer}</h3>
+        <p>Email: {customer.emailCustomer}</p>
+        <p>Phone: {customer.phoneCustomer}</p>
+        <p>Content: {customer.contentCustomer}</p>
+        <p>Registered: {new Date(customer.createdAt).toLocaleString()}</p>
+      </div>
+      <div className="checkbox-container">
+        <input type="checkbox"
+              checked={customer.isRead}
+              onChange={() => onReadStatus(customer._id)}
+               />
+        <label>Reviewed</label>
+      </div>
     </li>
   );
 };
 
-const CustomerList = ({ customers }) => {
+const CustomerList = ({ title, customers, onReadStatus }) => {
   return (
-    <div className="customer-list">
-      {customers.length === 0 ? (
-        <p>No customers registered yet.</p>
-      ) : (
-        <ul>
-          {customers.map((customer) => (
-            <CustomerItem key={customer._id} customer={customer} />
-          ))}
-        </ul>
-      )}
+    <div className="customer-column">
+      <h3>{title}</h3>
+      <div className="customer-list">
+        {customers.length === 0 ? (
+          <p>No customers in this category.</p>
+        ) : (
+          <ul>
+            {customers.map((customer) => (
+              <CustomerItem 
+                key={customer._id} 
+                customer={customer}
+                onReadStatus={onReadStatus}
+              />
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };

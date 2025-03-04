@@ -3,27 +3,29 @@ const mongoose = require('mongoose');
 const customerSchema = new mongoose.Schema({
     nameCustomer: {
         type: String,
-        required: [true, 'Vui lòng điền tên!'],
+        // required: [true, 'Vui lòng điền tên!'],
     },
     emailCustomer: {
         type: String,
-        required: [true, 'Vui lòng điền địa chỉ email!'],
-        unique: true, 
-        match: [/.+\@.+\..+/, 'Vui lòng điền địa chỉ email!'], // Basic email regex validation
+        // required: [true, 'Vui lòng điền địa chỉ email!'],
+        // match: [/.+\@.+\..+/, 'Vui lòng điền địa chỉ email!'], // Basic email regex validation
     },
     phoneCustomer: {
         type: String,
-        required: [true, 'Vui lòng điền số điện thoại!'],
-        match: [/^\d{10}$/, 'Vui lòng điền số điện thoại!'], // Simple check for 10-digit phone numbers
+        // required: [true, 'Vui lòng điền số điện thoại!'],
     },
     contentCustomer: {
         type: String,
-        required: [true, 'Vui lòng điền nội dung bạn cần tư vấn!'],
+        // required: [true, 'Vui lòng điền nội dung bạn cần tư vấn!'],
     },
     createdAt: {
         type: Date,
         default: Date.now,
     },
+    isRead: {
+        type: Boolean, 
+        default: false
+    }
 });
 // customerSchema.pre('save', function(next) {
 // })

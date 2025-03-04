@@ -18,20 +18,41 @@ const News = () => {
         const slugifiedTitle = createSlugTitle(postTitle);
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
-    
-    useEffect(() => {
-        fetch('http://localhost:5000/api/tin-tuc')
-            .then((res) => {
-                // console.log("Response Status:", res.status); // Check if status is OK
-                return res.json();
-            })
-            .then((data) => {
-                // console.log("Data received:", data); // Check if data is being received
-                setNews(data);
-            })
-            .catch((err) => console.log('Error fetching post: ', err));
-    }, []);
 
+    // useEffect(() => {
+    //     window.scrollTo(0,0);
+    //     fetch('http://localhost:5000/api/tin-tuc')
+    //         .then((res) => {
+    //             // console.log("Response Status:", res.status); // Check if status is OK
+    //             return res.json();
+    //         })
+    //         .then((data) => {
+    //             // console.log("Data received:", data); // Check if data is being received
+    //             setNews(data);
+    //         })
+    //         .catch((err) => console.log('Error fetching post: ', err));
+    // }, []);
+
+
+    useEffect(() => {
+        window.scrollTo(0, 0); 
+    
+        const fetchNews = async () => {
+            try {
+                const res = await fetch('http://localhost:5000/api/tin-tuc');
+                if (!res.ok) {
+                    throw new Error(`HTTP error! Status: ${res.status}`);
+                }
+                const data = await res.json();
+                setNews(data); // Update state with fetched news
+            } catch (err) {
+                console.error('Error fetching news:', err);
+                // Optionally set an error state: setError(err.message);
+            }
+        };
+    
+        fetchNews();
+    }, []);
     const handleViewMore = () => {
        navigate(`/tin-tuc`); 
     };
@@ -39,7 +60,9 @@ const News = () => {
             <div className="news-container">
                 <div className="news-device">
                 <div className="head">
+                    <div className="head-bg"></div>
                     <h1>Tin tức <span>& Sự kiện</span></h1>
+
                 </div>
                     <div className="body">
                         {news.length > 0 ? (
@@ -66,8 +89,8 @@ const News = () => {
                                                         <div className="date"><em>{formattedDate}</em></div>
                                                     </div>
                                                     <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
-                                                    <div className="news-card-body-description">{truncateText(post.content, 200)}</div>
-                                                </div>
+                                                    <div dangerouslySetInnerHTML={{ __html: truncateText(post.content, 80)}}></div>
+                                                    </div>
                                                 <div className="news-card-footer">
                                                     <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>
                                                 </div>

@@ -71,16 +71,15 @@ const TinTucDetail = () => {
                     </div>
                     </div>
                      <div className="body">
-                        <div className="img">
+                        {/* <div className="img">
                             {post.image ? (
                                 <img src={`http://localhost:5000/uploads/${post.image}`} alt="event"/>
                             ) : (
                                 <img src={event} alt="event"/>
                             )}
-                        </div>
+                        </div> */}
                         <div className="body-description">
-                            {post.content}
-                        
+                            <div dangerouslySetInnerHTML={{ __html:post.content}}></div>
                         </div>
                     </div>
                     
