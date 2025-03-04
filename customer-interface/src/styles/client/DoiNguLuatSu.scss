@@ -100,3 +100,117 @@ html, body {
         }
     }
 }
+
+// Desktop (1208px and above)
+@media only screen and (min-width: 1208px) {
+    .doiNguLuatSu-container {
+        .body {
+            max-width: 1208px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+    }
+}
+
+// Tablet (768px - 1207px)
+@media only screen and (max-width: 1207px) and (min-width: 768px) {
+    .doiNguLuatSu-container {
+        .head {
+            h1 {
+                font-size: 60px;
+                line-height: 66px;
+                padding-top: 8px;
+                
+                span {
+                    padding-left: 15px;
+                }
+            }
+        }
+        
+        .body {
+            gap: 30px;
+            padding: 15px 20px;
+            
+            .luatSu-card {
+                width: 220px;
+                
+                .luatSu-card-head {
+                    img {
+                        height: 220px;
+                    }
+                }
+                
+                .luatSu-card-body {
+                    padding: 8px 10px;
+                    
+                    .luatSu-card-body-name {
+                        font-size: 20px;
+                    }
+                    
+                    .luatSu-card-body-title {
+                        font-size: 15px;
+                    }
+                    
+                    .luatSu-card-body-description {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile (767px and below)
+@media only screen and (max-width: 767px) {
+    .doiNguLuatSu-container {
+        .head {
+            justify-content: center;
+            h1 {
+                font-size: 40px;
+                line-height: 48px;
+                padding-top: 5px;
+                flex-direction: row;
+                
+                span {
+                    line-height: 48px;
+                    padding-left: 10px;
+                    padding-top: 5px;
+                }
+            }
+        }
+        
+        .body {
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 10px 15px;
+            
+            .luatSu-card {
+                width: 90%;
+                max-width: 220px;
+                
+                .luatSu-card-head {
+                    img {
+                        height: 200px;
+                    }
+                }
+                
+                .luatSu-card-body {
+                    padding: 8px 10px;
+                    
+                    .luatSu-card-body-name {
+                        font-size: 18px;
+                    }
+                    
+                    .luatSu-card-body-title {
+                        font-size: 14px;
+                    }
+                    
+                    .luatSu-card-body-description {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

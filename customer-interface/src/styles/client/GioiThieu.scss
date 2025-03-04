@@ -171,18 +171,7 @@ html, body {
                     .img-2 {
                         background-image: url('../../assets/img-2.jpg');
                     }
-                }
-                
-                // // Responsive Fix for Small Screens
-                // @media (max-width: 768px) {
-                //     .images {
-                //         flex-direction: column; // Stack images in a column on smaller screens
-                //         .img-1, .img-2 {
-                //             max-width: 100%; // Ensures full width on small screens
-                //         }
-                //     }
-                // }
-                
+                }   
             }
             .container-body-3{
                 .content{
@@ -252,11 +241,136 @@ html, body {
         }
     }
 }
-@media only screen and (min-device-width: 1208px){
-    // .gioiThieu-device{
-    //     display: flex; 
-    //     flex-direction: column;
-    //     align-items: center ;
-    //     justify-content: center;
-    // }
+
+// tablet
+@media only screen and (max-width: 1207px) and (min-width: 768px){
+    .gioiThieu-container{
+        .gioiThieu-device{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%; 
+            .container-header{
+                h3{
+                    width: 500px;
+                    font-size: 20px;
+                    top: 35%;
+                    left: 65%;
+                }
+            }
+            .container-body{
+                width: auto;
+                .container-body-1{
+                   .title{
+                    h1{
+                        font-size: 70px;
+                    }
+                    h3{
+                        font-size: 35px;
+                    }
+                    span{
+                        font-size: 35px;
+                    }
+                   }
+                }
+            }
+        }
+    }
 }
+
+//mobile
+@media only screen and (max-width: 767px){
+    .gioiThieu-container{
+       .gioiThieu-device{
+        width: 100%;
+        .container-header{
+            height: 150px;
+            h3{
+                font-size: 15px;
+                top: 40%;
+                left: 65%;
+                width: 300px;
+               
+            }
+        }
+        .container-body{
+            width: auto;
+                .container-body-1 {
+                  padding: 20px 10px;
+        
+                  .title {
+                    flex-direction: row;
+                    align-items: center;
+        
+                    h1 {
+                      font-size: 40px;
+                    }
+        
+                    h3 {
+                      font-size: 20px;
+                      padding-left: 10px;
+                      padding-bottom: 0;
+                      display: flex;
+                      align-items: flex-end;
+
+                    }
+                  }
+        
+                  .body {
+                    .body-1,
+                    .body-2 {
+                      flex-direction: column;
+                      gap: 15px;
+        
+                      h6 {
+                        font-size: 16px;
+                      }
+        
+                      .pic {
+                        min-height: 150px;
+                        width: 100%;
+                      }
+                    }
+                  }
+                }
+        
+                .container-body-2,
+                .container-body-4 {
+                  flex-direction: column;
+                  padding: 20px 10px;
+                  gap: 20px;
+        
+                  .content {
+                    font-size: 16px;
+                  }
+        
+                  .images {
+                    flex-direction: column;
+                    gap: 10px;
+        
+                    .img-1,
+                    .img-2,
+                    .img-3,
+                    .img-4 {
+                      min-height: 150px;
+                    }
+                  }
+                }
+        
+                .container-body-3 {
+                  .content {
+                    padding: 20px 15px;
+        
+                    .content-1,
+                    .content-2,
+                    .content-3 {
+                      font-size: 16px;
+                    }
+                  }
+                }
+              }
+            }
+        }
+
+       }

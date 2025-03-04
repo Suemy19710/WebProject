@@ -112,11 +112,65 @@ $Font:  "Roboto", serif;
 
 }
 
+// destop (1208px and above)
 @media only screen and (min-device-width: 1208px){
     .headerClass{
         display: flex; 
         align-items: center ;
         justify-content: center ;
+        .top-navigation-device{
+            width: 100%;
+            .nav-left{
+                gap: 40px;
+                width: 100%; 
+                justify-content: flex-start;
+            }
 
+        }
+
+    }
+}
+
+// tablet (851px - 1207px)
+@media only screen and (max-width: 1207px) and (min-width: 851px) {
+    .headerClass{
+        padding: 10px 40px;
+
+        .top-navigation-device{
+            width: 100%;
+            .nav-left{
+                gap: 30px;
+                width: 100%; 
+                justify-content: flex-start;
+            }
+            .nav-right{
+                .input-search:focus{
+                    width: 200px;
+                }
+                .btn-search:focus ~ .input-search{
+                    width: 180px;
+                }
+            }
+        }
+    }
+}
+
+//mobile (850px and below)
+@media only screen and (max-width: 850px){
+    .headerClass{
+        padding: 10px 20px;
+        flex-direction: column;
+        height: auto;
+
+        .top-navigation-device{
+            width: 100%; 
+
+            .nav-left{
+                gap: 30px;
+                width: 100%; 
+                justify-content: flex-start;
+
+            }
+        }
     }
 }

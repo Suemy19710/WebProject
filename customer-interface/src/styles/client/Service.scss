@@ -146,3 +146,111 @@ html, body {
         
     }
 }
+
+@media only screen and (max-width: 1208px) and (min-width: 768px) {
+    .service-container {
+        padding: 15px;
+        
+        .service-device {
+            width: 100%;
+            
+            .head {
+                h {
+                    font-size: 60px;
+                    line-height: 66px;
+                }
+                span {
+                    font-size: 65px;
+                    line-height: 66px;
+                }
+            }
+            
+            .body {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, auto);        
+                padding-left: 15px;
+                padding-top: 15px;
+                
+                .service-card {
+                    width: 90%;
+                    margin: 0 auto 20px;
+                    width: 300px;
+                    padding-left: 10px;
+                    .service-card-body{
+                        width: 290px;
+                    }
+                }
+            }
+            
+            .footer {
+                .footer-view-all {
+                    width: 250px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .service-container {
+        padding: 10px;
+        
+        .service-device {
+            width: 100%;
+            
+            .head {
+                justify-content: center;
+                h {
+                    font-size: 40px;
+                }
+                span {
+                    font-size: 40px;
+                }
+            }
+            
+            .body {
+                grid-template-columns: 1fr;
+                padding-left: 0;
+                padding-top: 10px;
+                
+                .service-card {
+                    width: 85%;
+                    margin: 0 auto 15px;
+                    padding: 8px 15px;
+                    
+                    .service-card-head {
+                        .card-logo {
+                            padding: 8px 15px 20px 15px;
+                            i {
+                                font-size: 30px;
+                            }
+                        }
+                        h1 {
+                            font-size: 18px;
+                        }
+                    }
+                    
+                    .service-card-body {
+                        font-size: 12px;
+                    }
+                    
+                    .service-card-footer {
+                        button {
+                            font-size: 13px;
+                        }
+                    }
+                }
+            }
+            
+            .footer {
+                margin-top: 15px;
+                .footer-view-all {
+                    width: 200px;
+                    height: 35px;
+                    font-size: 16px;
+                }
+            }
+        }
+    }
+}

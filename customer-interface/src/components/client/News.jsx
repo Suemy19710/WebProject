@@ -66,7 +66,7 @@ const News = () => {
                                                         <div className="date"><em>{formattedDate}</em></div>
                                                     </div>
                                                     <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
-                                                    <div className="news-card-body-description">{truncateText(post.content, 100)}</div>
+                                                    <div className="news-card-body-description">{truncateText(post.content, 200)}</div>
                                                 </div>
                                                 <div className="news-card-footer">
                                                     <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>

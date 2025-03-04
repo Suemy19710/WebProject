@@ -45,3 +45,40 @@ html, body {
     }
 }
 
+@media only screen and (max-width: 1207px) and (min-width: 851px){
+    .carousel-background{
+        height: 200px;
+        display: flex;
+        align-items: center;
+
+        .carousel-container{
+            width: 100%;
+            padding: 0 20px;
+            margin-left:40px;
+
+            img{
+                width: 80%; 
+                height: 150px;
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .carousel-background {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        .carousel-container{
+            width: 100%; 
+            padding: 0 10px;
+            margin-left: 30px;
+
+            img{
+                height: 100px;
+                width: 80%
+            }
+        }
+    }
+}

@@ -12,7 +12,7 @@ html, body {
     padding: 0;
     width: 100%;
     box-sizing: border-box;
-    font-family: $Font;
+    font-family: font;
 }
 
 .register-form {
@@ -53,9 +53,7 @@ html, body {
             padding: 10px;
             font-size: 18px;
             font-weight: 300;
-          //   font-family: $Font;
             border-radius: 30px;
-          //   font-family: $Font;
             border: 1px solid #ccc;
             outline: none;
             box-sizing: border-box;
@@ -110,7 +108,6 @@ html, body {
             padding: 10px 50px;
             font-size: 25px;
             font-weight: 500;
-            font-family:"Roboto", serif;
             background-color: $BC-yellow;
             color: #fff;
             border: none;
@@ -127,16 +124,6 @@ html, body {
   }
 
 }
-
-// @media (max-width: 768px) {
-//   .register-form {
-//       padding: 20px;
-//       .form-group-row {
-//           flex-direction: column;
-//       }
-//   }
-// }
-
 @media only screen and (min-device-width: 1208px){
     .register-form{
         display: flex; 
@@ -146,3 +133,120 @@ html, body {
     }
 }
 
+// Tablet (768px - 1207px)
+@media only screen and (max-width: 1207px) and (min-width: 768px) {
+    .register-form {
+        padding-left: 20px;
+        padding-right: 20px;
+        
+        .register-form-device {
+            width: 100%;
+            
+            .form-title {
+                font-size: 50px;
+                margin-bottom: 15px;
+            }
+            
+            .form-group {
+                label {
+                    font-size: 22px;
+                }
+                
+                input, textarea {
+                    width: 100%;
+                    font-size: 16px;
+                }
+                
+                textarea {
+                    height: 90px;
+                }
+            }
+            
+            .form-group-row {
+                gap: 15px;
+                padding-right: 10px;
+                .col {
+                    margin-right: 10px;
+                    input {
+                        width: 100%;
+                        font-size: 16px;
+                    }
+                    
+                    label {
+                        font-size: 22px;
+                    }
+                }
+            }
+            
+            .footer {
+                .submit-btn {
+                    padding: 8px 40px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+// Mobile (767px and below)
+@media only screen and (max-width: 767px) {
+    .register-form {
+        padding: 15px;
+        border-radius: 5px;
+        
+        .register-form-device {
+            width: 100%;
+            
+            .form-title {
+                font-size: 35px;
+                margin-bottom: 10px;
+            }
+            
+            .form-group {
+                margin-bottom: 10px;
+                
+                label {
+                    font-size: 18px;
+                }
+                
+                input, textarea {
+                    width: 100%;
+                    font-size: 14px;
+                    padding: 8px;
+                }
+                
+                textarea {
+                    height: 80px;
+                }
+            }
+            
+            .form-group-row {
+                flex-direction: column;
+                gap: 10px;
+                
+                .col {
+                    margin-right: 15px;
+                    input {
+                        width: 100%;
+                        font-size: 14px;
+                        padding: 8px;
+                    }
+                    
+                    label {
+                        font-size: 18px;
+                    }
+                }
+            }
+            
+            .footer {
+                margin-top: 15px;
+                padding-bottom: 15px;
+                
+                .submit-btn {
+                    padding: 8px 30px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

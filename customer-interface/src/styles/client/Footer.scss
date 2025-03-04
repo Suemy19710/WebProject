@@ -109,3 +109,124 @@ html, body {
         
     }
 }
+
+// Tablet (768px - 1207px)
+@media only screen and (max-width: 1207px) and (min-width: 768px) {
+    .footer-container {
+        padding: 15px 20px;
+        height: auto;
+        
+        .footer-device {
+            width: 100%;
+            gap: 20px;
+            
+            .footer-right {
+                margin-right: 0;
+                img {
+                    max-width: 120px;
+                }
+            }
+            
+            .footer-middle {
+                min-height: 70px;
+                h2 {
+                    font-size: 18px;
+                    padding-left: 15px;
+                }
+                
+                h5 {
+                    font-size: 13px;
+                    padding-left: 15px;
+                }
+            }
+            
+            .footer-left {
+                margin-left: 0;
+                
+                h2 {
+                    font-size: 18px;
+                    padding-left: 15px;
+                }
+                
+                .social-links {
+                    padding-left: 15px;
+                    gap: 8px;
+                    
+                    .social-icon {
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile (767px and below)
+@media only screen and (max-width: 767px) {
+    .footer-container {
+        padding: 10px 15px;
+        height: auto;
+        flex-direction: column;
+        
+        .footer-device {
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            gap: 20px;
+            
+            .footer-right {
+                margin: 0;
+                margin-bottom: 15px;
+                img {
+                    max-width: 100px;
+                }
+            }
+            
+            .footer-middle {
+                border-left: none;
+                border-top: 2px solid $BC-blue;
+                padding-top: 10px;
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                min-height: auto;
+                
+                h2 {
+                    font-size: 16px;
+                    padding-left: 0;
+                }
+                
+                h5 {
+                    font-size: 12px;
+                    padding-left: 0;
+                }
+            }
+            
+            .footer-left {
+                border-left: none;
+                border-top: 2px solid $BC-blue;
+                padding-top: 10px;
+                margin-left: 0;
+                width: 100%;
+                align-items: center;
+                text-align: center;
+                
+                h2 {
+                    font-size: 16px;
+                    padding-left: 0;
+                }
+                
+                .social-links {
+                    padding-left: 0;
+                    gap: 6px;
+                    flex-direction: row;
+                    justify-content: center;
+                    
+                    .social-icon {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+    }
+}

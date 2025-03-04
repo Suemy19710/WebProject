@@ -96,3 +96,90 @@ html, body {
         }
     }
 }
+
+// Tablet (768px - 1207px)
+@media only screen and (max-width: 1207px) and (min-width: 768px) {
+    .about-company {
+        padding: 10px 20px;
+        height: auto;
+        
+        .about-company-device {
+            width: 100%;
+            gap: 20px;
+            
+            .about-company-content {
+                padding-right: 15px;
+                
+                .title {
+                    font-size: 40px;
+                    padding: 8px;
+                }
+                
+                .description {
+                    font-size: 13px;
+                    padding: 8px;
+                }
+                
+                .view-more-introduction {
+                    padding: 8px 16px;
+                    font-size: 14px;
+                }
+            }
+            
+            .about-company-right {
+                .pic-background {
+                    .about-company-pic {
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Mobile (767px and below)
+@media only screen and (max-width: 767px) {
+    .about-company {
+        padding: 10px 15px;
+        height: auto;
+        
+        .about-company-device {
+            flex-direction: column;
+            width: 100%;
+            
+            .about-company-content {
+                padding-right: 0;
+                text-align: center;
+                
+                .title {
+                    font-size: 32px;
+                    padding: 5px;
+                }
+                
+                .description {
+                    font-size: 12px;
+                    padding: 5px;
+                }
+                
+                .view-more-introduction {
+                    margin: 10px auto;
+                    padding: 8px 15px;
+                    font-size: 13px;
+                    display: block;
+                }
+            }
+            
+            .about-company-right {
+                width: 100%;
+                padding: 10px 0;
+                
+                .pic-background {
+                    .about-company-pic {
+                        height: 180px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
