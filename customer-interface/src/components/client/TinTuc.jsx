@@ -3,6 +3,7 @@ import '../../styles/client/TinTuc.scss';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import event from  '../../assets/event.png';
+// import { countDocuments } from '../../../../backend/src/models/NewsModel';
 
 const TinTuc = () => {
     const[posts, setPosts] = useState([]);
@@ -66,7 +67,10 @@ const TinTuc = () => {
                                     <div className="date"><em>{formattedDate}</em></div>
                                 </div>
                                 <div className="news-card-body-title">{truncateText(post.title, 60)}</div>
-                                <div className="news-card-body-description">{truncateText(post.content, 100)}</div>
+                                {/* <div className="news-card-body-description">{truncateText(post.content, 100)}</div> */}
+                                <div className="news-card-body-description">
+                                    <div dangerouslySetInnerHTML={{ __html: truncateText(post.content, 100)}}></div>
+                                </div>
                             </div>
                             <div className="news-card-footer">
                                 <button className="view-more" onClick={() => handleClick(post._id, post.title)}>Xem thêm</button>

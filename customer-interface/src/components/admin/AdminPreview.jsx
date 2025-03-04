@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import '../../styles/client/Legal.scss';
 
 const AdminPreview = () => {
     const [documents, setDocuments] = useState([]);
@@ -27,7 +27,8 @@ const AdminPreview = () => {
         navigate(-1);
     }
     return (
-        <div className="danSu-container">
+        <div className="container">
+            <div className="device">
             <div className="body">
                 <div className="buttons">
                     <button className="back" onClick={handleBack}>Quay về</button>
@@ -42,6 +43,8 @@ const AdminPreview = () => {
                     <p>No documents available</p>
                 )}
             </div>
+            </div>
+          
         </div>
     );
 };

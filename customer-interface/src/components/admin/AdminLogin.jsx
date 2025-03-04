@@ -35,6 +35,7 @@ const AdminLogin = () => {
     }
     return (
         <div className="adminLogin-container">
+         <div className="adminLogin-device">
             <h2>Admin Login</h2>
             <form onSubmit={handleSubmit}>
                 <label htmlFor="username">Username:</label>
@@ -60,6 +61,8 @@ const AdminLogin = () => {
             </form>
             {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
         </div>
+        </div>
+       
     )
 }
 export default AdminLogin;

@@ -16,12 +16,11 @@ html, body {
     background-color: $BC-blue;
 }
 
-.sidebar {
+.adminHeader-container {
     width: 180px;
     background-color: #2d3b4f;
     color: white;
     height: 100vh;
-    // padding-top: 20px;
     position: fixed;
     top: 0;
     left: 0;
@@ -59,11 +58,11 @@ html, body {
         text-decoration: none;
         color: $TC-white;
 
-        &:active{
+        &.active{
           background-color: #3a4a63;
           color: $TC-yellow;
           text-decoration: none;
-        }
+        } 
 
         &:hover{
           background-color: #3a4a63;

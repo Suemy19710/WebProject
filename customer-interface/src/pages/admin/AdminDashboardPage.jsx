@@ -4,7 +4,7 @@ function AdminDashboardPage() {
     return (
         <>
             <AdminHeader/>
-            <p>This is AdminDashboard</p>
+            {/* <p>This is AdminDashboard</p> */}
         </>
     )
 }

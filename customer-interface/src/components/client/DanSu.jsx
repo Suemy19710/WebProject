@@ -36,7 +36,7 @@ const ClientView = () => {
       <div className="body">
         {documents.length > 0 ? (
           documents.map((doc) => (
-            <div key={doc._id} class="container">
+            <div key={doc._id} className="container">
               <div dangerouslySetInnerHTML={{ __html: doc.content }} />
             </div>
           ))

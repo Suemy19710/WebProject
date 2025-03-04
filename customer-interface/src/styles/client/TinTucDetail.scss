@@ -18,7 +18,7 @@ html, body {
 .tintuc-detail{
     background-color: $BC-white;
     background-image: url('../../assets/back-ground.png');  
-    padding: 40px 80px 50px 80px;
+    // padding: 40px 80px 50px 80px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -26,6 +26,10 @@ html, body {
         width: 100%; 
         max-width: 1256px;
         .container-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
             .title{
                 h1{
                     font-size: 40px;
@@ -34,7 +38,6 @@ html, body {
                 }
                 .time-post{
                     display: flex;
-                    // margin-left: 30px;
                     margin-top: 10px;
                     margin-bottom: 10px;
                     gap: 7px;
@@ -70,7 +73,7 @@ html, body {
                     line-height: 1.6;
                     font-weight: 500;
                     text-align: justify;
-                    
+                    width: 1060px;
                     margin-bottom:20px;
                 
                 }

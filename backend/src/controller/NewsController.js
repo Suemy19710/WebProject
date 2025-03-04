@@ -1,7 +1,41 @@
 const mammoth = require('mammoth');
 const fs = require('fs');
+const path = require('path');
 const NewsModel = require("../models/NewsModel");
 const NewsService = require("../services/NewsService");
+
+// const createNews = async (req, res) => {
+//     try {
+//         if (!req.body.title || !req.body.slug || !req.files['content'] || !req.files['image']) {
+//             return res.status(400).json({ error: 'Title, slug, content file, and image are required.' });
+//         }
+        
+//         const slug = req.body.slug || req.body.title.toLowerCase().replace(/\s+/g, '-');
+//         fs.readFile(req.files['content'][0].path, async function(err, data) {
+//             if (err) {
+//                 console.error('Error reading file:', err);
+//                 return res.status(500).json({ error: 'Error processing content file' });
+//             }
+
+//             // convert to html
+//             const result = await mammoth.convertToHtml({ buffer: data});
+//             const content = result.value;
+
+//             const newNews = new NewsModel({
+//                 title: req.body.title,
+//                 slug: slug,
+//                 content: content,
+//                 image: req.files['image'][0].filename,
+//             });
+
+//             await newNews.save();
+//             res.json({ message: 'News created successfully!', news: newNews });
+//         });
+//     } catch (error) {
+//         console.error('Error creating news:', error);
+//         res.status(500).json({ error: 'Server error' });
+//     }
+// };
 
 const createNews = async (req, res) => {
     try {
@@ -10,31 +44,49 @@ const createNews = async (req, res) => {
         }
         
         const slug = req.body.slug || req.body.title.toLowerCase().replace(/\s+/g, '-');
-        fs.readFile(req.files['content'][0].path, async function(err, data) {
+        const contentPath = req.files['content'][0].path;
+        fs.readFile(contentPath, async function(err, data) {
             if (err) {
                 console.error('Error reading file:', err);
                 return res.status(500).json({ error: 'Error processing content file' });
             }
-
-            // convert to html
-            const result = await mammoth.convertToHtml({ buffer: data});
-            const content = result.value;
-
-            const newNews = new NewsModel({
-                title: req.body.title,
-                slug: slug,
-                content: content,
-                image: req.files['image'][0].filename,
-            });
-
-            await newNews.save();
-            res.json({ message: 'News created successfully!', news: newNews });
+            try{
+                const result = await mammoth.convertToHtml({
+                    buffer: data, 
+                    convertImage: mammoth.images.imgElement(function(image) {
+                        return image.read("base64").then(function(imageBuffer) {
+                            // Save image to uploads folder or return base64
+                            const imageName = `${Date.now()}-${Math.random().toString(36).substring(7)}.${image.contentType.split('/')[1]}`;
+                            const imagePath = path.join(__dirname, '../uploads', imageName);
+                            
+                            fs.writeFileSync(imagePath, Buffer.from(imageBuffer, 'base64'));
+                            
+                            return {
+                                src: `/uploads/${imageName}`
+                            };
+                        });
+                    })
+                });
+                const content = result.value;
+                const newNews = new NewsModel({
+                    title: req.body.title,
+                    slug: slug,
+                    content: content,
+                    image: req.files['image'][0].filename,
+                });
+                await newNews.save();
+                res.json({ message: 'News created successfully!', news: newNews });
+            }catch (conversionError) {
+                console.error('Error converting document:', conversionError);
+                res.status(500).json({ error: 'Error converting document' });
+            }
         });
     } catch (error) {
         console.error('Error creating news:', error);
         res.status(500).json({ error: 'Server error' });
     }
 };
+
 
 
 
