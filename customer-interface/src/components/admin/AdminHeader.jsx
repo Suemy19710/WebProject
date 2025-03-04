@@ -30,7 +30,7 @@ const AdminHeader = () => {
             <span>Thông báo</span>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/admin/post-news"
             className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
@@ -38,14 +38,14 @@ const AdminHeader = () => {
             <i className="fa-solid fa-file"></i>
             <span>Tin Tức & Sự Kiện</span>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
             to="/admin/tin-tuc"
             className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
           >
             <i className="fa-solid fa-file"></i>
-            <span>News</span>
+            <span>Tin Tức & Sự Kiện</span>
           </NavLink>
         </li>
         <li>

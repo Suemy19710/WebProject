@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import '../../styles/client/LuatSuDetail.scss';
-import pic_2 from '../../assets/pic_2.jpg';
+import '../../../styles/client/LuatSuDetail.scss';
+import pic_2 from '../../../assets/pic_2.jpg';
 
 
 const LuatSuDetail = () => {

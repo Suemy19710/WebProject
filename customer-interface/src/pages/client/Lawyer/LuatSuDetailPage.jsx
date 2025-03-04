@@ -1,8 +1,8 @@
 import React, {useEffect} from 'react';
-import Header from '../../components/client/Header';
-import TopNavigation from '../../components/client/TopNavigation';
-import LuatSuDetail from '../../components/client/LuatSuDetail';
-import Footer from '../../components/client/Footer';
+import Header from '../../../components/client/Header';
+import TopNavigation from '../../../components/client/TopNavigation';
+import LuatSuDetail from '../../../components/client/Lawyer/LuatSuDetail';
+import Footer from '../../../components/client/Footer';
 
 const LuatSuDetailPage = () => {
     useEffect(() => {

@@ -15,8 +15,8 @@ import SoHuuTriTuePage from '../pages/client/SoHuuTriTuePage';
 import DanSuPage from '../pages/client/DanSuPage';
 import HinhSuPage from '../pages/client/HinhSuPage';
 import HanhChinhPage from '../pages/client/HanhChinhPage';
-import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
-import LuatSuDetailPage2 from '../pages/client/LuatSuDetailPage2';
+import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
+import LuatSuDetailPage2 from '../pages/client/Lawyer/LuatSuDetailPage2';
 import ServicePartDetailPage from '../pages/client/ServiceDetailPartPage';
 
 import AdminPostNews from '../pages/admin/AdminPostNews';

@@ -35,7 +35,7 @@ const TinTuc = () => {
             <div className="tinTuc-device">
             <div className="head">
                 <div className="head-bg"></div>
-                    <h1>Tin tức <span> & Sự kiện</span></h1>
+                <h1>Tin tức <span> & Sự kiện</span></h1>
             </div>
             <div className="body">
                 {posts.length > 0 ? (
