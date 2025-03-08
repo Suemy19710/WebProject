@@ -5,6 +5,7 @@ const AdminLogin = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
     const handleSubmit = async(e) => {
         e.preventDefault();
@@ -20,17 +21,22 @@ const AdminLogin = () => {
                 },
                 body: JSON.stringify(LoginData),
             });
+            const data = await response.json();
+
             if (response.ok) {
-                const data = await response.json();
-                alert(data.message);
-                navigate('/admin/dashboard');
+                setSuccessMessage(data.message);
+                setErrorMessage(''); 
+                setTimeout(() => {
+                    navigate('/admin/dashboard'); // Redirect after 2 seconds
+                }, 2000);
             } else{
-                const data = await response.json();
-                setErrorMessage(data.message || 'Invalid credentials');            
+                setErrorMessage(data.message || 'Invalid credentials');   
+                setSuccessMessage('');         
             }
         } catch (error) {
             console.error('Error', error);
             setErrorMessage('An error occured. Please try again later.');
+            setSuccessMessage('');
         }
     }
     return (
@@ -60,6 +66,7 @@ const AdminLogin = () => {
 
             </form>
             {errorMessage && <p style={{color: 'red'}}>{errorMessage}</p>}
+            {successMessage && <p className="success-message">{successMessage}</p>}
         </div>
         </div>
        

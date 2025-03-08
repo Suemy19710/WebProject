@@ -67,9 +67,9 @@ const Header = () => {
                     <NavLink to="/hanh-chinh" activeClassName="active">
                         Hành chính
                     </NavLink>
-                    <NavLink to="/lien-he" activeClassName="active">
+                    {/* <NavLink to="/lien-he" activeClassName="active">
                         Liên hệ
-                    </NavLink>
+                    </NavLink> */}
                 </div>
             </div>
 
@@ -132,11 +132,11 @@ const Header = () => {
                             <i className="fa fa-university"></i> Hành chính
                         </NavLink>
                     </li>
-                    <li>
+                    {/* <li>
                         <NavLink to="/lien-he" onClick={toggleSidebar}>
                             <i className="fa fa-envelope"></i> Liên hệ
                         </NavLink>
-                    </li>
+                    </li> */}
                 </ul>
             </div>
 

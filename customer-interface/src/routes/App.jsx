@@ -19,7 +19,7 @@ import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage';
 import LuatSuDetailPage2 from '../pages/client/Lawyer/LuatSuDetailPage2';
 import ServicePartDetailPage from '../pages/client/ServiceDetailPartPage';
 
-import AdminPostNews from '../pages/admin/AdminPostNews';
+// import AdminPostNews from '../pages/admin/AdminPostNews';
 // import PreviewPostNews from '../components/admin/PreviewPostNews';
 import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -63,7 +63,7 @@ function App() {
         <Route path ="/admin/hinh-su" element={<AdminHinhSuPage/>}/>
         <Route path ="/admin/hanh-chinh" element={<AdminHanhChinhPage/>}/>
         <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
-        <Route path="/admin/post-news" element={<AdminPostNews/>}/>
+        {/* <Route path="/admin/post-news" element={<AdminPostNews/>}/> */}
         <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
         <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} />
 

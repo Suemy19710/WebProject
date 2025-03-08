@@ -59,6 +59,7 @@ const AdminUpload = () => {
   return (
     <div className="adminDanSu-container">
       <h1>Admin Dân Sự</h1>
+      <div className="huongDan">Hướng dẫn: Sau khi nhập File vào "Choose File" nhấn chọn "Tải tài liệu". Có thể chọn "Xem trước" để xem giao diện của người xem hoặc chọn "Đăng bài" để trực tiếp đăng.</div>
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Tải tài liệu</button>
       <button onClick={handlePreview}>Xem trước</button>

@@ -18,7 +18,11 @@ html, body {
 .adminDanSu-container{
     padding-left: 300px;
     color: $TC-white;
-
+    padding-top: 30px;
+    .huongDan {
+        width: 600px;
+        margin-bottom: 20px;
+    }
     button{
         background-color: $BC-gray;
         border: none;

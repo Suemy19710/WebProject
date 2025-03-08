@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {createBlogPost, getAllBlogPost, deleteBlogPost, getBlogPostById} = require('../services/BlogService');
+const {createBlogPost, getAllBlogPost, deleteBlogPost, getBlogPostById} = require('./BlogService');
 
 // route to create a new blog post 
 router.post('/', async(req, res) => {

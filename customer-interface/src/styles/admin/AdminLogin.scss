@@ -85,4 +85,11 @@ html, body {
             }
         }
     }
+    .success-message {
+        color: $TC-yellow;
+        margin-top: 1rem;
+        font-size: 0.9rem;
+        font-weight: bold;
+        animation: fadeIn 0.5s ease-in-out;
+    }
 }
