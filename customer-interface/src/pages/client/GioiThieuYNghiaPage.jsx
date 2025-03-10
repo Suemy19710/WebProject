@@ -6,8 +6,9 @@ import Footer from '../../components/client/Footer';
 
 function GioiThieuYNghiaPage() {
     useEffect(() => {
-                      window.scrollTo(0,0);
-                  });
+        setTimeout(() => {
+            window.scrollTo(0, 0);
+        }, 100);    }, []);
     return (
         <>
             <TopNavigation/>

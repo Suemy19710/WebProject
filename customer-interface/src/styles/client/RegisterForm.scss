@@ -58,7 +58,8 @@ html, body {
             outline: none;
             box-sizing: border-box;
             background-color: #f8f8f8;
-  
+            font-family: font;
+
             &:focus {
                 border-color: #FF9900;
             }
@@ -70,7 +71,8 @@ html, body {
             font-size: 18px;
             font-weight: 300;
             padding: 10px;
-  
+            font-family: font;
+
         }
     }
   
@@ -96,6 +98,7 @@ html, body {
                 padding: 8px;
                 border-radius: 30px;
                 border: none;
+                font-family: font;
             }
         }
     }

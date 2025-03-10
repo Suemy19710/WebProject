@@ -89,16 +89,16 @@ if (!response.ok) {
 
   return (
     <div className="adminNotificationCustomer-container">
-      <h2>Customer Registrations</h2>
+      <h2>Đăng ký tư vấn</h2>
       <div className="customer-columns">
         <CustomerList 
-          title ="New Notifcations"
+          title ="Thông báo đăng ký mới"
           className="customer-columns-item"
           customers={customers.filter(c => !c.isRead)}
           onReadStatus= {handleReadStatus}
           />
         <CustomerList
-          title="Reviewed Notifications"
+          title="Thông báo đăng ký đã xem"
           className="customer-columns-item"
           customers={customers.filter(c => c.isRead)}
           onReadStatus={handleReadStatus}
@@ -123,7 +123,7 @@ const CustomerItem = ({ customer, onReadStatus }) => {
               checked={customer.isRead}
               onChange={() => onReadStatus(customer._id)}
                />
-        <label>Reviewed</label>
+        <label>Đã xem</label>
       </div>
     </li>
   );
@@ -135,7 +135,7 @@ const CustomerList = ({ title, customers, onReadStatus }) => {
       <h3>{title}</h3>
       <div className="customer-list">
         {customers.length === 0 ? (
-          <p>No customers in this category.</p>
+          <p>Không có thông báo mới.</p>
         ) : (
           <ul>
             {customers.map((customer) => (

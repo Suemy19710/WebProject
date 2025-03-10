@@ -18,6 +18,9 @@ const News = () => {
         const slugifiedTitle = createSlugTitle(postTitle);
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
+    // useEffect(() => {
+    //     window.scrollTo(0,0); 
+    // })
 
     // useEffect(() => {
     //     window.scrollTo(0,0);

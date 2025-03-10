@@ -43,26 +43,26 @@ const AdminNews = () => {
     };
     return (
         <div className="adminNews-container">
-            <h1>Admin News</h1>
+            <h1>Admin Tin tức & Sự kiện</h1>
             <div className="body">
-                <h2>Create New Post</h2>
+                <h2>Tạo trang tin tức mới </h2>
                 <input type="text" 
-                placeholder="Title"
+                placeholder="Tiêu đề trang"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                  />
-                <p>Input Content File (e.g. PDF, DOCX)</p>
+                <p>Nhập file (DOCX) word trang</p>
                 <input type="file" 
                 onChange={(e) => setContent(e.target.files[0])}
                 />
-                <p>Choose Image</p>
+                <p>Chọn hình ảnh tiêu đề cho trang</p>
                 <input
                 type="file"
                 namne="image"
                 id="image"
                 onChange={(e) => setImage(e.target.files[0])}
                 />
-                <button onClick={handleCreateNews}>Create Post</button>
+                <button onClick={handleCreateNews}>Tạo trang tin tức</button>
             </div>
             {message && <p>{message}</p>}
         </div>

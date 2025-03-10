@@ -4,6 +4,7 @@ import pic_1 from '../../assets/Luat-Su-Vu-Duy-Nam.jpg';
 import pic_2 from '../../assets/pic_2.jpg';
 import {useNavigate} from 'react-router-dom';
 const DoiNguLuatSuGioiThieu = () => {
+    const navigate = useNavigate(); 
     const handleClick = (url) => {
         navigate (url);
     }
