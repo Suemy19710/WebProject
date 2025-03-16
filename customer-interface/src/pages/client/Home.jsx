@@ -17,9 +17,9 @@ function Home() {
           });
   return (
     <>
-      <TopNavigation/>
+      {/* <TopNavigation/> */}
       <Header/>
-      <ResponsiveCarousel/>
+      {/* <ResponsiveCarousel/> */}
       <AboutCompany/>
       <Service/>
       <DoiNguLuatSu/>
