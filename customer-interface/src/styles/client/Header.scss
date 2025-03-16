@@ -40,7 +40,7 @@ html, body {
             padding: 10px 10px;
             margin: 0;
             text-decoration: none;
-            font-size: 23px;
+            font-size: 20px;
         }
 
         a:hover {
@@ -58,7 +58,7 @@ html, body {
             .dropbtn {
                 color: $TC-black;
                 background-color: $BC-gray;
-                font-size: 23px;
+                font-size: 20px;
                 border: none;
                 font-family: font;
                 cursor: pointer;
@@ -83,7 +83,7 @@ html, body {
 
                 a {
                     color: $TC-black;
-                    font-size: 23px;
+                    font-size: 20px;
                     padding: 12px 16px;
                     text-decoration: none;
                     display: block;
@@ -107,12 +107,12 @@ html, body {
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 20px;
     cursor: pointer;
     color: $TC-black;
 
     i {
-        font-size: 24px;
+        font-size: 20px;
     }
 }
 
@@ -146,11 +146,11 @@ html, body {
             background: none;
             border: none;
             color: $TC-white;
-            font-size: 24px;
+            font-size: 20px;
             cursor: pointer;
 
             i {
-                font-size: 24px;
+                font-size: 20px;
             }
         }
     }

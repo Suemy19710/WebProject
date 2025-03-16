@@ -28,7 +28,7 @@ html, body {
             justify-content: flex-end;
             h{
                 color: $TC-yellow;
-                font-size: 70px;
+                font-size: 60px;
                 padding-bottom: 10px;
                 font-style: normal;
                 font-weight: 600;
@@ -36,7 +36,7 @@ html, body {
             }
             span {
                 color: #1E1E1E;
-                font-size: 75px;
+                font-size: 60px;
                 font-style: normal;
                 font-weight: 600;
                 line-height: 78px;
@@ -49,70 +49,6 @@ html, body {
             justify-content: center;
             padding-left: 30px;
             padding-top: 20px;
-    
-    
-            // .service-card{
-            //     background-color: $BC-blue;
-            //     border-radius: 20px;
-            //     overflow: hidden;
-            //     width: 200px;
-            //     height: auto;
-            //     margin: 0;
-            //     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            //     transition: transform 0.2s ease;
-            //     padding: 10px 20px 10px 20px;
-            //     margin-bottom: 20px;
-            //     .service-card-head{
-            //         display: flex;
-            //         flex-direction: column;
-            //         margin-top: 10px;
-            //         .card-logo{
-            //             height: 20px;
-            //             background-color: $BC-white;
-            //             width: 35px;
-            //             padding: 10px 20px 25px 20px;
-            //             border-radius: 50px;
-            //             i{
-            //                 color: $BC-blue;
-            //                 font-size: 35px;
-            //             }
-            //         }
-            //         h1{
-            //             color: $TC-white;
-            //             font-size: 20px;
-            //             font-style: normal;
-            //             font-weight: 900;
-            //             line-height: normal;
-            //         }
-            //     }
-            //     .service-card-body{
-            //         color:$TC-white;
-            //         line-height: 1.4;
-            //         font-size: 13px;
-            //         font-style: normal;
-            //         font-weight: 500;
-            //     }
-            //     .service-card-footer{
-            //         display: flex;
-            //         justify-content: flex-end;
-            //         padding-bottom: 10px;
-            //         padding-right: 5px;
-            //         button{
-            //             border: none;
-            //             color: $TC-yellow;
-            //             font-size: 15px;
-            //             background-color: $BC-blue;
-            //             font-style: normal;
-            //             font-weight: 700;
-            //             line-height: normal;
-            //             cursor: pointer;
-            //             &:hover{
-            //                 background-color: $BC-blue;
-            //                 color: $BC-gray;
-            //             }
-            //         }
-            //     }
-            // }
             .service-card {
                 background-color: $BC-blue;
                 border-radius: 20px;
@@ -200,6 +136,8 @@ html, body {
                 width: 300px;
                 height: 40px;
                 font-size: 20px;
+                font-family: font;
+                font-weight: 900; 
                 color: $TC-white;
                 justify-content: center;
                 align-items: center;
