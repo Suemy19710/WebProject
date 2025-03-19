@@ -29,21 +29,21 @@ const ClientView = () => {
   return (
     <div className="container">
       <div className="device">
-      <div className="head">
-        <div className="head-bg"></div>
-        <h1>Dân Sự</h1>
-      </div>
-      <div className="body">
-        {documents.length > 0 ? (
-          documents.map((doc) => (
-            <div key={doc._id} className="container">
-              <div dangerouslySetInnerHTML={{ __html: doc.content }} />
-            </div>
-          ))
-        ) : (
-          <p>No documents available.</p>
-        )}
-      </div>
+        <div className="head">
+          <div className="head-bg"></div>
+          <h1>Dân Sự</h1>
+        </div>
+        <div className="body">
+          {documents.length > 0 ? (
+            documents.map((doc) => (
+              <div key={doc._id} className="container">
+                <div dangerouslySetInnerHTML={{ __html: doc.content }} />
+              </div>
+            ))
+          ) : (
+            <p>No documents available.</p>
+          )}
+        </div>
       </div>
 
       

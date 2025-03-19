@@ -4,6 +4,7 @@ import Header from '../../components/client/Header';
 import TopNavigation from '../../components/client/TopNavigation';
 import ResponsiveCarousel from '../../components/client/ResponsiveCarousel';
 import AboutCompany from '../../components/client/AboutCompany';
+import AboutCompany2 from '../../components/client/AboutCompany2'; 
 // import OfferService from '../../components/client/OfferService';
 import RegisterForm from '../../components/client/RegisterForm';
 import Footer from '../../components/client/Footer';
@@ -19,6 +20,7 @@ function Home() {
     <>
       <TopNavigation/>
       <Header/>
+      {/* <AboutCompany2/> */}
       <ResponsiveCarousel/>
       <AboutCompany/>
       <Service/>

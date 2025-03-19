@@ -48,7 +48,7 @@ const AdminHeader = () => {
             <span>Tin Tức & Sự Kiện</span>
           </NavLink>
         </li>
-        <li>
+        {/* <li>
           <NavLink
             to="/admin/xem-truoc"
             className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
@@ -56,7 +56,7 @@ const AdminHeader = () => {
             <i className="fa-solid fa-file-pdf"></i>
             <span>Xem trước</span>
           </NavLink>
-        </li>
+        </li> */}
         <li>
           <NavLink
             to="/admin/so-huu-tri-tue"

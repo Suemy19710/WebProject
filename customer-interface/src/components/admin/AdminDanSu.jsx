@@ -5,9 +5,7 @@ import {Link, NavLink, Navigate, useNavigate} from "react-router-dom";
 
 const AdminUpload = () => {
   const [file, setFile] = useState(null);
-  // const [fileContent, setFileContent] = useState('');
   const [message, setMessage] = useState('');
-  // const [documents, setDocuments] = useState([]);
   const navigate = useNavigate();
   const handleFileChange = (e) => {
     const selectedFile = e.target.files[0];
