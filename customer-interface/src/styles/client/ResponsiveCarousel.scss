@@ -1,0 +1,84 @@
+// Color and Font Variables
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white: #FFF;
+$Font: "Roboto", serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-background{
+    z-index: 1;
+    height: 280px;
+    background-color: $BC-blue;
+    background-image: url('../../assets/back-ground.png');  
+    -webkit-backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    // position: relative;
+
+    .carousel-container{
+        z-index: 1;
+        width: 1000px; 
+        margin: 0 auto; 
+        padding: 10px 0;  
+
+        img{
+            z-index: 1;
+            // position: absolute;
+            width: 1000px;
+            height: 230px;
+            object-fit: cover;
+            // border-radius: 10px;
+            // display: flex;
+            align-items: center;
+            justify-content: center;
+            // margin-left: 50px;
+        }
+    }
+}
+
+@media only screen and (max-width: 1207px) and (min-width: 851px){
+    .carousel-background{
+        height: 200px;
+        display: flex;
+        align-items: center;
+
+        .carousel-container{
+            width: 100%;
+            padding: 0 20px;
+            margin-left:40px;
+
+            img{
+                width: 80%; 
+                height: 150px;
+
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .carousel-background {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        .carousel-container{
+            width: 100%; 
+            padding: 0 10px;
+            margin-left: 30px;
+
+            img{
+                height: 100px;
+                width: 80%
+            }
+        }
+    }
+}

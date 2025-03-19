@@ -1,0 +1,203 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font: "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: font;
+    box-sizing: border-box;
+}
+.doiNguLuatSuGioiThieu-container{
+    background-image: url('../../assets/back-ground.png');
+    width: 100%;
+    // height: auto;
+    background-color: $BC-blue;
+    display: flex;
+    justify-content: center;
+    .device{
+        height: 100%; 
+
+        .head{
+            position: relative;
+            width: 100%; 
+            height: 200px;
+            width: 1270px;
+            .head-bg{
+                background-image: url('../../assets/back-ground-4.jpeg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                height: 200px;
+                width: 100%;
+
+                filter: blur(2px);
+            }
+            h1{
+              
+                color: $TC-yellow;
+                position: absolute;
+                font-size: 60px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 78px;
+                top: 25%;
+                left: 70%;
+                filter: none;
+                transform: translate(-50%, -50%);
+                width: 700px;
+                text-shadow: 1px 1px 2px $BC-blue, 0 0 25px black;
+
+            }
+            span{
+                color: $TC-white;
+                font-size: 60px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 78px;
+                padding-left: 13px;
+            }
+        }
+        .body{
+            display: flex;
+            flex-direction: row;
+    
+            gap: 40px;
+            // grid-template-columns: repeat(4, 1fr);
+            // grid-template-rows: repeat(1, auto);
+            // width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            justify-content: center;
+            align-items: flex-start;
+            // .luatSu-card{
+            //     background-color: $BC-white;
+            //     border-radius: 8px;
+            //     overflow: hidden;
+            //     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            //     transition: transform 0.2s ease;
+            //     // padding: 5px 5px 5px;
+            //     width: 250px;
+            //     height: auto;   
+            //     cursor: pointer; 
+            //     .luatSu-card-head{
+            //         img{
+            //             width: 100%;
+            //             height: 250px; 
+            //             object-fit: cover;
+            //         }
+            //     }
+            //     .luatSu-card-body{
+            //         padding-top: 10px;
+            //         padding-left: 12px;
+            //         padding-bottom: 10px;
+            //         .luatSu-card-body-name{
+            //             font-size: 22px;
+            //             color: $BC-blue;
+            //             font-weight: 900;
+            //             font-style: 20px;
+            //             padding-bottom: 3px;
+            //             &:hover{
+            //                 color: $TC-yellow;
+            //             }
+    
+            //         }.luatSu-card-body-title{
+            //             font-size: 17px;
+            //             color: $TC-black;
+            //             font-weight: 900;
+            //             font-style: 20px;
+            //             padding-bottom: 3px;
+    
+            //         }
+            //         .luatSu-card-body-description{
+            //             color:$TC-black;
+            //             font-size: 13px;
+            //             font-style: normal;
+            //             font-weight: 500;
+            //             line-height: normal;
+    
+            //         }
+            //     }
+            // }
+            .luatSu-card {
+                background-color: $BC-white;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+                transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease; /* Expanded transition */
+                width: 250px;
+                height: auto;   
+                cursor: pointer; 
+            
+                &:hover {
+                    transform: scale(1.03); /* Slightly scale up the card */
+                    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2); /* Increase shadow for depth */
+                    opacity: 0.97; /* Subtle opacity change for smoothness */
+            
+                    .luatSu-card-head {
+                        img {
+                            transform: scale(1.05); /* Slightly zoom the image */
+                            transition: transform 0.3s ease; /* Smooth image zoom */
+                        }
+                    }
+            
+                    .luatSu-card-body {
+                        .luatSu-card-body-name {
+                            color: $TC-yellow; /* Change name color on hover (already defined in your CSS) */
+                            transition: color 0.2s ease; /* Smooth color transition */
+                        }
+                    }
+                }
+            
+                .luatSu-card-head {
+                    img {
+                        width: 100%;
+                        height: 250px; 
+                        object-fit: cover;
+                        transition: transform 0.3s ease; /* Ensure the image has its own transition */
+                    }
+                }
+            
+                .luatSu-card-body {
+                    padding-top: 10px;
+                    padding-left: 12px;
+                    padding-bottom: 10px;
+            
+                    .luatSu-card-body-name {
+                        font-size: 22px;
+                        color: $BC-blue;
+                        font-weight: 900;
+                        font-style: 20px;
+                        padding-bottom: 3px;
+                        transition: color 0.2s ease; /* Add transition for smooth color change */
+                        &:hover {
+                            color: $TC-yellow; /* Already defined, kept for clarity */
+                        }
+                    }
+            
+                    .luatSu-card-body-title {
+                        font-size: 17px;
+                        color: $TC-black;
+                        font-weight: 900;
+                        font-style: 20px;
+                        padding-bottom: 3px;
+                    }
+            
+                    .luatSu-card-body-description {
+                        color: $TC-black;
+                        font-size: 13px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,258 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font: "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: font;
+}
+
+.register-form {
+  margin: 0;
+  padding: 0;
+  background-color: $BC-blue; 
+  background-image: url('../../assets/back-ground.png'); 
+  border-radius: 10px;
+  // max-width: 500px;
+  color: #fff;
+  padding-left: 280px;
+  padding-right: 250px;
+  padding-top: 10px;
+  .register-form-device{
+    width: 1208px;
+    .form-title {
+        font-size: 60px;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 20px;
+  
+        margin-top: 0;
+    }
+  
+    .form-group {
+        margin-bottom: 15px;
+  
+        label {
+          // font-family: $Font;
+            font-size: 20px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 5px;
+        }
+  
+        input, textarea {
+            width: 500px;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: 300;
+            border-radius: 30px;
+            border: 1px solid #ccc;
+            outline: none;
+            box-sizing: border-box;
+            background-color: #f8f8f8;
+            font-family: font;
+
+            &:focus {
+                border-color: #FF9900;
+            }
+        }
+  
+        textarea {
+            height: 100px;
+            width: 100%;
+            font-size: 18px;
+            font-weight: 300;
+            padding: 10px;
+            font-family: font;
+
+        }
+    }
+  
+    .form-group-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 15px;
+  
+        .col {
+            flex: 1;
+            // margin-right: 20px;
+            // padding-left: 20px;
+            label {
+              font-size: 20px;
+              font-weight: 700;
+  
+            }
+            input {
+                width: 300px;
+                font-size: 18px;
+                font-weight: 300;
+                padding: 8px;
+                border-radius: 30px;
+                border: none;
+                font-family: font;
+            }
+        }
+    }
+  
+    .footer {
+        text-align: center;
+        margin-top: 20px;
+        padding-bottom: 20px;
+        .submit-btn {
+            padding: 10px 50px;
+            font-size: 20px;
+            width: 300px;
+            height: 40px;
+            font-weight: 900;
+            font-family: font;
+            background-color: $BC-yellow;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+  
+            cursor: pointer;
+  
+            &:hover {
+                background-color: $BC-gray;
+                color: $TC-yellow;
+            }
+        }
+    }
+  }
+
+}
+@media only screen and (min-device-width: 1208px){
+    .register-form{
+        display: flex; 
+        align-items: center ;
+        justify-content: center;
+        
+    }
+}
+
+// Tablet (768px - 1207px)
+@media only screen and (max-width: 1207px) and (min-width: 768px) {
+    .register-form {
+        padding-left: 20px;
+        padding-right: 20px;
+        
+        .register-form-device {
+            width: 100%;
+            
+            .form-title {
+                font-size: 50px;
+                margin-bottom: 15px;
+            }
+            
+            .form-group {
+                label {
+                    font-size: 22px;
+                }
+                
+                input, textarea {
+                    width: 100%;
+                    font-size: 16px;
+                }
+                
+                textarea {
+                    height: 90px;
+                }
+            }
+            
+            .form-group-row {
+                gap: 15px;
+                padding-right: 10px;
+                .col {
+                    margin-right: 10px;
+                    input {
+                        width: 100%;
+                        font-size: 16px;
+                    }
+                    
+                    label {
+                        font-size: 22px;
+                    }
+                }
+            }
+            
+            .footer {
+                .submit-btn {
+                    padding: 8px 40px;
+                    font-size: 22px;
+                }
+            }
+        }
+    }
+}
+
+// Mobile (767px and below)
+@media only screen and (max-width: 767px) {
+    .register-form {
+        padding: 15px;
+        border-radius: 5px;
+        
+        .register-form-device {
+            width: 100%;
+            
+            .form-title {
+                font-size: 35px;
+                margin-bottom: 10px;
+            }
+            
+            .form-group {
+                margin-bottom: 10px;
+                
+                label {
+                    font-size: 18px;
+                }
+                
+                input, textarea {
+                    width: 100%;
+                    font-size: 14px;
+                    padding: 8px;
+                }
+                
+                textarea {
+                    height: 80px;
+                }
+            }
+            
+            .form-group-row {
+                flex-direction: column;
+                gap: 10px;
+                
+                .col {
+                    margin-right: 15px;
+                    input {
+                        width: 100%;
+                        font-size: 14px;
+                        padding: 8px;
+                    }
+                    
+                    label {
+                        font-size: 18px;
+                    }
+                }
+            }
+            
+            .footer {
+                margin-top: 15px;
+                padding-bottom: 15px;
+                
+                .submit-btn {
+                    padding: 8px 30px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,169 @@
+$BC-white: #F8F9FA;
+$BC-gray: #EAECEE;
+$BC-blue: #2E3C61;
+$BC-yellow: #DAA520;
+$TC-black: #000;
+$TC-yellow: #DAA520;
+$TC-white:#FFF;
+$Font:  "Roboto", serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: font;
+    box-sizing: border-box;
+    background-color: $BC-blue;
+}
+.container-post-news{
+    background-color: $BC-white;
+    width: 950px;
+    padding: 50px 30px;
+    position: absolute;
+    // transform: translate(-50%, -50%);
+    left: 16.8%;
+    top: 3%;
+    border-radius: 10px;
+    box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+    .options{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 15px;
+
+        button{
+            width: 28px;
+            height: 28px;
+            display: grid;
+            place-items: center;
+            border-radius: 3px;
+            border: none;
+            background-color: $BC-gray;
+            outline: none;
+            color: $TC-black;
+            cursor: pointer;
+            &:hover{
+                background-color: $BC-blue;
+                color: $TC-white;
+            }
+            // &.active{
+            //     background-color: $BC-blue;
+            //     color: $TC-white;
+            // }
+        }
+        button:active{
+            background-color: $BC-blue;
+            color: $TC-white;
+        }
+        select{
+            padding: 7px;
+            border: 1px solid $TC-black;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .input-wrapper{
+            .adv-option-button{
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                background-color: transparent;
+                width: 40px;
+                height: 28px;
+                border: none;
+                cursor: pointer;
+
+                &::-webkit-color-swatch{
+                    border-radius: 15px;
+                    box-shadow: 0 0 0 2px $TC-white, 0 0 0 3px $TC-black;
+                }
+                &::-moz-color-swatch{
+                    border-radius: 15px;
+                    box-shadow: 0 0 0 2px $TC-white, 0 0 0 3px $TC-black;
+                }
+            }
+        }
+
+    }
+    #text-input{
+        margin-top: 10px;
+        border: 1px solid $BC-blue;
+        background-color: $TC-white;
+        padding: 20px;
+        height: 300px;
+        overflow-y: auto;
+        resize: vertical;
+        &.active{
+            background-color: $TC-white;
+        }
+    }
+    .post-container{
+        display: flex;
+        flex-direction: column;
+        margin: 10px;
+
+        input{
+            font-size: 20px;
+            font-weight: 800px;
+            padding: 5px;
+            padding-left: 15px;
+            border-radius: 10px;
+            border: none;
+        }
+        textarea{
+            font-size: 15px;
+            font-family: $Font ;
+        }
+        .sumbit-btn{
+            display: flex;
+            justify-content: center;
+            button{
+                margin-top: 10px;
+                width: 500px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 30px;
+                font-size: 18px;
+                font-weight: 700;
+                background-color: #DAA520;
+                border-radius: 30px;
+                border: none;
+                color: $BC-gray;
+                cursor: pointer;
+                &.active, :hover{
+                    background-color: $BC-blue;
+                    color: $TC-white;
+                }
+            }
+        }
+       
+    }
+    .button-container{
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+        margin-top: 10px;
+        .preview, .post, .draft {
+            width: 80px;
+            height: 25px;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 3px;
+            border: none;
+            background-color: $BC-gray;
+            cursor: pointer;
+            &.active{
+                background-color: $BC-blue;
+                color: $TC-white;
+            }
+        }
+        .post{
+            background-color: $BC-yellow;
+            color: $TC-black;
+        }
+    }
+}
