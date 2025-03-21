@@ -1,0 +1,130 @@
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.services {
+//   background-color: $BC-black-light; /* Dark background */
+  padding: 50px 100px;
+  text-align: center;
+
+  h2 {
+    font-size: 36px;
+    font-weight: 700;
+    color: $TC-white;
+    margin-bottom: 40px;
+  }
+
+  .services__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    grid-template-rows: repeat(2, auto); /* 2 rows */
+    gap: 20px; /* Space between cards */
+
+    .services__card {
+      background-color: $BC-white;
+      border-radius: 15px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+      text-align: center;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px); /* Slight lift on hover */
+      }
+
+      .services__icon {
+        width: 40px;
+        height: 40px;
+        background-color: $TC-yellow; /* Placeholder for the icon */
+        border-radius: 50%;
+        margin: 0 auto 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* Placeholder icon (you can replace with an actual image or SVG) */
+        &::before {
+          content: '🏠'; /* Unicode for a house icon (placeholder) */
+          font-size: 20px;
+          color: $TC-white;
+        }
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        color: $TC-black;
+        margin-bottom: 10px;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        color: $TC-black;
+        line-height: 1.5;
+      }
+    }
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services {
+    padding: 40px 50px;
+
+    .services__grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+      grid-template-rows: repeat(4, auto); /* 4 rows */
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    padding: 30px 20px;
+
+    h2 {
+      font-size: 28px;
+    }
+
+    .services__grid {
+      grid-template-columns: 1fr; /* 1 column on mobile */
+      grid-template-rows: repeat(8, auto); /* 8 rows */
+      gap: 15px;
+
+      .services__card {
+        padding: 15px;
+
+        h3 {
+          font-size: 16px;
+        }
+
+        p {
+          font-size: 12px;
+        }
+      }
+    }
+  }
+}

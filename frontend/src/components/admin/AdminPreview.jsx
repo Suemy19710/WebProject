@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../../styles/client/Legal.scss';
+// import '../../styles/client/Legal.scss';
 
 const AdminPreview = () => {
     const [documents, setDocuments] = useState([]);
