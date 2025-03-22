@@ -7,85 +7,95 @@ const Services = () => {
       <h2>Dịch Vụ</h2>
       <div className="services__grid">
         <div className="services__card">
-          <div className="services__icon"></div> {/* Placeholder for the icon */}
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
         <div className="services__card">
-          <div className="services__icon"></div>
+          <div className="services__icon"><i class="fa-solid fa-gavel"></i></div>
           <h3>Dịch vụ tư vấn pháp lý</h3>
-          <p>
+          <div className="services__description">
             - Tư vấn luật dân sự, đất đai, bảo hiểm<br />
             - Tư vấn luật hôn nhân & gia đình<br />
             - Tư vấn luật lao động<br />
-            - Tư vấn luật thuế và tài chính
-          </p>
+            - Tư vấn luật thuế và tài chính <br/>
+            - ... <br/>
+          </div>
         </div>
+
+
       </div>
     </section>
   );

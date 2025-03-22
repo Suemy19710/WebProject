@@ -5,6 +5,11 @@ import Header from '../../components/client/Header';
 import Introduction from '../../components/client/Introduction'; 
 import Services from '../../components/client/Service';
 import RegisterForm from '../../components/client/RegisterForm'; 
+import IntroductionLawyers from '../../components/client/IntroductionLawyers';
+import IntroductionPictures from '../../components/client/IntroductionPictures';
+import IntroductionNews from '../../components/client/IntroductionNews'; 
+import Footer from '../../components/client/Footer';
+
 function Homepage() {
   return (
     <div className="homepage-container">
@@ -14,6 +19,13 @@ function Homepage() {
         <Introduction/>
         <RegisterForm/>
         <Services />
+        <div className="decoration"></div>
+        <div className="decoration-circle-large"></div>
+        <div className="decoration-circle-small"></div>
+        <IntroductionPictures/>
+        <IntroductionLawyers/>
+        <IntroductionNews/>
+        <Footer/>
       </div>
     </div>
   );
