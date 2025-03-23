@@ -46,9 +46,9 @@ html, body {
         background-image: url('../../assets/background.jpg');
         background-size: cover;
         background-position: center;
-        filter: blur(8px); /* Keep the blur if desired */
-        opacity: 0.3; /* Adjust this value (0 to 1) for desired transparency */
-        z-index: -1; /* Ensures the pseudo-element is behind the content but above the background color */
+       filter: blur(8px); 
+          opacity: 0.3;
+          z-index: -1; 
       }
     }
   

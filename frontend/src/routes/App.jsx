@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Homepage from '../pages/client/Homepage';
-
+import GioithieuYNghiaPage from '../pages/client/GioiThieuYNghiaPage';
 
 // import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 // import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -24,6 +24,7 @@ function App() {
       <Routes>
         {/* Client Routes */}
         <Route path="/" element={<Homepage/>}/>
+        <Route path="/gioi-thieu" element={<GioithieuYNghiaPage/>}/>
 
 
         {/* Admin Routes */}
