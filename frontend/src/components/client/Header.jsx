@@ -44,6 +44,11 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
+            <NavLink to="/dich-vu" activeClassName="active">
+              Dịch vụ
+            </NavLink>
+          </li>
+          <li>
             <NavLink to="/tin-tuc" activeClassName="active">
               Tin tức & Sự kiện
             </NavLink>

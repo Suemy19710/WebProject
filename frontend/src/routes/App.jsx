@@ -11,7 +11,7 @@ import DanSu from '../pages/client/DanSuPage';
 import HinhSu from '../pages/client/HinhSuPage';  
 import HanhChinh from '../pages/client/HanhChinhPage';  
 import SoHuuTriTue from '../pages/client/SoHuuTriTuePage';  
-
+import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
 
 // import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 // import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -40,6 +40,8 @@ function App() {
         <Route path="/hinh-su" element={<HinhSu/>}/>
         <Route path="/hanh-chinh" element={<HanhChinh/>}/>
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
+        <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/>
+
 
 
 

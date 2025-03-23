@@ -6,6 +6,8 @@ $TC-green: #5EDCD4;
 $TC-yellow: #CB935D;
 $TC-white: #FFF;
 $TC-gray: #B5CACE; 
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
 $Font: "Raleway", sans-serif;
 
 html, body {
@@ -65,6 +67,92 @@ html, body {
             }
           }
           
+        }
+      }
+      .container-body{
+        padding-top: 20px;
+        .intro-lawyers__grid {
+          display: flex;
+          justify-content: center;
+          gap: 30px;
+      
+          .intro-lawyers__card {
+            text-align: center;
+            width: 250px;
+            display: flex; 
+            flex-direction: column;
+            justify-content: center; 
+            align-items: center;
+            background-color: rgba($BC-blue, 0.5); 
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            &:hover {
+              transform: translateY(-5px); 
+      
+            
+            }
+      
+            img {
+              width: 230px;
+              height: 140px;
+              position: relative; 
+              object-fit:cover;
+              border-radius: 20px;
+              margin-bottom: 15px;
+            }
+      
+            h3 {
+              font-size: 20px;
+              font-weight: 600;
+              color: $TC-white;
+              margin-bottom: 5px;
+              width: 200px;
+              cursor: pointer;
+              &:hover {
+                color: $TC-yellow;
+              }
+            }
+      
+            .short-description{
+              display: flex; 
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              padding-top: 5px;
+              width: 180px;
+              border-top: 1px solid $BC-green-opacity;
+              gap: 5px;
+              p {
+                font-size: 10px;
+                font-weight: 400;
+                color: $TC-gray;
+              }
+            }
+           
+      
+            button {
+              background-color: $TC-yellow;
+              color: $TC-black;
+              border: none;
+              padding: 5px 10px;
+              margin-top: 10px;
+              font-size: 12px;
+              font-weight: 700;
+              border-radius: 20px; 
+              cursor: pointer;
+              width: 200px;
+              background-color: $BC-black-light;
+              color: $TC-yellow; 
+      
+              &:hover {
+                background-color: $TC-yellow;
+                color: $BC-blue;
+              }
+            }
+          }
         }
       }
     }
