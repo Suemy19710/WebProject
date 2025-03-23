@@ -1,6 +1,6 @@
 
 import '../../styles/client/Homepage.scss'
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from '../../components/client/Header'; 
 import Introduction from '../../components/client/Introduction'; 
 import Services from '../../components/client/Service';
@@ -11,6 +11,9 @@ import IntroductionNews from '../../components/client/IntroductionNews';
 import Footer from '../../components/client/Footer';
 
 function Homepage() {
+  useEffect(()=>{
+          window.scrollTo(0,0);
+      }, []); 
   return (
     <div className="homepage-container">
       <div className="background"></div>

@@ -1,13 +1,13 @@
 import React from 'react'; 
 import '../../styles/client/DanSu.scss'; 
-const DanSu = () => {
+const SoHuuTriTue = () => {
     return(
         <div className="danSu-container">
             <div className="danSu-device">
                 <div className="container-header">
                     <div className="container-header-bg"></div>
                     <div className="container-header-content">
-                        <h1>Dân Sự</h1>
+                        <h1>Sở Hữu Trí Tuệ</h1>
                     </div>
                 </div>
                 <div className="container-body">
@@ -30,4 +30,4 @@ const DanSu = () => {
         </div>
     )
 }
-export default DanSu; 
+export default SoHuuTriTue; 
