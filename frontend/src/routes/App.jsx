@@ -12,6 +12,7 @@ import HinhSu from '../pages/client/HinhSuPage';
 import HanhChinh from '../pages/client/HanhChinhPage';  
 import SoHuuTriTue from '../pages/client/SoHuuTriTuePage';  
 import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
+import DichVuPage from '../pages/client/DichVuPage'; 
 
 // import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 // import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -41,7 +42,7 @@ function App() {
         <Route path="/hanh-chinh" element={<HanhChinh/>}/>
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
         <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/>
-
+        <Route path="/dich-vu" element={<DichVuPage/>}/>
 
 
 
