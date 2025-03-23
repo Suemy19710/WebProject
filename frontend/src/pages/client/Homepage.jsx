@@ -3,7 +3,7 @@ import '../../styles/client/Homepage.scss'
 import React, {useEffect} from 'react';
 import Header from '../../components/client/Header'; 
 import Introduction from '../../components/client/Introduction'; 
-import Services from '../../components/client/Service';
+import IntroductionService from '../../components/client/IntroductionService';
 import RegisterForm from '../../components/client/RegisterForm'; 
 import IntroductionLawyers from '../../components/client/IntroductionLawyers';
 import IntroductionPictures from '../../components/client/IntroductionPictures';
@@ -21,7 +21,7 @@ function Homepage() {
         <Header />
         <Introduction/>
         <RegisterForm/>
-        <Services />
+        <IntroductionService />
         <div className="decoration"></div>
         <div className="decoration-circle-large"></div>
         <div className="decoration-circle-small"></div>

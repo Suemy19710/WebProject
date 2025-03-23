@@ -27,7 +27,7 @@ html, body {
     .tinTuc-device {
       .container-header {
         position: relative;
-        height: 300px;
+        min-height: 300px;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -71,6 +71,8 @@ html, body {
         }
       }
       .container-body{
+        display: flex; 
+        flex-direction: column;
         .container-body-content{
           display: flex; 
           flex-direction: column;
@@ -102,17 +104,25 @@ html, body {
               }
         
               .news__date {
-                font-size: 12px;
-                color: $TC-gray;
-                margin: 10px 15px;
-                text-align: left;
+                display: flex; 
+                justify-content: flex-start;
+                align-self: start;
+                height: 28px;
+                padding-top: 5px;
+                margin: 0;
+                .date{
+                  font-size: 12px;
+                  font-weight: 500;
+                  color: $TC-gray;
+                  
+                }
               }
         
-              h3 {
+              .news__title {
                 font-size: 16px;
                 font-weight: 600;
                 color: $TC-white;
-                margin: 0 15px 10px;
+                margin: 0 15px 5px;
                 text-align: left;
               }
         
@@ -123,13 +133,23 @@ html, body {
                 text-align: left;
               }
               i{
-                color: $BC-green-opacity; /* Light green color */
-                font-size: 16px; /* Adjust icon size */
-                margin: 0 15px 15px 25px; /* Match the margin of other elements */
+                color: $BC-green-opacity;
+                font-size: 16px; 
+                margin: 0 15px 15px 25px; 
                 align-self: flex-start;     
                 cursor: pointer; 
-                &:hover{
-                  color: $TC-yellow; 
+             
+              }
+              .news__footer{
+                i{
+                  color: $BC-green-opacity; /* Light green color */
+                  font-size: 16px; /* Adjust icon size */
+                  margin: 0 15px 15px 25px; /* Match the margin of other elements */
+                  align-self: flex-start;     
+                  cursor: pointer; 
+                  &:hover{
+                    color: $TC-yellow; 
+                  }
                 }
               }
             }

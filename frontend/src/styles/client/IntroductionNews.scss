@@ -23,12 +23,13 @@ $Font: "Raleway", sans-serif;
 
   .news__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(4, 250px);
+    gap: 10px;
 
     .news__card {
       background-color: rgba($BC-blue, 0.5); 
       border-radius: 15px;
+      width: 250px;
       overflow: hidden;
       transition: transform 0.3s ease;
       display: flex; 
@@ -45,17 +46,25 @@ $Font: "Raleway", sans-serif;
       }
 
       .news__date {
-        font-size: 12px;
-        color: $TC-gray;
-        margin: 10px 15px;
-        text-align: left;
+        display: flex; 
+        justify-content: flex-start;
+        align-self: start;
+        height: 28px;
+        padding-top: 5px;
+        margin: 0;
+        .date{
+          font-size: 12px;
+          font-weight: 500;
+          color: $TC-gray;
+          
+        }
       }
 
-      h3 {
+      .news__title {
         font-size: 16px;
         font-weight: 600;
         color: $TC-white;
-        margin: 0 15px 10px;
+        margin: 0 15px 5px;
         text-align: left;
       }
 
@@ -66,19 +75,35 @@ $Font: "Raleway", sans-serif;
         text-align: left;
       }
       i{
-        color: $BC-green-opacity; /* Light green color */
-        font-size: 16px; /* Adjust icon size */
-        margin: 0 15px 15px 25px; /* Match the margin of other elements */
+        color: $BC-green-opacity;
+        font-size: 16px;
+        margin: 0 15px 15px 25px;
         align-self: flex-start;     
         cursor: pointer; 
-        &:hover{
-          color: $TC-yellow; 
+        // &:hover{
+        //   color: $TC-yellow; 
+        // }
+      }
+      .news__footer{
+        align-self: flex-end;    
+        padding-right: 25px; 
+
+        i{
+          color: $BC-green-opacity; /* Light green color */
+          font-size: 16px; /* Adjust icon size */
+          margin: 0 15px 15px 25px; /* Match the margin of other elements */
+          align-self: flex-start;     
+          cursor: pointer; 
+          &:hover{
+            color: $TC-yellow; 
+          }
         }
       }
     }
   }
-  .news__footer{
-    width: 100%;
+
+  .news_footer{
+    // width: 100%;
     margin-top: 20px;
     .news__more {
       width: 300px;

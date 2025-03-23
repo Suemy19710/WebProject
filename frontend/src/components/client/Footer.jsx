@@ -67,7 +67,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="footer__bottom">
-        <p>@LuatSuKimNgoc CopyRight</p>
+        <p>@LuatSuKimNgoc.CopyRight</p>
       </div>
     </footer>
   );

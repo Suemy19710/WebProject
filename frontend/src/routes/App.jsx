@@ -35,7 +35,7 @@ function App() {
         <Route path="/gioi-thieu" element={<GioithieuYNghiaPage/>}/>
         <Route path="/luat-su" element={<LuatSuPage/>}/>
         <Route path="/tin-tuc" element={<TinTucPage/>}/>
-        <Route path="/tin-tuc-detail" element={<TinTucDetailPage/>}/>
+        <Route path="/tin-tuc/:title" element={<TinTucDetailPage/>}/>
         <Route path="/dan-su" element={<DanSu/>}/>
         <Route path="/hinh-su" element={<HinhSu/>}/>
         <Route path="/hanh-chinh" element={<HanhChinh/>}/>
