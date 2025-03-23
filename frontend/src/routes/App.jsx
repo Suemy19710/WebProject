@@ -6,6 +6,8 @@ import Homepage from '../pages/client/Homepage';
 import GioithieuYNghiaPage from '../pages/client/GioiThieuYNghiaPage';
 import LuatSuPage from '../pages/client/LuatSuPage';
 import TinTucPage from '../pages/client/TinTucPage';  
+import TinTucDetailPage from '../pages/client/TinTucDetailPage';  
+
 // import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 // import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
 // import AdminHinhSuPage from '../pages/admin/AdminHinhSuPage';
@@ -28,6 +30,7 @@ function App() {
         <Route path="/gioi-thieu" element={<GioithieuYNghiaPage/>}/>
         <Route path="/luat-su" element={<LuatSuPage/>}/>
         <Route path="/tin-tuc" element={<TinTucPage/>}/>
+        <Route path="/tin-tuc-detail" element={<TinTucDetailPage/>}/>
 
 
 

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'; 
+import {useNavigate} from 'react-router-dom'; 
 import '../../styles/client/TinTuc.scss'; 
 import news1 from '../../assets/news1.jpg';
 
@@ -14,6 +15,7 @@ const TinTuc = () => {
         ...item, 
         id: index + 1, 
     })); 
+    const navigate = useNavigate(); 
 
     // paginiation state
 
@@ -37,6 +39,9 @@ const TinTuc = () => {
     const goToPage = (page) => {
         setCurrentPage(page); 
     }
+    const handleNewsClick = (id) => {
+        navigate(`/tin-tuc-detail`);
+    };
 
     // generate array of page numbers 
     const pageNumbers = Array.from({length: totalPages}, (_, index) => index +1); 
@@ -58,7 +63,7 @@ const TinTuc = () => {
                                    <p className="news__date">{item.date}</p>
                                    <h3>{item.title}</h3>
                                    <p className="news__excerpt">{item.excerpt}</p>
-                                   <i className="fa-solid fa-arrow-right"></i>
+                                   <i className="fa-solid fa-arrow-right" onClick={() => handleNewsClick(item.id)}></i>
                                </div>
                                 ))}   
                             </div>

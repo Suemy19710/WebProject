@@ -1,0 +1,57 @@
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white:#FFF;
+$TC-gray: #B5CACE; 
+$Font:"Raleway", sans-serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: $Font;
+    box-sizing: border-box;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .tinTucDetailPage-container{
+    position: relative; 
+    min-height: 100vh; 
+    .background {
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+        background-color: $BC-black-light; 
+        z-index: -1; 
+  
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url('../../assets/background.jpg');
+          background-size: cover;
+          background-position: center;
+          filter: blur(8px); 
+          opacity: 0.3;
+          z-index: -1; 
+        }
+      }
+    
+      .content {
+        position: relative; 
+        z-index: 1;
+      }
+  }
