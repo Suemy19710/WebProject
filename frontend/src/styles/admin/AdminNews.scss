@@ -1,42 +1,48 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
 $BC-white: #F8F9FA;
-$BC-gray: #EAECEE;
 $BC-blue: #2E3C61;
-$BC-yellow: #DAA520;
+$BC-black-light: #222222; 
 $TC-black: #000;
-$TC-yellow: #DAA520;
-$TC-white:#FFF;
-$Font:  "Roboto", serif;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-family: font;
-    box-sizing: border-box;
-    background-color: $BC-blue;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
 }
+
 .adminNews-container{
     padding-left: 200px;
-    color: $TC-white;
+    color: $TC-black;
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
+    margin-left: 50px;
     .body{
         display: flex;
         flex-direction: column;
         width: 300px;
         button{
-            background-color: $BC-gray;
-            border: none;
+            background-color: $BC-black-light;
+            opacity: 0.8; 
             width: 120px;
             height: 30px;
-            color: $BC-blue;
+            border: none;
+            color: $TC-gray;
             margin-left: 35px;
             border-radius: 30px;
             margin-top: 20px;
             cursor: pointer;
             margin-left: 5px;
             &:hover{
-                background-color: $BC-yellow;
+                background-color: $TC-yellow;
                 color:$TC-white;
             }
         }

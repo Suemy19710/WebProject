@@ -1,19 +1,22 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-gray: #B5CACE; 
 $BC-white: #F8F9FA;
-$BC-gray: #EAECEE;
 $BC-blue: #2E3C61;
-$BC-yellow: #DAA520;
+$BC-black-light: #222222; 
 $TC-black: #000;
-$TC-yellow: #DAA520;
-$TC-white:#FFF;
-$Font:  "Roboto", serif;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-family: font;
-    box-sizing: border-box;
-    background-color: $BC-blue;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
 }
 
 .adminHeader-container {
@@ -30,12 +33,12 @@ html, body {
       justify-content: center;
       align-items: center;
       width: 140px;
-      padding: 0px 20px 0px 20px;
+      padding: 10px 20px 0px 30px;
       // padding-left: 0;
       font-size: 20px;
-      color: #2d3b4f;
+      color: $TC-white;
       font-weight: bold;
-      background-color: $BC-gray;
+      // background-color: $BC-gray;
       img{
         height: 80px;
       }

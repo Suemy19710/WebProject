@@ -1,40 +1,48 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
 $BC-white: #F8F9FA;
-$BC-gray: #EAECEE;
 $BC-blue: #2E3C61;
-$BC-yellow: #DAA520;
+$BC-black-light: #222222; 
 $TC-black: #000;
-$TC-yellow: #DAA520;
-$TC-white:#FFF;
-$Font:  "Roboto", serif;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    font-family: font;
-    box-sizing: border-box;
-    background-color: $BC-blue;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+
 }
+
 .adminDanSu-container{
     padding-left: 300px;
-    color: $TC-white;
+    color: $TC-black;
     padding-top: 30px;
+    min-width: 100%; 
+
     .huongDan {
         width: 600px;
         margin-bottom: 20px;
+        margin-top: 10px;
     }
     button{
-        background-color: $BC-gray;
+        background-color: $BC-black-light;
+        opacity: 0.8; 
         border: none;
         width: 120px;
         height: 30px;
-        color: $BC-blue;
+        color: $TC-gray;
         margin-left: 35px;
         border-radius: 30px;
         cursor: pointer;
         margin-left: 5px;
         &:hover{
-            background-color: $BC-yellow;
+            background-color: $TC-yellow;
             color:$TC-white;
         }
     }

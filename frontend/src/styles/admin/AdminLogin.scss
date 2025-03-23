@@ -1,32 +1,37 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
 $BC-white: #F8F9FA;
-$BC-gray: #EAECEE;
+$BC-yellow: #CB935D;
 $BC-blue: #2E3C61;
-$BC-yellow: #DAA520;
+$BC-black-light: #222222; 
 $TC-black: #000;
-$TC-yellow: #DAA520;
-$TC-white:#FFF;
-$Font:  "Roboto", serif;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$BC-gray: #B5CACE; 
+
+$Font: "Raleway", sans-serif;
 
 html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%; 
-    font-family: font;
-    box-sizing: border-box;
-    background-color: $BC-blue;
-
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
 }
+
 .adminLogin-container {
-    height: 100vh; /* Use viewport height for full-screen height */
+    height: 100vh; 
     background-image: url('../../assets/back-ground.png');  
-    background-size: cover; /* Ensure the background image covers the entire container */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
-    width: 100%; /* Ensure it spans full width */
-    display: flex; /* Optional: helps with centering content */
-    justify-content: center; /* Optional: center horizontally */
-    align-items: center; /* Optional: center vertically */
+    background-size: cover;
+    background-position: center; 
+    background-repeat: no-repeat;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $BC-blue;
 
     .adminLogin-device{
         align-items: center;
@@ -40,7 +45,7 @@ html, body {
             margin-bottom: 10px;
         }
         form{
-            background-color: $BC-white;
+            background-color: $BC-gray;
             width: 500px;
             height: 200px;
             border-radius: 50px;
