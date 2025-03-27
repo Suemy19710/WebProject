@@ -17,7 +17,7 @@ const News = () =>{
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
     useEffect (() => {
-        fetch('http://localhost:5000/api/tin-tuc')
+        fetch('http://localhost:5000/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => setNews(data))
             .catch((err) => console.log('Error fetching posts:', err));
@@ -73,32 +73,3 @@ const News = () =>{
     ); 
 }; 
 export default News; 
-
-{/* <div className="news__card">
-                    <img src={news1} alt="News 1" />
-                    <p className="news__date">20/05/2020</p>
-                    <h3>A pandemic may cause life insurance coverage</h3>
-                    <p className="news__excerpt">In the aftermath of the Covid epidemic, life insurance firms have been more cautious and have tightened </p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div className="news__card">
-                    <img src={news1} alt="News 1" />
-                    <p className="news__date">20/05/2020</p>
-                    <h3>A pandemic may cause life insurance coverage</h3>
-                    <p className="news__excerpt">In the aftermath of the Covid epidemic, life insurance firms have been more cautious and have tightened </p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div className="news__card">
-                    <img src={news1} alt="News 1" />
-                    <p className="news__date">20/05/2020</p>
-                    <h3>A pandemic may cause life insurance coverage</h3>
-                    <p className="news__excerpt">In the aftermath of the Covid epidemic, life insurance firms have been more cautious and have tightened </p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div>
-                <div className="news__card">
-                    <img src={news1} alt="News 1" />
-                    <p className="news__date">20/05/2020</p>
-                    <h3>A pandemic may cause life insurance coverage</h3>
-                    <p className="news__excerpt">In the aftermath of the Covid epidemic, life insurance firms have been more cautious and have tightened </p>
-                    <i class="fa-solid fa-arrow-right"></i>
-                </div> */}

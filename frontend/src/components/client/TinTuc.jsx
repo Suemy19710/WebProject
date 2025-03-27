@@ -29,7 +29,7 @@ const TinTuc = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/tin-tuc')
+        fetch('http://localhost:5000/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => setPosts(data))
             .catch((err) => console.log('Error fetching posts: ', err));

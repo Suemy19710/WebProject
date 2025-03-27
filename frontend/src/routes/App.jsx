@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom'; 
 import Slider from 'react-slick';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -23,7 +24,7 @@ import AdminPreview from '../pages/admin/AdminPreviewPage';
 import AdminLogin from '../components/admin/AdminLogin';
 import AdminDashboard from '../pages/admin/AdminDashboardPage';
 import AdminNewsPage from '../pages/admin/AdminNewsPage';
-
+import AdminTinTucPage from '../pages/admin/AdminTinTucPage'; 
 
 
 function App() {
@@ -56,7 +57,7 @@ function App() {
         <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
         <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
         <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} /> 
-
+        <Route path="/admin/tin-tuc-&-su-kien" element={<AdminTinTucPage/>}/>
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
       </Routes>

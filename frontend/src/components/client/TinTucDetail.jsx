@@ -1,84 +1,104 @@
-import React , {useEffect, useState}from 'react'; 
-import {useParams} from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import news1 from '../../assets/news1.jpg';
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import '../../styles/client/TinTucDetail.scss';
 
-import '../../styles/client/TinTucDetail.scss'; 
 const TinTucDetail = () => {
-    const {title} = useParams() ; 
-    const {post, setPost} = useState(null); 
-    const [loading, setLoading] = useState(null); 
-    useEffect(() => {
-        const isSlug = !title.includes(" ");
-        const slugifiedTitle = isSlug ? title : createSlugTitle(title);
+    const { title } = useParams(); // The slug or title from the URL
+    const [post, setPost] = useState(null); // Single post object, initialized as null
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
-        fetch(`http://localhost:5000/api/tin-tuc?slug=${slugifiedTitle}`)
-            .then((res) => {
-                return res.json();
-            })
-            .then((data) => {        
+    useEffect(() => {
+        setLoading(true);
+        fetch('http://localhost:5000/api/tin-tuc-&-su-kien')
+            .then((res) => res.json())
+            .then((data) => {
                 if (Array.isArray(data) && data.length > 0) {
-                    const correctedPost = data.find((item) => item.slug === slugifiedTitle);
-                    console.log("Post found using find():", correctedPost);
-                    setPost(correctedPost || data[0]);
+                    // Assuming the API returns posts with a 'slug' field or 'title' field
+                    const matchedPost = data.find((item) => 
+                        (item.slug && item.slug === title) || 
+                        (item.title && createSlugTitle(item.title) === title)
+                    );
+                    if (matchedPost) {
+                        setPost(matchedPost);
+                    } else {
+                        setError('Bài viết không tồn tại.');
+                        setPost(null);
+                    }
                 } else {
-                    console.log("Post not found.");
+                    setError('Không có dữ liệu bài viết.');
                 }
                 setLoading(false);
             })
             .catch((err) => {
-                console.log('Error fetching post details:', err);
+                console.error('Error fetching posts:', err);
+                setError('Không thể tải bài viết.');
                 setLoading(false);
             });
     }, [title]);
+
     const formattedDate = post?.createdAt
-    ? (() => {
-        try {
+        ? (() => {
             const postDate = new Date(post.createdAt);
-            if (!isNaN(postDate.getTime())) {
-                const day = String(postDate.getDate()).padStart(2, '0'); 
-                const month = String(postDate.getMonth() + 1).padStart(2, '0');
-                const year = postDate.getFullYear();
-                return `${day}/${month}/${year}`;
-            }
-            return "Invalid date";
-        } catch (error) {
-            console.error("Error parsing date:", error);
-            return "Invalid date";
-        }
-    })()
-    : "Invalid date";
-    return(
+            return !isNaN(postDate.getTime())
+                ? `${String(postDate.getDate()).padStart(2, '0')}/${String(postDate.getMonth() + 1).padStart(2, '0')}/${postDate.getFullYear()}`
+                : 'Invalid date';
+        })()
+        : 'N/A';
+
+    if (loading) {
+        return (
+            <div className="tinTucDetail-container">
+                <p>Đang tải...</p>
+            </div>
+        );
+    }
+
+    if (error || !post) {
+        return (
+            <div className="tinTucDetail-container">
+                <p>{error || 'Bài viết không tồn tại.'}</p>
+            </div>
+        );
+    }
+
+    return (
         <div className="tinTucDetail-container">
             <div className="tinTucDetail-device">
                 <div className="container-header">
                     <div className="container-header-bg"></div>
                     <div className="container-header-content">
-                        <h1>Tin tức & Sự kiện </h1>
+                        <h1>Tin tức & Sự kiện</h1>
                     </div>
                 </div>
                 <div className="container-body">
                     <div className="container-body-bg"></div>
                     <div className="container-body-content">
-                     
-                            {post ? (
-                                <div className="content">
-                                    <h3 className="title">{post.title}</h3>
-                                    <div className="dateOfRelease">
-                                        <i class="fa-regular fa-clock"></i>
-                                        <div className="date">{formattedDate}</div>
-                                    </div>
-                                    <div className="body">   
-                                        <div className="body-description">
-                                            <div dangerouslySetInnerHTML={{ __html:post.content}}></div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            ):( <p>Loading...</p>)}
-                        
+                        <div className="content">
+                            <div className="title">{post.title}</div>
+                            <div className="dateOfRelease">
+                                <i className="fa-regular fa-clock"></i>
+                                <div className="date">{formattedDate}</div>
+                            </div>
+                            <div className="body">
+                                {/* {post.image && (
+                                    <img
+                                        src={`http://localhost:5000/uploads/${post.image}`}
+                                        alt={post.title}
+                                        onError={(e) => (e.target.src = news1)} // Fallback image
+                                    />
+                                )} */}
+                                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    )
-}
-export default TinTucDetail; 
+    );
+};
+
+export default TinTucDetail;

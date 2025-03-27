@@ -111,12 +111,22 @@ html, body {
                       }
               
                       .dateOfRelease {
-                        font-size: 15px;
-                        color: $TC-black;
-                        margin: 10px 0;
+                        display: flex; 
+                        justify-content: flex-start;
+                        align-self: start;
+                        height: 28px;
+                        padding-top: 5px;
+                        margin: 0;
+                        .date{
+                          padding-left: 10px;
+                          font-size: 12px;
+                          font-weight: 500;
+                          color: $BC-black-light;
+                          
+                        }
                       }
               
-                      p {
+                      .body {
                         width: 100%;
                         line-height: 1.8;
                         text-align: justify;

@@ -48,6 +48,15 @@ const AdminHeader = () => {
             <span>Tin Tức & Sự Kiện</span>
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/admin/tin-tuc-&-su-kien"
+            className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
+          >
+            <i className="fa-solid fa-file"></i>
+            <span>Tin Tức</span>
+          </NavLink>
+        </li>
         {/* <li>
           <NavLink
             to="/admin/xem-truoc"

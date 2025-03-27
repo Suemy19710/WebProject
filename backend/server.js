@@ -14,6 +14,7 @@ const HanhChinhRoutes = require('./src/routes/HanhChinhRoutes');
 const SoHuuTriTueRoutes = require('./src/routes/SoHuuTriTueRoute');
 const PreviewRoutes = require('./src/routes/PreviewRoute');
 const NewsRoutes = require('./src/routes/NewsRoutes');
+const TinTucRoutes = require('./src/routes/TinTucRoutes'); 
 
 const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
@@ -32,12 +33,11 @@ app.use('/api/hanh-chinh', HanhChinhRoutes);
 app.use('/api/so-huu-tri-tue',SoHuuTriTueRoutes );
 app.use('/api/preview', PreviewRoutes);
 app.use('/api/tin-tuc', NewsRoutes);
+app.use('/api/tin-tuc-&-su-kien', TinTucRoutes); 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// middileware for login
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/admin', (req, res) => {
     res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
@@ -52,21 +52,6 @@ app.post('/api/login', (req, res) => {
         res.status(401).json({ success: false, message: 'Invalid credentials, please try again.' });
     }
 });
-
-// app.get('/api/blogs', async(req, res) => {
-//     try{
-//         const {slug} = req.query;
-//         const blogPosts = slug ? await Blog.findOne({ slug }) : await Blog.find();
-
-//         if (!blogPosts) {
-//             return res.status(404).json({ error: 'No blog posts found' });
-//         }
-//         res.json(blogPosts);
-//     } catch(err) {
-//         res.status(500).json({error: 'Server error'});
-//     }
-// });
-
 
 
 const PORT = process.env.PORT || 5000;
