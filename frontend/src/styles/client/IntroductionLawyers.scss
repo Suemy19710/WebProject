@@ -60,6 +60,11 @@ $Font: "Raleway", sans-serif;
         color: $TC-white;
         margin-bottom: 5px;
         width: 200px;
+        cursor: pointer;
+
+        &:hover{
+          color: $TC-yellow; 
+        }
       }
 
       .short-description{

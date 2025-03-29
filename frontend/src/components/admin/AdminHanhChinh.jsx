@@ -168,7 +168,7 @@ const AdminHanhChinh = () => {
             )}
             <EditorContent editor={editor} />
 
-            <button onClick={handlePreview}>Xem trước</button>
+            {/* <button onClick={handlePreview}>Xem trước</button> */}
             <button onClick={handlePost}>Đăng bài</button>
             {message && <p>{message}</p>}
         </div>

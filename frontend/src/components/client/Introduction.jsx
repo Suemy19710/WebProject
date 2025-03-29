@@ -1,9 +1,12 @@
 import React from 'react'; 
+import {useNavigate} from 'react-router-dom'; 
 import'../../styles/client/Introduction.scss'; 
 import pic2 from '../../assets/pic2.jpg'; 
 import pic3 from '../../assets/pic3.jpg'; 
 
 const Introduction = () => {
+    const navigate = useNavigate(); 
+    const handleClick = (() => navigate('/gioi-thieu'))
     return(
         <div className="introduction-container">
             <div className="container-left">
@@ -13,7 +16,7 @@ const Introduction = () => {
                     <h3>Đồng hành cùng bạn, bảo vệ quyền lợi suốt đời.</h3>
                 </div>
                 <div className="container-left-button">
-                    <button>Giới thiệu Công ty Luật Kim Ngọc</button>
+                    <button onClick={(handleClick)}>Giới thiệu Công ty Luật Kim Ngọc</button>
                 </div>
             </div>
             <div className="container-right">
