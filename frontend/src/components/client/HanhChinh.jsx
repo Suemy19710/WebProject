@@ -1,24 +1,25 @@
 import React, {useState, useEffect} from 'react'; 
 import '../../styles/client/DanSu.scss'; 
 const HanhChinh = () => {
-    const [documents, setDocuments] = useState([]); 
+    const [content, setContent] = useState('<p>Đang tải nội dung...</p>'); 
     useEffect(() => {
-        const fetchDocuments = async() => {
-            try{
-                const response = await fetch('http://localhost:5000/api/hanh-chinh', {
-                    method: 'GET', 
-                }); 
-                if (!response.ok) {
-                    throw new Error('Failed to fetch documents'); 
+        const fetchContent = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/api/hanh-chinh');
+                const data = await response.json();
+                if (response.ok && data.length > 0) {
+                    setContent(data[0].content); 
+                } else {
+                    setContent('<p>Chưa có nội dung nào được đăng.</p>');
                 }
-                const data = await response.json(); 
-                setDocuments(data); 
             } catch (error) {
-                console.error('Error fetching documents:', error); 
+                console.error('Error fetching content:', error);
+                setContent('<p>Lỗi khi tải nội dung.</p>');
             }
-        }; 
-        fetchDocuments(); 
-    }, [])
+        };
+
+        fetchContent();
+    }, []);
     return(
         <div className="danSu-container">
             <div className="danSu-device">
@@ -32,15 +33,7 @@ const HanhChinh = () => {
                     <div className="container-body-bg"></div>
                     <div className="container-body-content">
                         <div className="content">
-                            {documents.length > 0 ? (
-                                documents.map((doc) => (
-                                <div key={doc._id} class="container">
-                                    <div dangerouslySetInnerHTML={{ __html: doc.content }} />
-                                </div>
-                                ))
-                            ) : (
-                                <p>No documents available.</p>
-                            )}
+                           <div dangerouslySetInnerHTML={{__html: content}}></div>
                         </div>
                         
                     </div>

@@ -1,21 +1,16 @@
-const mammoth = require('mammoth');
 const HanhChinhModel = require('../models/HanhChinhModel');
 
-const parseAndSaveDocument = async(fileBuffer) => {
-    try{
-        const deleteResult =  await HanhChinhModel.deleteMany({});
-        console.log('Delete result: ', deleteResult);
-        const result = await mammoth.convertToHtml({buffer: fileBuffer});
-        const content = result.value;
-
-        const newDocument = new HanhChinhModel({content});
+const saveDocument = async (content) => {
+    try {
+        await HanhChinhModel.deleteMany({}); 
+        const newDocument = new HanhChinhModel({ content });
         const savedDocument = await newDocument.save();
-
         return savedDocument;
-    } catch(error) {
-        throw new Error('Error parsing file');
+    } catch (error) {
+        throw new Error('Error saving document');
     }
 };
+
 const getAllDocuments = async () => {
     try {
         const documents = await HanhChinhModel.find();
@@ -25,19 +20,20 @@ const getAllDocuments = async () => {
     }
 };
 
-const getDocumentById = async(id) => {
-    try{
-        const document = await Document.findById(id);
+const getDocumentById = async (id) => {
+    try {
+        const document = await HanhChinhModel.findById(id);
         if (!document) {
             throw new Error('Document not found');
         }
         return document;
-    } catch(error) {
-        throw new Error ('Error fetching document');
+    } catch (error) {
+        throw new Error('Error fetching document');
     }
-}
+};
+
 module.exports = {
-    parseAndSaveDocument,
-    getDocumentById, 
-    getAllDocuments
- }
+    saveDocument,
+    getAllDocuments,
+    getDocumentById,
+};
