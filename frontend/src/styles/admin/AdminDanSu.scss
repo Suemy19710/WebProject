@@ -1,0 +1,162 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+
+}
+
+.adminDanSu-container{
+    padding-left: 200px;
+    color: $TC-black;
+    padding-top: 30px;
+    min-width: 100%; 
+
+    .huongDan {
+        width: 600px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+    }
+    button{
+        background-color: $BC-black-light;
+        opacity: 0.8; 
+        border: none;
+        width: 120px;
+        height: 30px;
+        color: $TC-gray;
+        margin-left: 35px;
+        border-radius: 30px;
+        cursor: pointer;
+        margin-left: 5px;
+        &:hover{
+            background-color: $TC-yellow;
+            color:$TC-white;
+        }
+    }
+    
+    input[type="text"],
+    select,
+    input[type="file"] {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+    }
+
+    p {
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      justify-content: flex-start; 
+      align-items: flex-end;
+      margin-bottom: 10px;
+      flex-wrap: nowrap; 
+      gap: 5px; 
+    
+      button,
+      input,
+      label {
+        width: 40px; 
+        padding: 5px; 
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box; // Ensure padding and border are included in the width
+      }
+    
+      #image-upload {
+        width: 0px;
+        height: 0px;
+        padding: 0;
+        margin: 0;
+        opacity: 0; // Ensure it's completely hidden
+        position: absolute; // Remove it from the layout flow
+      }
+    
+      .image-upload-label {
+        width: 40px; // Match the width of other buttons
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    
+      select {
+        width: 60px;
+        height: 30px;
+        padding: 0;
+        margin: 0;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        cursor: pointer;
+        box-sizing: border-box;
+      }
+    
+      button:hover {
+        background-color: #f0f0f0;
+        color: $BC-black-light; 
+      }
+    }
+
+    .tiptap-editor {
+      border: 1px solid #ccc;
+      min-height: 300px;
+      padding: 10px;
+      border-radius: 4px;
+      width: 100%;
+      font-weight: normal;
+      p {
+        font-weight: normal;
+      }
+      strong {
+        font-weight: bold; /* Ensure bold text is visibly bold */
+      }
+      img {
+        max-width: 100%;
+        cursor: pointer;
+      }
+
+      .resize-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+
+      .resize-handle {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #007bff;
+        cursor: se-resize;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+      }
+
+      &.ProseMirror-focused {
+        border-color: #007bff;
+        outline: none;
+      }
+    }
+
+
+}

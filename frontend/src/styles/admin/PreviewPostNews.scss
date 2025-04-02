@@ -1,0 +1,35 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+}
+
+.container-preview {
+    background-color: $BC-white;
+    height: 700px;
+    h1{
+        margin-top: 0;
+        padding-top: 10px;
+        padding-left: 10px;
+        font-size: 50px;
+
+    }
+    #output {
+        margin: 10px 10px 10px 10px;
+
+    }
+}

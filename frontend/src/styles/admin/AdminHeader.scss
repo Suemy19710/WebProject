@@ -1,0 +1,85 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-gray: #B5CACE; 
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+}
+
+.adminHeader-container {
+    width: 180px;
+    background-color: #2d3b4f;
+    color: white;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    .logo{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 140px;
+      padding: 10px 20px 0px 30px;
+      // padding-left: 0;
+      font-size: 20px;
+      color: $TC-white;
+      font-weight: bold;
+      // background-color: $BC-gray;
+      img{
+        height: 80px;
+      }
+      }
+    .menu{
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      .active {
+        color: $TC-yellow;
+        text-decoration: none;
+      }
+      .menu-item{
+        padding: 15px 10px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        border-bottom: 1px solid $BC-gray;
+        text-decoration: none;
+        color: $TC-white;
+
+        &.active{
+          background-color: #3a4a63;
+          color: $TC-yellow;
+          text-decoration: none;
+        } 
+
+        &:hover{
+          background-color: #3a4a63;
+          color: $TC-yellow;
+          text-decoration: none;
+        }
+ 
+        i{
+          margin-right: 10px;
+
+        }
+       
+      }
+
+    }
+  }
+

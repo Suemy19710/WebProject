@@ -5,8 +5,9 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const connectDB = require('./src/config/database');
-// const Blog = require('./src/models/BlogModel');
-// const BlogRoutes = require('./src/routes/BlogRoutes');
+const jwt = require('jsonwebtoken'); 
+const bcrypt = require('bcryptjs'); 
+const nodemailer = require('nodemailer'); 
 const CustomerRoutes = require('./src/routes/CustomerRoutes');
 const DanSuRoutes = require('./src/routes/DanSuRoutes');
 const HinhSuRoutes = require('./src/routes/HinhSuRoute');
@@ -14,9 +15,8 @@ const HanhChinhRoutes = require('./src/routes/HanhChinhRoutes');
 const SoHuuTriTueRoutes = require('./src/routes/SoHuuTriTueRoute');
 const PreviewRoutes = require('./src/routes/PreviewRoute');
 const NewsRoutes = require('./src/routes/NewsRoutes');
-
-const ADMIN_USERNAME = process.env.ADMIN_USERNAME;
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const TinTucRoutes = require('./src/routes/TinTucRoutes'); 
+const LuatSuRoutes = require('./src/routes/LuatSuRoutes'); 
 
 dotenv.config();
 const app = express();
@@ -32,40 +32,86 @@ app.use('/api/hanh-chinh', HanhChinhRoutes);
 app.use('/api/so-huu-tri-tue',SoHuuTriTueRoutes );
 app.use('/api/preview', PreviewRoutes);
 app.use('/api/tin-tuc', NewsRoutes);
+app.use('/api/tin-tuc-&-su-kien', TinTucRoutes); 
+app.use('/api/luat-su', LuatSuRoutes); 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// middileware for login
 app.use(bodyParser.urlencoded({extended: true}));
-// app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/admin', (req, res) => {
-    res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
-});
+const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'; 
+const adminUser = {
+    username: process.env.ADMIN_USERNAME,
+    // You should hash this password and store it
+    password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10)
+};
 
-app.post('/api/login', (req, res) => {
+app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
 
-    if (username === process.env.ADMIN_USERNAME && password === process.env.ADMIN_PASSWORD) {
-        res.json({ success: true, message: 'Login successful! Welcome to the admin dashboard.' });
-    } else {
-        res.status(401).json({ success: false, message: 'Invalid credentials, please try again.' });
+    try {
+        // Check if username matches
+        if (username !== adminUser.username) {
+            return res.status(401).json({ 
+                success: false, 
+                message: 'Invalid credentials' 
+            });
+        }
+
+        // Verify password
+        const isPasswordValid = await bcrypt.compare(password, adminUser.password);
+        if (!isPasswordValid) {
+            return res.status(401).json({ 
+                success: false, 
+                message: 'Invalid credentials' 
+            });
+        }
+
+        // Create JWT token
+        const token = jwt.sign(
+            { username: adminUser.username },
+            JWT_SECRET,
+            { expiresIn: '1h' } // Token expires in 1 hour
+        );
+
+        res.json({ 
+            success: true, 
+            message: 'Login successful! Welcome to the admin dashboard.',
+            token: token 
+        });
+    } catch (error) {
+        console.error('Login error:', error);
+        res.status(500).json({ 
+            success: false, 
+            message: 'Server error' 
+        });
     }
 });
 
-// app.get('/api/blogs', async(req, res) => {
-//     try{
-//         const {slug} = req.query;
-//         const blogPosts = slug ? await Blog.findOne({ slug }) : await Blog.find();
+// Middleware to verify JWT token
+const verifyToken = (req, res, next) => {
+    const token = req.headers['authorization']?.split(' ')[1]; // Expecting "Bearer TOKEN"
 
-//         if (!blogPosts) {
-//             return res.status(404).json({ error: 'No blog posts found' });
-//         }
-//         res.json(blogPosts);
-//     } catch(err) {
-//         res.status(500).json({error: 'Server error'});
-//     }
-// });
+    if (!token) {
+        return res.status(401).json({ message: 'No token provided' });
+    }
+
+    jwt.verify(token, JWT_SECRET, (err, decoded) => {
+        if (err) {
+            return res.status(401).json({ message: 'Invalid token' });
+        }
+        req.user = decoded;
+        next();
+    });
+};
+
+
+app.get('/admin',  (req, res) => {
+    res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
+});
+app.get('/api/admin/dashboard', verifyToken, (req, res) => {
+    res.json({ message: 'Welcome to the admin dashboard' });
+});
 
 
 

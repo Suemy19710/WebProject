@@ -1,0 +1,212 @@
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+  // overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.register-form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  min-height: 500px;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    padding-top: 30px;
+
+    top: 0;
+    left: -2%;
+
+    width: 1325px;
+    height: 605px; 
+    background-image: url('../../assets/feature/8.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.25;
+    z-index: -1;
+  }
+
+  .form-left {
+    // flex: 0 0 35%; 
+    width: 500px;
+    background-color: #B5CACE;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 1; 
+    left: 23%;
+    top: 35%; 
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    h2 {
+      font-size: 30px; 
+      font-weight: 900;
+      font-family: $Font;
+      color: $BC-blue;
+      margin-bottom: 20px; 
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      width: 100%; 
+
+      .form-group {
+        margin-bottom: 15px; /* Reduced spacing between fields */
+
+        label {
+          display: block;
+          font-size: 14px; /* Smaller font size */
+          font-weight: 500;
+          color: $TC-white;
+          margin-bottom: 6px; /* Reduced margin */
+        }
+
+        input,
+        textarea {
+          width: 100%;
+          padding: 8px 12px; /* Reduced padding */
+          font-size: 14px; /* Smaller font size */
+          font-family: $Font;
+          color: $TC-white;
+          background-color: rgba($BC-blue, 0.5); /* Slightly transparent blue */
+          border: none;
+          border-radius: 6px; /* Slightly smaller border-radius */
+          outline: none;
+          transition: background-color 0.3s ease;
+
+          &::placeholder {
+            color: $TC-gray;
+          }
+
+          &:focus {
+            background-color: rgba($BC-blue, 0.8);
+          }
+        }
+
+        textarea {
+          height: 80px; /* Reduced height for the textarea */
+          resize: none;
+        }
+      }
+
+      button {
+        align-self: center;
+        background-color: $TC-yellow;
+        color: $TC-black;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 700;
+        border-radius: 20px; 
+        cursor: pointer;
+        width: 400px;
+        background-color: $BC-black-light;
+        color: $TC-yellow; 
+
+        &:hover {
+            background-color: $TC-yellow;
+            color: $BC-blue;        
+        }
+      }
+    }
+  }
+
+  .form-right {
+    // flex: 0 0 65%; 
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    padding-right: 20px;
+    width: auto; 
+    z-index: 1; /* Ensure the image is above the background */
+
+    img {
+
+      width: 450px;
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}
+
+// /* Responsive Design */
+// @media (max-width: 768px) {
+//   .register-form-container {
+//     flex-direction: column;
+//     padding: 30px 20px;
+//     min-height: auto; /* Adjust for mobile */
+
+//     .form-left {
+//       flex: 1;
+//       max-width: 100%; /* Full width on mobile */
+//       border-radius: 20px;
+//       padding: 20px; /* Further reduced padding */
+
+//       h2 {
+//         font-size: 20px;
+//       }
+
+//       form {
+//         .form-group {
+//           label {
+//             font-size: 12px;
+//           }
+
+//           input,
+//           textarea {
+//             font-size: 12px;
+//             padding: 6px 10px;
+//           }
+//         }
+
+//         button {
+//           width: 100%; /* Full width on mobile */
+//           padding: 8px;
+//           font-size: 12px;
+//         }
+//       }
+//     }
+
+//     .form-right {
+//       flex: 1;
+//       margin-top: 20px;
+//       justify-content: center;
+
+//       img {
+//         width: 300px; /* Adjusted for mobile */
+//       }
+//     }
+//   }
+// }

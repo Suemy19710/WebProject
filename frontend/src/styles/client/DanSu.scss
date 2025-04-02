@@ -1,0 +1,115 @@
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE; 
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-black-light: #222222; 
+$TC-black: #000;
+$TC-green: #5EDCD4; 
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE; 
+$Font: "Raleway", sans-serif;
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.danSu-container {
+    .danSu-device {
+      .container-header {
+        position: relative;
+        height: 300px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+  
+            .container-header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('../../assets/background2.jpeg');  
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            filter: blur(2px);
+            opacity: 0.8;
+            z-index: 1;
+            }
+    
+            .container-header-content {
+            position: absolute;
+            top: 40%;
+            right: 10%;
+            z-index: 2;
+            color: $TC-white;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+                h1 {
+                    font-size: 48px;
+                    font-weight: 900;
+                    margin-bottom: 5px;
+        
+                    span {
+                    color: $TC-yellow;
+                    }
+                }
+            
+            }
+        }
+        .container-body{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh; 
+            padding: 50px 0;
+            .container-body-bg{
+                position: absolute;
+                top: 3%;
+                left: 10%;
+                width: 1000px; 
+                height: 100%;
+                background-color: $TC-white;
+                opacity: 0.7;
+                z-index: -1;
+                border-radius: 30px;
+            }
+            .container-body-content{
+                position: relative; 
+                width: 900px; 
+                max-width: 100%; 
+                padding: 20px;
+                color: $TC-black;
+                font-family: $Font;
+                font-size: 15px;
+                padding: 20px 20px; 
+                border-radius: 10px;
+                z-index: 2;
+                .content{
+              
+                      p {
+                        width: 100%;
+                        line-height: 1.8;
+                        text-align: justify;
+                      }
+                }
+               
+
+            }
+        }
+    }
+}
