@@ -66,6 +66,10 @@ $Font: "Raleway", sans-serif;
         color: $TC-white;
         margin: 0 15px 5px;
         text-align: left;
+        cursor: pointer;
+        &:hover{
+          color: $TC-yellow; 
+        }
       }
 
       .news__excerpt {

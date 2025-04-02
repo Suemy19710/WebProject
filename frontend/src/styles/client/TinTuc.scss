@@ -124,6 +124,11 @@ html, body {
                 color: $TC-white;
                 margin: 0 15px 5px;
                 text-align: left;
+                cursor: pointer;
+
+                &:hover{
+                  color: $TC-yellow; 
+                }
               }
         
               .news__excerpt {
@@ -142,9 +147,9 @@ html, body {
               }
               .news__footer{
                 i{
-                  color: $BC-green-opacity; /* Light green color */
-                  font-size: 16px; /* Adjust icon size */
-                  margin: 0 15px 15px 25px; /* Match the margin of other elements */
+                  color: $BC-green-opacity; 
+                  font-size: 16px;
+                  margin: 0 15px 15px 25px; 
                   align-self: flex-start;     
                   cursor: pointer; 
                   &:hover{

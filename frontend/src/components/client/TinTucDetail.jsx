@@ -17,7 +17,6 @@ const TinTucDetail = () => {
             .then((res) => res.json())
             .then((data) => {
                 if (Array.isArray(data) && data.length > 0) {
-                    // Assuming the API returns posts with a 'slug' field or 'title' field
                     const matchedPost = data.find((item) => 
                         (item.slug && item.slug === title) || 
                         (item.title && createSlugTitle(item.title) === title)

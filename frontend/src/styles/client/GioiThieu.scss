@@ -84,7 +84,7 @@ html, body {
         top: 3%;
         left: 10%;
         width: 1000px; 
-        height: 1980px;
+        height: 2030px;
         background-color: $TC-white;
         opacity: 0.7;
         z-index: 1;
@@ -198,7 +198,7 @@ html, body {
         }
 
         .container-body-3 {
-          padding: 0 20px 20px 20px;
+          padding: 0 20px 8px 20px;
           border-radius: 10px;
           .content {
             padding: 0 60px;
@@ -221,7 +221,6 @@ html, body {
 
         .container-body-4 {
           padding: 0px 40px;
-
           display: flex;
           gap: 40px;
           border-radius: 10px;
@@ -230,6 +229,7 @@ html, body {
             flex: 1;
             display: flex;
             flex-direction: column;
+
 
             .content-1, .content-2, .content-3 {
               font-size: 15px;

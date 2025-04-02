@@ -23,6 +23,7 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
+
 .luatSu-container {
     .luatSu-device {
       .container-header {
@@ -61,21 +62,24 @@ html, body {
             font-size: 48px;
             font-weight: 900;
             margin-bottom: 5px;
-  
             span {
               color: $TC-yellow;
             }
           }
-          
         }
       }
-      .container-body{
+      
+      .container-body {
         padding-top: 20px;
         .intro-lawyers__grid {
-          display: flex;
+          display: grid;
+          grid-template-columns: repeat(4, 250px); // 4 columns of 250px each
           justify-content: center;
-          gap: 30px;
-      
+          gap: 30px; // Space between cards
+          max-width: 1200px; // Optional: limits total width (250px * 4 + 30px * 3 gaps)
+          margin: 0 auto; // Centers the grid
+          padding: 20px 0; // Add some vertical padding
+          
           .intro-lawyers__card {
             text-align: center;
             width: 250px;
@@ -87,19 +91,16 @@ html, body {
             border-radius: 15px;
             overflow: hidden;
             transition: transform 0.3s ease;
-            padding-top: 10px;
-            padding-bottom: 10px;
+            padding: 10px 0;
+            
             &:hover {
               transform: translateY(-5px); 
-      
-            
             }
       
             img {
               width: 230px;
               height: 140px;
-              position: relative; 
-              object-fit:cover;
+              object-fit: cover;
               border-radius: 20px;
               margin-bottom: 15px;
             }
@@ -116,40 +117,19 @@ html, body {
               }
             }
       
-            .short-description{
+            .short-description {
               display: flex; 
               flex-direction: column;
               justify-content: flex-start;
               align-items: flex-start;
               padding-top: 5px;
-              width: 180px;
+              width: 200px;
               border-top: 1px solid $BC-green-opacity;
               gap: 5px;
               p {
                 font-size: 10px;
                 font-weight: 400;
                 color: $TC-gray;
-              }
-            }
-           
-      
-            button {
-              background-color: $TC-yellow;
-              color: $TC-black;
-              border: none;
-              padding: 5px 10px;
-              margin-top: 10px;
-              font-size: 12px;
-              font-weight: 700;
-              border-radius: 20px; 
-              cursor: pointer;
-              width: 200px;
-              background-color: $BC-black-light;
-              color: $TC-yellow; 
-      
-              &:hover {
-                background-color: $TC-yellow;
-                color: $BC-blue;
               }
             }
           }

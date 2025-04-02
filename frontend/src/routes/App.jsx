@@ -12,8 +12,9 @@ import DanSu from '../pages/client/DanSuPage';
 import HinhSu from '../pages/client/HinhSuPage';  
 import HanhChinh from '../pages/client/HanhChinhPage';  
 import SoHuuTriTue from '../pages/client/SoHuuTriTuePage';  
-import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
+// import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
 import DichVuPage from '../pages/client/DichVuPage'; 
+import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
 
 import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -25,6 +26,8 @@ import AdminLogin from '../components/admin/AdminLogin';
 import AdminDashboard from '../pages/admin/AdminDashboardPage';
 import AdminNewsPage from '../pages/admin/AdminNewsPage';
 import AdminTinTucPage from '../pages/admin/AdminTinTucPage'; 
+import AdminLuatSuPage from '../pages/admin/AdminLuatSuPage'; 
+import AdminListLuatSuPage from '../pages/admin/AdminListLuatSuPage'; 
 
 
 function App() {
@@ -35,13 +38,14 @@ function App() {
         <Route path="/" element={<Homepage/>}/>
         <Route path="/gioi-thieu" element={<GioithieuYNghiaPage/>}/>
         <Route path="/luat-su" element={<LuatSuPage/>}/>
+        <Route path="/luat-su/:slug" element={<LuatSuDetailPage/>}/>
         <Route path="/tin-tuc" element={<TinTucPage/>}/>
         <Route path="/tin-tuc/:title" element={<TinTucDetailPage/>}/>
         <Route path="/dan-su" element={<DanSu/>}/>
         <Route path="/hinh-su" element={<HinhSu/>}/>
         <Route path="/hanh-chinh" element={<HanhChinh/>}/>
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
-        <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/>
+        {/* <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/> */}
         <Route path="/dich-vu" element={<DichVuPage/>}/>
 
 
@@ -57,7 +61,11 @@ function App() {
         <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
         <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
         <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} /> 
+        <Route path="/admin/luat-su" element={<AdminLuatSuPage/>} /> 
+        <Route path="/admin/list-luat-su" element={<AdminListLuatSuPage/>}/>
+
         <Route path="/admin/tin-tuc-&-su-kien" element={<AdminTinTucPage/>}/>
+        
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
       </Routes>

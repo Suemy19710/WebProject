@@ -1,55 +1,61 @@
-import React from 'react'; 
-import {useNavigate } from 'react-router-dom'; 
-import '../../styles/client/LuatSu.scss'; 
-import lawyer1 from '../../assets/lawyers/Luat-Su-Van.jpg'; 
-import lawyer2 from '../../assets/lawyers/Luat-Su-Vu-Duy-Nam.jpg'; 
-import lawyer3 from '../../assets/lawyers/Luat-Su-Dang-Nhu-Bao-Chau.jpg'; 
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import '../../styles/client/LuatSu.scss';
+import axios from 'axios';
 
 const LuatSu = () => {
-    const navigate = useNavigate(); 
-    const handleClick=(url) => {navigate(url)}; 
-    return(
+    const navigate = useNavigate();
+    const [lawyers, setLawyers] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchLawyers = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/luat-su');
+                setLawyers(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error('Error fetching lawyers:', error);
+                setLoading(false);
+            }
+        };
+        fetchLawyers();
+    }, []);
+
+    const handleClick = (slug) => {
+        navigate(`/luat-su/${slug}`);
+    };
+
+    if (loading) return <div>Loading...</div>;
+
+    return (
         <div className="luatSu-container">
-                <div className="luatSu-device">
-                    <div className="container-header">
-                        <div className="container-header-bg"></div>
-                        <div className="container-header-content">
-                            <h1>Luật Sư</h1>
-                        </div>
+            <div className="luatSu-device">
+                <div className="container-header">
+                    <div className="container-header-bg"></div>
+                    <div className="container-header-content">
+                        <h1>Luật Sư</h1>
                     </div>
-                    <div className="container-body">
-                        <div className="container-body-content">
-                              <div className="intro-lawyers__grid">
-                                    <div className="intro-lawyers__card">
-                                        <img src={lawyer1} alt="Lawyer 1" />
-                                        <h3>Luật sư - ThS Thái Thanh Vân</h3>
-                                        <div className="short-description">
-                                            <p>SDT: 091855555</p>
-                                            <p>Email: thaithanhvan@gmail.com</p>
-                                        </div>
-                                                                            </div>
-                                    <div className="intro-lawyers__card">
-                                        <img src={lawyer2} alt="Lawyer 2" />
-                                        <h3 onClick={() => handleClick('/gioi-thieu/luat-su-vu-duy-nam')}>Luật sư - ThS Vũ Duy Nam</h3>
-                                        <div className="short-description">
-                                            <p>SDT: 091855555</p>
-                                            <p>Email: thaithanhvan@gmail.com</p>
-                                        </div>
+                </div>
+                <div className="container-body">
+                    <div className="container-body-content">
+                        <div className="intro-lawyers__grid">
+                            {lawyers.map((lawyer) => (
+                                <div className="intro-lawyers__card" key={lawyer._id}>
+                                    <img src={`http://localhost:5000${lawyer.image}`} alt={lawyer.name} />
+                                    <h3 onClick={() => handleClick(lawyer.slug)}>{lawyer.name}</h3>
+                                    <div className="short-description">
+                                        <p>SDT: {lawyer.phone}</p>
+                                        <p>Email: {lawyer.email}</p>
                                     </div>
-                                    <div className="intro-lawyers__card">
-                                        <img src={lawyer3} alt="Lawyer 2" />
-                                        <h3>Luật sư - ThS Đặng Như Bảo Châu</h3>
-                                        <div className="short-description">
-                                            <p>SDT: 091855555</p>
-                                            <p>Email: thaithanhvan@gmail.com</p>
-                                        </div>                                                        </div>
-                                    
                                 </div>
+                            ))}
                         </div>
                     </div>
                 </div>
             </div>
-    )
-    
-}
-export default LuatSu; 
+        </div>
+    );
+};
+
+export default LuatSu;
