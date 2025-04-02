@@ -21,12 +21,17 @@ const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 dotenv.config();
 const app = express();
 app.use(express.json());
-// app.use(cors());
+const cors = require('cors');
 app.use(cors({
-    origin: 'https://luatkimngoc-6de87.web.app', 
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
+    origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-6de87.web.app']
 }));
+
+// app.use(cors());
+// app.use(cors({
+//     origin: 'https://luatkimngoc-6de87.web.app', 
+//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
+//     allowedHeaders: ['Content-Type', 'Authorization'],
+// }));
   
 connectDB();
 app.use('/api/customers', CustomerRoutes);
