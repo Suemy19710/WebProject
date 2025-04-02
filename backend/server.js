@@ -21,8 +21,11 @@ const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 dotenv.config();
 const app = express();
 app.use(express.json());
-app.use(cors());
-
+// app.use(cors());
+app.use(cors({
+    origin: 'https://luatkimngoc.vn.onrender.com',
+  }));
+  
 connectDB();
 // app.use('/api/blogs', BlogRoutes);
 app.use('/api/customers', CustomerRoutes);
