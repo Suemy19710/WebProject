@@ -23,11 +23,12 @@ const app = express();
 app.use(express.json());
 // app.use(cors());
 app.use(cors({
-    origin: 'https://luatkimngoc.vn.onrender.com',
-  }));
+    origin: 'https://luatkimngoc-6de87.web.app', 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+}));
   
 connectDB();
-// app.use('/api/blogs', BlogRoutes);
 app.use('/api/customers', CustomerRoutes);
 app.use('/api/dan-su', DanSuRoutes);
 app.use('/api/hinh-su', HinhSuRoutes);
@@ -39,7 +40,7 @@ app.use('/api/tin-tuc-&-su-kien', TinTucRoutes);
 app.use('/api/luat-su', LuatSuRoutes); 
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'; 
@@ -112,11 +113,14 @@ const verifyToken = (req, res, next) => {
 app.get('/admin',  (req, res) => {
     res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
 });
+
 app.get('/api/admin/dashboard', verifyToken, (req, res) => {
     res.json({ message: 'Welcome to the admin dashboard' });
 });
 
-
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
