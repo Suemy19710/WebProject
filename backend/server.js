@@ -114,8 +114,12 @@ const verifyToken = (req, res, next) => {
 };
 
 
+// app.get('/admin',  (req, res) => {
+//     res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
+// });
+
 app.get('/admin',  (req, res) => {
-    res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
+    res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
 
 app.get('/api/admin/dashboard', verifyToken, (req, res) => {

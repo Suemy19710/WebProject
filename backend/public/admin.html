@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        /* Color definitions (converted from SCSS variables) */
+        :root {
+            --BC-blue-opacity: #186BE8;
+            --BC-green-opacity: #B5CACE;
+            --BC-white: #F8F9FA;
+            --BC-yellow: #CB935D;
+            --BC-blue: #2E3C61;
+            --BC-black-light: #222222;
+            --TC-black: #000;
+            --TC-green: #5EDCD4;
+            --TC-yellow: #CB935D;
+            --TC-white: #FFF;
+            --TC-gray: #B5CACE;
+            --BC-gray: #B5CACE;
+            --Font: "Raleway", sans-serif;
+        }
+
+        /* Global styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            font-family: var(--Font);
+            box-sizing: border-box;
+        }
+
+        /* Admin login container */
+        .adminLogin-container {
+            height: 100vh;
+            background-image: url('/assets/back-ground.png'); /* Adjusted path for public folder */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--BC-blue);
+        }
+
+        /* Admin login device */
+        .adminLogin-container .adminLogin-device {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .adminLogin-container .adminLogin-device h2 {
+            font-size: 60px;
+            color: var(--TC-white);
+            margin-bottom: 10px;
+        }
+
+        .adminLogin-container .adminLogin-device form {
+            background-color: var(--BC-gray);
+            width: 500px;
+            height: 200px;
+            border-radius: 50px;
+            padding-left: 50px;
+            padding-top: 30px;
+        }
+
+        .adminLogin-container .adminLogin-device form label {
+            color: var(--BC-blue);
+            line-height: 1.4;
+            font-weight: 900;
+            font-size: 30px;
+            padding-right: 10px;
+        }
+
+        .adminLogin-container .adminLogin-device form input {
+            font-size: 20px;
+            border: none;
+            color: var(--TC-black);
+            background-color: var(--BC-gray);
+            padding: 8px;
+            border-radius: 20px;
+        }
+
+        .adminLogin-container .adminLogin-device form button {
+            margin-top: 20px;
+            display: flex;
+            width: 200px;
+            padding: 8px;
+            font-size: 20px;
+            font-weight: 700;
+            background-color: var(--BC-yellow);
+            border: none;
+            border-radius: 30px;
+            color: var(--BC-gray);
+            align-items: center;
+            padding-left: 70px;
+            margin-left: 120px;
+        }
+
+        .adminLogin-container .adminLogin-device form button:hover {
+            background-color: var(--BC-blue);
+            color: var(--TC-yellow);
+        }
+
+        /* Success message */
+        .success-message {
+            color: var(--TC-yellow);
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: bold;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Animation for success message */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="adminLogin-container">
+        <div class="adminLogin-device">
+            <h2>Admin Login</h2>
+            <form id="loginForm">
+                <label for="username">Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    required
+                />
+                <br />
+                <label for="password">Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    required
+                />
+                <br />
+                <button class="submit" type="submit">Login</button>
+            </form>
+            <p id="errorMessage" style="display: none; color: red;"></p>
+            <p id="successMessage" class="success-message" style="display: none;"></p>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to handle form submission
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            const successMessage = document.getElementById('successMessage');
+
+            // Reset messages
+            errorMessage.style.display = 'none';
+            successMessage.style.display = 'none';
+
+            try {
+                const response = await fetch('/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ username, password }),
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(data.message || 'An error occurred');
+                }
+
+                localStorage.setItem('token', data.token);
+                successMessage.textContent = data.message;
+                successMessage.style.display = 'block';
+
+                setTimeout(() => {
+                    window.location.href = '/admin/dashboard';
+                }, 2000);
+            } catch (error) {
+                errorMessage.textContent = error.message;
+                errorMessage.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
