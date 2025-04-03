@@ -19,7 +19,7 @@ const AdminPreview = () => {
 
         const fetchDocuments = async() => {
             try{
-                const response = await fetch("https://luatkimngoc.onrender.com/api/preview", {
+                const response = await fetch(`${API_URL}/preview`, {
                     method: 'GET', 
                 });
                 if (!response.ok) {

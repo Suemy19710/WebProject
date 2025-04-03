@@ -5,7 +5,7 @@ const HinhSu = () => {
     useEffect(() => {
         const fetchContent = async () => {
             try {
-                const response = await fetch('https://luatkimngoc.onrender.com/api/hinh-su');
+                const response = await fetch(`${API_URL}/hinh-su`);
                 const data = await response.json();
                 if (response.ok && data.length > 0) {
                     setContent(data[0].content); 

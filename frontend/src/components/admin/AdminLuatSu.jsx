@@ -31,7 +31,7 @@ const AdminLuatSu = () => {
         });
 
         try {
-            const response = await axios.post('https://luatkimngoc.onrender.com/api/luat-su', data, {
+            const response = await axios.post(`${API_URL}/luat-su`, data, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             setMessage('Lawyer profile created successfully!');

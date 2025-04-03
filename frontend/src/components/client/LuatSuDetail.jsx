@@ -9,24 +9,11 @@ const LuatSuDetail = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
 
-    // useEffect(() => {
-    //     const fetchLawyer = async () => {
-    //         try {
-    //             console.log('Fetching lawyer with slug:', slug);
-    //             const response = await axios.get(`https://luatkimngoc.onrender.com/api/luat-su`);
-    //             setLawyer(response.data);
-    //             setLoading(false);
-    //         } catch (err) {
-    //             setError('Error fetching lawyer details');
-    //             setLoading(false);
-    //         }
-    //     };
-    //     fetchLawyer();
-    // }, [slug]);
+
     useEffect(() => {
         const fetchLawyer = async () => {
           try {
-            const response = await axios.get(`https://luatkimngoc.onrender.com/api/luat-su`);
+            const response = await axios.get(`${API_URL}/luat-su`);
             const matchedLawyer = response.data.find(l => l.slug === slug);
             setLawyer(matchedLawyer || null);
             setLoading(false);
@@ -46,7 +33,7 @@ const LuatSuDetail = () => {
         <div className="luatSuDetail-container">
             <div className="luatSuDetailCard">
                 <div className="luatSuDetailCard-right">
-                    <img src={`http://localhost:5000${lawyer.image}`} alt={lawyer.name} />
+                    <img src={`${API_URL}${lawyer.image}`} alt={lawyer.name} />
                 </div>
                 <div className="luatSuDetailCard-left">
                     <div className="luatSuDetailCard-left-head">

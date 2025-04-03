@@ -105,10 +105,10 @@ const AdminNews = () => {
     formData.append('image', file);
 
     try {
-      const response = await axios.post('https://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien/upload-image', formData, {
+      const response = await axios.post(`${API_URL}/tin-tuc-&-su-kien/upload-image`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      const imageUrl = `http://localhost:5000${response.data.url}`; 
+      const imageUrl = `${API_URL}${response.data.url}`; 
       editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
       setMessage('Ảnh đã được tải lên editor thành công!');
     } catch (error) {
@@ -146,7 +146,7 @@ const AdminNews = () => {
     formData.append('status', status);
 
     try {
-      const response = await fetch('https://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien', {
+      const response = await fetch(`${API_URL}/tin-tuc-&-su-kien`, {
         method: 'POST',
         body: formData,
       });

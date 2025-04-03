@@ -17,7 +17,7 @@ const News = () =>{
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
     useEffect (() => {
-        fetch('https://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien')
+        fetch(  `${API_URL}/tin-tuc-&-su-kien`)
             .then((res) => res.json())
             .then((data) => setNews(data))
             .catch((err) => console.log('Error fetching posts:', err));
@@ -42,7 +42,7 @@ const News = () =>{
                             >
                             <div className="news__img">
                                 {post.image ? (
-                                    <img src={`http://localhost:5000/uploads/${post.image}`} alt="event" />
+                                    <img src={`${API_URL}/uploads/${post.image}`} alt="event" />
                                 ) : (
                                     <img src={news1} alt="news1" />
                                 )}

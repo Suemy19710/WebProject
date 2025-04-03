@@ -21,7 +21,7 @@ const AdminNews = () => {
         formData.append('image', image); 
         
         try{
-            const response = await fetch("https://luatkimngoc.onrender.com/api/preview", {
+            const response = await fetch(`${API_URL}/preview`, {
                 method: 'POST', 
                 body: formData, 
             }); 
@@ -72,7 +72,7 @@ const AdminNews = () => {
             //     method: 'POST',
             //     body: formData,
             // });            
-            const response = await fetch('https://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien', {
+            const response = await fetch(`${API_URL}/tin-tuc-&-su-kien`, {
                 method: 'POST',
                 body: formData,
             });
