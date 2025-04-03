@@ -80,7 +80,7 @@ const TinTuc = () => {
                                             >
                                                 <div className="news__img">
                                                     {post.image ? (
-                                                        <img src={`http://localhost:5000/uploads/${post.image}`} alt="event" />
+                                                        <img src={`${API_URL}/uploads/${post.image}`} alt="event" />
                                                     ) : (
                                                         <img src={news1} alt="news1" />
                                                     )}

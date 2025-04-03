@@ -83,13 +83,7 @@ const TinTucDetail = () => {
                                 <div className="date">{formattedDate}</div>
                             </div>
                             <div className="body">
-                                {/* {post.image && (
-                                    <img
-                                        src={`http://localhost:5000/uploads/${post.image}`}
-                                        alt={post.title}
-                                        onError={(e) => (e.target.src = news1)} // Fallback image
-                                    />
-                                )} */}
+                           
                                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
                             </div>
                         </div>
