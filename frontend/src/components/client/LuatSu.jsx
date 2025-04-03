@@ -11,7 +11,7 @@ const LuatSu = () => {
     useEffect(() => {
         const fetchLawyers = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/luat-su');
+                const response = await axios.get('http://luatkimngoc.onrender.com/api/luat-su');
                 setLawyers(response.data);
                 setLoading(false);
             } catch (error) {

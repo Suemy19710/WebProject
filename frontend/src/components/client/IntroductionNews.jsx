@@ -17,7 +17,7 @@ const News = () =>{
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
     useEffect (() => {
-        fetch('http://localhost:5000/api/tin-tuc-&-su-kien')
+        fetch('http://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => setNews(data))
             .catch((err) => console.log('Error fetching posts:', err));
