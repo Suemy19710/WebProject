@@ -5,7 +5,7 @@ const DanSu = () => {
     useEffect(() => {
         const fetchContent = async () => {
             try {
-                const response = await fetch('http://luatkimngoc.onrender.com/api/dan-su');
+                const response = await fetch('https://luatkimngoc.onrender.com/api/dan-su');
                 const data = await response.json();
                 if (response.ok && data.length > 0) {
                     setContent(data[0].content); 

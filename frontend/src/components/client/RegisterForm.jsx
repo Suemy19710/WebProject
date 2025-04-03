@@ -21,7 +21,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://luatkimngoc.onrender.com/api/customers', {
+      const response = await fetch('https://luatkimngoc.onrender.com/api/customers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),

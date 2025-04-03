@@ -13,7 +13,7 @@ const TinTucDetail = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch('http://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien')
+        fetch('https://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => {
                 if (Array.isArray(data) && data.length > 0) {

@@ -11,7 +11,7 @@ const LuatSu = () => {
     useEffect(() => {
         const fetchLawyers = async () => {
             try {
-                const response = await axios.get('http://luatkimngoc.onrender.com/api/luat-su');
+                const response = await axios.get('https://luatkimngoc.onrender.com/api/luat-su');
                 // Slice the first 4 lawyers from the response data
                 setLawyers(response.data.slice(0, 3));
                 setLoading(false);

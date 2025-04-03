@@ -45,7 +45,7 @@ const AdminSoHuuTriTue = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post('http://luatkimngoc.onrender.com/api/so-huu-tri-tue/upload-image', formData, {
+            const response = await axios.post('https://luatkimngoc.onrender.com/api/so-huu-tri-tue/upload-image', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             const imageUrl = `http://localhost:5000${response.data.url}`;
@@ -71,7 +71,7 @@ const AdminSoHuuTriTue = () => {
         }
 
         try {
-            const response = await fetch('http://luatkimngoc.onrender.com/api/so-huu-tri-tue', {
+            const response = await fetch('https://luatkimngoc.onrender.com/api/so-huu-tri-tue', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: editor.getHTML() }),

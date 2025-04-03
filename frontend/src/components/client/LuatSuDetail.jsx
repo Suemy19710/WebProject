@@ -13,7 +13,7 @@ const LuatSuDetail = () => {
     //     const fetchLawyer = async () => {
     //         try {
     //             console.log('Fetching lawyer with slug:', slug);
-    //             const response = await axios.get(`http://luatkimngoc.onrender.com/api/luat-su`);
+    //             const response = await axios.get(`https://luatkimngoc.onrender.com/api/luat-su`);
     //             setLawyer(response.data);
     //             setLoading(false);
     //         } catch (err) {
@@ -26,7 +26,7 @@ const LuatSuDetail = () => {
     useEffect(() => {
         const fetchLawyer = async () => {
           try {
-            const response = await axios.get(`http://luatkimngoc.onrender.com/api/luat-su`);
+            const response = await axios.get(`https://luatkimngoc.onrender.com/api/luat-su`);
             const matchedLawyer = response.data.find(l => l.slug === slug);
             setLawyer(matchedLawyer || null);
             setLoading(false);

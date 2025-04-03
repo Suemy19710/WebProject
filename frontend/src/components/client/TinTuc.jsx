@@ -29,7 +29,7 @@ const TinTuc = () => {
     };
 
     useEffect(() => {
-        fetch('http://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien')
+        fetch('https://luatkimngoc.onrender.com/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => setPosts(data))
             .catch((err) => console.log('Error fetching posts: ', err));

@@ -30,7 +30,7 @@ export const apiRequest = async (url, method = 'GET', data = null) => {
 
 // Example specific functions
 export const login = (credentials) => 
-    apiRequest('http://luatkimngoc.onrender.com/api/login', 'POST', credentials);
+    apiRequest('https://luatkimngoc.onrender.com/api/login', 'POST', credentials);
 
 export const getProtectedData = () => 
-    apiRequest('http://luatkimngoc.onrender.com/api/protected');
+    apiRequest('https://luatkimngoc.onrender.com/api/protected');

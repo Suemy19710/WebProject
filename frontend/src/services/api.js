@@ -1,4 +1,4 @@
-const API_URL = "http://luatkimngoc.onrender.com/api/customers"; // Your backend API URL
+const API_URL = "https://luatkimngoc.onrender.com/api/customers"; // Your backend API URL
 
 // Fetch all customers
 export const getAllCustomers = async () => {
