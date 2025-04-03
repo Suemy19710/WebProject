@@ -21,7 +21,6 @@ const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 dotenv.config();
 const app = express();
 app.use(express.json());
-const cors = require('cors');
 app.use(cors({
     origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-6de87.web.app']
 }));
