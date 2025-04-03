@@ -22,9 +22,9 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-6de87.web.app']
+    origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-6de87.web.app'],
+    credentials: true
 }));
-
 // app.use(cors());
 // app.use(cors({
 //     origin: 'https://luatkimngoc-6de87.web.app', 
