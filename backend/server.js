@@ -43,7 +43,9 @@ app.use('/api/tin-tuc', NewsRoutes);
 app.use('/api/tin-tuc-&-su-kien', TinTucRoutes); 
 app.use('/api/luat-su', LuatSuRoutes); 
 
+app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 
