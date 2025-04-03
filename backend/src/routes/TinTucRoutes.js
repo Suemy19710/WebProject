@@ -27,25 +27,22 @@ const upload = multer({
 
 const router = express.Router();
 
-// Create news with cover image
 router.post('/', upload.single('image'), TinTucController.createNews);
 
-// Get all news
 router.get('/', TinTucController.getAllNews);
 
-// Get news by slug
 router.get('/:slug', TinTucController.getNewsBySlug);
 
-// Delete news by ID
 router.delete('/:id', TinTucController.deleteNewsById);
 
-// Separate endpoint for uploading images to the editor
-router.post('/upload-image', upload.single('image'), (req, res) => {
+router.post('/upload-image', upload.single('image'),async (req, res) => {
     try {
         if (!req.file) {
             return res.status(400).json({ error: 'No image file provided.' });
         }
-        const imageUrl = `/uploads/${req.file.filename}`; // Relative URL (adjust based on your server setup)
+        const result = await cloudinary.uploader.upload(req.file.path);
+        const imageUrl = result.secure_url;
+        // const imageUrl = `/uploads/${req.file.filename}`; 
         res.status(200).json({ url: imageUrl });
     } catch (error) {
         console.error('Error uploading image:', error);

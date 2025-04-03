@@ -68,7 +68,6 @@ const getNewsBySlug = async (req, res) => {
     }
 };
 
-// Delete a news article by ID
 const deleteNewsById = async (req, res) => {
     try {
         const news = await TinTucService.deleteNewsById(req.params.id);

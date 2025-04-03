@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import '../../styles/client/TinTuc.scss';
-import news1 from '../../assets/news1.jpg';
+import { storage } from '../../firebase'; // Import Firebase Storage
+import { ref, getDownloadURL } from 'firebase/storage'; // Firebase Storage methods
 
 const TinTuc = () => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
+    const [defaultImageUrl, setDefaultImageUrl] = useState(''); // State for default image URL
+
     
     // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
@@ -28,12 +31,46 @@ const TinTuc = () => {
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
 
+    // Fetch posts and set default image URL from Firebase Storage
     useEffect(() => {
+        // Fetch the default image URL from Firebase Storage
+        const defaultImageRef = ref(storage, 'default-images/news1.jpg'); // Adjust the path to your default image
+        getDownloadURL(defaultImageRef)
+            .then((url) => {
+                setDefaultImageUrl(url); // Set the default image URL
+            })
+            .catch((error) => {
+                console.error('Error fetching default image:', error);
+                // Fallback to a placeholder URL if the default image fails to load
+                setDefaultImageUrl('https://via.placeholder.com/300x200?text=Default+Image');
+            });
+
+        // Fetch posts from your backend API
         fetch(`${API_URL}/tin-tuc-&-su-kien`)
             .then((res) => res.json())
-            .then((data) => setPosts(data))
+            .then((data) => {
+                // For each post, if it has an image path in Firebase Storage, fetch its URL
+                const postsWithImageUrls = data.map(async (post) => {
+                    if (post.image) {
+                        try {
+                            const imageRef = ref(storage, `images/${post.image}`);
+                            const imageUrl = await getDownloadURL(imageRef);
+                            return { ...post, imageUrl };
+                        } catch (error) {
+                            console.error(`Error fetching image for post ${post._id}:`, error);
+                            return { ...post, imageUrl: defaultImageUrl };
+                        }
+                    }
+                    return { ...post, imageUrl: defaultImageUrl };
+                });
+
+                // Resolve all promises and set the posts
+                Promise.all(postsWithImageUrls).then((updatedPosts) => {
+                    setPosts(updatedPosts);
+                });
+            })
             .catch((err) => console.log('Error fetching posts: ', err));
-    }, []);
+    }, [defaultImageUrl]);
 
     const goToPreviousPage = () => {
         if (currentPage > 1) {
@@ -73,28 +110,36 @@ const TinTuc = () => {
                                             ? `${String(postDate.getDate()).padStart(2, '0')}/${String(postDate.getMonth() + 1).padStart(2, '0')}/${postDate.getFullYear()}`
                                             : 'Invalid date';
                                         return (
-                                            <div 
-                                                className="news__card" 
+                                            <div
+                                                className="news__card"
                                                 key={post._id}
                                                 onClick={() => handleClick(post._id, post.title)}
                                             >
                                                 <div className="news__img">
-                                                    {post.image ? (
-                                                        <img src={`${API_URL}/uploads/${post.image}`} alt="event" />
-                                                    ) : (
-                                                        <img src={news1} alt="news1" />
-                                                    )}
+                                                    <img
+                                                        src={post.imageUrl || defaultImageUrl}
+                                                        alt={post.title || 'event'}
+                                                    />
                                                 </div>
                                                 <div className="news__date">
                                                     <i className="fa-regular fa-clock"></i>
-                                                    <div className="date"><em>{formattedDate}</em></div>
+                                                    <div className="date">
+                                                        <em>{formattedDate}</em>
+                                                    </div>
                                                 </div>
                                                 <div className="news__title">{truncateText(post.title, 60)}</div>
                                                 <div className="news__excerpt">
-                                                    <div dangerouslySetInnerHTML={{ __html: truncateText(post.content, 200) }}></div>
+                                                    <div
+                                                        dangerouslySetInnerHTML={{
+                                                            __html: truncateText(post.content, 200),
+                                                        }}
+                                                    ></div>
                                                 </div>
                                                 <div className="news__footer">
-                                                    <i class="fa-solid fa-arrow-right" onClick={() => handleClick(post._id, post.title)}></i>
+                                                    <i
+                                                        className="fa-solid fa-arrow-right"
+                                                        onClick={() => handleClick(post._id, post.title)}
+                                                    ></i>
                                                 </div>
                                             </div>
                                         );
@@ -112,7 +157,9 @@ const TinTuc = () => {
                                                 <button
                                                     key={page}
                                                     onClick={() => goToPage(page)}
-                                                    className={`pagination__number ${currentPage === page ? 'active' : ''}`}
+                                                    className={`pagination__number ${
+                                                        currentPage === page ? 'active' : ''
+                                                    }`}
                                                 >
                                                     {page}
                                                 </button>
