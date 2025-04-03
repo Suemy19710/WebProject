@@ -10,35 +10,88 @@ import TextStyle from '@tiptap/extension-text-style';
 import Color from '@tiptap/extension-color';
 import FontFamily from '@tiptap/extension-font-family';
 import FontSize from 'tiptap-extension-font-size';
+import axios from 'axios';
+import { Resizable } from 'react-resizable';
+import 'react-resizable/css/styles.css';
 import { storage } from '../../firebase'; // Import Firebase Storage
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Firebase Storage methods
 
+
+// Custom ResizableImage extension for Tiptap
+const ResizableImage = Image.extend({
+    addNodeView() {
+        return ({ node, editor }) => {
+            const { src } = node.attrs;
+
+            const div = document.createElement('div');
+            div.className = 'resizable-image-container';
+            div.contentEditable = false;
+            const img = document.createElement('img');
+            img.src = src;
+            img.style.maxWidth = '100%';
+
+            let width = node.attrs.width || 200;
+            let height = node.attrs.height || 'auto';
+            const resizableWrapper = document.createElement('div');
+            resizableWrapper.appendChild(img);
+            div.appendChild(resizableWrapper);
+
+            const updateSize = (newWidth, newHeight) => {
+                editor
+                    .chain()
+                    .focus()
+                    .updateAttributes('image', { width: newWidth, height: newHeight })
+                    .run();
+            };
+
+            return {
+                dom: div,
+                contentDOM: null,
+                update: (updatedNode) => {
+                    if (updatedNode.type.name !== 'image') return false;
+                    img.src = updatedNode.attrs.src;
+                    width = updatedNode.attrs.width || width;
+                    height = updatedNode.attrs.height || height;
+                    img.style.width = `${width}px`;
+                    img.style.height = height === 'auto' ? 'auto' : `${height}px`;
+                    return true;
+                },
+            };
+        };
+    },
+
+    addAttributes() {
+        return {
+            ...this.parent?.(),
+            width: { default: 200 },
+            height: { default: 'auto' },
+        };
+    },
+});
+
 const AdminTinTuc = () => {
     const [title, setTitle] = useState('');
-    const [image, setImage] = useState(null); // Cover image for the post
+    const [image, setImage] = useState(null);
     const [message, setMessage] = useState('');
     const [status, setStatus] = useState('draft');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
 
-
-    // Generate slug from title
     const slug = title
         .toLowerCase()
         .replace(/\s+/g, '-')
         .replace(/[^a-z0-9-]+/g, '');
 
-    // Initialize Tiptap editor
     const editor = useEditor({
         extensions: [
             StarterKit,
-            Image,
             ImageResize,
             Link.configure({ openOnClick: false }),
             TextStyle,
             Color,
             FontFamily,
             FontSize,
+            ResizableImage, // Use the custom ResizableImage extension
         ],
         content: '<p>Nhập nội dung bài viết...</p>',
         editorProps: {
@@ -48,7 +101,7 @@ const AdminTinTuc = () => {
         },
     });
 
-    // Handle image upload for the editor (e.g., images inserted into the content)
+    // Handle image upload for the editor (replace localhost:5000 with Firebase Storage)
     const handleImageUpload = async (event) => {
         const file = event.target.files[0];
         if (!file || !editor) {
@@ -63,7 +116,7 @@ const AdminTinTuc = () => {
             await uploadBytes(storageRef, file);
             const imageUrl = await getDownloadURL(storageRef);
 
-            // Insert the image into the editor
+            // Insert the Firebase Storage URL into the editor
             editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
             setMessage('Ảnh đã được tải lên editor thành công!');
         } catch (error) {
@@ -72,7 +125,19 @@ const AdminTinTuc = () => {
         }
     };
 
-    // Handle news creation
+    // Handle preview (not currently used, but kept as requested)
+    const handlePreview = () => {
+        if (!title || !editor?.getHTML() || !image) {
+            setMessage('Vui lòng nhập tiêu đề, nội dung và tải ảnh bìa!');
+            return;
+        }
+        const previewImageUrl = URL.createObjectURL(image);
+        navigate('/admin/xem-truoc', {
+            state: { content: editor.getHTML(), title, image: previewImageUrl },
+        });
+    };
+
+    // Handle news creation (replace cover image storage with Firebase Storage)
     const handleCreateNews = async () => {
         if (!title || !editor?.getHTML() || !image) {
             setMessage('Vui lòng nhập tiêu đề, nội dung và tải ảnh bìa!');
@@ -82,22 +147,22 @@ const AdminTinTuc = () => {
         setIsSubmitting(true);
         setMessage('');
 
+        const formData = new FormData();
+        formData.append('title', title);
+        formData.append('slug', slug);
+        formData.append('content', editor.getHTML());
+        formData.append('status', status);
+
         try {
             // Upload the cover image to Firebase Storage
             const fileName = `${Date.now()}-${image.name}`;
             const storageRef = ref(storage, `images/${fileName}`);
             await uploadBytes(storageRef, image);
-            const imageUrl = await getDownloadURL(storageRef); // Not used in DB, but could be for future use
+            // const imageUrl = await getDownloadURL(storageRef); // Not needed in DB, but can be used if needed
 
-            // Prepare form data to send to the backend
-            const formData = new FormData();
-            formData.append('title', title);
-            formData.append('slug', slug);
-            formData.append('content', editor.getHTML());
-            formData.append('image', fileName); // Store the filename in the database
-            formData.append('status', status);
+            // Append the filename to the formData (not the file itself)
+            formData.append('image', fileName);
 
-            // Send the post data to the backend
             const response = await fetch(`${API_URL}/tin-tuc-&-su-kien`, {
                 method: 'POST',
                 body: formData,
@@ -118,7 +183,6 @@ const AdminTinTuc = () => {
         }
     };
 
-    // Editor styles (CSS for the Tiptap editor)
     const editorStyles = `
         .tiptap-editor {
             border: 1px solid #ccc;
@@ -127,9 +191,26 @@ const AdminTinTuc = () => {
             border-radius: 4px;
             width: 100%;
         }
+        .resizable-image-container {
+            display: inline-block;
+            position: relative;
+        }
+        .resizable-image-container img {
+            max-width: 100%;
+        }
         .tiptap-editor.ProseMirror-focused {
             outline: none;
             border-color: #007bff;
+        }
+        .react-resizable-handle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #007bff;
+            border-radius: 50%;
+            bottom: 0;
+            right: 0;
+            cursor: se-resize;
         }
     `;
 
@@ -148,7 +229,7 @@ const AdminTinTuc = () => {
                 <style>{editorStyles}</style>
                 {editor && (
                     <div className="editor-toolbar">
-                        <button onClick={() => editor.chain().focus().toggleBold().run()}>
+                        <button onClick={() => { editor.chain().focus().toggleBold().run(); console.log(editor.getHTML()); }}>
                             <i className="fa-solid fa-bold"></i>
                         </button>
                         <button onClick={() => editor.chain().focus().toggleItalic().run()}>
@@ -247,6 +328,7 @@ const AdminTinTuc = () => {
                             ? 'Lưu bản nháp'
                             : 'Đăng bài viết'}
                     </button>
+                    <button onClick={handlePreview}>Xem trước</button>
                 </div>
             </div>
 
