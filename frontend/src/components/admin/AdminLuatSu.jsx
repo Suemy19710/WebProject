@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import '../../styles/admin/AdminLuatSu.scss'; 
 import axios from 'axios';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { storage } from '../../firebase';
 
 const AdminLuatSu = () => {
     const [formData, setFormData] = useState({
@@ -13,6 +15,7 @@ const AdminLuatSu = () => {
         image: null,
     });
     const [message, setMessage] = useState('');
+    const [uploading, setUploading] = useState(false);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,15 +28,29 @@ const AdminLuatSu = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const data = new FormData();
-        Object.keys(formData).forEach((key) => {
-            data.append(key, formData[key]);
-        });
+        setUploading(true);
 
         try {
-            const response = await axios.post(`${API_URL}/luat-su`, data, {
-                headers: { 'Content-Type': 'multipart/form-data' },
-            });
+            // Upload image to Firebase Storage
+            let imageUrl = '';
+            if (formData.image) {
+                const imageRef = ref(storage, `luatsu-images/${Date.now()}_${formData.image.name}`);
+                const snapshot = await uploadBytes(imageRef, formData.image);
+                imageUrl = await getDownloadURL(snapshot.ref);
+            }
+
+            // Prepare data for backend (excluding the file, include the URL)
+            const data = {
+                name: formData.name,
+                title: formData.title,
+                phone: formData.phone,
+                email: formData.email,
+                expertise: formData.expertise,
+                experience: formData.experience,
+                image: imageUrl, // Send the Firebase URL instead of the file
+            };
+
+            const response = await axios.post(`${API_URL}/luat-su`, data);
             setMessage('Lawyer profile created successfully!');
             console.log('Response:', response.data);
             setFormData({
@@ -48,6 +65,8 @@ const AdminLuatSu = () => {
         } catch (error) {
             console.error('Error creating lawyer profile:', error.response?.data || error.message);
             setMessage('Error creating lawyer profile.');
+        } finally {
+            setUploading(false);
         }
     };
 
@@ -108,7 +127,9 @@ const AdminLuatSu = () => {
                     onChange={handleImageChange}
                     required
                 />
-                <button type="submit">Thêm Luật Sư</button>
+                <button type="submit" disabled={uploading}>
+                    {uploading ? 'Uploading...' : 'Thêm Luật Sư'}
+                </button>
             </form>
             {message && <p>{message}</p>}
         </div>

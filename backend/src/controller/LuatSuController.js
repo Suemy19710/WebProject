@@ -1,37 +1,20 @@
 const LuatSuService = require('../services/LuatSuService');
-const multer = require('multer');
-const path = require('path');
-const fs = require('fs');
-
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        const uploadDir = 'uploads/luatsu-images';
-        if (!fs.existsSync(uploadDir)) {
-            fs.mkdirSync(uploadDir, { recursive: true });
-        }
-        cb(null, uploadDir);
-    },
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
-    },
-});
-
-const upload = multer({ storage });
 
 const createLuatSu = async (req, res) => {
-    const { name, title, phone, email, expertise, experience } = req.body;
-    if (!req.file || !name || !title || !phone || !email || !expertise || !experience) {
-        return res.status(400).json({ error: 'All fields and image are required' });
+    const { name, title, phone, email, expertise, experience, image } = req.body;
+
+    // Validate all fields including the image URL
+    if (!name || !title || !phone || !email || !expertise || !experience || !image) {
+        return res.status(400).json({ error: 'All fields including image URL are required' });
     }
 
-    const image = `/uploads/luatsu-images/${req.file.filename}`;
     try {
         const savedLuatSu = await LuatSuService.createLuatSu({
             name,
             title,
             phone,
             email,
-            image,
+            image, // Now a Firebase Storage URL
             expertise,
             experience,
         });
@@ -73,11 +56,13 @@ const getLuatSuBySlug = async (req, res) => {
 
 const updateLuatSu = async (req, res) => {
     const { id } = req.params;
-    const { name, title, phone, email, expertise, experience } = req.body;
+    const { name, title, phone, email, expertise, experience, image } = req.body;
     const updateData = { name, title, phone, email, expertise, experience };
-    if (req.file) {
-        updateData.image = `/uploads/luat-su-images/${req.file.filename}`;
+
+    if (image) {
+        updateData.image = image; 
     }
+
     try {
         const updatedLuatSu = await LuatSuService.updateLuatSu(id, updateData);
         res.status(200).json({ message: 'Lawyer updated', lawyer: updatedLuatSu });
@@ -100,8 +85,7 @@ module.exports = {
     createLuatSu,
     getAllLuatSu,
     getLuatSuById,
-    getLuatSuBySlug, // Add this export
+    getLuatSuBySlug,
     updateLuatSu,
     deleteLuatSu,
-    upload,
 };

@@ -2,15 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import '../../styles/client/TinTuc.scss';
-import { storage } from '../../firebase'; // Import Firebase Storage
-import { ref, getDownloadURL } from 'firebase/storage'; // Firebase Storage methods
+import { storage } from '../../firebase'; 
+import { ref, getDownloadURL } from 'firebase/storage';
 
 const TinTuc = () => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
-    const [defaultImageUrl, setDefaultImageUrl] = useState(''); // State for default image URL
-
-    
+    const [defaultImageUrl, setDefaultImageUrl] = useState(''); 
     // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
@@ -31,13 +29,11 @@ const TinTuc = () => {
         navigate(`/tin-tuc/${slugifiedTitle}`);
     };
 
-    // Fetch posts and set default image URL from Firebase Storage
     useEffect(() => {
-        // Fetch the default image URL from Firebase Storage
-        const defaultImageRef = ref(storage, 'default-images/news1.jpg'); // Adjust the path to your default image
+        const defaultImageRef = ref(storage, 'default-images/news1.jpg'); 
         getDownloadURL(defaultImageRef)
             .then((url) => {
-                setDefaultImageUrl(url); // Set the default image URL
+                setDefaultImageUrl(url);
             })
             .catch((error) => {
                 console.error('Error fetching default image:', error);
@@ -45,11 +41,9 @@ const TinTuc = () => {
                 setDefaultImageUrl('https://via.placeholder.com/300x200?text=Default+Image');
             });
 
-        // Fetch posts from your backend API
         fetch(`${API_URL}/tin-tuc-&-su-kien`)
             .then((res) => res.json())
             .then((data) => {
-                // For each post, if it has an image path in Firebase Storage, fetch its URL
                 const postsWithImageUrls = data.map(async (post) => {
                     if (post.image) {
                         try {
