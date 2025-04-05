@@ -3,7 +3,8 @@ const LuatSuService = require('../services/LuatSuService');
 const createLuatSu = async (req, res) => {
     const { name, title, phone, email, expertise, experience, image } = req.body;
 
-    // Validate all fields including the image URL
+    console.log('Received payload from frontend:', req.body);
+
     if (!name || !title || !phone || !email || !expertise || !experience || !image) {
         return res.status(400).json({ error: 'All fields including image URL are required' });
     }
@@ -14,7 +15,7 @@ const createLuatSu = async (req, res) => {
             title,
             phone,
             email,
-            image, // Now a Firebase Storage URL
+            image,
             expertise,
             experience,
         });
@@ -23,7 +24,6 @@ const createLuatSu = async (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
-
 const getAllLuatSu = async (req, res) => {
     try {
         const lawyers = await LuatSuService.getAllLuatSu();
