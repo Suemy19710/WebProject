@@ -16,7 +16,7 @@ const Footer = () => {
           </div>
           <p className="footer__description">Pháp lý vững chắc - Cùng bạn vươn lên</p>
           <p className="footer__info">
-            <i className="fa-solid fa-location-dot"></i> 2100 W 5th Oxford Ave #127, Park Hills, MO 48304
+            <i className="fa-solid fa-location-dot"></i> Ho Chi Minh City
           </p>
           <p className="footer__info">
             <i className="fa-solid fa-phone"></i> 089 037 466803
