@@ -19,7 +19,7 @@ const Footer = () => {
             <i className="fa-solid fa-location-dot"></i> Ho Chi Minh City
           </p>
           <p className="footer__info">
-            <i className="fa-solid fa-phone"></i> 089 037 466803
+            <i className="fa-solid fa-phone"></i> 09123456789
           </p>
           <p className="footer__info">
             <i className="fa-solid fa-envelope"></i> scrumbledgg@gmail.com
