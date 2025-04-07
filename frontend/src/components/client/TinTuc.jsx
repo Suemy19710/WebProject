@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import '../../styles/client/TinTuc.scss';
-import { storage } from '../../firebase'; 
+import { storage, API_URL } from '../../config/firebase'; 
 import { ref, getDownloadURL } from 'firebase/storage';
 
 const TinTuc = () => {

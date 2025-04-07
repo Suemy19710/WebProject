@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import '../../styles/admin/AdminLuatSu.scss'; 
 import axios from 'axios';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../firebase';
+import { storage, API_URL } from '../../config/firebase'; 
 
 const AdminLuatSu = () => {
     const [formData, setFormData] = useState({

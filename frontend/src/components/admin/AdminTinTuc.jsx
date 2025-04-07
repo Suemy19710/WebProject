@@ -13,8 +13,8 @@ import FontSize from 'tiptap-extension-font-size';
 import axios from 'axios';
 import { Resizable } from 'react-resizable';
 import 'react-resizable/css/styles.css';
-import { storage } from '../../firebase'; // Import Firebase Storage
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'; // Firebase Storage methods
+import { storage, API_URL } from '../../config/firebase'; 
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
 // Custom ResizableImage extension for Tiptap
