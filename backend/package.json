@@ -4,7 +4,7 @@
   "description": "backend for website project",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1", 
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build:frontend && npm run copy:frontend",
     "build:frontend": "cd frontend && npm install && npm run build",
     "copy:frontend": "rm -rf backend/public && mkdir -p backend/public && cp -r frontend/build/* backend/public/"
@@ -19,6 +19,8 @@
     "express": "^4.21.2",
     "file-system": "^2.2.2",
     "firebase": "^11.6.0",
+    "firebase-admin": "^13.2.0",
+    "firebase-functions": "^6.3.2",
     "jsonwebtoken": "^9.0.2",
     "mammoth": "^1.9.0",
     "mongoose": "^8.10.0",
