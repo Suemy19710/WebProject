@@ -115,11 +115,6 @@ const verifyToken = (req, res, next) => {
     });
 };
 
-
-// app.get('/admin',  (req, res) => {
-//     res.sendFile(path.join(__dirname, 'AdminLogin.jsx'));
-// });
-
 app.get('/admin',  (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'admin.html'));
 });
@@ -128,10 +123,13 @@ app.get('/api/admin/dashboard', verifyToken, (req, res) => {
     res.json({ message: 'Welcome to the admin dashboard' });
 });
 
+// app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+// });
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    // Redirect to Firebase hosting
+    res.redirect('https://luatkimngoc-6de87.web.app');
 });
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
