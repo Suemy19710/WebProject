@@ -46,7 +46,7 @@ app.use('/api/luat-su', LuatSuRoutes);
 app.use('/api/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use(express.static(path.join(__dirname, 'public')));
+// app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: true}));
 
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'; 
