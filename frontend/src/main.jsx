@@ -13,6 +13,7 @@
 
 import { createRoot } from 'react-dom/client';
 import App from './routes/App';
+import './firebase.js';
 
 // Render the app without StrictMode to avoid findDOMNode warning
 const root = createRoot(document.getElementById('root'));

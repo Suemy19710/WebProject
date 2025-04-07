@@ -15,20 +15,11 @@ const firebaseConfig = {
     messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_FIREBASE_APP_ID,
     measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
-
-    // apiKey: "AIzaSyDLZr-WLcwyQLwLfxCzQr8rRzVz_Slwbvs",
-    // authDomain: "luatkimngoc-6de87.firebaseapp.com",
-    // projectId: "luatkimngoc-6de87",
-    // storageBucket: "luatkimngoc-6de87.firebasestorage.app",
-    // messagingSenderId: "770592871381",
-    // appId: "1:770592871381:web:c7a7f8c1dd63f2c04f635c",
-    // measurementId: "G-MRBFMHN5BF"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const storage = getStorage(app);
-// export const db = getFirestore(app);
 
 export { storage };
