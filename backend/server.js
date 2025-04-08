@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const connectDB = require('./src/config/database');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
-const functions = require('firebase-functions');
+// const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
 const CustomerRoutes = require('./src/routes/CustomerRoutes');
 const DanSuRoutes = require('./src/routes/DanSuRoutes');
@@ -52,7 +52,6 @@ app.post('/api/login', async (req, res) => {
     const { username, password } = req.body;
 
     try {
-        // Check if username matches
         if (username !== adminUser.username) {
             return res.status(401).json({ 
                 success: false, 
@@ -60,7 +59,6 @@ app.post('/api/login', async (req, res) => {
             });
         }
 
-        // Verify password
         const isPasswordValid = await bcrypt.compare(password, adminUser.password);
         if (!isPasswordValid) {
             return res.status(401).json({ 
@@ -69,11 +67,10 @@ app.post('/api/login', async (req, res) => {
             });
         }
 
-        // Create JWT token
         const token = jwt.sign(
             { username: adminUser.username },
             JWT_SECRET,
-            { expiresIn: '1h' } // Token expires in 1 hour
+            { expiresIn: '1h' } 
         );
 
         res.json({ 
@@ -90,9 +87,8 @@ app.post('/api/login', async (req, res) => {
     }
 });
 
-// Middleware to verify JWT token
 const verifyToken = (req, res, next) => {
-    const token = req.headers['authorization']?.split(' ')[1]; // Expecting "Bearer TOKEN"
+    const token = req.headers['authorization']?.split(' ')[1]; 
 
     if (!token) {
         return res.status(401).json({ message: 'No token provided' });
@@ -115,10 +111,8 @@ app.get('/api/admin/dashboard', verifyToken, (req, res) => {
     res.json({ message: 'Welcome to the admin dashboard' });
 });
 
-// Export the API for Firebase Functions
-exports.api = functions.https.onRequest(app);
+// exports.api = functions.https.onRequest(app);
 
-// Start the server for local development
 if (process.env.NODE_ENV !== 'production') {
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
