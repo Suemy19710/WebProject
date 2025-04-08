@@ -127,7 +127,7 @@ const cors = require('cors'); // import cors middleware
  // app.get('*', (req, res) => {
  //     res.sendFile(path.join(__dirname, 'public', 'index.html'));
  // });
- app.get('*', (req, res) => {
+ app.get('/', (req, res) => {
      // Redirect to Firebase hosting
      res.redirect('https://luatkimngoc-6de87.web.app');
  });
