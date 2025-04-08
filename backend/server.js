@@ -112,10 +112,13 @@ app.get('/api/admin/dashboard', verifyToken, (req, res) => {
 });
 
 // exports.api = functions.https.onRequest(app);
-
-if (process.env.NODE_ENV !== 'production') {
-    const PORT = process.env.PORT || 5000;
-    app.listen(PORT, () => {
-        console.log(`Server running on port ${PORT}`);
+// Add this at the end of your routes, before the PORT setup
+if (process.env.NODE_ENV === 'production') {
+    // Serve any static files
+    app.use(express.static(path.join(__dirname, 'public')));
+    
+    // Handle all other routes - send back to index.html
+    app.get('*', (req, res) => {
+      res.sendFile(path.join(__dirname, 'public', 'index.html'));
     });
-}
+  }
