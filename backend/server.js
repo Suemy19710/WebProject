@@ -47,7 +47,6 @@ const cors = require('cors'); // import cors middleware
  app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
  
  app.use(express.static(path.join(__dirname, 'public')));
- // app.use(express.static(path.join(__dirname, 'public')));
  app.use(bodyParser.urlencoded({extended: true}));
  
  const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'; 
@@ -124,11 +123,10 @@ const cors = require('cors'); // import cors middleware
      res.json({ message: 'Welcome to the admin dashboard' });
  });
  
- // app.get('*', (req, res) => {
- //     res.sendFile(path.join(__dirname, 'public', 'index.html'));
- // });
+ app.get('/admin/*', (req, res) => {
+     res.sendFile(path.join(__dirname, 'public', 'index.html'));
+ });
  app.get('/', (req, res) => {
-     // Redirect to Firebase hosting
      res.redirect('https://luatkimngoc-6de87.web.app');
  });
  const PORT = process.env.PORT || 5000;
