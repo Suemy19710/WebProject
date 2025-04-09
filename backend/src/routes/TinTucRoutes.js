@@ -27,19 +27,10 @@ const upload = multer({
 
 const router = express.Router();
 
-// Create news with cover image
 router.post('/', upload.single('image'), TinTucController.createNews);
-
-// Get all news
 router.get('/', TinTucController.getAllNews);
-
-// Get news by slug
 router.get('/:slug', TinTucController.getNewsBySlug);
-
-// Delete news by ID
 router.delete('/:id', TinTucController.deleteNewsById);
-
-// Separate endpoint for uploading images to the editor
 router.post('/upload-image', upload.single('image'), (req, res) => {
     try {
         if (!req.file) {

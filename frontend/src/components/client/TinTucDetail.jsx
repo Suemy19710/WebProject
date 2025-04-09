@@ -5,8 +5,8 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import '../../styles/client/TinTucDetail.scss';
 
 const TinTucDetail = () => {
-    const { title } = useParams(); // The slug or title from the URL
-    const [post, setPost] = useState(null); // Single post object, initialized as null
+    const { title } = useParams(); 
+    const [post, setPost] = useState(null); 
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const navigate = useNavigate();

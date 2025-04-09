@@ -8,7 +8,6 @@ const TinTuc = () => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     
-    // Pagination state
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 8;
     const totalPages = Math.ceil(posts.length / itemsPerPage);

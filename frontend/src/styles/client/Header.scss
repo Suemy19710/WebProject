@@ -10,15 +10,12 @@ $TC-white: #FFF;
 $TC-gray: #B5CACE;
 $Font: "Raleway", sans-serif;
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
-  // overflow-x: hidden; 
-  // background-color: transparent; 
 }
 
 * {
@@ -37,10 +34,10 @@ body {
   left: 0;
   width: 100%;
   height: 80px;
-  z-index: 10;
-  background: transparent; 
+  z-index: 1000;
+  background: transparent;
   transition: all 0.3s ease;
-
+  
   &::before {
     content: '';
     position: absolute;
@@ -48,16 +45,16 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba($BC-black-light, 0.2); /* Semi-transparent initially */
-    z-index: -1; /* Behind header content */
+    background-color: rgba($BC-black-light, 0.2);
+    z-index: -1;
     transition: background-color 0.3s ease, filter 0.3s ease;
   }
-
+  
   &.scrolled {
-    background: none; /* Explicitly no background */
+    background: none;
     &::before {
-      background-color: rgba($BC-black-light, 0.9); /* More opaque when scrolled */
-      filter: blur(10px); /* Blur effect */
+      background-color: rgba($BC-black-light, 0.9);
+      filter: blur(10px);
       box-shadow: 0 2px 10px rgba($TC-black, 0.1);
     }
   }
@@ -65,7 +62,7 @@ body {
 
 .header-logo {
   img {
-    height: 80px;
+    height: 60px;
     width: auto;
   }
 }
@@ -77,25 +74,162 @@ body {
     margin: 0;
     padding: 0;
   }
-
+  
   li {
     margin-left: 30px;
-
+    
     a {
       text-decoration: none;
       color: $TC-gray;
-      font-size: 20px;
+      font-size: 18px;
       font-family: $Font;
       font-weight: 500;
       transition: color 0.3s ease;
-
+      
       &.active {
         color: #f5a623;
       }
-
+      
       &:hover {
         color: #f5a623;
       }
     }
+  }
+}
+
+// Menu toggle button (mobile)
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: $TC-white;
+  z-index: 1001;
+}
+
+// Sidebar for mobile
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 230px;
+  height: 100%;
+  background-color: $BC-blue;
+  color: $TC-white;
+  z-index: 2000;
+  transition: left 0.3s ease-in-out;
+  
+  &.active {
+    left: 0;
+  }
+  
+  .sidebar-header {
+    padding: 20px;
+    display: flex;
+    justify-content: flex-end;
+    
+    .close-btn {
+      background: none;
+      border: none;
+      color: $TC-white;
+      font-size: 24px;
+      cursor: pointer;
+    }
+  }
+  
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      padding: 0;
+      
+      a {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 15px 20px;
+        color: $TC-white;
+        text-decoration: none;
+        border-bottom: 1px solid rgba($TC-white, 0.1);
+        transition: background-color 0.3s ease;
+        
+        &:hover {
+          background-color: rgba($TC-white, 0.1);
+          color: #f5a623;
+        }
+        
+        &.active {
+          color: #f5a623;
+        }
+        
+        i {
+          width: 24px;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
+// Overlay
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1500;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out;
+  
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+// Responsive Breakpoints
+@media only screen and (max-width: 1024px) {
+  .header-nav {
+    li {
+      margin-left: 20px;
+      
+      a {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header-nav {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+  
+  .header {
+    padding: 10px 15px;
+  }
+  
+  .header-logo img {
+    height: 50px;
+  }
+}
+
+@media only screen and (min-width: 901px) {
+  .sidebar {
+    display: none;
+  }
+  
+  .overlay {
+    display: none;
   }
 }
