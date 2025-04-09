@@ -5,7 +5,7 @@ const DanSu = () => {
     useEffect(() => {
         const fetchContent = async () => {
             try {
-                const response = await fetch(`${API_URL}/dan-su`);
+                const response = await fetch(`${process.env.API_URL}/dan-su`);
                 const data = await response.json();
                 if (response.ok && data.length > 0) {
                     setContent(data[0].content); 
@@ -37,7 +37,6 @@ const DanSu = () => {
                         </div>
                         
                     </div>
-                    <button>Click on this button</button>
                 </div>
 
             </div>

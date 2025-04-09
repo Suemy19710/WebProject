@@ -5,7 +5,7 @@ const SoHuuTriTue = () => {
     useEffect(() => {
         const fetchContent = async () => {
             try {
-                const response = await fetch(`${API_URL}/so-huu-tri-tue`);
+                const response = await fetch(`${process.env.API_URL}/so-huu-tri-tue`);
                 const data = await response.json();
                 if (response.ok && data.length > 0) {
                     setContent(data[0].content); 

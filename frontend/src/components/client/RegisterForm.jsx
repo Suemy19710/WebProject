@@ -1,4 +1,4 @@
-import React, { useState } from 'react'; // Removed unused useEffect
+import React, { useState } from 'react'; 
 import '../../styles/client/RegisterForm.scss';
 import ladyJustice from '../../assets/feature/3.png';
 
@@ -21,7 +21,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${API_URL}/customers`, {
+      const response = await fetch(`${process.env.API_URL}/customers`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -30,13 +30,11 @@ const RegisterForm = () => {
       const result = await response.json();
 
       if (response.ok) {
-        // Check if email sending failed
         if (result.emailError) {
           alert("Đăng ký thành công nhưng gửi email thất bại! Vui lòng liên hệ hỗ trợ.");
         } else {
           alert("Đăng ký thành công! Thông tin đã được gửi đến công ty!");
         }
-        // Reset form on success
         setFormData({
           nameCustomer: "",
           emailCustomer: "",

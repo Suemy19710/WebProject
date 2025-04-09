@@ -3,8 +3,8 @@ import '../../styles/client/IntroductionNews.scss';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 // import '@fortawesome/fontawesome-free/css/all.min.css';
-import { storage, API_URL } from '../../config/firebase'; 
-import { ref, getDownloadURL } from 'firebase/storage';
+// import { storage, process.env.API_URL } from '../../config/firebase'; 
+// import { ref, getDownloadURL } from '/storage';
 const News = () =>{
     const [posts , setPosts] = useState([]);
     const [defaultImageUrl, setDefaultImageUrl] = useState(''); 
@@ -29,7 +29,7 @@ const News = () =>{
                     setDefaultImageUrl('https://via.placeholder.com/300x200?text=Default+Image');
                 });
     
-            fetch(`${API_URL}/tin-tuc-&-su-kien`)
+            fetch(`${process.env.API_URL}/tin-tuc-&-su-kien`)
                 .then((res) => res.json())
                 .then((data) => {
                     const postsWithImageUrls = data.map(async (post) => {

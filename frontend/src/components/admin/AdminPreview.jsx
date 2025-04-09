@@ -19,7 +19,7 @@ const AdminPreview = () => {
 
         const fetchDocuments = async() => {
             try{
-                const response = await fetch(`${API_URL}/preview`, {
+                const response = await fetch(`${process.env.API_URL}/preview`, {
                     method: 'GET', 
                 });
                 if (!response.ok) {

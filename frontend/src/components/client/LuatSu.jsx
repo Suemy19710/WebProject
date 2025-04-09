@@ -11,7 +11,7 @@ const LuatSu = () => {
     useEffect(() => {
         const fetchLawyers = async () => {
             try {
-                const response = await axios.get(`${API_URL}/luat-su`);
+                const response = await axios.get(`${process.env.API_URL}/luat-su`);
                 setLawyers(response.data);
                 setLoading(false);
             } catch (error) {
@@ -42,8 +42,8 @@ const LuatSu = () => {
                         <div className="intro-lawyers__grid">
                             {lawyers.map((lawyer) => (
                                 <div className="intro-lawyers__card" key={lawyer._id}>
-                                    {/* <img src={`${API_URL}${lawyer.image}`} alt={lawyer.name} /> */}
-                                    <img src={lawyer.image} alt={lawyer.name} /> {/* No need for ${API_URL} */}
+                                    {/* <img src={`${process.env.API_URL}${lawyer.image}`} alt={lawyer.name} /> */}
+                                    <img src={lawyer.image} alt={lawyer.name} /> {/* No need for ${process.env.API_URL} */}
                                     <h3 onClick={() => handleClick(lawyer.slug)}>{lawyer.name}</h3>
                                     <div className="short-description">
                                         <p>SDT: {lawyer.phone}</p>

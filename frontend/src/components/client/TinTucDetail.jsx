@@ -13,7 +13,7 @@ const TinTucDetail = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch(`${API_URL}/tin-tuc-&-su-kien`)
+        fetch(`${process.env.API_URL}/tin-tuc-&-su-kien`)
             .then((res) => res.json())
             .then((data) => {
                 if (Array.isArray(data) && data.length > 0) {

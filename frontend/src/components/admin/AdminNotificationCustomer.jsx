@@ -11,7 +11,7 @@ const AdminNotificationCustomer = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await fetch(`${API_URL}/customers`,  
+        const response = await fetch(`${process.env.API_URL}/customers`,  
         { method: 'GET', 
           headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ if (!response.ok) {
       );
 
       // Update in database
-      const response = await fetch(`${API_URL}/customers/${customerId}/read-status`, {
+      const response = await fetch(`${process.env.API_URL}/customers/${customerId}/read-status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

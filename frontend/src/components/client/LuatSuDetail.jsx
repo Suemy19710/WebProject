@@ -13,7 +13,7 @@ const LuatSuDetail = () => {
     useEffect(() => {
         const fetchLawyer = async () => {
           try {
-            const response = await axios.get(`${API_URL}/luat-su`);
+            const response = await axios.get(`${process.env.API_URL}/luat-su`);
             const matchedLawyer = response.data.find(l => l.slug === slug);
             setLawyer(matchedLawyer || null);
             setLoading(false);
@@ -33,8 +33,8 @@ const LuatSuDetail = () => {
         <div className="luatSuDetail-container">
             <div className="luatSuDetailCard">
                 <div className="luatSuDetailCard-right">
-                    {/* <img src={`${API_URL}${lawyer.image}`} alt={lawyer.name} /> */}
-                    <img src={lawyer.image} alt={lawyer.name} /> {/* No need for ${API_URL} */}
+                    {/* <img src={`${process.env.API_URL}${lawyer.image}`} alt={lawyer.name} /> */}
+                    <img src={lawyer.image} alt={lawyer.name} /> {/* No need for ${process.env.API_URL} */}
                 </div>
                 <div className="luatSuDetailCard-left">
                     <div className="luatSuDetailCard-left-head">

@@ -45,10 +45,10 @@ const AdminHinhSu = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post(`${API_URL}/hinh-su/upload-image`, formData, {
+            const response = await axios.post(`${process.env.API_URL}/hinh-su/upload-image`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            const imageUrl = `${API_URL}${response.data.url}`;
+            const imageUrl = `${process.env.API_URL}${response.data.url}`;
             editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
             setMessage('Ảnh đã được tải lên editor thành công!');
         } catch (error) {
@@ -71,7 +71,7 @@ const AdminHinhSu = () => {
         }
 
         try {
-            const response = await fetch(`${API_URL}/hinh-su`, {
+            const response = await fetch(`${process.env.API_URL}/hinh-su`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: editor.getHTML() }),
