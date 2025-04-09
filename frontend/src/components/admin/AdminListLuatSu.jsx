@@ -13,7 +13,7 @@ const AdminListLuatSu = () => {
   useEffect(() => {
     const fetchLawyers = async () => {
       try {
-        const response = await axios.get(`${process.env.API_URL}/api/luat-su`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/luat-su`);
         setLawyers(response.data);
         setLoading(false);
       } catch (err) {
@@ -34,7 +34,7 @@ const AdminListLuatSu = () => {
   const handleDelete = async (id) => {
     if (window.confirm('Are you sure you want to delete this lawyer?')) {
       try {
-        await axios.delete(`${process.env.API_URL}/luat-su/${id}`);
+        await axios.delete(`${process.env.REACT_APP_API_URL}/luat-su/${id}`);
         setLawyers(lawyers.filter((lawyer) => lawyer._id !== id)); // Remove from state
         alert('Lawyer deleted successfully');
       } catch (err) {
@@ -66,7 +66,7 @@ const AdminListLuatSu = () => {
             <div className="intro-lawyers__grid">
               {lawyers.map((lawyer) => (
                 <div className="intro-lawyers__card" key={lawyer._id}>
-                  <img src={`${process.env.API_URL}${lawyer.image}`} alt={lawyer.name} />
+                  <img src={`${process.env.REACT_APP_API_URL}${lawyer.image}`} alt={lawyer.name} />
                   <h3 onClick={() => handleCardClick(lawyer.slug)}>{lawyer.name}</h3>
                   <div className="short-description">
                     <p>SDT: {lawyer.phone}</p>

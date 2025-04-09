@@ -5,7 +5,7 @@ const HanhChinh = () => {
     useEffect(() => {
         const fetchContent = async () => {
             try {
-                const response = await fetch(`${process.env.API_URL}/hanh-chinh`);
+                const response = await fetch(`${process.env.REACT_APP_API_URL}/hanh-chinh`);
                 const data = await response.json();
                 if (response.ok && data.length > 0) {
                     setContent(data[0].content); 

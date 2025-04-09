@@ -2,7 +2,7 @@
 // import { getAnalytics } from "firebase/analytics";
 // import { getStorage } from "firebase/storage";
 // import { getAuth } from 'firebase/auth'
-// export const process.env.API_URL = import.meta.env.VITE_process.env.API_URL;
+// export const process.env.REACT_APP_API_URL = import.meta.env.VITE_process.env.REACT_APP_API_URL;
 // const firebaseConfig = {
 //     apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
 //     authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
@@ -15,8 +15,8 @@
   
   
 // const validateEnv = () => {
-//     if (!process.env.API_URL) {
-//       console.error('process.env.API_URL is not defined in environment variables');
+//     if (!process.env.REACT_APP_API_URL) {
+//       console.error('process.env.REACT_APP_API_URL is not defined in environment variables');
 //     }
     
 //     const requiredFirebaseFields = ['apiKey', 'authDomain', 'projectId', 'storageBucket', 'messagingSenderId', 'appId'];

@@ -1,8 +1,8 @@
-// const process.env.API_URL = "https://luatkimngoc.onrender.com/api/customers"; 
+// const process.env.REACT_APP_API_URL = "https://luatkimngoc.onrender.com/api/customers"; 
 // Fetch all customers
 export const getAllCustomers = async () => {
   try {
-    const response = await fetch(`${process.env.API_URL}/customers`);
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/customers`);
     if (!response.ok) {
       throw new Error("Failed to fetch customers");
     }

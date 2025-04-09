@@ -13,7 +13,7 @@ import FontSize from 'tiptap-extension-font-size';
 import axios from 'axios';
 import { Resizable } from 'react-resizable';
 import 'react-resizable/css/styles.css';
-// import { storage, process.env.API_URL } from '../../config/firebase'; 
+// import { storage, process.env.REACT_APP_API_URL } from '../../config/firebase'; 
 // import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 
 
@@ -163,7 +163,7 @@ const AdminTinTuc = () => {
             // Append the filename to the formData (not the file itself)
             formData.append('image', fileName);
 
-            const response = await fetch(`${process.env.API_URL}/tin-tuc-&-su-kien`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/tin-tuc-&-su-kien`, {
                 method: 'POST',
                 body: formData,
             });

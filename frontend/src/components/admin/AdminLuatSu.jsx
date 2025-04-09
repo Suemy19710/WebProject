@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import '../../styles/admin/AdminLuatSu.scss'; 
 import axios from 'axios';
 // import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-// import { storage, process.env.API_URL } from '../../config/firebase'; 
+// import { storage, process.env.REACT_APP_API_URL } from '../../config/firebase'; 
 
 const AdminLuatSu = () => {
     const [formData, setFormData] = useState({
@@ -72,7 +72,7 @@ const AdminLuatSu = () => {
 
             console.log('Payload being sent to backend:', data);
 
-            const response = await axios.post(`${process.env.API_URL}/luat-su`, data, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/luat-su`, data, {
                 headers: { 'Content-Type': 'application/json' },
             });
             setMessage('Lawyer profile created successfully!');

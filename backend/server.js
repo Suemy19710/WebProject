@@ -23,7 +23,7 @@ const cors = require('cors'); // import cors middleware
  app.use(express.json());
  app.use(cors({
     //  origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-6de87.web.app', 'http://localhost:3000'],
-     origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-6de87.web.app', 'http://localhost:3000'],
+     origin: ['https://luatkimngoc.onrender.com', 'https://luatkimngoc-vn.onrender.com', 'http://localhost:3000'],
 
      credentials: true
  }));

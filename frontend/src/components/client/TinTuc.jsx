@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { createSlugTitle } from '../../utils/slugUtils';
 import '../../styles/client/TinTuc.scss';
-// import { storage, process.env.API_URL } from '../../config/firebase'; 
+// import { storage, process.env.REACT_APP_API_URL } from '../../config/firebase'; 
 // import { ref, getDownloadURL } from 'firebase/storage';
 
 const TinTuc = () => {
@@ -41,7 +41,7 @@ const TinTuc = () => {
                 setDefaultImageUrl('https://via.placeholder.com/300x200?text=Default+Image');
             });
 
-        fetch(`${process.env.API_URL}/tin-tuc-&-su-kien`)
+        fetch(`${process.env.REACT_APP_API_URL}/tin-tuc-&-su-kien`)
             .then((res) => res.json())
             .then((data) => {
                 const postsWithImageUrls = data.map(async (post) => {

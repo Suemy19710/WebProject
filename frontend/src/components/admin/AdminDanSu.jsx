@@ -45,10 +45,10 @@ const AdminDanSu = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post(`${process.env.API_URL}/dan-su/upload-image`, formData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/dan-su/upload-image`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            const imageUrl = `${process.env.API_URL}${response.data.url}`;
+            const imageUrl = `${process.env.REACT_APP_API_URL}${response.data.url}`;
             editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
             setMessage('Ảnh đã được tải lên editor thành công!');
         } catch (error) {
@@ -71,7 +71,7 @@ const AdminDanSu = () => {
         }
 
         try {
-            const response = await fetch(`${process.env.API_URL}/dan-su`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/dan-su`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: editor.getHTML() }),

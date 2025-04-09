@@ -45,10 +45,10 @@ const AdminSoHuuTriTue = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post(`${process.env.API_URL}/so-huu-tri-tue/upload-image`, formData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/so-huu-tri-tue/upload-image`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            const imageUrl = `${process.env.API_URL}${response.data.url}`;
+            const imageUrl = `${process.env.REACT_APP_API_URL}${response.data.url}`;
             editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
             setMessage('Ảnh đã được tải lên editor thành công!');
         } catch (error) {
@@ -71,7 +71,7 @@ const AdminSoHuuTriTue = () => {
         }
 
         try {
-            const response = await fetch(`${process.env.API_URL}/so-huu-tri-tue`, {
+            const response = await fetch(`${process.env.REACT_APP_API_URL}/so-huu-tri-tue`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: editor.getHTML() }),
