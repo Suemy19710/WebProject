@@ -35,7 +35,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/gioi-thieu" activeClassName="active">
-              Giới thiệu
+              Giới thiệu cong ty
             </NavLink>
           </li>
           <li>
