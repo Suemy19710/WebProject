@@ -21,7 +21,7 @@ const AdminNews = () => {
         formData.append('image', image); 
         
         try{
-            const response = await fetch("http://localhost:5000/api/preview", {
+            const response = await fetch("https://luatkimngoc-vn.onrender.com/api/preview", {
                 method: 'POST', 
                 body: formData, 
             }); 
@@ -68,11 +68,11 @@ const AdminNews = () => {
     
         try {
           
-            // const response = await fetch('http://localhost:5000/api/tin-tuc-&-su-kien', {
+            // const response = await fetch('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien', {
             //     method: 'POST',
             //     body: formData,
             // });            
-            const response = await fetch('http://localhost:5000/api/tin-tuc-&-su-kien', {
+            const response = await fetch('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien', {
                 method: 'POST',
                 body: formData,
             });

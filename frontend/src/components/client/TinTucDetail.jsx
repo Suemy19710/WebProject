@@ -13,7 +13,7 @@ const TinTucDetail = () => {
 
     useEffect(() => {
         setLoading(true);
-        fetch('http://localhost:5000/api/tin-tuc-&-su-kien')
+        fetch('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => {
                 if (Array.isArray(data) && data.length > 0) {
@@ -85,7 +85,7 @@ const TinTucDetail = () => {
                             <div className="body">
                                 {/* {post.image && (
                                     <img
-                                        src={`http://localhost:5000/uploads/${post.image}`}
+                                        src={`https://luatkimngoc-vn.onrender.com/uploads/${post.image}`}
                                         alt={post.title}
                                         onError={(e) => (e.target.src = news1)} // Fallback image
                                     />

@@ -45,10 +45,10 @@ const AdminSoHuuTriTue = () => {
         formData.append('image', file);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/so-huu-tri-tue/upload-image', formData, {
+            const response = await axios.post('https://luatkimngoc-vn.onrender.com/api/so-huu-tri-tue/upload-image', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
-            const imageUrl = `http://localhost:5000${response.data.url}`;
+            const imageUrl = `https://luatkimngoc-vn.onrender.com${response.data.url}`;
             editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
             setMessage('Ảnh đã được tải lên editor thành công!');
         } catch (error) {
@@ -71,7 +71,7 @@ const AdminSoHuuTriTue = () => {
         }
 
         try {
-            const response = await fetch('http://localhost:5000/api/so-huu-tri-tue', {
+            const response = await fetch('https://luatkimngoc-vn.onrender.com/api/so-huu-tri-tue', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ content: editor.getHTML() }),

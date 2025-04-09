@@ -11,7 +11,7 @@ const AdminNotificationCustomer = () => {
   useEffect(() => {
     const fetchCustomers = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/customers',  
+        const response = await fetch('https://luatkimngoc-vn.onrender.com/api/customers',  
         { method: 'GET', 
           headers: {
             'Content-Type': 'application/json'
@@ -53,7 +53,7 @@ if (!response.ok) {
       );
 
       // Update in database
-      const response = await fetch(`http://localhost:5000/api/customers/${customerId}/read-status`, {
+      const response = await fetch(`https://luatkimngoc-vn.onrender.com/api/customers/${customerId}/read-status`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

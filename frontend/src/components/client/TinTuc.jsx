@@ -29,7 +29,7 @@ const TinTuc = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/api/tin-tuc-&-su-kien')
+        fetch('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien')
             .then((res) => res.json())
             .then((data) => setPosts(data))
             .catch((err) => console.log('Error fetching posts: ', err));
@@ -80,7 +80,7 @@ const TinTuc = () => {
                                             >
                                                 <div className="news__img">
                                                     {post.image ? (
-                                                        <img src={`http://localhost:5000/uploads/${post.image}`} alt="event" />
+                                                        <img src={`https://luatkimngoc-vn.onrender.com/uploads/${post.image}`} alt="event" />
                                                     ) : (
                                                         <img src={news1} alt="news1" />
                                                     )}

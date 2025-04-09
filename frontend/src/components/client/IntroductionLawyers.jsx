@@ -11,7 +11,7 @@ const LuatSu = () => {
     useEffect(() => {
         const fetchLawyers = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/luat-su');
+                const response = await axios.get('https://luatkimngoc-vn.onrender.com/api/luat-su');
                 // Slice the first 4 lawyers from the response data
                 setLawyers(response.data.slice(0, 3));
                 setLoading(false);
@@ -35,7 +35,7 @@ const LuatSu = () => {
             <div className="intro-lawyers__grid">
                 {lawyers.map((lawyer) => (
                     <div className="intro-lawyers__card" key={lawyer._id}>
-                        <img src={`http://localhost:5000${lawyer.image}`} alt={lawyer.name} />
+                        <img src={`https://luatkimngoc-vn.onrender.com${lawyer.image}`} alt={lawyer.name} />
                         <h3 onClick={() => handleClick(lawyer.slug)}>{lawyer.name}</h3>
                         <div className="short-description">
                             <p>SDT: {lawyer.phone}</p>

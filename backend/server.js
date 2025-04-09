@@ -39,10 +39,10 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'; 
+const JWT_SECRET = your_very_long_random_secret_key; 
 const adminUser = {
-    username: process.env.ADMIN_USERNAME,
-    password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10)
+    username: 'nguyennhatkhanhlinh0710@gmail.com',
+    password: bcrypt.hashSync('lqze mqfw rxnm nbht', 10)
 };
 
 app.post('/api/login', async (req, res) => {

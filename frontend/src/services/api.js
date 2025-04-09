@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/customers"; // Your backend API URL
+const API_URL = "https://luatkimngoc-vn.onrender.com/api/customers"; // Your backend API URL
 
 // Fetch all customers
 export const getAllCustomers = async () => {
