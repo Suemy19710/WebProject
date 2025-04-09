@@ -8,7 +8,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) { // Trigger after scrolling 50px
+      if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -17,7 +17,7 @@ const Header = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener('scroll', handleScroll); // Cleanup
+      window.removeEventListener('scroll', handleScroll); 
     };
   }, []);
 
@@ -35,7 +35,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/gioi-thieu" activeClassName="active">
-              Giới thiệu cong ty
+              Giới thiệu
             </NavLink>
           </li>
           <li>

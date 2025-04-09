@@ -39,7 +39,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(bodyParser.urlencoded({extended: true}));
 
-const JWT_SECRET = your_very_long_random_secret_key; 
+const JWT_SECRET = 'your_very_long_random_secret_key'; 
 const adminUser = {
     username: 'nguyennhatkhanhlinh0710@gmail.com',
     password: bcrypt.hashSync('lqze mqfw rxnm nbht', 10)
