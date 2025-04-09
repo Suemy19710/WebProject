@@ -114,9 +114,10 @@ const CustomerItem = ({ customer, onReadStatus }) => {
       <div className="customer-details">
         <h3>{customer.nameCustomer}</h3>
         <p>Email: {customer.emailCustomer}</p>
-        <p>Phone: {customer.phoneCustomer}</p>
-        <p>Content: {customer.contentCustomer}</p>
-        <p>Registered: {new Date(customer.createdAt).toLocaleString()}</p>
+        <p>Số điện thoại: {customer.phoneCustomer}</p>
+        <p>Nội dung yêu cầu:</p>
+        <p> {customer.contentCustomer}</p>
+        <p>Thời gian nhận yêu cầu: {new Date(customer.createdAt).toLocaleString()}</p>
       </div>
       <div className="checkbox-container">
         <input type="checkbox"

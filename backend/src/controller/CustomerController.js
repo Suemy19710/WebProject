@@ -2,16 +2,14 @@ const CustomerService = require('../services/CustomerService');
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-// Configure nodemailer transporter
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  service: 'gmail', // Use 'gmail' instead of 'true'
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
-  },
+  }
 });
 
-// Verify transporter on startup
 transporter.verify((error, success) => {
   if (error) {
     console.error('Transporter verification failed:', error.message);
@@ -23,13 +21,11 @@ transporter.verify((error, success) => {
 const registerCustomer = async (req, res) => {
   const { nameCustomer, emailCustomer, phoneCustomer, contentCustomer } = req.body;
 
-  // Validate required fields
   if (!nameCustomer || !emailCustomer || !phoneCustomer || !contentCustomer) {
     return res.status(400).json({ message: "All fields are required!" });
   }
 
   try {
-    // Save customer to database
     const newCustomer = await CustomerService.createCustomer({
       nameCustomer,
       emailCustomer,
@@ -37,22 +33,21 @@ const registerCustomer = async (req, res) => {
       contentCustomer,
     });
 
-    // Prepare email
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'n.nguyennhatkhanhlinh@student.fontys.nl',
-      subject: `Thông báo khách hàng cần tư vấn từ ${nameCustomer}`,
+      to: 'nguyennhatkhanhlinh0710@gmail.com',
+      subject: `Thông báo yêu cầu tư vấn khách hàng từ ${nameCustomer}`,
       html: `
-        <h2>New Customer Consultation Request</h2>
-        <p><strong>Name:</strong> ${nameCustomer}</p>
+        <h2>Yêu cầu tư vấn khách hàng mới</h2>
+        <p><strong>Họ và tên:</strong> ${nameCustomer}</p>
         <p><strong>Email:</strong> ${emailCustomer}</p>
-        <p><strong>Phone:</strong> ${phoneCustomer}</p>
-        <p><strong>Content:</strong> ${contentCustomer}</p>
-        <p><strong>Received:</strong> ${new Date().toLocaleString()}</p>
+        <p><strong>Số điện thoại:</strong> ${phoneCustomer}</p>
+        <p><strong>Nội dung yêu cầu:</strong> ${contentCustomer}</p>
+        <p><strong>Thời gian nhận yêu cầu:</strong> ${new Date().toLocaleString()}</p>
       `,
     };
+    
 
-    // Send email with detailed logging
     try {
       const info = await transporter.sendMail(mailOptions);
       console.log('Email sent successfully:', info.response);
@@ -65,7 +60,7 @@ const registerCustomer = async (req, res) => {
       res.status(201).json({
         message: "Customer registered but email failed to send",
         customer: newCustomer,
-        emailError: emailError.message, // Include error for debugging
+        emailError: emailError.message, 
       });
     }
   } catch (error) {

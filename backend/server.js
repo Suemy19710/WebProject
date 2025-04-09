@@ -42,7 +42,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 const JWT_SECRET = process.env.JWT_SECRET || 'your-secret-key-here'; 
 const adminUser = {
     username: process.env.ADMIN_USERNAME,
-    // You should hash this password and store it
     password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10)
 };
 
