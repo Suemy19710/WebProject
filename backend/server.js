@@ -65,9 +65,16 @@ app.use('/api/luat-su', LuatSuRoutes);
 const JWT_SECRET = process.env.JWT_SECRET || 'your_very_long_random_secret_key';
 
 // Admin user credentials
+// EMAIL_USER='nguyennhatkhanhlinh0710@gmail.com'; 
+// EMAIL_PASS='lqze mqfw rxnm nbht'; 
+// const adminUser = {
+//   username: 'nguyennhatkhanhlinh0710@gmail.com',
+//   password: bcrypt.hashSync('lqze mqfw rxnm nbht', 10),
+// };
 const adminUser = {
-  username: 'nguyennhatkhanhlinh0710@gmail.com',
-  password: bcrypt.hashSync('lqze mqfw rxnm nbht', 10),
+  username: process.env.ADMIN_USERNAME,
+  // You should hash this password and store it
+  password: bcrypt.hashSync(process.env.ADMIN_PASSWORD, 10)
 };
 
 // Login Endpoint
