@@ -108,7 +108,7 @@ const AdminNews = () => {
       const response = await axios.post('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/upload-image', formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
-      const imageUrl = `https://luatkimngoc-vn.onrender.com${response.data.url}`; 
+      const imageUrl = response.data.url; 
       editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
       setMessage('Ảnh đã được tải lên editor thành công!');
     } catch (error) {

@@ -9,6 +9,12 @@ const createNews = async (req, res) => {
         if (!req.body.title || !req.body.content || !req.file) {
             return res.status(400).json({ error: 'Title, content, and image are required.' });
         }
+         const imageFile = req.files.image; 
+         const imageResult = await claudinary.uploader.upload(imageFile.tempFilePath, {
+            folder: 'tin-tuc',
+            use_filename: true,
+            unique_filename: true,
+         })
 
         const cleanContent = sanitizeHtml(req.body.content, {
             allowedTags: ['p', 'b', 'i', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'img', 'span', 'div'],
@@ -30,7 +36,7 @@ const createNews = async (req, res) => {
             title: req.body.title,
             slug: req.body.slug, // Will be overridden by pre-save hook if not provided
             content: cleanContent,
-            image: req.file.filename, // Multer provides the filename
+            image: imageResult.secure_url, // Store Cloudinary URL
             status: req.body.status || 'draft',
         };
 

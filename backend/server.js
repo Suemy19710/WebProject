@@ -8,6 +8,8 @@ const connectDB = require('./src/config/database');
 const jwt = require('jsonwebtoken'); 
 const bcrypt = require('bcryptjs'); 
 const nodemailer = require('nodemailer'); 
+const cloudinary = require('cloudinary').v2;
+const fileUpload = require('express-fileupload');
 const CustomerRoutes = require('./src/routes/CustomerRoutes');
 const DanSuRoutes = require('./src/routes/DanSuRoutes');
 const HinhSuRoutes = require('./src/routes/HinhSuRoute');
@@ -23,6 +25,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
+cloudinary.config({
+    cloud_name: 'dil4dywf8',
+    api_key: '245178342773214',
+    api_secret: 'TH5LNoGnGsuimdlSyfrDjSivFFs', 
+}); 
 connectDB();
 // app.use('/api/blogs', BlogRoutes);
 app.use('/api/customers', CustomerRoutes);
@@ -35,10 +42,11 @@ app.use('/api/tin-tuc', NewsRoutes);
 app.use('/api/tin-tuc-&-su-kien', TinTucRoutes); 
 app.use('/api/luat-su', LuatSuRoutes); 
 
+app.locals.cloudinary = cloudinary; 
+
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
 app.use(bodyParser.urlencoded({extended: true}));
-
+app.use(fileUpload());
 const JWT_SECRET = 'your_very_long_random_secret_key'; 
 const adminUser = {
     username: 'nguyennhatkhanhlinh0710@gmail.com',
@@ -46,45 +54,45 @@ const adminUser = {
 };
 
 app.post('/api/login', async (req, res) => {
-    const { username, password } = req.body;
+  const { username, password } = req.body;
 
-    try {
-        // Check if username matches
-        if (username !== adminUser.username) {
-            return res.status(401).json({ 
-                success: false, 
-                message: 'Invalid credentials' 
-            });
-        }
+  try {
+      // Check if username matches
+      if (username !== adminUser.username) {
+          return res.status(401).json({ 
+              success: false, 
+              message: 'Invalid credentials' 
+          });
+      }
 
-        // Verify password
-        const isPasswordValid = await bcrypt.compare(password, adminUser.password);
-        if (!isPasswordValid) {
-            return res.status(401).json({ 
-                success: false, 
-                message: 'Invalid credentials' 
-            });
-        }
+      // Verify password
+      const isPasswordValid = await bcrypt.compare(password, adminUser.password);
+      if (!isPasswordValid) {
+          return res.status(401).json({ 
+              success: false, 
+              message: 'Invalid credentials' 
+          });
+      }
 
-        // Create JWT token
-        const token = jwt.sign(
-            { username: adminUser.username },
-            JWT_SECRET,
-            { expiresIn: '1h' } // Token expires in 1 hour
-        );
+      // Create JWT token
+      const token = jwt.sign(
+          { username: adminUser.username },
+          JWT_SECRET,
+          { expiresIn: '1h' } // Token expires in 1 hour
+      );
 
-        res.json({ 
-            success: true, 
-            message: 'Login successful! Welcome to the admin dashboard.',
-            token: token 
-        });
-    } catch (error) {
-        console.error('Login error:', error);
-        res.status(500).json({ 
-            success: false, 
-            message: 'Server error' 
-        });
-    }
+      res.json({ 
+          success: true, 
+          message: 'Login successful! Welcome to the admin dashboard.',
+          token: token 
+      });
+  } catch (error) {
+      console.error('Login error:', error);
+      res.status(500).json({ 
+          success: false, 
+          message: 'Server error' 
+      });
+  }
 });
 
 // Middleware to verify JWT token

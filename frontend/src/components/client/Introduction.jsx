@@ -29,6 +29,12 @@ const Introduction = () => {
                         <img src={pic2} alt="Scales of Justice" />
                     </div>
                 </div>
+
+                {/* <div className="mobile-company-description">
+                    <h3>Về Công ty Luật Kim Ngọc</h3>
+                    <p>Công ty Luật Kim Ngọc là đơn vị tư vấn pháp lý hàng đầu với đội ngũ luật sư giàu kinh nghiệm. Chúng tôi chuyên cung cấp các dịch vụ pháp lý toàn diện, bảo vệ quyền lợi khách hàng trong mọi lĩnh vực pháp luật.</p>
+                    <p>Với phương châm "Uy tín - Chuyên nghiệp - Hiệu quả", chúng tôi cam kết mang đến giải pháp pháp lý tối ưu cho mọi khách hàng.</p>
+                </div> */}
         </div>
     )
 }
