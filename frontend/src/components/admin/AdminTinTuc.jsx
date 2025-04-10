@@ -105,38 +105,45 @@ const AdminNews = () => {
     formData.append('image', file);
 
     try {
-      const response = await axios.post('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/upload-image', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
-      });
+      // Show uploading state
+      setMessage('Đang tải ảnh lên...');
+      
+      const response = await axios.post(
+        'https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/upload-image', 
+        formData, 
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
+      
       const imageUrl = response.data.url; 
       editor.chain().focus().setImage({ src: imageUrl, width: 200, height: 'auto' }).run();
       setMessage('Ảnh đã được tải lên editor thành công!');
     } catch (error) {
       console.error('Error uploading image to editor:', error);
-      setMessage('Lỗi khi tải ảnh lên editor!');
+      setMessage(`Lỗi khi tải ảnh lên editor: ${error.response?.data?.message || error.message}`);
     }
   };
 
-  // const handlePreview = () => {
-  //   if (!title || !editor?.getHTML() || !image) {
-  //     setMessage('Vui lòng nhập tiêu đề, nội dung và tải ảnh bìa!');
-  //     return;
-  //   }
-  //   const previewImageUrl = URL.createObjectURL(image);
-  //   navigate('/admin/xem-truoc', {
-  //     state: { content: editor.getHTML(), title, image: previewImageUrl },
-  //   });
-  // };
-
   // Handle news creation
   const handleCreateNews = async () => {
-    if (!title || !editor?.getHTML() || !image) {
-      setMessage('Vui lòng nhập tiêu đề, nội dung và tải ảnh bìa!');
+    if (!title) {
+      setMessage('Vui lòng nhập tiêu đề!');
+      return;
+    }
+    
+    if (!editor?.getHTML() || editor.getHTML() === '<p>Nhập nội dung bài viết...</p>') {
+      setMessage('Vui lòng nhập nội dung bài viết!');
+      return;
+    }
+    
+    if (!image) {
+      setMessage('Vui lòng tải ảnh bìa!');
       return;
     }
 
     setIsSubmitting(true);
-    setMessage('');
+    setMessage('Đang xử lý...');
 
     const formData = new FormData();
     formData.append('title', title);
@@ -146,21 +153,20 @@ const AdminNews = () => {
     formData.append('status', status);
 
     try {
-      const response = await fetch('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || 'Failed to create post');
-      }
+      // Use axios instead of fetch for better error handling and multipart/form-data support
+      const response = await axios.post(
+        'https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien', 
+        formData,
+        {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }
+      );
 
       setMessage('Tạo bài viết thành công!');
       setTimeout(() => navigate('/admin/tin-tuc-&-su-kien'), 2000);
     } catch (error) {
-      console.error('Error:', error);
-      setMessage(`Lỗi: ${error.message}`);
+      console.error('Error creating post:', error);
+      setMessage(`Lỗi: ${error.response?.data?.error || error.message}`);
     } finally {
       setIsSubmitting(false);
     }
@@ -210,16 +216,16 @@ const AdminNews = () => {
           onChange={(e) => setTitle(e.target.value)}
         />
 
-        {/* <p>Nhập nội dung bài viết</p> */}
         <style>{editorStyles}</style>
 
         {editor && (
           <div className="editor-toolbar">
-            <button onClick={() => {
-              editor.chain().focus().toggleBold().run();
-              console.log(editor.getHTML()); 
-            }}><i class="fa-solid fa-bold"></i></button>            
-            <button onClick={() => editor.chain().focus().toggleItalic().run()}><i class="fa-solid fa-italic"></i></button>
+            <button onClick={() => editor.chain().focus().toggleBold().run()}>
+              <i className="fa-solid fa-bold"></i>
+            </button>            
+            <button onClick={() => editor.chain().focus().toggleItalic().run()}>
+              <i className="fa-solid fa-italic"></i>
+            </button>
             <select onChange={(e) => editor.chain().focus().setFontFamily(e.target.value).run()}>
               <option value="">Font</option>
               <option value="Arial">Arial</option>
@@ -248,28 +254,32 @@ const AdminNews = () => {
             <button onClick={() => editor.chain().focus().toggleHeading({ level: 1 }).run()}>
               H1
             </button>
-            <button onClick={() => editor.chain().focus().toggleBulletList().run()}><i class="fa-solid fa-list"></i></button>
-            <button onClick={() => editor.chain().focus().toggleOrderedList().run()}><i class="fa-solid fa-list-ol"></i></button>
+            <button onClick={() => editor.chain().focus().toggleBulletList().run()}>
+              <i className="fa-solid fa-list"></i>
+            </button>
+            <button onClick={() => editor.chain().focus().toggleOrderedList().run()}>
+              <i className="fa-solid fa-list-ol"></i>
+            </button>
           
             <div className="image-upload-wrapper" style={{ display: 'inline-flex', alignItems: 'center' }}>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleImageUpload}
-              style={{ display: 'inline-block', margin: '0 5px' }}
-              id="image-upload" // Add an ID for the label association
-            />
-            <label htmlFor="image-upload" style={{ cursor: 'pointer' }}>
-              <i className="fa-solid fa-image" style={{ marginLeft: '5px' }}></i>
-            </label>
-          </div>
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageUpload}
+                style={{ display: 'inline-block', margin: '0 5px' }}
+                id="image-upload"
+              />
+              <label htmlFor="image-upload" style={{ cursor: 'pointer' }}>
+                <i className="fa-solid fa-image" style={{ marginLeft: '5px' }}></i>
+              </label>
+            </div>
             <button
               onClick={() => {
                 const url = prompt('Enter link URL');
                 if (url) editor.chain().focus().setLink({ href: url }).run();
               }}
             >
-              <i class="fa-solid fa-link"></i>
+              <i className="fa-solid fa-link"></i>
             </button>
             <button onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()}>
               <i className="fa-solid fa-undo"></i>
@@ -287,7 +297,13 @@ const AdminNews = () => {
           name="image"
           id="image"
           accept="image/*"
-          onChange={(e) => setImage(e.target.files[0])}
+          onChange={(e) => {
+            if (e.target.files && e.target.files[0]) {
+              setImage(e.target.files[0]);
+              // Show the selected file name
+              setMessage(`Đã chọn file: ${e.target.files[0].name}`);
+            }
+          }}
         />
 
         <p>Trạng thái bài viết</p>
@@ -300,12 +316,11 @@ const AdminNews = () => {
           <button onClick={handleCreateNews} disabled={isSubmitting}>
             {isSubmitting ? 'Đang xử lý...' : status === 'draft' ? 'Lưu bản nháp' : 'Đăng bài viết'}
           </button>
-          {/* <button onClick={handlePreview}>Xem trước</button> */}
         </div>
       </div>
 
       {message && (
-        <div className={`message ${message.includes('thành công') ? 'success' : 'error'}`}>
+        <div className={`message ${message.includes('thành công') ? 'success' : message.includes('Đã chọn file') ? 'info' : 'error'}`}>
           {message}
         </div>
       )}
