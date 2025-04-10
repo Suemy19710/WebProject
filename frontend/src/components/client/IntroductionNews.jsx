@@ -41,11 +41,11 @@ const News = () =>{
                                 onClick={() => handleClick(post._id, post.title)}
                             >
                             <div className="news__img">
-                                {post.image ? (
-                                    <img src={`https://luatkimngoc-vn.onrender.com/uploads/${post.image}`} alt="event" />
-                                ) : (
-                                    <img src={news1} alt="news1" />
-                                )}
+                                    {post.image ? (
+                                        <img src={post.image} alt={post.title} />
+                                    ) : (
+                                        <img src={news1} alt="Default News" />
+                                    )}
                             </div>
                             <div className="news__date">
                                 <i className="fa-regular fa-clock"></i>
