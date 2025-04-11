@@ -25,11 +25,8 @@ const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 dotenv.config();
 
 const app = express();
-
-// Middlewares
 app.use(express.json());
 app.use(cors());
-// Configure express-fileupload with proper options
 app.use(fileUpload({
   useTempFiles: true, // Create temp files (important for Cloudinary)
   tempFileDir: '/tmp/', // Directory for temp files
@@ -47,10 +44,8 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET || 'TH5LNoGnGsuimdlSyfrDjSivFFs',
 });
 
-// Connect to MongoDB
 connectDB();
 
-// API Routes
 app.use('/api/customers', CustomerRoutes);
 app.use('/api/dan-su', DanSuRoutes);
 app.use('/api/hinh-su', HinhSuRoutes);
@@ -61,7 +56,6 @@ app.use('/api/tin-tuc', NewsRoutes);
 app.use('/api/tin-tuc-&-su-kien', TinTucRoutes);
 app.use('/api/luat-su', LuatSuRoutes);
 
-// JWT Secret
 const JWT_SECRET = process.env.JWT_SECRET || 'your_very_long_random_secret_key';
 
 // Admin user credentials

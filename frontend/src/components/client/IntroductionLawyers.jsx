@@ -35,7 +35,7 @@ const LuatSu = () => {
             <div className="intro-lawyers__grid">
                 {lawyers.map((lawyer) => (
                     <div className="intro-lawyers__card" key={lawyer._id}>
-                        <img src={`https://luatkimngoc-vn.onrender.com${lawyer.image}`} alt={lawyer.name} />
+                        <img src={lawyer.image} alt={lawyer.name} />
                         <h3 onClick={() => handleClick(lawyer.slug)}>{lawyer.name}</h3>
                         <div className="short-description">
                             <p>SDT: {lawyer.phone}</p>

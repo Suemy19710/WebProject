@@ -28,12 +28,12 @@ const createNews = async (req, res) => {
     const imageFile = req.files.image;
     
     // Log file details for debugging
-    console.log('Image file details:', {
-      name: imageFile.name,
-      size: imageFile.size,
-      mimetype: imageFile.mimetype,
-      hasTempFilePath: !!imageFile.tempFilePath
-    });
+    // console.log('Image file details:', {
+    //   name: imageFile.name,
+    //   size: imageFile.size,
+    //   mimetype: imageFile.mimetype,
+    //   hasTempFilePath: !!imageFile.tempFilePath
+    // });
     
     // Upload to Cloudinary with proper error handling
     let imageResult;
