@@ -50,7 +50,7 @@ const AdminHeader = () => {
         </li> */}
          <li>
           <NavLink
-            to="/admin/list-luat-su"
+            to="/admin/luat-su/list-luat-su"
             className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
           >
             <i className="fa-solid fa-file"></i>

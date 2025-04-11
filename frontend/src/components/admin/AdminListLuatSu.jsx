@@ -27,7 +27,7 @@ const AdminListLuatSu = () => {
 
   // Handle Edit button click
   const handleEdit = (id) => {
-    navigate(`/admin/luatsu/edit/${id}`); // Assuming an edit route
+    navigate(`/admin/luat-su/edit/${id}`); 
   };
 
   // Handle Delete button click
@@ -46,7 +46,7 @@ const AdminListLuatSu = () => {
 
   // Handle card click (optional: view details)
   const handleCardClick = (slug) => {
-    navigate(`/luatsu/${slug}`); // Same as LuatSu.jsx
+    navigate(`/luat-su/${slug}`); // Same as LuatSu.jsx
   };
 
   if (loading) return <div>Loading...</div>;
@@ -66,7 +66,7 @@ const AdminListLuatSu = () => {
             <div className="intro-lawyers__grid">
               {lawyers.map((lawyer) => (
                 <div className="intro-lawyers__card" key={lawyer._id}>
-                  <img src={`https://luatkimngoc-vn.onrender.com${lawyer.image}`} alt={lawyer.name} />
+                  <img src={lawyer.image} alt={lawyer.name} />
                   <h3 onClick={() => handleCardClick(lawyer.slug)}>{lawyer.name}</h3>
                   <div className="short-description">
                     <p>SDT: {lawyer.phone}</p>

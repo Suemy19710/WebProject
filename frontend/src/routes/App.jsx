@@ -28,6 +28,7 @@ import AdminNewsPage from '../pages/admin/AdminNewsPage';
 import AdminTinTucPage from '../pages/admin/AdminTinTucPage'; 
 import AdminLuatSuPage from '../pages/admin/AdminLuatSuPage'; 
 import AdminListLuatSuPage from '../pages/admin/AdminListLuatSuPage'; 
+import AdminEditLuatSuPage from '../pages/admin/AdminEditLuatSuPage'; 
 
 
 function App() {
@@ -62,7 +63,8 @@ function App() {
         <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
         <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} /> 
         <Route path="/admin/luat-su" element={<AdminLuatSuPage/>} /> 
-        <Route path="/admin/list-luat-su" element={<AdminListLuatSuPage/>}/>
+        <Route path="/admin/luat-su/luat-su/list-luat-su" element={<AdminListLuatSuPage/>}/>
+        <Route path="/admin/luat-su/edit/:id" element={<AdminEditLuatSuPage/>}/>
 
         <Route path="/admin/tin-tuc-&-su-kien" element={<AdminTinTucPage/>}/>
         
