@@ -27,7 +27,7 @@ const AdminListLuatSu = () => {
 
   // Handle Edit button click
   const handleEdit = (id) => {
-    navigate(`/admin/luat-su/edit/${id}`); 
+    navigate(`/admin/edit-luat-su/${id}`); 
   };
 
   // Handle Delete button click

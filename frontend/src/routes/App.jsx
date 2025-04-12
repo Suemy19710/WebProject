@@ -63,8 +63,8 @@ function App() {
         <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
         <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} /> 
         <Route path="/admin/luat-su" element={<AdminLuatSuPage/>} /> 
-        <Route path="/admin/luat-su/list-luat-su" element={<AdminListLuatSuPage/>}/>
-        <Route path="/admin/luat-su/edit/:id" element={<AdminEditLuatSuPage/>}/>
+        <Route path="/admin/list-luat-su" element={<AdminListLuatSuPage/>}/>
+        <Route path="/admin/edit-luat-su/:id" element={<AdminEditLuatSuPage/>}/>
 
         <Route path="/admin/tin-tuc-&-su-kien" element={<AdminTinTucPage/>}/>
         

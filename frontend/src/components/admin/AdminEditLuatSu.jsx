@@ -75,7 +75,7 @@ const EditLuatSu = () => {
       );
       setMessage('Lawyer profile updated successfully!');
       console.log('Response:', response.data);
-      setTimeout(() => navigate('/admin/luat-su/list-luat-su'), 2000); // Redirect to list after 2 seconds
+      setTimeout(() => navigate('/admin/list-luat-su'), 2000); // Redirect to list after 2 seconds
     } catch (error) {
       console.error('Error updating lawyer:', error.response?.data || error.message);
       setMessage('Error updating lawyer profile.');
