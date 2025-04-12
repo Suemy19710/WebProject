@@ -30,7 +30,10 @@ const Header = () => {
     <>
       <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="header-logo">
+          <NavLink to="/" activeClassName="active">
           <img src={logo} alt="Logo" />
+
+          </NavLink>
         </div>
         
         <button className="menu-toggle" onClick={toggleSidebar}>
