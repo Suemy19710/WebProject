@@ -73,7 +73,8 @@ $Font: "Raleway", sans-serif;
       }
 
       .news__excerpt {
-        font-size: 10px;
+        font-size: 10px !important; /* Enforce font size */
+        font-weight: 300 !important;        
         color: $TC-gray;
         margin: 0 15px 15px;
         text-align: left;
