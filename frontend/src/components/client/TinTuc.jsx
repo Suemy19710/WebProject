@@ -4,6 +4,11 @@ import { createSlugTitle } from '../../utils/slugUtils';
 import '../../styles/client/TinTuc.scss';
 import news1 from '../../assets/news1.jpg';
 
+const stripHtml = (html) => {
+    const div = document.createElement('div'); 
+    div.innerHTML = html; 
+    return div.textContent || div.innerText || ''; 
+}
 const TinTuc = () => {
     const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
@@ -90,7 +95,7 @@ const TinTuc = () => {
                                                 </div>
                                                 <div className="news__title">{truncateText(post.title, 60)}</div>
                                                 <div className="news__excerpt">
-                                                    <div dangerouslySetInnerHTML={{ __html: truncateText(post.content, 200) }}></div>
+                                                    {truncateText(stripHtml(post.content), 200)}
                                                 </div>
                                                 <div className="news__footer">
                                                     <i class="fa-solid fa-arrow-right" onClick={() => handleClick(post._id, post.title)}></i>
@@ -100,7 +105,7 @@ const TinTuc = () => {
                                     })}
                                 </>
                             ) : (
-                                <p>No blog posts available.</p>
+                                <p>Không có bài đăng blog nào có sẵn.</p>
                             )}
                         </div>
                         <div className="pagination">
