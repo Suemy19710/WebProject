@@ -52,6 +52,7 @@ const RegisterForm = () => {
 
   return (
     <div className="register-form-container">
+      <div className="register-form-device">
       <div className="register-form-background"></div>
       <div className="form-left">
         <h2>Đăng ký tư vấn</h2>
@@ -105,6 +106,8 @@ const RegisterForm = () => {
       <div className="form-right">
         <img src={ladyJustice} alt="Lady Justice" />
       </div>
+      </div>
+
     </div>
   );
 };

@@ -15,7 +15,9 @@ function GioithieuYNghiaPage () {
             <div className="content">
                 <Header/>
                 <GioiThieu/>
-                <RegisterForm/>
+                <div className="registerForm">
+                    <RegisterForm/>
+                </div>
                 <Footer/>
 
             </div>

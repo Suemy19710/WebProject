@@ -1,13 +1,13 @@
 $BC-blue-opacity: #186BE8;
-$BC-green-opacity: #B5CACE; 
+$BC-green-opacity: #B5CACE;
 $BC-white: #F8F9FA;
 $BC-blue: #2E3C61;
-$BC-black-light: #222222; 
+$BC-black-light: #222222;
 $TC-black: #000;
-$TC-green: #5EDCD4; 
+$TC-green: #5EDCD4;
 $TC-yellow: #CB935D;
 $TC-white: #FFF;
-$TC-gray: #B5CACE; 
+$TC-gray: #B5CACE;
 $Font: "Raleway", sans-serif;
 
 html, body {
@@ -16,6 +16,7 @@ html, body {
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
+  // overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 * {
@@ -25,15 +26,24 @@ html, body {
 }
 
 .gioiThieu-container {
+  width: 100%;
+  display: flex; 
+  justify-content: center;
+
+  
   .gioiThieu-device {
-    // Header Section
+  width: 100%;
+  
     .container-header {
       position: relative;
       height: 300px;
+      min-height: 180px;
+      max-height: 400px;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
+      width: 100%;
 
       .container-header-bg {
         position: absolute;
@@ -41,7 +51,7 @@ html, body {
         left: 0;
         width: 100%;
         height: 100%;
-        background-image: url('../../assets/background2.jpeg');  
+        background-image: url('../../assets/background2.jpeg');
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -59,12 +69,10 @@ html, body {
         display: flex;
         flex-direction: column;
         align-items: flex-end;
-
         h1 {
           font-size: 48px;
           font-weight: 900;
           margin-bottom: 5px;
-
           span {
             color: $TC-yellow;
           }
@@ -73,200 +81,229 @@ html, body {
     }
 
     .container-body {
-      position: relative;
-      display: flex;
-      flex-direction: column;
+      display: flex; 
       justify-content: center;
-      align-items: center;
-      min-height: 350vh;
-      .container-body-bg {
-        position: absolute;
-        top: 3%;
-        left: 10%;
-        width: 1000px; 
-        height: 2030px;
-        background-color: $TC-white;
-        opacity: 0.7;
-        z-index: 1;
-        border-radius: 30px;
-      }
+      .container-body-center{
 
-      .container-body-content {
-        position: absolute;
-        z-index: 2;
-        width: 1000px;
-        color: $TC-black;
-        font-family: $Font;
-        font-size: 13px;
-        top: 5%;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        opacity: 0.8;
+        margin: 30px 15px; 
+        padding: 0; 
+        border-radius: 20px;
+        width: calc(100% - 30px);
+        max-width: 1400px;
+        .container-body-bg {
+          position: absolute;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-color: $TC-white;
+          opacity: 0.7;
+          z-index: 1;
+          border-radius: 20px;
+        }
 
-
-        // Body 1
-        .container-body-1 {
-          padding: 0 20px 20px 20px;
-          .body {
-            display: flex;
-            flex-direction: column;
-
-            .body-1,
-            .body-2 {
+        .container-body-content {
+          position: relative;
+          z-index: 2;
+          width: 100%;
+          color: $TC-black;
+          font-family: $Font;
+          font-size: clamp(0.875rem, 2vw, 1rem);
+          padding: 20px 15px; 
+          // Body 1
+          .container-body-1 {
+            width: 100%;
+            
+            .body {
               display: flex;
-              align-items: center;
-              justify-content: space-between;
-              gap: 20px;
-              padding: 20px;
-              border-radius: 10px;
+              flex-direction: column;
+              // gap: 2rem;
+              width: 100%;
 
-              h6 {
-                flex: 1;
-                font-size: 15px;
-                line-height: 1.6;
-                font-weight: 300;
-                text-align: justify;
-                color: $TC-black;
-                margin: 0;
+              .body-1,
+              .body-2 {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+                padding: 1.5rem;
+                border-radius: 10px;
+                flex-wrap: wrap;
+                width: 100%;
 
-                span {
-                  color:$TC-yellow; 
-                  font-weight: 700;
+                h6 {
+                  flex: 1 1 100%; 
+                  min-width: 250px;
+                  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+                  line-height: 1.6;
+                  font-weight: 300;
+                  text-align: justify;
+                  color: $TC-black;
+                  margin: 0;
+
+                  span {
+                    color: $TC-yellow;
+                    font-weight: 700;
+                  }
+                }
+
+                .pic {
+                  flex: 1 1 100%; 
+                  min-height: 15rem;
+                  width: 100%;
+                  background-size: cover;
+                  background-repeat: no-repeat;
+                  background-position: center;
+                  border-radius: 10px;
+                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
                 }
               }
 
-              .pic {
-                flex: 1;
-                min-height: 250px;
-                background-size: cover;
-                background-repeat: no-repeat;
-                background-position: center;
-                border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+              .body-1 {
+                .pic {
+                  background-image: url('../../assets/bi-thu-Kim-Ngoc.png');
+                }
               }
-            }
 
-            .body-1 {
-              .pic {
-                background-image: url('../../assets/bi-thu-Kim-Ngoc.png');
-              }
-            }
-
-            .body-2 {
-              flex-direction: row-reverse;
-              .pic {
-                background-image: url('../../assets/img-5.jpg');
+              .body-2 {
+                .pic {
+                  background-image: url('../../assets/img-5.jpg');
+                }
               }
             }
           }
-        }
-        .container-body-2 {
-          padding: 0 20px 20px 20px;
-          display: flex;
-          gap: 40px;
-          border-radius: 10px;
 
-          .content {
-            flex: 1;
-            font-size: 15px;
-            line-height: 1.6;
-            font-weight: 300;
-            text-align: justify;
-            color: $TC-black;
-          }
-
-          .images {
-            flex: 1;
+          .container-body-2,
+          .container-body-4 {
+            width: 100%;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            gap: 1.5rem;
+            border-radius: 10px;
+            flex-wrap: wrap;
+            padding: 1rem;
 
-            .img-1, .img-2 {
-              flex: 1;
-              height: 200px;
-              border-radius: 10px;
-              box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-              background-size: cover;
-              background-position: center;
-
-              &.img-1 {
-                background-image: url('../../assets/img-1.jpg');
-              }
-
-              &.img-2 {
-                background-image: url('../../assets/img-2.jpg');
-              }
-            }
-          }
-        }
-
-        .container-body-3 {
-          padding: 0 20px 8px 20px;
-          border-radius: 10px;
-          .content {
-            padding: 0 60px;
-
-            .content-1, .content-2, .content-3 {
-              font-size: 15px;
-                line-height: 1.6;
-                font-weight: 300;
-              text-align: justify;
-              padding-bottom: 10px;
-              color: $TC-black;
-
-              span {
-                color:$TC-yellow; 
-                font-weight: 700;
-              }
-            }
-          }
-        }
-
-        .container-body-4 {
-          padding: 0px 40px;
-          display: flex;
-          gap: 40px;
-          border-radius: 10px;
-
-          .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-
-
-            .content-1, .content-2, .content-3 {
-              font-size: 15px;
+            .content {
+              flex: 1 1 100%; // Full width on mobile
+              min-width: 250px;
+              font-size: clamp(0.9rem, 2.5vw, 1.1rem);
               line-height: 1.6;
               font-weight: 300;
               text-align: justify;
-              padding-bottom: 10px;
               color: $TC-black;
+            }
 
-              span {
-                color:$TC-yellow; 
-                font-weight: 700;
+            .images {
+              flex: 1 1 100%; // Full width on mobile
+              min-width: 250px;
+              display: flex;
+              flex-wrap: wrap;
+              gap: 1rem;
+
+              .img-1,
+              .img-2,
+              .img-3,
+              .img-4 {
+                flex: 1 1 calc(50% - 0.5rem); // Two images per row with gap
+                min-width: 120px;
+                height: 12rem;
+                border-radius: 10px;
+                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                background-size: cover;
+                background-position: center;
+              }
+
+              .img-1 {
+                background-image: url('../../assets/img-1.jpg');
+              }
+
+              .img-2 {
+                background-image: url('../../assets/img-2.jpg');
+              }
+
+              .img-3 {
+                background-image: url('../../assets/img-3.jpg');
+              }
+
+              .img-4 {
+                background-image: url('../../assets/img-4.jpg');
               }
             }
           }
 
-          .images {
-            flex: 1;
-            display: flex;
+          .container-body-3 {
+            padding: 1rem;
+            border-radius: 10px;
+            width: 100%;
+
+            .content {
+              padding: 0 1rem;
+              width: 100%;
+
+              .content-1,
+              .content-2,
+              .content-3 {
+                font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+                line-height: 1.6;
+                font-weight: 300;
+                text-align: justify;
+                padding-bottom: 0.5rem;
+                color: $TC-black;
+
+                span {
+                  color: $TC-yellow;
+                  font-weight: 700;
+                }
+              }
+            }
+          }
+        }
+    }
+    }
+  }
+}
+
+// Responsive Design - More gradual breakpoints
+@media (max-width: 1200px) {
+  .gioiThieu-container {
+    .gioiThieu-device {
+      .container-body {
+        margin: 30px 30px;
+
+        .container-body-content {
+          .container-body-1 {
+            .body {
+              .body-1,
+              .body-2 {
+                flex-direction: column;
+                
+                h6, .pic {
+                  flex: 1 1 100%;
+                }
+                
+                .pic {
+                  min-height: 12rem;
+                  order: 2; // Text first, image second
+                }
+                
+                h6 {
+                  order: 1;
+                }
+              }
+            }
+          }
+          
+          .container-body-2,
+          .container-body-4 {
             flex-direction: column;
-            gap: 20px;
-
-            .img-3, .img-4 {
-              flex: 1;
-              height: 200px;
-              border-radius: 10px;
-              box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-              background-size: cover;
-              background-position: center;
-
-              &.img-3 {
-                background-image: url('../../assets/img-3.jpg');
-              }
-
-              &.img-4 {
-                background-image: url('../../assets/img-4.jpg');
-              }
+            
+            .content, .images {
+              flex: 1 1 100%;
             }
           }
         }
@@ -275,59 +312,11 @@ html, body {
   }
 }
 
-// Responsive Design
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .gioiThieu-container {
     .gioiThieu-device {
-      .container-header {
-        height: 250px;
-
-        .container-header-content {
-          h1 {
-            font-size: 36px;
-          }
-        }
-      }
-
       .container-body {
-        .container-body-content {
-          width: 100%;
-          padding: 0 20px;
-
-          .container-body-1 {
-            .body {
-              .body-1, .body-2 {
-                flex-direction: column;
-                gap: 20px;
-
-                .pic {
-                  width: 100%;
-                  min-height: 200px;
-                }
-              }
-            }
-          }
-
-          .container-body-2, .container-body-4 {
-            flex-direction: column;
-
-            .images {
-              flex-direction: row;
-              gap: 15px;
-
-              .img-1, .img-2, .img-3, .img-4 {
-                height: 150px;
-                flex: 1;
-              }
-            }
-          }
-
-          .container-body-3 {
-            .content {
-              padding: 0 20px;
-            }
-          }
-        }
+        margin: 20px 20px;
       }
     }
   }
@@ -337,37 +326,179 @@ html, body {
   .gioiThieu-container {
     .gioiThieu-device {
       .container-header {
-        height: 200px;
-
+        height: 30vh;
+        
         .container-header-content {
-          top: 25%;
-          right: 5%;
           h1 {
-            font-size: 28px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
           }
         }
       }
 
       .container-body {
-        padding: 30px 0;
-
+        margin: 15px 15px;
+        
         .container-body-content {
-          .container-body-1, .container-body-2, .container-body-3, .container-body-4 {
-            padding: 20px 10px;
-
-            .body, .content, .images {
-              .content-1, .content-2, .content-3, h6 {
-                font-size: 16px;
+          padding: 15px;
+          
+          .container-body-1 {
+            .body {
+              .body-1, 
+              .body-2 {
+                padding: 1rem;
               }
             }
           }
-
-          .container-body-2, .container-body-4 {
+          
+          .container-body-2,
+          .container-body-4 {
+            padding: 1rem;
+            
             .images {
-              flex-direction: column;
+              .img-1, 
+              .img-2, 
+              .img-3, 
+              .img-4 {
+                height: 10rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 
-              .img-1, .img-2, .img-3, .img-4 {
-                height: 200px;
+@media (max-width: 580px) {
+  .gioiThieu-container {
+    .gioiThieu-device {
+      .container-header {
+        height: 25vh;
+      }
+      
+      .container-body {
+        margin: 10px 10px;
+        
+        .container-body-content {
+          .container-body-1
+          .container-body-2,
+          .container-body-4 {
+            .images {
+              .img-1, 
+              .img-2, 
+              .img-3, 
+              .img-4 {
+                flex: 1 1 100%; // One image per row on very small screens
+                height: 9rem;
+
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .gioiThieu-container {
+    .gioiThieu-device {
+      .container-header {
+        height: 25vh;
+        min-height: 150px;
+        
+        .container-header-content {
+          padding: 0 3%;
+          
+          h1 {
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+          }
+        }
+      }
+
+      .container-body {
+        margin: 5px 5px;
+        border-radius: 15px;
+        
+        .container-body-bg {
+          border-radius: 15px;
+        }
+        
+        .container-body-content {
+          padding: 10px;
+          
+          .container-body-1,
+          .container-body-2,
+          .container-body-3,
+          .container-body-4 {
+            padding: 0.5rem;
+
+            .body,
+            .content,
+            .images {
+              .content-1,
+              .content-2,
+              .content-3,
+              h6 {
+                font-size: clamp(0.8rem, 2vw, 0.9rem);
+              }
+            }
+          }
+          
+          .container-body-2,
+          .container-body-4 {
+            .images {
+              .img-1,
+              .img-2,
+              .img-3,
+              .img-4 {
+                height: 8rem;
+              }
+            }
+          }
+          
+          .container-body-3 {
+            .content {
+              padding: 0 0.5rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Fix for very small screens
+@media (max-width: 360px) {
+  .gioiThieu-container {
+    .gioiThieu-device {
+      .container-header {
+        min-height: 120px;
+      }
+      
+      .container-body {
+        .container-body-content {
+          .container-body-1 {
+            .body {
+              .body-1, 
+              .body-2 {
+                padding: 0.75rem;
+                
+                .pic {
+                  min-height: 10rem;
+                }
+              }
+            }
+          }
+          
+          .container-body-2,
+          .container-body-4 {
+            .images {
+              .img-1,
+              .img-2,
+              .img-3,
+              .img-4 {
+                height: 7rem;
               }
             }
           }

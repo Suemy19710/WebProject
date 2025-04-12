@@ -119,6 +119,7 @@ html, body {
   .services {
     padding: 30px 20px;
 
+
     h2 {
       font-size: 28px;
     }
@@ -130,13 +131,28 @@ html, body {
 
       .services__card {
         padding: 15px;
+        display: flex; 
+        justify-content: center;
+        align-items: center;
 
         h3 {
           font-size: 16px;
+          width: 250px;
+          display: flex; 
+          justify-content: center;
+          align-items: center;
         }
 
         p {
-          font-size: 12px;
+          font-size: 14px;
+          width: 300px;
+        }
+        .services__description{
+          font-size: 14px; 
+          width: 250px;
+          display: flex; 
+          justify-content: center;
+          align-items: center;
         }
       }
     }

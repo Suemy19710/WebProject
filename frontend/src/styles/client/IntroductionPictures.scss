@@ -13,7 +13,7 @@ $Font: "Raleway", sans-serif;
 .intro-pictures {
   padding: 50px 100px;
   position: relative;
-  min-height: 400px; /* Ensure enough height for the layout */
+  min-height: 400px;
 
   display: flex; 
   justify-content: center;
@@ -23,7 +23,7 @@ $Font: "Raleway", sans-serif;
     left: 0;
     width: 100%;
     background-color: rgba($BC-black-light, 0.7);
-    padding: 20px 200px;
+    padding: 20px 130px;
     z-index: 1;
 
     p {
@@ -41,7 +41,7 @@ $Font: "Raleway", sans-serif;
     gap: 5px;
     position: relative;
     z-index: 0;
-    margin-top: 65px; /* Space for the overlay text */
+    margin-top: 70px; /* Space for the overlay text */
 
     .intro-pictures__item {
         overflow: hidden; 
@@ -103,7 +103,8 @@ $Font: "Raleway", sans-serif;
 /* Responsive Design */
 @media (max-width: 1024px) {
   .intro-pictures {
-    padding: 40px 50px;
+    // padding: 40px 50px;
+
 
     .intro-pictures__overlay {
       padding: 20px 50px;
@@ -151,9 +152,9 @@ $Font: "Raleway", sans-serif;
 @media (max-width: 768px) {
   .intro-pictures {
     padding: 30px 20px;
-
+    // padding: 0;
     .intro-pictures__overlay {
-      padding: 15px 20px;
+      // padding: 15px 20px;
 
       p {
         font-size: 12px;
@@ -162,9 +163,9 @@ $Font: "Raleway", sans-serif;
 
     .intro-pictures__grid {
       grid-template-columns: repeat(2, 1fr); /* 2 columns on mobile */
-      grid-template-rows: repeat(3, 100px); /* 3 rows */
+      grid-template-rows: repeat(3, 150px); /* 3 rows */
       gap: 10px;
-      margin-top: 40px;
+      margin-top: 100px;
 
       .intro-pictures__item {
         &:nth-child(1) {

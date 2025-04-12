@@ -98,37 +98,37 @@ const TinTuc = () => {
                                             </div>
                                         );
                                     })}
-                                    <div className="pagination">
-                                        <button
-                                            onClick={goToPreviousPage}
-                                            disabled={currentPage === 1}
-                                            className="pagination__button"
-                                        >
-                                            <i className="fa-solid fa-arrow-left"></i>
-                                        </button>
-                                        <div className="pagination__numbers">
-                                            {pageNumbers.map((page) => (
-                                                <button
-                                                    key={page}
-                                                    onClick={() => goToPage(page)}
-                                                    className={`pagination__number ${currentPage === page ? 'active' : ''}`}
-                                                >
-                                                    {page}
-                                                </button>
-                                            ))}
-                                        </div>
-                                        <button
-                                            onClick={goToNextPage}
-                                            disabled={currentPage === totalPages}
-                                            className="pagination__button"
-                                        >
-                                            <i className="fa-solid fa-arrow-right"></i>
-                                        </button>
-                                    </div>
                                 </>
                             ) : (
                                 <p>No blog posts available.</p>
                             )}
+                        </div>
+                        <div className="pagination">
+                            <button
+                                onClick={goToPreviousPage}
+                                disabled={currentPage === 1}
+                                className="pagination__button"
+                            >
+                                <i className="fa-solid fa-arrow-left"></i>
+                            </button>
+                            <div className="pagination__numbers">
+                                {pageNumbers.map((page) => (
+                                    <button
+                                        key={page}
+                                        onClick={() => goToPage(page)}
+                                        className={`pagination__number ${currentPage === page ? 'active' : ''}`}
+                                    >
+                                        {page}
+                                    </button>
+                                ))}
+                            </div>
+                            <button
+                                onClick={goToNextPage}
+                                disabled={currentPage === totalPages}
+                                className="pagination__button"
+                            >
+                                <i className="fa-solid fa-arrow-right"></i>
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -16,6 +16,7 @@ html, body {
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 * {
@@ -23,90 +24,194 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
-.luatSuDetail-container{
-    padding-top: 80px;
-    .luatSuDetailCard{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        // background-color: $BC-blue;
-        height: 100%;
-        padding-top: 30px;
-        margin-bottom: 50px;
-        .luatSuDetailCard-right{
-            width: 300px;
-            padding-right: 10px;
-            padding-top:10px;
-            img{
-                width: 100%;
-                height: 400px;
-                object-fit: cover;
-            }
-        }
-        .luatSuDetailCard-left{
-            background-color: $BC-white;
-            background-image:  url('../../assets/back-ground.png');
-            background-repeat: no-repeat;
-            width: 650px;
-            padding-left: 50px;
-            padding-bottom: 20px;
-            border: none;
-            border-radius: 30px;
 
-            .luatSuDetailCard-left-head{
-                .luatSuDetailCard-left-head-name{
-                    padding-top: 20px;
-                    font-size: 40px;
-                    font-weight: 900;
-                    line-height: 1.4;
-
-                }
-                .luatSuDetailCard-left-head-title{
-                    font-size: 25px;
-                    font-weight: 700;
-                    color: $BC-blue;
-                    line-height: 1.4;
-
-                }
-                .luatSuDetailCard-left-head-description{
-                    .phone, .email{
-                        padding-top: 10px;
-                        display: flex;
-                        gap: 10px;
-                        i {
-                            color: $BC-blue
-                        }
-                        p{
-                            margin: 0;
-                        }
-                    }
-                }
-
-            }
-            .luatSuDetailCard-left-body{
-                width: 550px;
-                .chuyenMon, .kinhNghiem{
-                    padding-top: 10px;
-                    line-height: 1.4;
-
-                    .chuyenMon-title, .kinhNghiem-title{
-                        font-size: 18px;
-                        line-height: 1.4;
-
-                        font-weight: 900;
-                        color: $BC-blue;
-                    }
-                    .chuyenMon-body, .kinhNghiem-body{
-                        display: flex;
-                        color: $TC-black;
-                        font-size: 16px;
-                        line-height: 1.4;
-                        text-align: justify;
-                    }
-
-                }
-               
-            }
-        }
+.luatSuDetail-container {
+  width: 100%;
+  padding-top: 60px;
+  
+  .luatSuDetailCard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 100%;
+    padding: 30px 20px 0;
+    margin-bottom: 50px;
+    width: 100%;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    .luatSuDetailCard-right {
+      width: 300px;
+      padding-right: 10px;
+      padding-top: 10px;
+      
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+      }
     }
+    
+    .luatSuDetailCard-left {
+      background-color: $BC-white;
+      background-image: url('../../assets/back-ground.png');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      width: 650px;
+      padding: 20px 50px 30px;
+      border: none;
+      border-radius: 30px;
+      
+      .luatSuDetailCard-left-head {
+        .luatSuDetailCard-left-head-name {
+          padding-top: 20px;
+          font-size: clamp(28px, 5vw, 40px);
+          font-weight: 900;
+          line-height: 1.4;
+        }
+        
+        .luatSuDetailCard-left-head-title {
+          font-size: clamp(20px, 3vw, 25px);
+          font-weight: 700;
+          color: $BC-blue;
+          line-height: 1.4;
+        }
+        
+        .luatSuDetailCard-left-head-description {
+          .phone, .email {
+            padding-top: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            
+            i {
+              color: $BC-blue;
+              flex-shrink: 0;
+            }
+            
+            p {
+              margin: 0;
+              word-break: break-word;
+            }
+          }
+        }
+      }
+      
+      .luatSuDetailCard-left-body {
+        width: 100%;
+        max-width: 550px;
+        
+        .chuyenMon, .kinhNghiem {
+          padding-top: 20px;
+          line-height: 1.4;
+          
+          .chuyenMon-title, .kinhNghiem-title {
+            font-size: clamp(16px, 2vw, 18px);
+            line-height: 1.4;
+            font-weight: 900;
+            color: $BC-blue;
+            margin-bottom: 10px;
+          }
+          
+          .chuyenMon-body, .kinhNghiem-body {
+            display: flex;
+            flex-direction: column;
+            color: $TC-black;
+            font-size: clamp(14px, 2vw, 16px);
+            line-height: 1.8;
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media queries for better responsiveness
+@media (max-width: 1200px) {
+  .luatSuDetail-container {
+    .luatSuDetailCard {
+      max-width: 95%;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .luatSuDetail-container {
+    .luatSuDetailCard {
+      flex-direction: column;
+      align-items: center;
+      
+      .luatSuDetailCard-right {
+        width: 100%;
+        max-width: 300px;
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+      
+      .luatSuDetailCard-left {
+        width: 100%;
+        max-width: 650px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .luatSuDetail-container {
+    padding-top: 40px;
+    
+    .luatSuDetailCard {
+      padding: 20px 15px 0;
+      
+      .luatSuDetailCard-left {
+        padding: 20px 30px 30px;
+        
+        .luatSuDetailCard-left-body {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .luatSuDetail-container {
+    padding-top: 30px;
+    
+    .luatSuDetailCard {
+      padding: 15px 10px 0;
+      
+      .luatSuDetailCard-right {
+        img {
+          height: 350px;
+        }
+      }
+      
+      .luatSuDetailCard-left {
+        padding: 15px 20px 25px;
+        border-radius: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .luatSuDetail-container {
+    .luatSuDetailCard {
+      .luatSuDetailCard-right {
+        img {
+          height: 300px;
+        }
+      }
+      
+      .luatSuDetailCard-left {
+        padding: 15px 15px 20px;
+        border-radius: 15px;
+      }
+    }
+  }
 }

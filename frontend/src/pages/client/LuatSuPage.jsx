@@ -14,8 +14,11 @@ const LuatSuPage = () => {
             <div className="content">
                 <Header/>
                 <LuatSu/>
-                <RegisterForm/>
+                <div className="registerForm">
+                    <RegisterForm/>
+                </div>
                 <Footer/>
+
             </div>
         </div>
     )

@@ -13,6 +13,7 @@ const GioiThieu = () => {
                         </div>
                     </div>
                     <div className="container-body">
+                        <div className="container-body-center">
                         <div className="container-body-bg"></div>
                         <div className="container-body-content">
                             <div className="container-body-1">
@@ -70,6 +71,8 @@ const GioiThieu = () => {
                                 </div>
                             </div>
                         </div>
+                        </div>
+
                     </div>
                 </div>
             </div>

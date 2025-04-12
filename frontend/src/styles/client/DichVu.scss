@@ -9,12 +9,14 @@ $TC-yellow: #CB935D;
 $TC-white: #FFF;
 $TC-gray: #B5CACE; 
 $Font: "Raleway", sans-serif;
+
 html, body {
   margin: 0;
   padding: 0;
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 * {
@@ -22,96 +24,247 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
-.dichVu-container{
-    .dichVu-device{
-        .container-header {
-            position: relative;
-            height: 300px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
+
+.dichVu-container {
+  width: 100%;
+  
+  .dichVu-device {
+    width: 100%;
+    
+    .container-header {
+      position: relative;
+      height: 300px;
+      min-height: 180px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .container-header-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../assets/background2.jpeg');  
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(2px);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .container-header-content {
+        position: absolute;
+        top: 35%;
+        right: 10%;
+        z-index: 2;
+        color: $TC-white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 20px;
+
+        h1 {
+          font-size: clamp(1.75rem, 5vw, 3rem); // Responsive font size
+          font-weight: 900;
+          margin-bottom: 5px;
+          text-align: right;
+
+          span {
+            color: $TC-yellow;
+          }
+        }
+      }
+    }
+    
+    .container-body {
+      width: 100%;
       
-            .container-header-bg {
-              position: absolute;
-              top: 0;
-              left: 0;
+      .container-body-content {
+        padding: 50px 30px 10px 30px;
+        display: flex; 
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .body {
+          display: grid;
+          grid-template-rows: repeat(2, auto);
+          grid-template-columns: repeat(2, minmax(280px, 1fr)); // Responsive grid
+          gap: 20px; // Unified gap
+          margin: 0 auto; // Center the grid
+          width: 100%;
+          max-width: 1200px;
+          padding: 0;
+          
+          .small-container {
+            width: 100%;
+            
+            h1 {
+              font-size: clamp(1.5rem, 4vw, 2.2rem); // Responsive font size
               width: 100%;
-              height: 100%;
-              background-image: url('../../assets/background2.jpeg');  
-              background-repeat: no-repeat;
-              background-position: center;
-              background-size: cover;
-              filter: blur(2px);
-              opacity: 0.8;
-              z-index: 1;
-            }
-      
-            .container-header-content {
-              position: absolute;
-              top: 35%;
-              right: 10%;
-              z-index: 2;
+              max-width: 500px;
               color: $TC-white;
-              display: flex;
-              flex-direction: column;
-              align-items: flex-end;
-      
-              h1 {
-                font-size: 48px;
-                font-weight: 900;
-                margin-bottom: 5px;
-      
-                span {
+              padding-bottom: 10px;
+              padding-top: 10px;
+            }
+            
+            span {
+              color: $TC-yellow;
+            }
+            
+            .small-container-description {
+              p {
+                width: 100%;
+                max-width: 500px;
+                font-weight: 300;
+                color: $TC-white;
+                line-height: 1.6;
+                cursor: pointer;
+                font-size: clamp(0.875rem, 2vw, 1rem); // Responsive font size
+
+                &:hover {
                   color: $TC-yellow;
+                  font-weight: 300;
                 }
               }
             }
+          }
         }
-        .container-body{
-              .container-body-content{
-                padding: 50px 30px 10px 30px;
-                display: flex; 
-                align-items: center;
-                justify-content: center;
-
-                .body{
-                    display: grid;
-                    grid-template-rows: repeat(2, auto);
-                    grid-template-columns: repeat(2, auto);
-                    column-gap: 10px;
-                    margin-left: 20px;
-                    padding: 0;
-                    .small-container{
-                        h1{
-                            font-size: 35px;
-                            width: 500px;
-                            color: $TC-white;
-                            padding-bottom: 10px;
-                            padding-top: 10px;
-                        }
-                        span{
-                            color:$TC-yellow;
-                        }
-                        .small-container-description{
-                            p{
-                                width: 500px;
-                                font-weight: 300;
-                                color: $TC-white;
-                                line-height: 1.6;
-                                cursor: pointer;
-        
-                                &:hover{
-                                    color: $TC-yellow;
-                                    font-weight: 300;
-                                }
-                            }
-        
-                        }
-                    }
-                }
-              } 
-
-        }
+      }
     }
+  }
+}
+
+// Media queries for better responsiveness
+@media (max-width: 1200px) {
+  .dichVu-container {
+    .dichVu-device {
+      .container-body {
+        .container-body-content {
+          padding: 40px 25px 10px 25px;
+          
+          .body {
+            gap: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .dichVu-container {
+    .dichVu-device {
+      .container-header {
+        height: 250px;
+        
+        .container-header-content {
+          right: 8%;
+        }
+      }
+      
+      .container-body {
+        .container-body-content {
+          padding: 30px 20px 10px 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .dichVu-container {
+    .dichVu-device {
+      .container-header {
+        height: 220px;
+        
+        .container-header-content {
+          right: 5%;
+        }
+      }
+      
+      .container-body {
+        .container-body-content {
+          padding: 25px 15px 10px 15px;
+          
+          .body {
+            grid-template-columns: 1fr; // Single column layout
+            grid-template-rows: auto;
+            gap: 30px;
+            
+            .small-container {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              
+              h1 {
+                text-align: center;
+              }
+              
+              .small-container-description {
+                p {
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .dichVu-container {
+    .dichVu-device {
+      .container-header {
+        height: 180px;
+        
+        .container-header-content {
+          right: 5%;
+          width: 70%;
+        }
+      }
+      
+      .container-body {
+        .container-body-content {
+          padding: 20px 10px 10px 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .dichVu-container {
+    .dichVu-device {
+      .container-header {
+        height: 150px;
+        
+        .container-header-content {
+          width: 80%;
+          right: 10%;
+        }
+      }
+      
+      .container-body {
+        .container-body-content {
+          padding: 15px 10px 10px 10px;
+          
+          .body {
+            .small-container {
+              h1 {
+                padding-bottom: 5px;
+                padding-top: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,11 +1,11 @@
 $BC-blue-opacity: #186BE8;
-$BC-green-opacity: #B5CACE; 
-$BC-black-light: #222222; 
+$BC-green-opacity: #B5CACE;
+$BC-black-light: #222222;
 $TC-black: #000;
-$TC-green: #5EDCD4; 
+$TC-green: #5EDCD4;
 $TC-yellow: #CB935D;
 $TC-white: #FFF;
-$TC-gray: #B5CACE; 
+$TC-gray: #B5CACE;
 $BC-white: #F8F9FA;
 $BC-blue: #2E3C61;
 $Font: "Raleway", sans-serif;
@@ -16,6 +16,7 @@ html, body {
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 * {
@@ -25,115 +26,257 @@ html, body {
 }
 
 .luatSu-container {
-    .luatSu-device {
-      .container-header {
-        position: relative;
-        height: 300px;
+  width: 100%;
+  
+  .luatSu-device {
+    width: 100%;
+    
+    .container-header {
+      position: relative;
+      height: 300px;
+      min-height: 180px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      
+      .container-header-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../assets/background2.jpeg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(2px);
+        opacity: 0.8;
+        z-index: 1;
+      }
+      
+      .container-header-content {
+        position: absolute;
+        top: 40%;
+        right: 10%;
+        z-index: 2;
+        color: $TC-white;
         display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-  
-        .container-header-bg {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background-image: url('../../assets/background2.jpeg');  
-          background-repeat: no-repeat;
-          background-position: center;
-          background-size: cover;
-          filter: blur(2px);
-          opacity: 0.8;
-          z-index: 1;
-        }
-  
-        .container-header-content {
-          position: absolute;
-          top: 40%;
-          right: 10%;
-          z-index: 2;
-          color: $TC-white;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-end;
-          h1 {
-            font-size: 48px;
-            font-weight: 900;
-            margin-bottom: 5px;
-            span {
-              color: $TC-yellow;
-            }
+        flex-direction: column;
+        align-items: flex-end;
+        
+        h1 {
+          font-size: clamp(1.75rem, 5vw, 3rem); // Responsive font size
+          font-weight: 900;
+          margin-bottom: 5px;
+          text-align: right;
+          
+          span {
+            color: $TC-yellow;
           }
         }
       }
+    }
+    
+    .container-body {
+      padding-top: 20px;
+      width: 100%;
       
-      .container-body {
-        padding-top: 20px;
-        .intro-lawyers__grid {
-          display: grid;
-          grid-template-columns: repeat(4, 250px); // 4 columns of 250px each
+      .intro-lawyers__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); // Responsive grid
+        justify-content: center;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        
+        .intro-lawyers__card {
+          text-align: center;
+          width: 100%; // Full width of grid cell
+          max-width: 250px; // Maximum width
+          height: auto;
+          margin: 0 auto; // Center in grid cell
+          display: flex;
+          flex-direction: column;
           justify-content: center;
-          gap: 30px; // Space between cards
-          max-width: 1200px; // Optional: limits total width (250px * 4 + 30px * 3 gaps)
-          margin: 0 auto; // Centers the grid
-          padding: 20px 0; // Add some vertical padding
+          align-items: center;
+          background-color: rgba($BC-blue, 0.5);
+          border-radius: 15px;
+          overflow: hidden;
+          transition: transform 0.3s ease;
+          padding: 10px 0;
           
-          .intro-lawyers__card {
-            text-align: center;
-            width: 250px;
-            display: flex; 
-            flex-direction: column;
-            justify-content: center; 
-            align-items: center;
-            background-color: rgba($BC-blue, 0.5); 
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            padding: 10px 0;
+          &:hover {
+            transform: translateY(-5px);
+          }
+          
+          img {
+            width: calc(100% - 20px); // 10px padding on each side
+            max-width: 230px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 20px;
+            margin-bottom: 15px;
+          }
+          
+          h3 {
+            font-size: clamp(1rem, 3vw, 1.25rem); // Responsive font size
+            font-weight: 600;
+            color: $TC-white;
+            margin-bottom: 5px;
+            width: 80%; // Percentage width instead of fixed
+            max-width: 200px;
+            cursor: pointer;
             
             &:hover {
-              transform: translateY(-5px); 
+              color: $TC-yellow;
             }
-      
-            img {
-              width: 230px;
-              height: 140px;
-              object-fit: cover;
-              border-radius: 20px;
-              margin-bottom: 15px;
-            }
-      
-            h3 {
-              font-size: 20px;
-              font-weight: 600;
-              color: $TC-white;
-              margin-bottom: 5px;
-              width: 200px;
-              cursor: pointer;
-              &:hover {
-                color: $TC-yellow;
-              }
-            }
-      
-            .short-description {
-              display: flex; 
-              flex-direction: column;
-              justify-content: flex-start;
-              align-items: flex-start;
-              padding-top: 5px;
-              width: 200px;
-              border-top: 1px solid $BC-green-opacity;
-              gap: 5px;
-              p {
-                font-size: 10px;
-                font-weight: 400;
-                color: $TC-gray;
-              }
+          }
+          
+          .short-description {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding-top: 5px;
+            width: 80%; // Percentage width instead of fixed
+            max-width: 200px;
+            border-top: 1px solid $BC-green-opacity;
+            gap: 5px;
+            
+            p {
+              font-size: clamp(0.625rem, 1.5vw, 0.75rem); // Responsive font size
+              font-weight: 400;
+              color: $TC-gray;
+              text-align: left;
             }
           }
         }
       }
     }
+  }
+}
+
+// Media queries for better responsiveness
+@media (max-width: 1200px) {
+  .luatSu-container {
+    .luatSu-device {
+      .container-body {
+        .intro-lawyers__grid {
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+          gap: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .luatSu-container {
+    .luatSu-device {
+      .container-header {
+        height: 250px;
+        
+        .container-header-content {
+          right: 8%;
+        }
+      }
+      
+      .container-body {
+        .intro-lawyers__grid {
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .luatSu-container {
+    .luatSu-device {
+      .container-header {
+        height: 220px;
+        
+        .container-header-content {
+          right: 5%;
+        }
+      }
+      
+      .container-body {
+        .intro-lawyers__grid {
+          grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+          padding: 15px;
+          
+          .intro-lawyers__card {
+            img {
+              height: 120px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .luatSu-container {
+    .luatSu-device {
+      .container-header {
+        height: 180px;
+        
+        .container-header-content {
+          right: 5%;
+          width: 70%;
+        }
+      }
+      
+      .container-body {
+        .intro-lawyers__grid {
+          grid-template-columns: repeat(2, 1fr); // Two columns for small screens
+          gap: 10px;
+          padding: 10px;
+          
+          .intro-lawyers__card {
+            max-width: 100%;
+            
+            img {
+              height: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .luatSu-container {
+    .luatSu-device {
+      .container-header {
+        height: 150px;
+        
+        .container-header-content {
+          width: 80%;
+          right: 10%;
+        }
+      }
+      
+      .container-body {
+        .intro-lawyers__grid {
+          grid-template-columns: repeat(1, 1fr); // Single column for very small screens
+          
+          .intro-lawyers__card {
+            max-width: 250px;
+            
+            img {
+              height: 140px;
+            }
+          }
+        }
+      }
+    }
+  }
 }

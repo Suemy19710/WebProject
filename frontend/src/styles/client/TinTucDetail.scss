@@ -16,6 +16,7 @@ html, body {
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
+  overflow-x: hidden; // Prevent horizontal scrolling
 }
 
 * {
@@ -23,118 +24,246 @@ html, body {
   padding: 0;
   box-sizing: border-box;
 }
+
 .tinTucDetail-container {
+  width: 100%;
+  
+  .tinTucDetail-device {
+    width: 100%;
+    
+    .container-header {
+      position: relative;
+      height: 300px;
+      min-height: 180px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      .container-header-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('../../assets/background2.jpeg');  
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        filter: blur(2px);
+        opacity: 0.8;
+        z-index: 1;
+      }
+
+      .container-header-content {
+        position: absolute;
+        top: 40%;
+        right: 10%;
+        z-index: 2;
+        color: $TC-white;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding-right: 20px;
+
+        h1 {
+          font-size: clamp(1.75rem, 5vw, 3rem); // Responsive font size (28-48px)
+          font-weight: 900;
+          margin-bottom: 5px;
+          text-align: right;
+
+          span {
+            color: $TC-yellow;
+          }
+        }
+      }
+    }
+    
+    .container-body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: auto; // Changed from 100vh to auto for better responsiveness
+      width: 100%;
+      padding: 50px 20px; // Added horizontal padding
+      
+      .container-body-bg {
+        position: absolute;
+        top: 3%;
+        left: 50%; // Center horizontally
+        transform: translateX(-50%); // Center adjustment
+        width: 90%; // Percentage width instead of fixed
+        max-width: 1000px; // Maximum width
+        height: 100%;
+        background-color: $TC-white;
+        opacity: 0.7;
+        z-index: -1;
+        border-radius: 30px;
+      }
+      
+      .container-body-content {
+        position: relative; 
+        width: 100%;
+        max-width: 900px; 
+        padding: 20px;
+        color: $TC-black;
+        font-family: $Font;
+        font-size: clamp(0.8125rem, 2vw, 0.9375rem); // Responsive font size (13-15px)
+        border-radius: 10px;
+        z-index: 2;
+        
+        .content {
+          width: 100%;
+          
+          .title {
+            font-size: clamp(1.5rem, 4vw, 1.875rem); // Responsive font size (24-30px)
+            line-height: 1.6;
+            font-weight: 700;
+            text-align: justify;
+            color: $TC-black;
+            margin: 0 0 10px 0;
+          }
+          
+          .dateOfRelease {
+            display: flex; 
+            justify-content: flex-start;
+            align-self: start;
+            height: 28px;
+            padding-top: 5px;
+            margin: 0 0 15px 0;
+            
+            .date {
+              padding-left: 10px;
+              font-size: clamp(0.75rem, 1.5vw, 0.875rem); // Responsive font size (12-14px)
+              font-weight: 500;
+              color: $BC-black-light;
+            }
+          }
+          
+          .body {
+            width: 100%;
+            line-height: 1.8;
+            text-align: justify;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Media queries for better responsiveness
+@media (max-width: 1200px) {
+  .tinTucDetail-container {
+    .tinTucDetail-device {
+      .container-body {
+        .container-body-bg {
+          width: 95%;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .tinTucDetail-container {
     .tinTucDetail-device {
       .container-header {
-        position: relative;
-        height: 300px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-  
-            .container-header-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('../../assets/background2.jpeg');  
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: cover;
-            filter: blur(2px);
-            opacity: 0.8;
-            z-index: 1;
-            }
-    
-            .container-header-content {
-            position: absolute;
-            top: 40%;
-            right: 10%;
-            z-index: 2;
-            color: $TC-white;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-
-                h1 {
-                    font-size: 48px;
-                    font-weight: 900;
-                    margin-bottom: 5px;
+        height: 250px;
         
-                    span {
-                    color: $TC-yellow;
-                    }
-                }
-            
-            }
+        .container-header-content {
+          right: 8%;
         }
-        .container-body{
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            min-height: 100vh; 
-            padding: 50px 0;
-            .container-body-bg{
-                position: absolute;
-                top: 3%;
-                left: 10%;
-                width: 1000px; 
-                height: 100%;
-                background-color: $TC-white;
-                opacity: 0.7;
-                z-index: -1;
-                border-radius: 30px;
-            }
-            .container-body-content{
-                position: relative; 
-                width: 900px; 
-                max-width: 100%; 
-                padding: 20px;
-                color: $TC-black;
-                font-family: $Font;
-                font-size: 13px;
-                padding: 20px 20px; 
-                border-radius: 10px;
-                z-index: 2;
-                .content{
-
-                    .title {
-                        font-size: 30px;
-                        line-height: 1.6;
-                        font-weight: 700;
-                        text-align: justify;
-                        color: $TC-black;
-                        margin: 0 0 10px 0; 
-                      }
-              
-                      .dateOfRelease {
-                        display: flex; 
-                        justify-content: flex-start;
-                        align-self: start;
-                        height: 28px;
-                        padding-top: 5px;
-                        margin: 0;
-                        .date{
-                          padding-left: 10px;
-                          font-size: 12px;
-                          font-weight: 500;
-                          color: $BC-black-light;
-                          
-                        }
-                      }
-              
-                      .body {
-                        width: 100%;
-                        line-height: 1.8;
-                        text-align: justify;
-                      }
-                }
-               
-
-            }
+      }
+      
+      .container-body {
+        padding: 40px 15px;
+        
+        .container-body-bg {
+          top: 5%;
         }
+      }
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .tinTucDetail-container {
+    .tinTucDetail-device {
+      .container-header {
+        height: 220px;
+        
+        .container-header-content {
+          right: 5%;
+        }
+      }
+      
+      .container-body {
+        padding: 30px 10px;
+        
+        .container-body-content {
+          padding: 15px;
+          
+          .content {
+            .title {
+              text-align: left;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .tinTucDetail-container {
+    .tinTucDetail-device {
+      .container-header {
+        height: 180px;
+        
+        .container-header-content {
+          right: 5%;
+          width: 70%;
+        }
+      }
+      
+      .container-body {
+        padding: 20px 10px;
+        
+        .container-body-bg {
+          border-radius: 20px;
+        }
+        
+        .container-body-content {
+          padding: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .tinTucDetail-container {
+    .tinTucDetail-device {
+      .container-header {
+        height: 150px;
+        
+        .container-header-content {
+          width: 80%;
+          right: 10%;
+        }
+      }
+      
+      .container-body {
+        padding: 15px 5px;
+        
+        .container-body-bg {
+          width: 98%;
+          top: 2%;
+          border-radius: 15px;
+        }
+      }
+    }
+  }
 }
