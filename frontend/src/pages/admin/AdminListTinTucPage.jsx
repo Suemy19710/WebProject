@@ -5,7 +5,7 @@ function AdminListTinTucPage() {
     return (
         <>
             <AdminHeader/>
-            <AdminListLuatSu/>
+            <AdminListTinTuc/>
         </>
     )
 }
