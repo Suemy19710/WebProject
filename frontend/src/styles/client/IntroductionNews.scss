@@ -157,16 +157,25 @@ $Font: "Raleway", sans-serif;
 @media (max-width: 768px) {
   .news {
     padding: 30px 20px;
+    margin: 0 auto; /* Center the section */
+    max-width: 100%; /* Ensure it doesn’t overflow */
 
     h2 {
       font-size: 28px;
     }
 
     .news__grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Single column */
       gap: 10px;
+      justify-content: center; /* Center grid items */
+      max-width: 350px; /* Constrain grid width for better control */
+      margin: 0 auto; /* Center the grid container */
 
       .news__card {
+        width: 100%; /* Card takes full constrained width */
+        max-width: 300px; /* Optional: limit card width for aesthetics */
+        margin: 0 auto; /* Center each card */
+        
         img {
           height: 100px;
         }
@@ -181,9 +190,14 @@ $Font: "Raleway", sans-serif;
       }
     }
 
-    .news__more {
-      padding: 10px 20px;
-      font-size: 14px;
+    .news_footer {
+      display: flex;
+      justify-content: center; /* Center the button */
+      
+      .news__more {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
     }
   }
 }

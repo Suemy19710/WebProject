@@ -47,7 +47,7 @@ const LuatSu = () => {
                 ))}
             </div>
             <div className="intro-lawyers__footer">
-                <button>View All Lawyers</button>
+                <button>Xem thêm</button>
             </div>
         </div>
     );
