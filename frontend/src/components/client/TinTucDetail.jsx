@@ -11,6 +11,17 @@ const TinTucDetail = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
+
+    const createSlugTitle = (title) => {
+        if (!title) return '';
+        return title
+            .toLowerCase()
+            .trim()
+            .replace(/[\s+]/g, '-') // Replace spaces with hyphens
+            .replace(/[^a-z0-9-]/g, '') // Remove non-alphanumeric characters except hyphens
+            .replace(/-+/g, '-'); // Replace multiple hyphens with a single hyphen
+    };
+    
     useEffect(() => {
         setLoading(true);
         fetch('https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien')
