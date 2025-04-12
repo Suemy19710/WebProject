@@ -23,10 +23,27 @@ const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 
 // Load environment variables
 dotenv.config();
-
+const allowedOrigins = [
+  'https://luatkimngoc.onrender.com', // Your frontend
+  'https://luatkimngoc-vn.onrender.com', // Optional: for local development
+];
 const app = express();
 app.use(express.json());
-app.use(cors());
+// app.use(cors());
+app.use(cors({
+  origin: (origin, callback) => {
+    // Allow requests with no origin (e.g., mobile apps or curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Explicitly allow methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
+  credentials: true, // Optional: if you plan to use cookies or auth headers
+}));
 app.use(fileUpload({
   useTempFiles: true, // Create temp files (important for Cloudinary)
   tempFileDir: '/tmp/', // Directory for temp files
