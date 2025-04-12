@@ -72,7 +72,7 @@ const RegisterForm = () => {
             <input
               type="tel"
               id="phone"
-              placeholder="Phone"
+              placeholder="Số điện thoại"
               name="phoneCustomer"
               value={formData.phoneCustomer}
               onChange={handleChange}

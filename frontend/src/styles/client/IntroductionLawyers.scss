@@ -13,22 +13,22 @@ $Font: "Raleway", sans-serif;
 .intro-lawyers {
   padding: 50px 100px;
   text-align: center;
-  
+  font-family: $Font;
+
   h2 {
     font-size: 36px;
     font-weight: 700;
     color: $TC-white;
     margin-bottom: 40px;
   }
-  
+
   .intro-lawyers__grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    
+
     .intro-lawyers__card {
-      text-align: center;
       width: 250px;
       display: flex;
       flex-direction: column;
@@ -39,25 +39,25 @@ $Font: "Raleway", sans-serif;
       overflow: hidden;
       transition: transform 0.3s ease;
       padding: 10px;
-      
+
       &:hover {
         transform: translateY(-5px);
       }
-      
+
       img {
         width: 230px;
         height: 140px;
-        position: relative;
         object-fit: cover;
         border-radius: 20px;
         margin-bottom: 15px;
       }
-      
-      .laywer-description {
+
+      .lawyer-decription {
         display: flex;
         flex-direction: column;
         gap: 10px;
-        
+        align-items: center;
+
         h3 {
           font-size: 20px;
           font-weight: 600;
@@ -65,12 +65,12 @@ $Font: "Raleway", sans-serif;
           margin-bottom: 5px;
           width: 200px;
           cursor: pointer;
-          
+
           &:hover {
             color: $TC-yellow;
           }
         }
-        
+
         .short-description {
           display: flex;
           flex-direction: column;
@@ -80,15 +80,16 @@ $Font: "Raleway", sans-serif;
           width: 220px;
           border-top: 1px solid $BC-green-opacity;
           gap: 5px;
-          
+
           p {
             font-size: 10px;
             font-weight: 400;
             color: $TC-gray;
+            margin: 0;
           }
         }
       }
-      
+
       button {
         background-color: $BC-black-light;
         color: $TC-yellow;
@@ -100,7 +101,8 @@ $Font: "Raleway", sans-serif;
         border-radius: 20px;
         cursor: pointer;
         width: 200px;
-        
+        transition: background-color 0.3s ease, color 0.3s ease;
+
         &:hover {
           background-color: $TC-yellow;
           color: $BC-blue;
@@ -108,11 +110,13 @@ $Font: "Raleway", sans-serif;
       }
     }
   }
-  
+
   .intro-lawyers__footer {
     width: 100%;
     margin-top: 20px;
-    
+    display: flex;
+    justify-content: center;
+
     button {
       width: 300px;
       background-color: $BC-black-light;
@@ -123,7 +127,8 @@ $Font: "Raleway", sans-serif;
       font-size: 16px;
       font-weight: 700;
       cursor: pointer;
-      
+      transition: background-color 0.3s ease, color 0.3s ease;
+
       &:hover {
         background-color: $BC-green-opacity;
         color: $BC-black-light;
@@ -136,22 +141,26 @@ $Font: "Raleway", sans-serif;
 @media (max-width: 1024px) {
   .intro-lawyers {
     padding: 40px 50px;
-    
+
     .intro-lawyers__grid {
       gap: 20px;
-      
+
       .intro-lawyers__card {
         img {
           width: 120px;
           height: 120px;
         }
-        
-        h3 {
-          font-size: 18px;
-        }
-        
-        p {
-          font-size: 14px;
+
+        .lawyer-decription {
+          h3 {
+            font-size: 18px;
+          }
+
+          .short-description {
+            p {
+              font-size: 14px;
+            }
+          }
         }
       }
     }
@@ -161,48 +170,51 @@ $Font: "Raleway", sans-serif;
 @media (max-width: 768px) {
   .intro-lawyers {
     padding: 30px 20px;
-    
+
     h2 {
       font-size: 28px;
     }
-    
+
     .intro-lawyers__grid {
       flex-direction: column;
       align-items: center;
       gap: 30px;
-      
+
       .intro-lawyers__card {
         width: 90%;
         flex-direction: row;
         padding: 15px;
-        
+        align-items: center;
+
         img {
           width: 100px;
           height: 100px;
           margin-bottom: 0;
           margin-right: 15px;
         }
-        
-        .laywer-description {
+
+        .lawyer-decription {
           flex-direction: column;
           text-align: left;
-          
+          align-items: flex-start;
+
           h3 {
-            font-size: 16px;
-            width: 100%;
+            font-size: 18px;
+            width: auto;
           }
-          
+
           .short-description {
             width: 100%;
             border-top: none;
             padding-top: 0;
-            
+
             p {
-              font-size: 12px;
+              font-size: 10px;
+              width: auto;
             }
           }
         }
-        
+
         button {
           width: auto;
           padding: 6px 14px;
@@ -210,10 +222,12 @@ $Font: "Raleway", sans-serif;
         }
       }
     }
-    
-    .intro-lawyers__footer button {
-      width: 250px;
-      font-size: 14px;
+
+    .intro-lawyers__footer {
+      button {
+        width: 250px;
+        font-size: 14px;
+      }
     }
   }
 }

@@ -13,7 +13,8 @@ const IntroductionService = () => {
           <div className="services__icon">                                
             <i className="fa-solid fa-gavel"></i>
           </div>
-          <h3 onClick={() => handleClick('/dich-vu')}>Dịch vụ tư vấn pháp lý</h3>          
+          <h3 onClick={() => handleClick('/dich-vu')}>Dịch vụ tư vấn pháp lý</h3>  
+       
           <ul className="services__description">
             <li><a href="/dich-vu">Tư vấn luật doanh nghiệp</a></li>
             <li><a href="/dich-vu">Tư vấn luật đất đai, bất động sản</a></li>

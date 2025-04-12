@@ -12,7 +12,6 @@ const LuatSu = () => {
         const fetchLawyers = async () => {
             try {
                 const response = await axios.get('https://luatkimngoc-vn.onrender.com/api/luat-su');
-                // Slice the first 4 lawyers from the response data
                 setLawyers(response.data.slice(0, 3));
                 setLoading(false);
             } catch (error) {
@@ -36,16 +35,19 @@ const LuatSu = () => {
                 {lawyers.map((lawyer) => (
                     <div className="intro-lawyers__card" key={lawyer._id}>
                         <img src={lawyer.image} alt={lawyer.name} />
-                        <div className="laywer-decription">
+                        <div className="lawyer-decription">
                             <h3 onClick={() => handleClick(lawyer.slug)}>{lawyer.name}</h3>
                             <div className="short-description">
                                 <p>SDT: {lawyer.phone}</p>
                                 <p>Email: {lawyer.email}</p>
                             </div>
                         </div>
-                       
+                        <button onClick={() => handleClick(lawyer.slug)}>View Profile</button>
                     </div>
                 ))}
+            </div>
+            <div className="intro-lawyers__footer">
+                <button>View All Lawyers</button>
             </div>
         </div>
     );

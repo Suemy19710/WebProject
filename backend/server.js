@@ -24,8 +24,8 @@ const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 // Load environment variables
 dotenv.config();
 const allowedOrigins = [
-  'https://luatkimngoc.onrender.com', // Your frontend
-  'https://luatkimngoc-vn.onrender.com', // Optional: for local development
+  'https://luatkimngoc.onrender.com', 
+  'https://luatkimngoc-vn.onrender.com', 
 ];
 const app = express();
 app.use(express.json());
