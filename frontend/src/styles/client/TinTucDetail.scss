@@ -136,10 +136,11 @@ html, body {
             
             .date {
               padding-left: 10px;
-              font-size: 14px; // Responsive font size (12-14px)
+              font-size: 16px; // Responsive font size (12-14px)
               font-weight: 700;
               color: $BC-black-light;
               font-family: 'Times New Roman', Times, serif;
+              font-style: none; 
             }
           }
           
@@ -197,6 +198,7 @@ html, body {
         
         .container-header-content {
           right: 5%;
+          }
         }
       }
       
@@ -209,13 +211,14 @@ html, body {
           .content {
             .title {
               text-align: left;
+              font-size: 45px;
+            }
             }
           }
         }
       }
     }
-  }
-}
+
 
 @media (max-width: 576px) {
   .tinTucDetail-container {
@@ -238,6 +241,11 @@ html, body {
         
         .container-body-content {
           padding: 10px;
+          .content{
+            .title{
+              font-size: 40px;
+            }
+          }
         }
       }
     }
@@ -263,6 +271,14 @@ html, body {
           width: 98%;
           top: 2%;
           border-radius: 15px;
+        }
+        .container-body-content {
+          // padding: 10px;
+          .content{
+            .title{
+              font-size: 40px;
+            }
+          }
         }
       }
     }

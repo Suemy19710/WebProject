@@ -116,9 +116,10 @@ html, body {
                 .date{
                   font-size: 12px;
                   font-weight: 500;
-                  font-family: 'Times New Roman', Times, serif;
+                  // font-family: 'Times New Roman', Times, serif;
                   color: $TC-gray;
-                  
+                  font-style: none; 
+
                 }
               }
         
