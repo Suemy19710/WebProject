@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const sanitizeHtml = require('sanitize-html');
 const cloudinary = require('cloudinary').v2;
+const { Types } = require('mongoose'); // Add mongoose for ObjectId validation
 
 const TinTucService = require('../services/TinTucServices');
 
@@ -110,32 +111,45 @@ const getNewsBySlug = async (req, res) => {
 // Delete a news article by ID
 const deleteNewsById = async (req, res) => {
   try {
-    // Get the news article to extract the image URL
-    const newsToDelete = await TinTucService.getNewsById(req.params.id);
-    
-    // If the news has an image URL from Cloudinary, extract the public_id to delete it
-    if (newsToDelete && newsToDelete.image) {
-      const imageUrl = newsToDelete.image;
-      // Extract public_id from Cloudinary URL (usually after the last '/' and before the file extension)
-      const publicIdMatch = imageUrl.match(/\/v\d+\/(.+?)\.\w+/);
-      if (publicIdMatch && publicIdMatch[1]) {
-        const publicId = publicIdMatch[1];
-        // Delete the image from Cloudinary
-        try {
-          await cloudinary.uploader.destroy(publicId);
-          console.log('Image deleted from Cloudinary:', publicId);
-        } catch (cloudinaryError) {
-          console.error('Error deleting image from Cloudinary:', cloudinaryError);
-          // Continue with news deletion even if image deletion fails
+    const { id } = req.params;
+
+    // Validate ObjectId
+    if (!Types.ObjectId.isValid(id)) {
+      return res.status(400).json({ error: 'Invalid news ID format' });
+    }
+
+    // Fetch news article
+    let newsToDelete;
+    try {
+      newsToDelete = await TinTucService.getNewsById(id);
+      if (!newsToDelete) {
+        return res.status(404).json({ error: 'News article not found' });
+      }
+    } catch (serviceError) {
+      console.error('Error fetching news:', serviceError);
+      return res.status(500).json({ error: 'Error fetching news article' });
+    }
+
+    // Delete image from Cloudinary if it exists
+    if (newsToDelete.image) {
+      try {
+        const publicIdMatch = newsToDelete.image.match(/\/v\d+\/(.+?)\.\w+/);
+        if (publicIdMatch && publicIdMatch[1]) {
+          await cloudinary.uploader.destroy(publicIdMatch[1]);
+          console.log('Image deleted from Cloudinary:', publicIdMatch[1]);
         }
+      } catch (cloudinaryError) {
+        console.error('Error deleting image from Cloudinary:', cloudinaryError);
+        // Log but don't fail the deletion
       }
     }
-    
-    const news = await TinTucService.deleteNewsById(req.params.id);
-    res.status(200).json({ message: 'News article deleted successfully.' });
+
+    // Delete news article
+    await TinTucService.deleteNewsById(id);
+    res.status(200).json({ message: 'News article deleted successfully' });
   } catch (error) {
     console.error('Error deleting news:', error);
-    res.status(error.message.includes('not found') ? 404 : 500).json({ error: error.message });
+    res.status(500).json({ error: 'Failed to delete news article: ' + error.message });
   }
 };
 // In TinTucController.js

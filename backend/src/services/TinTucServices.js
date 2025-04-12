@@ -31,7 +31,18 @@ const getNewsBySlug = async (slug) => {
         throw new Error(`Error fetching news by slug: ${error.message}`);
     }
 };
-
+const getNewsById = async(id) => {
+    try{
+        const news = await TinTucModel.findById(id); 
+        if (!news) {
+            throw new Error('Error fetching news by Id: '+error.message); 
+        }
+        return news; 
+    }
+    catch(error){
+        throw new Error('Error fetching news by ID: ' + error.message);
+    }
+}
 // Delete a news article by ID
 const deleteNewsById = async (id) => {
     try {
@@ -57,5 +68,6 @@ const updateNews = async (id, updateData) => {
     getAllNews,
     getNewsBySlug,
     deleteNewsById, 
-    updateNews
+    updateNews, 
+    getNewsById
 };
