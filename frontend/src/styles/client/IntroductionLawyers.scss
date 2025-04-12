@@ -181,16 +181,16 @@ $Font: "Raleway", sans-serif;
       gap: 10px;
 
       .intro-lawyers__card {
-        width: 80%;
+        width: 100%;
         flex-direction: row;
-        padding: 15px;
+        padding: 5px;
         align-items: center;
 
         img {
           width: 100px;
           height: 100px;
           margin-bottom: 0;
-          margin-right: 15px;
+          margin-right: 5px;
         }
 
         .lawyer-decription {
