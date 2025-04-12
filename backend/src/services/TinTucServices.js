@@ -42,10 +42,20 @@ const deleteNewsById = async (id) => {
         throw new Error(`Error deleting news: ${error.message}`);
     }
 };
-
-module.exports = {
+const updateNews = async (id, updateData) => {
+    try {
+      const news = await TinTuc.findByIdAndUpdate(id, updateData, { new: true });
+      if (!news) {
+        throw new Error('News article not found');
+      }
+      return news;
+    } catch (error) {
+      throw new Error('Error updating news: ' + error.message);
+    }
+  };module.exports = {
     createNews,
     getAllNews,
     getNewsBySlug,
-    deleteNewsById
+    deleteNewsById, 
+    updateNews
 };

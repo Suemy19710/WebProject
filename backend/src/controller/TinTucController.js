@@ -138,10 +138,78 @@ const deleteNewsById = async (req, res) => {
     res.status(error.message.includes('not found') ? 404 : 500).json({ error: error.message });
   }
 };
+// In TinTucController.js
+const updateNews = async (req, res) => {
+  try {
+    console.log('Request body:', req.body);
+    console.log('Request files:', req.files);
 
+    if (!req.body.title) {
+      return res.status(400).json({ error: 'Title is required.' });
+    }
+    if (!req.body.content) {
+      return res.status(400).json({ error: 'Content is required.' });
+    }
+
+    const updateData = {
+      title: req.body.title,
+      slug: req.body.slug || req.body.title.toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]+/g, ''),
+      content: sanitizeHtml(req.body.content, {
+        allowedTags: ['p', 'b', 'i', 'em', 'strong', 'a', 'ul', 'ol', 'li', 'h1', 'h2', 'h3', 'img', 'span', 'div'],
+        allowedAttributes: {
+          a: ['href'],
+          img: ['src', 'alt', 'width', 'height', 'style'],
+          '*': ['style'],
+        },
+        allowedStyles: {
+          '*': {
+            'font-size': [/^\d+(?:px|em|rem|%)$/],
+            'font-family': [/^[\w\s,'"-]+$/],
+            'color': [/^#[0-9a-fA-F]{3,6}$/, /^rgb\(\d{1,3},\s*\d{1,3},\s*\d{1,3}\)$/],
+          },
+        },
+      }),
+      status: req.body.status || 'draft',
+    };
+
+    if (req.files && req.files.image) {
+      const imageFile = req.files.image;
+      try {
+        const imageResult = await cloudinary.uploader.upload(imageFile.tempFilePath, {
+          folder: 'tin-tuc',
+          use_filename: true,
+          unique_filename: true,
+        });
+        updateData.image = imageResult.secure_url;
+
+        // Delete old image from Cloudinary
+        const news = await TinTucService.getNewsById(req.params.id);
+        if (news.image) {
+          const publicIdMatch = news.image.match(/\/v\d+\/(.+?)\.\w+/);
+          if (publicIdMatch && publicIdMatch[1]) {
+            await cloudinary.uploader.destroy(publicIdMatch[1]);
+            console.log('Old image deleted from Cloudinary:', publicIdMatch[1]);
+          }
+        }
+      } catch (cloudinaryError) {
+        console.error('Cloudinary upload error:', cloudinaryError);
+        return res.status(500).json({ error: 'Error uploading image to Cloudinary: ' + cloudinaryError.message });
+      }
+    }
+
+    const updatedNews = await TinTucService.updateNews(req.params.id, updateData);
+    res.status(200).json({ message: 'News updated successfully!', news: updatedNews });
+  } catch (error) {
+    console.error('Error updating news:', error);
+    res.status(error.message.includes('not found') ? 404 : 500).json({ error: error.message });
+  }
+};
+
+// Add to exports
 module.exports = {
   createNews,
   getAllNews,
   getNewsBySlug,
   deleteNewsById,
+  updateNews, // Add this
 };

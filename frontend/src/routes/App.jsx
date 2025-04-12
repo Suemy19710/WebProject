@@ -29,6 +29,8 @@ import AdminTinTucPage from '../pages/admin/AdminTinTucPage';
 import AdminLuatSuPage from '../pages/admin/AdminLuatSuPage'; 
 import AdminListLuatSuPage from '../pages/admin/AdminListLuatSuPage'; 
 import AdminEditLuatSuPage from '../pages/admin/AdminEditLuatSuPage'; 
+import AdminListTinTucPage from '../pages/admin/AdminListTinTucPage';
+import AdminEditTinTucPage from '../pages/admin/AdminEditTinTucPage';
 
 
 function App() {
@@ -65,6 +67,8 @@ function App() {
         <Route path="/admin/luat-su" element={<AdminLuatSuPage/>} /> 
         <Route path="/admin/list-luat-su" element={<AdminListLuatSuPage/>}/>
         <Route path="/admin/edit-luat-su/:id" element={<AdminEditLuatSuPage/>}/>
+        <Route path="/admin/list-tin-tuc" element={<AdminListTinTucPage/>}/>
+        <Route path="/admin/edit-tin-tuc" element={<AdminEditTinTucPage/>}/>
 
         <Route path="/admin/tin-tuc-&-su-kien" element={<AdminTinTucPage/>}/>
         
