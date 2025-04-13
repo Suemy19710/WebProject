@@ -25,7 +25,9 @@ const LuatSu = () => {
     const handleClick = (slug) => {
         navigate(`/luat-su/${slug}`);
     };
-
+    const handleClickToLuatSuPage = () => {
+        navigate(`/tin-tuc`); 
+    }
     if (loading) return <div>Loading...</div>;
 
     return (
@@ -47,7 +49,7 @@ const LuatSu = () => {
                 ))}
             </div>
             <div className="intro-lawyers__footer">
-                <button>Xem thêm</button>
+                <button onClick={handleClickToLuatSuPage}>Xem thêm</button>
             </div>
         </div>
     );
