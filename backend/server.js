@@ -26,6 +26,8 @@ dotenv.config();
 const allowedOrigins = [
   'https://luatkimngoc.onrender.com', 
   'https://luatkimngoc-vn.onrender.com', 
+  'https://luatkimngoc.com', 
+  'https://www.luatkimngoc.com'
 ];
 const app = express();
 app.use(express.json());
