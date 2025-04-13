@@ -45,7 +45,7 @@ $Font: "Raleway", sans-serif;
       }
 
       img {
-        width: 230px;
+        width: calc(70% - 9px);
         height: 140px;
         object-fit: cover;
         border-radius: 20px;
