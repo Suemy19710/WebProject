@@ -420,11 +420,13 @@ body {
 /* Small Mobile Responsiveness (up to 479px) */
 @media (max-width: 479px) {
   .introduction-container {
-    padding-top: 60px;
-
+    padding-top: 80px;
+    margin: 0;
+    // padding-left: 30px;
     .container-left {
+      width: 333px; 
       padding: 20px 10px;
-
+      // margin-left: 30px;
       .container-left-content {
         h1 {
           font-size: 24px;
@@ -445,7 +447,10 @@ body {
 
     .container-right {
       .mobile-company-description {
-        display: block; /* Shown only on small mobile */
+        display: block; 
+        width: 300px;
+        margin: 0; 
+        padding: 20px 0 0 0 ; 
         h3 {
           font-size: 18px;
         }

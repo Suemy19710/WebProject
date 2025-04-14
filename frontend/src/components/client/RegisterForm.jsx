@@ -53,8 +53,8 @@ const RegisterForm = () => {
   return (
     <div className="register-form-container">
       <div className="register-form-device">
-      <div className="register-form-background"></div>
-      <div className="form-left">
+        <div className="register-form-background"></div>
+        <div className="form-left">
         <h2>Đăng ký tư vấn</h2>
         <form onSubmit={handleSubmit}>
           <div className="form-group">
@@ -102,10 +102,10 @@ const RegisterForm = () => {
           </div>
           <button type="submit">Đăng ký</button>
         </form>
-      </div>
-      <div className="form-right">
-        <img src={ladyJustice} alt="Lady Justice" />
-      </div>
+        </div>
+        <div className="form-right">
+          <img src={ladyJustice} alt="Lady Justice" />
+        </div>
       </div>
 
     </div>

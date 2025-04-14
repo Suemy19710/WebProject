@@ -325,9 +325,9 @@ body {
 /* Small Mobile Responsiveness (up to 479px) */
 @media (max-width: 479px) {
   .register-form-container {
-    padding: 10px;
-    margin-bottom: 50px;
-    display: flex; 
+    padding: 50px;
+    margin: 0; 
+    display: absolute; 
     justify-content: center;
     align-items: center;
 
@@ -335,50 +335,62 @@ body {
       width: 300px; 
       height: 100%;
     }
-
-    .form-left {
-      width: 100%;
-      max-width: 320px;
-      padding: 10px;
-      display: absolute;
-      left: 11%;  
-      h2 {
-        font-size: 20px;
-        margin-bottom: 15px;
-      }
-
-      form {
-       
-        .form-group {
-          margin-bottom: 10px;
-
-          label {
-            font-size: 10px;
-            margin-bottom: 4px;
+    .register-form-device{
+      display: flex; 
+      justify-content: center;
+      align-items: center;
+      .form-left {
+        width: 300px;
+        // max-width: 320px;
+        padding: 10px;
+        margin-right: 70px;
+        position: relative;
+        z-index: 1;
+        // left: 23%;
+        // top: 35%;
+        // right: 20%; 
+        // display: absolute;
+        // left: 11%;  
+        h2 {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
+  
+        form {
+         
+          .form-group {
+            margin-bottom: 10px;
+  
+            label {
+              font-size: 10px;
+              margin-bottom: 4px;
+            }
+  
+            input,
+            textarea {
+              font-size: 10px;
+              padding: 5px 8px;
+            }
+  
+            textarea {
+              height: 50px;
+            }
           }
-
-          input,
-          textarea {
-            font-size: 10px;
-            padding: 5px 8px;
-          }
-
-          textarea {
-            height: 50px;
+  
+          button {
+            padding: 6px 12px;
+            font-size: 12px;
           }
         }
-
-        button {
-          padding: 6px 12px;
-          font-size: 12px;
+      }
+  
+      .form-right {
+        img {
+         display: none; 
         }
       }
     }
 
-    .form-right {
-      img {
-       display: none; 
-      }
-    }
+
   }
 }

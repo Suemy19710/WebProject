@@ -13,15 +13,15 @@ const Footer = () => {
             <img src={logo} alt="Logo Icon" />
             <h3>Công Ty Luật Kim Ngọc</h3>
           </div>
-          <p className="footer__description">Pháp lý vững chắc - Cùng bạn vươn lên</p>
+          <p className="footer__description">Pháp lý vững chắc - Cuộc sống bình yên</p>
           <p className="footer__info">
-            <i className="fa-solid fa-location-dot"></i> Ho Chi Minh City
+            <i className="fa-solid fa-location-dot"></i> Thành phố Hồ Chí Minh
           </p>
           <p className="footer__info">
-            <i className="fa-solid fa-phone"></i> 0912345666
+            <i className="fa-solid fa-phone"></i> 0919.146.222
           </p>
           <p className="footer__info">
-            <i className="fa-solid fa-envelope"></i> luatkimngoc@gmail.com
+            <i className="fa-solid fa-envelope"></i>luatkimngoc@gmail.com
           </p>
         </div>
         <div className="footer__middle">

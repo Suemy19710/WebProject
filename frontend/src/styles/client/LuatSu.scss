@@ -112,9 +112,9 @@ html, body {
           }
           
           img {
-            width: calc(70% - 9px); // 10px padding on each side
+            width: calc(990% - 9px); 
             max-width: 230px;
-            height: 140px;
+            height: 180px;
             object-fit: cover;
             border-radius: 20px;
             margin-bottom: 15px;
@@ -258,8 +258,10 @@ html, body {
         height: 150px;
         
         .container-header-content {
-          width: 80%;
-          right: 10%;
+          // width: 80%;
+          // right: 10%;
+          padding: 10% 3%;
+
         }
       }
       
@@ -271,7 +273,7 @@ html, body {
             max-width: 250px;
             
             img {
-              height: 140px;
+              height: 150px;
             }
           }
         }
