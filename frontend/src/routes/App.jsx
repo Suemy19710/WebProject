@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ReactDOM from 'react-dom'; 
 import Slider from 'react-slick';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import { verifyToken } from '../utils/api';
 import Homepage from '../pages/client/Homepage';
 import GioithieuYNghiaPage from '../pages/client/GioiThieuYNghiaPage';
 import LuatSuPage from '../pages/client/LuatSuPage';
@@ -31,9 +31,30 @@ import AdminListLuatSuPage from '../pages/admin/AdminListLuatSuPage';
 import AdminEditLuatSuPage from '../pages/admin/AdminEditLuatSuPage'; 
 import AdminListTinTucPage from '../pages/admin/AdminListTinTucPage';
 import AdminEditTinTucPage from '../pages/admin/AdminEditTinTucPage';
-
+import PrivateRoute from '../components/admin/PrivateRoute'; 
 
 function App() {
+  useEffect(() => {
+    // Check token validity when app loads
+    const checkAuthStatus = async () => {
+      const token = localStorage.getItem('token');
+      if (token) {
+        try {
+          await verifyToken();
+          // Token is valid
+        } catch (error) {
+          // Token is invalid or expired
+          localStorage.removeItem('token');
+          // If on a protected route, this will redirect to login
+          if (window.location.pathname.startsWith('/admin/')) {
+            window.location.href = '/admin';
+          }
+        }
+      }
+    };
+    
+    checkAuthStatus();
+  }, []);
   return (
     <Router>
       <Routes>
@@ -56,21 +77,20 @@ function App() {
 
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLogin/>}/>
-        <Route path="/admin/dashboard" element={<AdminDashboard/>}/>
-        <Route path="/admin/thong-bao" element={<AdminNotificationCustomerPage/>}/>
-        <Route path ="/admin/dan-su" element={<AdminDanSuPage/>}/>
-        <Route path ="/admin/hinh-su" element={<AdminHinhSuPage/>}/>
-        <Route path ="/admin/hanh-chinh" element={<AdminHanhChinhPage/>}/>
-        <Route path ="/admin/so-huu-tri-tue" element={<AdminSoHuuTriTuePage/>}/>
-        <Route path="/admin/xem-truoc" element={<AdminPreview/>}/>
-        <Route path="/admin/tin-tuc" element={<AdminNewsPage/>} /> 
-        <Route path="/admin/luat-su" element={<AdminLuatSuPage/>} /> 
-        <Route path="/admin/list-luat-su" element={<AdminListLuatSuPage/>}/>
-        <Route path="/admin/edit-luat-su/:id" element={<AdminEditLuatSuPage/>}/>
-        <Route path="/admin/list-tin-tuc" element={<AdminListTinTucPage/>}/>
-        <Route path="/admin/edit-tin-tuc" element={<AdminEditTinTucPage/>}/>
-
-        <Route path="/admin/tin-tuc-&-su-kien" element={<AdminTinTucPage/>}/>
+        <Route path="/admin/dashboard" element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+        <Route path="/admin/thong-bao" element={<PrivateRoute><AdminNotificationCustomerPage /></PrivateRoute>} />
+        <Route path="/admin/dan-su" element={<PrivateRoute><AdminDanSuPage /></PrivateRoute>} />
+        <Route path="/admin/hinh-su" element={<PrivateRoute><AdminHinhSuPage /></PrivateRoute>} />
+        <Route path="/admin/hanh-chinh" element={<PrivateRoute><AdminHanhChinhPage /></PrivateRoute>} />
+        <Route path="/admin/so-huu-tri-tue" element={<PrivateRoute><AdminSoHuuTriTuePage /></PrivateRoute>} />
+        <Route path="/admin/xem-truoc" element={<PrivateRoute><AdminPreview /></PrivateRoute>} />
+        <Route path="/admin/tin-tuc" element={<PrivateRoute><AdminNewsPage /></PrivateRoute>} />
+        <Route path="/admin/luat-su" element={<PrivateRoute><AdminLuatSuPage /></PrivateRoute>} />
+        <Route path="/admin/list-luat-su" element={<PrivateRoute><AdminListLuatSuPage /></PrivateRoute>} />
+        <Route path="/admin/edit-luat-su/:id" element={<PrivateRoute><AdminEditLuatSuPage /></PrivateRoute>} />
+        <Route path="/admin/list-tin-tuc" element={<PrivateRoute><AdminListTinTucPage /></PrivateRoute>} />
+        <Route path="/admin/edit-tin-tuc" element={<PrivateRoute><AdminEditTinTucPage /></PrivateRoute>} />
+        <Route path="/admin/tin-tuc-&-su-kien" element={<PrivateRoute><AdminTinTucPage /></PrivateRoute>} />
         
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
