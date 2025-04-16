@@ -2,6 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import '../../styles/client/Footer.scss';
 import logo from '../../assets/logo-3.png';
+import zalo from '../../assets/Zalo-Logo.png'; 
+import facebook from '../../assets/facebook-logo.png'; 
 
 const Footer = () => {
   return (
@@ -10,7 +12,7 @@ const Footer = () => {
       <div className="footer__container">
         <div className="footer__left">
           <div className="footer__logo">
-            <img src={logo} alt="Logo Icon" />
+            <img src={logo} alt="Công Ty Luật Kim Ngọc Logo" />
             <h3>Công Ty Luật Kim Ngọc</h3>
           </div>
           <p className="footer__description">Pháp lý vững chắc - Cuộc sống bình yên</p>
@@ -18,11 +20,31 @@ const Footer = () => {
             <i className="fa-solid fa-location-dot"></i> Thành phố Hồ Chí Minh
           </p>
           <p className="footer__info">
-            <i className="fa-solid fa-phone"></i> 0919.146.222
+            <i className="fa-solid fa-phone"></i>
+            <a href="tel:+0919146222">0919.146.222</a>
           </p>
           <p className="footer__info">
-            <i className="fa-solid fa-envelope"></i>luatkimngoc@gmail.com
+            <i className="fa-solid fa-envelope"></i>
+            <a href="mailto:luatkimngoc@gmail.com">luatkimngoc@gmail.com</a>
           </p>
+          <div className="footer__social">
+            <a 
+              href="https://www.facebook.com/your-facebook-page" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Follow us on Facebook"
+            >
+              <img src={facebook} alt="Facebook" className="social-icon" />
+            </a>
+            <a 
+              href="https://zalo.me/your-zalo-id" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Contact us on Zalo"
+            >
+              <img src={zalo} alt="Zalo" className="social-icon zalo" />
+            </a>
+          </div>
         </div>
         <div className="footer__middle">
           <h3>Dịch Vụ</h3>

@@ -1,4 +1,3 @@
-/* Define SCSS variables */
 $BC-white: #F8F9FA;
 $BC-blue: #2E3C61;
 $BC-blue-opacity: #186BE8;
@@ -16,7 +15,6 @@ html, body {
   margin: 0;
   padding: 0;
   width: 100%;
-  min-height: 100vh;
   font-family: $Font;
   box-sizing: border-box;
   font-size: $base-font-size;
@@ -28,7 +26,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* Homepage container */
 .homepage-container {
   position: relative;
   min-height: 100vh;
@@ -66,14 +63,13 @@ html, body {
     width: 100%;
     max-width: 1440px;
     margin: 0 auto;
-    // padding: 2rem;
 
     .decoration {
       position: absolute;
       top: 51%;
       right: 0;
-      width: 6.25rem; /* 100px equivalent */
-      height: 80.625rem; /* 1290px equivalent */
+      width: 6.25rem;
+      height: 80.625rem; 
       background-image: url('../../assets/feature/9.png');
       background-size: contain;
       background-repeat: no-repeat;
@@ -97,7 +93,7 @@ html, body {
       position: absolute;
       top: 74%;
       right: 5%;
-      width: 6.25rem; /* 100px equivalent */
+      width: 6.25rem; 
       height: 6.25rem;
       background-color: $BC-green-opacity;
       border-radius: 50%;
@@ -106,18 +102,71 @@ html, body {
       z-index: 0;
     }
   }
+
+  .floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1000; 
+  }
+
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: $TC-white;
+    font-weight: bold;
+    font-family: $Font; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.1s ease;
+
+    i {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      animation: none; 
+    }
+    animation: shake 1.5s infinite;
+  }
+
+  .chat-btn {
+    background-color: $BC-blue-opacity;
+    animation-delay: 0s; 
+  }
+
+  .call-btn {
+    background-color: $TC-green;
+    animation-delay: 0.3s; 
+  }
+
+  @keyframes shake {
+    0% { transform: translateX(0); }
+    10% { transform: translateX(-3px); }
+    20% { transform: translateX(3px); }
+    30% { transform: translateX(-3px); }
+    40% { transform: translateX(3px); }
+    50% { transform: translateX(-3px); }
+    60% { transform: translateX(0); }
+    100% { transform: translateX(0); }
+  }
 }
 
-/* Media Queries for Responsiveness */
-
-/* Tablets and smaller desktops (max-width: 1024px) */
 @media screen and (max-width: 1024px) {
   html, body {
     font-size: calc($base-font-size * 0.95);
   }
 
   .homepage-container .content {
-    padding: 1.5rem;
+    padding: 0.01rem;
 
     .decoration {
       width: 5rem;
@@ -139,55 +188,109 @@ html, body {
       top: 78%;
     }
   }
+
+  .homepage-container {
+    .floating-buttons {
+      bottom: 15px;
+      right: 15px;
+      gap: 8px;
+    }
+
+    .btn {
+      padding: 8px 16px;
+      font-size: 14px;
+
+      i {
+        font-size: 18px;
+        margin-right: 6px;
+      }
+    }
+  }
 }
 
-/* Mobile devices (max-width: 768px) */
 @media screen and (max-width: 768px) {
   html, body {
     font-size: calc($base-font-size * 0.9);
   }
 
   .homepage-container .content {
-    padding: 1rem;
+    padding: 0.01rem;
 
     .decoration {
-      display: none; /* Hide decoration on mobile */
+      display: none;
     }
 
     .decoration-circle-large {
-      display: none; /* Hide large circle on mobile */
+      display: none; 
     }
 
     .decoration-circle-small {
-      display: none; /* Hide small circle on mobile */
+      display: none;
     }
   }
 
-  // .homepage-container .background::before {
-  //   display: none; /* Hide background overlay on mobile */
-  // }
+  .homepage-container {
+    .floating-buttons {
+      bottom: 10px;
+      right: 10px;
+      gap: 6px;
+    }
+
+    .btn {
+      padding: 10px;
+      border-radius: 50%; 
+      width: 65px;
+      height: 44px;
+      justify-content: center;
+
+      i {
+        font-size: 20px;
+        margin-right: 0; 
+      }
+
+      .btn-text {
+        display: none; 
+      }
+    }
+  }
 }
 
-/* Small mobile devices (max-width: 480px) */
 @media screen and (max-width: 480px) {
   html, body {
     font-size: calc($base-font-size * 0.85);
   }
 
   .homepage-container .content {
-    padding: 0.5rem;
+    padding: 0.01rem;
 
     .decoration {
-      display: none; /* Already hidden, kept for consistency */
+      display: none; 
     }
 
     .decoration-circle-large {
-      display: none; /* Already hidden, kept for consistency */
+      display: none; 
     }
 
     .decoration-circle-small {
-      display: none; /* Already hidden, kept for consistency */
+      display: none; 
     }
   }
 
+  .homepage-container {
+    .floating-buttons {
+      bottom: 8px;
+      right: 8px;
+      gap: 4px;
+    }
+
+    .btn {
+      width: 60px; 
+      height: 40px;
+      padding: 8px;
+
+      i {
+        font-size: 18px;
+      }
+    }
+  }
 }

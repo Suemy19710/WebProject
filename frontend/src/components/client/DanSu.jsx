@@ -4,8 +4,11 @@ const DanSu = () => {
     const [content, setContent] = useState('<p>Đang tải nội dung...</p>'); 
     useEffect(() => {
         const fetchContent = async () => {
+        console.time('loadData'); 
+
             try {
                 const response = await fetch('https://luatkimngoc-vn.onrender.com/api/dan-su');
+                console.timeEnd('loadData'); 
                 const data = await response.json();
                 if (response.ok && data.length > 0) {
                     setContent(data[0].content); 

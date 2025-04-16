@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+
+$BC-white: #F8F9FA;
+$BC-blue: #2E3C61;
+$BC-blue-opacity: #186BE8;
+$BC-green-opacity: #B5CACE;
+$BC-black-light: #222222;
+$TC-black: #000;
+$TC-green: #5EDCD4;
+$TC-yellow: #CB935D;
+$TC-white: #FFF;
+$TC-gray: #B5CACE;
+$Font: "Raleway", sans-serif;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: $Font;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.carousel-container {
+  width: 1256px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  background-color: $BC-white; /* Use defined color */
+  font-family: $Font;
+}
+
+.carousel-slides {
+  display: flex;
+  width: 300%; /* 3 images */
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  width: 1256px;
+  height: 300px;
+  flex-shrink: 0;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: $BC-blue; /* Use defined color */
+  color: $TC-white;
+  border-radius: 50%;
+  padding: 8px 12px;
+  font-size: 20px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+
+  &:hover {
+    background: $BC-blue-opacity;
+  }
+}
+
+.carousel-arrow-left {
+  left: 15px;
+}
+
+.carousel-arrow-right {
+  right: 15px;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dot {
+  width: 12px;
+  height: 12px;
+  background: $TC-gray; /* Use defined color */
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+
+  &.active {
+    background: $TC-yellow;
+  }
+
+  &:hover {
+    background: $TC-green;
+  }
+}
+
+/* Tablet devices */
+@media only screen and (max-width: 958px) {
+  .carousel-container {
+    width: 100vw;
+    height: 200px;
+  }
+
+  .carousel-slide {
+    width: 100vw;
+    height: 200px;
+  }
+
+  .carousel-arrow {
+    padding: 6px 10px;
+    font-size: 18px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+/* Phone devices */
+@media only screen and (max-width: 480px) {
+  .carousel-container {
+    width: 100vw;
+    height: 100px;
+  }
+
+  .carousel-slide {
+    width: 100vw;
+    height: 100px;
+  }
+
+  .carousel-arrow {
+    padding: 5px 8px;
+    font-size: 16px;
+  }
+
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+}

@@ -13,7 +13,7 @@ const Introduction = () => {
                 <div className="container-left-background"></div>
                 <div className="container-left-content">
                     <h1>Giải pháp pháp lý uy tín, <span>bảo vệ quyền lợi</span> toàn diện.</h1>
-                    <h3>Đồng hành cùng bạn, bảo vệ quyền lợi suốt đời.</h3>
+                    <h3>Pháp lý vững chắc - Cuộc sống bình an, thịnh vượng</h3>
                 </div>
                 <div className="container-left-button">
                     <button onClick={(handleClick)}>Giới thiệu Công ty Luật Kim Ngọc</button>

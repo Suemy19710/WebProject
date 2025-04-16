@@ -1,0 +1,76 @@
+import React, { useState, useEffect } from 'react';
+import '../../styles/client/ReponsiveCarousel.scss';
+import carousel1 from '../../assets/carousel-1.png'; 
+
+const Carousel = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const images = [ carousel1,carousel1,carousel1  ];
+
+  // Auto-slide every 2 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 80000);
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
+  // Handle arrow navigation
+  const goToPrevious = () => {
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToNext = () => {
+    setCurrentIndex((prevIndex) => 
+      (prevIndex + 1) % images.length
+    );
+  };
+
+  // Handle dot navigation
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+  };
+
+  return (
+    <div className="carousel-container">
+      <div 
+        className="carousel-slides"
+        style={{ transform: `translateX(-${currentIndex * (100 / images.length)}%)` }}
+      >
+        {images.map((src, index) => (
+          <div className="carousel-slide" key={index}>
+            <img src={src} alt={`Slide ${index + 1}`} />
+          </div>
+        ))}
+      </div>
+      <div 
+        className="carousel-arrow carousel-arrow-left" 
+        onClick={goToPrevious}
+        aria-label="Previous slide"
+      >
+        ❮
+      </div>
+      <div 
+        className="carousel-arrow carousel-arrow-right" 
+        onClick={goToNext}
+        aria-label="Next slide"
+      >
+        ❯
+      </div>
+      <div className="carousel-dots">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`carousel-dot ${index === currentIndex ? 'active' : ''}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Go to slide ${index + 1}`}
+          ></div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Carousel;

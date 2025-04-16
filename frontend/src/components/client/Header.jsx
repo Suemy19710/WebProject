@@ -1,26 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import logo from '../../assets/logo-3.png';
 import '../../styles/client/Header.scss';
 
 const Header = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
@@ -28,18 +12,17 @@ const Header = () => {
 
   return (
     <>
-      <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+      <header className="header">
         <div className="header-logo">
           <NavLink to="/" activeClassName="active">
-          <img src={logo} alt="Logo" />
-
+            <img src={logo} alt="Logo" />
           </NavLink>
         </div>
-        
+
         <button className="menu-toggle" onClick={toggleSidebar}>
           <i className={`fa ${isSidebarOpen ? 'fa-times' : 'fa-bars'}`}></i>
         </button>
-        
+
         <nav className="header-nav">
           <ul>
             <li>
@@ -121,7 +104,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/tin-tuc" onClick={toggleSidebar}>
-            <i class="fa-solid fa-newspaper"></i> Tin tức & Sự kiện
+              <i className="fa-solid fa-newspaper"></i> Tin tức & Sự kiện
             </NavLink>
           </li>
           <li>
@@ -141,13 +124,12 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/so-huu-tri-tue" onClick={toggleSidebar}>
-            <i class="fa-solid fa-lightbulb"></i> Sở hữu trí tuệ
+              <i className="fa-solid fa-lightbulb"></i> Sở hữu trí tuệ
             </NavLink>
           </li>
         </ul>
       </div>
 
-      {/* Overlay for dimming background */}
       <div
         className={`overlay ${isSidebarOpen ? 'active' : ''}`}
         onClick={toggleSidebar}
