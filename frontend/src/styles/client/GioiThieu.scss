@@ -36,7 +36,7 @@ html, body {
   
     .container-header {
       position: relative;
-      height: 300px;
+      // height: 300px;
       min-height: 180px;
       max-height: 400px;
       display: flex;
@@ -62,7 +62,7 @@ html, body {
 
       .container-header-content {
         position: absolute;
-        top: 35%;
+        top: 15%;
         right: 10%;
         z-index: 2;
         color: $TC-white;
@@ -324,11 +324,16 @@ html, body {
   .gioiThieu-container {
     .gioiThieu-device {
       .container-header {
-        height: 30vh;
-        
+        max-height: 150px;
+        min-height: 100px;
+        .container-header-bg{
+          height: 100%; 
+        }
         .container-header-content {
+          padding: 2% 3%;
+          
           h1 {
-            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
           }
         }
       }
@@ -371,7 +376,18 @@ html, body {
   .gioiThieu-container {
     .gioiThieu-device {
       .container-header {
-        height: 25vh;
+        max-height: 100px;
+        min-height: 100px;
+        .container-header-bg{
+          height: 100%; 
+        }
+        .container-header-content {
+          padding: 2% 3%;
+          
+          h1 {
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+          }
+        }
       }
       
       .container-body {
@@ -402,11 +418,13 @@ html, body {
   .gioiThieu-container {
     .gioiThieu-device {
       .container-header {
-        height: 25vh;
-        min-height: 150px;
-        
+        max-height: 100px;
+        min-height: 80px;
+        .container-header-bg{
+          height: 100%; 
+        }
         .container-header-content {
-          padding: 5% 3%;
+          padding: 2% 3%;
           
           h1 {
             font-size: clamp(1.2rem, 3.5vw, 1.5rem);
