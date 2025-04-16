@@ -104,16 +104,15 @@ const protectRoute = (route) => {
 };
 
 // Protect all admin routes
-protectRoute('/api/admin/dashboard');
-protectRoute('/api/customers');
-protectRoute('/api/dan-su');
-protectRoute('/api/hinh-su');
-protectRoute('/api/hanh-chinh');
-protectRoute('/api/so-huu-tri-tue');
-protectRoute('/api/preview');
-protectRoute('/api/tin-tuc');
-protectRoute('/api/tin-tuc-&-su-kien');
-protectRoute('/api/luat-su');
+protectRoute('/api/admin/customers');
+protectRoute('/api/admin/dan-su');
+protectRoute('/api/admin/hinh-su');
+protectRoute('/api/admin/hanh-chinh');
+protectRoute('/api/admin/so-huu-tri-tue');
+protectRoute('/api/admin/preview');
+protectRoute('/api/admin/tin-tuc');
+protectRoute('/api/admin/tin-tuc-&-su-kien');
+protectRoute('/api/admin/luat-su');
 
 // Now register your routes
 app.use('/api/customers', CustomerRoutes);

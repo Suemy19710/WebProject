@@ -7,10 +7,10 @@ const AdminHeader = () => {
   console.log("AdminHeader is rendering");
   return (
     <div className="adminHeader-container">
-      <div className="logo">
+      {/* <div className="logo">
         <img src={logo} alt="Logo" />
         <span>Admin</span>
-      </div>
+      </div> */}
       <ul className="menu">
         <li>
           <NavLink
