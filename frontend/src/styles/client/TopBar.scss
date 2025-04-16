@@ -35,13 +35,13 @@ $Font: "Raleway", sans-serif;
     max-width: 800px;
     h1 {
       color: $TC-yellow;
-      font-size: 40px;
+      font-size: 35px;
       margin: 0;
     }
   
     h3 {
       color: $TC-gray;
-      font-size: 30px;
+      font-size: 20px;
       margin: 5px 0 0;
     }
   }
@@ -77,10 +77,10 @@ $Font: "Raleway", sans-serif;
 }
 
 /* Tablet devices (max-width: 958px) */
-@media only screen and (max-width: 958px) {
+@media only screen and (max-width: 1100px) {
   .topBar-container {
     min-height: 80px;
-    padding: 10px 15px;
+    padding: 10px 30px;
     gap: 20px;
 
     .container-left {
@@ -113,19 +113,19 @@ $Font: "Raleway", sans-serif;
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 120px;
+    min-height: 70px;
     padding: 15px;
-    gap: 15px;
+    gap: 5px;
 
     .container-left {
       margin-left: 0;
       max-width: 100%;
       h1 {
-        font-size: 24px;
+        font-size: 20px;
       }
       h3 {
-        font-size: 18px;
-        margin-top: 8px;
+        font-size: 15px;
+        margin-top: 3px;
       }
     }
 
@@ -137,7 +137,7 @@ $Font: "Raleway", sans-serif;
       .info {
         justify-content: center;
         a {
-          font-size: 11px;
+          font-size: 8px;
         }
       }
     }
@@ -149,7 +149,7 @@ $Font: "Raleway", sans-serif;
   .topBar-container {
     min-height: 50px;
     padding: 10px;
-    gap: 10px;
+    gap: 5px;
 
     .container-left {
       h1 {
@@ -157,7 +157,7 @@ $Font: "Raleway", sans-serif;
       }
       h3 {
         font-size: 14px;
-        margin-top: 5px;
+        margin-top: 2px;
       }
     }
 
