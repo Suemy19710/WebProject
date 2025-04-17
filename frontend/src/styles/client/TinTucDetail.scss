@@ -33,8 +33,7 @@ html, body {
     
     .container-header {
       position: relative;
-      height: 300px;
-      min-height: 180px;
+      min-height: 150px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -46,7 +45,7 @@ html, body {
         top: 0;
         left: 0;
         width: 100%;
-        height: 100%;
+        height: 80%;
         background-image: url('../../assets/background2.jpeg');  
         background-repeat: no-repeat;
         background-position: center;
@@ -58,7 +57,7 @@ html, body {
 
       .container-header-content {
         position: absolute;
-        top: 40%;
+        top: 15%;
         right: 10%;
         z-index: 2;
         color: $TC-white;
@@ -193,7 +192,7 @@ html, body {
   .tinTucDetail-container {
     .tinTucDetail-device {
       .container-header {
-        height: 220px;
+        min-height: 200px;
         
         .container-header-content {
           right: 5%;
@@ -223,11 +222,17 @@ html, body {
   .tinTucDetail-container {
     .tinTucDetail-device {
       .container-header {
-        height: 180px;
+        min-height: 180px;
         
         .container-header-content {
-          right: 5%;
-          width: 70%;
+          display: absolute; 
+          padding: 10% 3%;
+
+          align-items: center;
+          
+          h1 {
+            font-size: 28px;
+          }
         }
       }
       
@@ -255,11 +260,17 @@ html, body {
   .tinTucDetail-container {
     .tinTucDetail-device {
       .container-header {
-        height: 150px;
-        
+        max-height: 100px;
+        min-height: 80px;
+        .container-header-bg{
+          height: 100%; 
+        }
         .container-header-content {
-          width: 80%;
-          right: 10%;
+          padding: 2% 3%;
+          
+          h1 {
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
+          }
         }
       }
       
