@@ -98,7 +98,7 @@ html, body {
         max-width: 1000px; // Maximum width
         height: 100%;
         background-color: $TC-white;
-        opacity: 0.7;
+        opacity: 0.9;
         z-index: -1;
         border-radius: 30px;
       }
@@ -118,7 +118,7 @@ html, body {
           width: 100%;
           
           .title {
-            font-size: 60px; // Responsive font size (24-30px)
+            font-size: 50px; // Responsive font size (24-30px)
             line-height: 1.2;
             font-weight: 900;
             // text-align: justify;
@@ -275,7 +275,7 @@ html, body {
           // padding: 10px;
           .content{
             .title{
-              font-size: 40px;
+              font-size: 30px;
             }
           }
         }
