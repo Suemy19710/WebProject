@@ -91,6 +91,11 @@ const Footer = () => {
               </NavLink>
             </li>
             <li>
+              <NavLink to="/doanh-nghiep" activeClassName="active">
+                Doanh Nghiệp
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/dan-su" activeClassName="active">
                 Dân sự
               </NavLink>
