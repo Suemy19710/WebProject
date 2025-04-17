@@ -27,7 +27,7 @@ const AdminListTinTuc = () => {
 
   // Handle Edit button click
   const handleEdit = (id) => {
-    navigate(`/admin/edit-tin-tuc/${id}`);
+    navigate(`/admin/edit-tin-tuc/${slug}`);
   };
 
   // Handle Delete button click

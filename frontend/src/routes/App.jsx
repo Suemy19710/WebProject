@@ -89,7 +89,7 @@ function App() {
         <Route path="/admin/list-luat-su" element={<PrivateRoute><AdminListLuatSuPage /></PrivateRoute>} />
         <Route path="/admin/edit-luat-su/:id" element={<PrivateRoute><AdminEditLuatSuPage /></PrivateRoute>} />
         <Route path="/admin/list-tin-tuc" element={<PrivateRoute><AdminListTinTucPage /></PrivateRoute>} />
-        <Route path="/admin/edit-tin-tuc/:id" element={<PrivateRoute><AdminEditTinTucPage /></PrivateRoute>} />
+        <Route path="/admin/edit-tin-tuc/:slug" element={<PrivateRoute><AdminEditTinTucPage /></PrivateRoute>} />
         <Route path="/admin/tin-tuc-&-su-kien" element={<PrivateRoute><AdminTinTucPage /></PrivateRoute>} />
         
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}

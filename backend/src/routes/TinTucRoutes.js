@@ -4,31 +4,24 @@ const TinTucController = require('../controller/TinTucController');
 
 const router = express.Router();
 
-// Main CRUD routes
 router.post('/', TinTucController.createNews);
 router.get('/', TinTucController.getAllNews);
 router.get('/:slug', TinTucController.getNewsBySlug);
 router.delete('/:id', TinTucController.deleteNewsById);
 
-// Separate route for editor image uploads
 router.post('/upload-image', async (req, res) => {
   try {
-    // Check if files exist in request
     if (!req.files || !req.files.image) {
       return res.status(400).json({ message: 'No image file provided' });
     }
 
     const file = req.files.image;
-    
-    // Log details for debugging
-    console.log('Upload image file details:', {
+        console.log('Upload image file details:', {
       name: file.name,
       size: file.size,
       mimetype: file.mimetype,
       hasTempFilePath: !!file.tempFilePath
     });
-
-    // Upload to Cloudinary
     const result = await cloudinary.uploader.upload(file.tempFilePath, {
       folder: 'tin-tuc',
       use_filename: true,

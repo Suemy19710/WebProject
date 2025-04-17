@@ -1,6 +1,5 @@
 const TinTucModel = require('../models/TinTucModel');
 
-// Create a new news article
 const createNews = async (newsData) => {
     try {
         const newNews = new TinTucModel(newsData);
@@ -11,7 +10,6 @@ const createNews = async (newsData) => {
     }
 };
 
-// Get all news articles, optionally including drafts
 const getAllNews = async (includeDrafts = false) => {
     try {
         const query = includeDrafts ? {} : { status: 'publish' };
@@ -20,8 +18,6 @@ const getAllNews = async (includeDrafts = false) => {
         throw new Error(`Error fetching news: ${error.message}`);
     }
 };
-
-// Get a news article by slug
 const getNewsBySlug = async (slug) => {
     try {
         const news = await TinTucModel.findOne({ slug });
@@ -43,7 +39,6 @@ const getNewsById = async(id) => {
         throw new Error('Error fetching news by ID: ' + error.message);
     }
 }
-// Delete a news article by ID
 const deleteNewsById = async (id) => {
     try {
         const deletedNews = await TinTucModel.findByIdAndDelete(id);

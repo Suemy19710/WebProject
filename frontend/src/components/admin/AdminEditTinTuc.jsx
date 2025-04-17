@@ -47,7 +47,7 @@ const EditTinTuc = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const response = await axios.get(`https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/${id}`);
+        const response = await axios.get(`https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/${slug}`);
         const news = response.data;
         setTitle(news.title || '');
         setStatus(news.status || 'draft');
