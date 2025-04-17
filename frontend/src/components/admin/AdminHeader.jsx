@@ -93,6 +93,15 @@ const AdminHeader = () => {
             <span>Xem trước</span>
           </NavLink>
         </li> */}
+         <li>
+          <NavLink
+            to="/admin/doanh-nghiep"
+            className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
+          >
+            <i className="fa-solid fa-folder"></i>
+            <span>Doanh Nghiệp</span>
+          </NavLink>
+        </li>
         <li>
           <NavLink
             to="/admin/so-huu-tri-tue"

@@ -20,6 +20,7 @@ const PreviewRoutes = require('./src/routes/PreviewRoute');
 const NewsRoutes = require('./src/routes/NewsRoutes');
 const TinTucRoutes = require('./src/routes/TinTucRoutes');
 const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
+const DoanhNghiepRoutes = require('./src/routes/DoanhNghiepRoutes'); 
 
 dotenv.config();
 const allowedOrigins = [
@@ -113,6 +114,7 @@ protectRoute('/api/admin/preview');
 protectRoute('/api/admin/tin-tuc');
 protectRoute('/api/admin/tin-tuc-&-su-kien');
 protectRoute('/api/admin/luat-su');
+protectRoute('/api/admin/doanh-nghiep');
 
 // Now register your routes
 app.use('/api/customers', CustomerRoutes);
@@ -124,6 +126,8 @@ app.use('/api/preview', PreviewRoutes);
 app.use('/api/tin-tuc', NewsRoutes);
 app.use('/api/tin-tuc-&-su-kien', TinTucRoutes);
 app.use('/api/luat-su', LuatSuRoutes);
+app.use('/api/doanh-nghiep', DoanhNghiepRoutes);
+
 
 const adminUser = {
   username: process.env.ADMIN_USERNAME,
@@ -141,7 +145,6 @@ app.post('/api/login', async (req, res) => {
       return res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
     
-    // Create token with expiration
     const token = jwt.sign(
       { username: adminUser.username }, 
       JWT_SECRET, 
@@ -210,9 +213,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Handle 404 routes for admin pages
 app.use('/admin/*', (req, res, next) => {
-  // If it's an API request, pass to the next handler
   if (req.path.startsWith('/api/')) {
     return next();
   }

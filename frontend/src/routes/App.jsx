@@ -15,6 +15,7 @@ import SoHuuTriTue from '../pages/client/SoHuuTriTuePage';
 // import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
 import DichVuPage from '../pages/client/DichVuPage'; 
 import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
+import DoanhNghiepPage from '../pages/client/DoanhNghiepPage'; 
 
 import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -32,6 +33,7 @@ import AdminEditLuatSuPage from '../pages/admin/AdminEditLuatSuPage';
 import AdminListTinTucPage from '../pages/admin/AdminListTinTucPage';
 import AdminEditTinTucPage from '../pages/admin/AdminEditTinTucPage';
 import PrivateRoute from '../components/admin/PrivateRoute'; 
+import AdminDoanhNghiepPage from '../pages/admin/AdminDoanhNghiepPage'; 
 
 function App() {
   useEffect(() => {
@@ -65,14 +67,13 @@ function App() {
         <Route path="/luat-su/:slug" element={<LuatSuDetailPage/>}/>
         <Route path="/tin-tuc" element={<TinTucPage/>}/>
         <Route path="/tin-tuc/:title" element={<TinTucDetailPage/>}/>
+        <Route path="/doanh-nghiep" element={<DoanhNghiepPage/>}/>
         <Route path="/dan-su" element={<DanSu/>}/>
         <Route path="/hinh-su" element={<HinhSu/>}/>
         <Route path="/hanh-chinh" element={<HanhChinh/>}/>
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
         {/* <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/> */}
         <Route path="/dich-vu" element={<DichVuPage/>}/>
-
-
 
 
         {/* Admin Routes */}
@@ -91,6 +92,7 @@ function App() {
         <Route path="/admin/list-tin-tuc" element={<PrivateRoute><AdminListTinTucPage /></PrivateRoute>} />
         <Route path="/admin/edit-tin-tuc/:slug" element={<PrivateRoute><AdminEditTinTucPage /></PrivateRoute>} />
         <Route path="/admin/tin-tuc-&-su-kien" element={<PrivateRoute><AdminTinTucPage /></PrivateRoute>} />
+        <Route path="/admin/doanh-nghiep" element={<PrivateRoute><AdminDoanhNghiepPage/></PrivateRoute>}/>
         
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
