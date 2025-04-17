@@ -35,7 +35,7 @@ function Homepage() {
       </div>
       <div className="floating-buttons">
         <a
-          href="https://zalo.me/0617746736"
+          href="https://zalo.me/0913899933"
           target="_blank"
           rel="noopener noreferrer"
           className="btn chat-btn"
@@ -44,7 +44,7 @@ function Homepage() {
           <i className="fas fa-comment"></i>
         </a>
         <a
-          href="tel:+31617746736"
+          href="tel:0913899933"
           className="btn call-btn"
           aria-label="Call us"
         >

@@ -21,8 +21,8 @@ const TopBar = () => {
       </div>
       <div className="container-right">
         <p className="info">
-          <i className="fa-solid fa-location-dot"></i> 
-          <a>Thành phố Hồ Chí Minh</a> 
+          <i className="fa-solid fa-phone"></i>
+          <a href="tel:+0919146222">0913.89.99.33</a>
         </p>
         <p className="info">
           <i className="fa-solid fa-phone"></i>

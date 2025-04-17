@@ -17,7 +17,7 @@ const Footer = () => {
           </div>
           <p className="footer__description">Pháp lý vững chắc - Cuộc sống bình yên</p>
           <p className="footer__info">
-            <i className="fa-solid fa-location-dot"></i> Thành phố Hồ Chí Minh
+            <i className="fa-solid fa-location-dot"></i> 244/31/14 ht17, khu phố 2 (nay là khu phố 36), phường Hiệp Thành, Quận 12, Thành phố Hồ Chí Minh, Việt Nam
           </p>
           <p className="footer__info">
             <i className="fa-solid fa-phone"></i>
