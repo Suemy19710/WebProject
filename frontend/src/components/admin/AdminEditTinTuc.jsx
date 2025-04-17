@@ -14,8 +14,9 @@ import axios from 'axios';
 import 'react-resizable/css/styles.css';
 
 const EditTinTuc = () => {
-  const { id } = useParams();
+  const { slug } = useParams(); // Changed from id to slug
   const navigate = useNavigate();
+  const [articleId, setArticleId] = useState(''); // Add state to store article ID
   const [title, setTitle] = useState('');
   const [image, setImage] = useState(null);
   const [existingImage, setExistingImage] = useState('');
@@ -49,6 +50,7 @@ const EditTinTuc = () => {
       try {
         const response = await axios.get(`https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/${slug}`);
         const news = response.data;
+        setArticleId(news._id); // Store the article ID for update operation
         setTitle(news.title || '');
         setStatus(news.status || 'draft');
         setExistingImage(news.image || '');
@@ -63,7 +65,7 @@ const EditTinTuc = () => {
       }
     };
     fetchNews();
-  }, [id, editor]);
+  }, [slug, editor]); // Changed dependency from id to slug
 
   // Handle image upload to editor
   const handleImageUpload = async (event) => {
@@ -119,7 +121,7 @@ const EditTinTuc = () => {
 
     try {
       const response = await axios.put(
-        `https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/${id}`,
+        `https://luatkimngoc-vn.onrender.com/api/tin-tuc-&-su-kien/${articleId}`, // Use articleId instead of id
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },

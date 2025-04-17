@@ -29,7 +29,7 @@ const Footer = () => {
           </p>
           <div className="footer__social">
             <a 
-              href="https://www.facebook.com/your-facebook-page" 
+              href="https://www.facebook.com/luatkimngoc?mibextid=ZbWKwL" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Follow us on Facebook"
@@ -37,7 +37,7 @@ const Footer = () => {
               <img src={facebook} alt="Facebook" className="social-icon" />
             </a>
             <a 
-              href="https://zalo.me/your-zalo-id" 
+              href="https://zalo.me/0913899933" 
               target="_blank" 
               rel="noopener noreferrer"
               aria-label="Contact us on Zalo"
