@@ -1,6 +1,6 @@
 
 import '../../styles/client/Homepage.scss'
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import Header from '../../components/client/Header'; 
 import Introduction from '../../components/client/Introduction'; 
 import IntroductionService from '../../components/client/IntroductionService';

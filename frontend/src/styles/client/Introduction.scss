@@ -274,7 +274,20 @@ body {
 
 /* Tablet Responsiveness (768px - 1024px) */
 // @media (max-width: 1024px) {
-@media (max-width: 1220px) {
+
+@media (min-device-width: 1256px) {
+  .introduction-container{
+    max-width: 1245px; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    // margin-left: 230px;
+    .container-left{
+      padding: 40px;
+    }
+  }
+}
+@media (max-width: 1220px){
 
   .introduction-container {
     display: flex;

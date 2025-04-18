@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import '../../styles/client/ReponsiveCarousel.scss';
 import carousel1 from '../../assets/carousel-1.png'; 
+import carousel2 from '../../assets/carousel-2.png'; 
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [ carousel1,carousel1,carousel1  ];
+  const images = [ carousel1,carousel2,carousel1  ];
 
-  // Auto-slide every 2 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);

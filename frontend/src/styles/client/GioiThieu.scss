@@ -9,6 +9,15 @@ $TC-yellow: #CB935D;
 $TC-white: #FFF;
 $TC-gray: #B5CACE;
 $Font: "Raleway", sans-serif;
+$font-size-base: clamp(0.875rem, 2vw, 1rem);
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 html, body {
   margin: 0;
@@ -16,63 +25,49 @@ html, body {
   width: 100%;
   font-family: $Font;
   box-sizing: border-box;
-  // overflow-x: hidden; // Prevent horizontal scrolling
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+// Main Container
 .gioiThieu-container {
   width: 100%;
-  display: flex; 
+  display: flex;
   justify-content: center;
 
-  
   .gioiThieu-device {
-  width: 100%;
-  
+    width: 100%;
+    
+    // Header Section
     .container-header {
       position: relative;
-      // height: 300px;
-      min-height: 180px;
+      min-height: 120px;
       max-height: 400px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       text-align: center;
-      width: 100%;
 
       .container-header-bg {
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('../../assets/background2.jpeg');
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
+        inset: 0;
+        background: url('../../assets/background2.jpeg') no-repeat center/cover;
         filter: blur(2px);
         opacity: 0.8;
         z-index: 1;
       }
 
       .container-header-content {
-        position: absolute;
-        top: 15%;
-        right: 10%;
+        position: relative;
         z-index: 2;
         color: $TC-white;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        padding: 0 15px;
+
         h1 {
-          font-size: 48px;
+          font-size: clamp(1.5rem, 5vw, 3rem);
           font-weight: 900;
-          margin-bottom: 5px;
+          margin: 0;
+
           span {
             color: $TC-yellow;
           }
@@ -80,32 +75,33 @@ html, body {
       }
     }
 
+    // Body Section
     .container-body {
-      display: flex; 
+      display: flex;
       justify-content: center;
-      .container-body-center{
+      width: 100%;
+      padding: 0 15px;
 
+      .container-body-center {
         position: relative;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        background-color: white;
-        opacity: 0.8;
-        margin: 30px 15px; 
-        padding: 0; 
-        border-radius: 20px;
-        width: calc(100% - 30px);
+        background-color: $BC-white;
+        margin: 20px 0;
+        border-radius: 15px;
+        width: 100%;
         max-width: 1400px;
+        overflow: hidden;
+
         .container-body-bg {
           position: absolute;
-          top: 0;
-          width: 100%;
-          height: 100%;
-          background-color: $TC-white;
+          inset: 0;
+          background-color: $BC-white;
           opacity: 0.7;
           z-index: 1;
-          border-radius: 20px;
+          border-radius: 15px;
         }
 
         .container-body-content {
@@ -114,32 +110,25 @@ html, body {
           width: 100%;
           color: $TC-black;
           font-family: $Font;
-          font-size: clamp(0.875rem, 2vw, 1rem);
-          padding: 20px 15px; 
-          // Body 1
+          font-size: $font-size-base;
+          padding: 20px;
+
+          // Body Section 1
           .container-body-1 {
-            width: 100%;
-            
             .body {
               display: flex;
               flex-direction: column;
-              // gap: 2rem;
-              width: 100%;
+              gap: 1.5rem;
 
               .body-1,
               .body-2 {
                 display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 1.5rem;
-                padding: 1.5rem;
+                flex-direction: column;
+                gap: 1rem;
+                padding: 1rem;
                 border-radius: 10px;
-                flex-wrap: wrap;
-                width: 100%;
 
                 h6 {
-                  flex: 1 1 100%; 
-                  min-width: 250px;
                   font-size: clamp(0.9rem, 2.5vw, 1.1rem);
                   line-height: 1.6;
                   font-weight: 300;
@@ -154,41 +143,34 @@ html, body {
                 }
 
                 .pic {
-                  flex: 1 1 100%; 
-                  min-height: 15rem;
+                  min-height: 12rem;
                   width: 100%;
-                  background-size: cover;
-                  background-repeat: no-repeat;
-                  background-position: center;
+                  background: no-repeat center/cover;
                   border-radius: 10px;
-                  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 }
-              }
 
-              .body-1 {
-                .pic {
+                &.body-1 .pic {
                   background-image: url('../../assets/bi-thu-Kim-Ngoc.png');
                 }
-              }
 
-              .body-2 {
-                .pic {
+                &.body-2 .pic {
                   background-image: url('../../assets/img-5.jpg');
                 }
               }
             }
           }
 
+          // Body Sections 2 & 4
           .container-body-2,
           .container-body-4 {
-            width: 100%;
-            display: flex;
+            // display: flex;
+            // flex-direction: row;
             gap: 1.5rem;
+            padding: 1rem;
             border-radius: 10px;
-            flex-wrap: wrap;
+
             .content {
-              flex: 1 1 100%; // Full width on mobile
-              min-width: 250px;
               font-size: clamp(0.9rem, 2.5vw, 1.1rem);
               line-height: 1.6;
               font-weight: 300;
@@ -197,8 +179,6 @@ html, body {
             }
 
             .images {
-              flex: 1 1 100%; // Full width on mobile
-              min-width: 250px;
               display: flex;
               flex-wrap: wrap;
               gap: 1rem;
@@ -207,42 +187,29 @@ html, body {
               .img-2,
               .img-3,
               .img-4 {
-                flex: 1 1 calc(50% - 0.5rem); // Two images per row with gap
+                flex: 1 1 calc(50% - 0.5rem);
                 min-width: 120px;
-                height: 12rem;
+                height: 10rem;
                 border-radius: 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-                background-size: cover;
-                background-position: center;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                background: no-repeat center/cover;
               }
 
-              .img-1 {
-                background-image: url('../../assets/img-1.jpg');
-              }
-
-              .img-2 {
-                background-image: url('../../assets/img-2.jpg');
-              }
-
-              .img-3 {
-                background-image: url('../../assets/img-3.jpg');
-              }
-
-              .img-4 {
-                background-image: url('../../assets/img-4.jpg');
-              }
+              .img-1 { background-image: url('../../assets/img-1.jpg'); }
+              .img-2 { background-image: url('../../assets/img-2.jpg'); }
+              .img-3 { background-image: url('../../assets/img-3.jpg'); }
+              .img-4 { background-image: url('../../assets/img-4.jpg'); }
             }
           }
 
+          // Body Section 3
           .container-body-3 {
-            // padding: 1rem;
+            padding: 1rem;
             border-radius: 10px;
-            width: 100%;
+            display: flex; 
+            flex-direction: column;
 
             .content {
-              padding: 0 1rem;
-              width: 100%;
-
               .content-1,
               .content-2,
               .content-3 {
@@ -261,150 +228,131 @@ html, body {
             }
           }
         }
-    }
-    }
-  }
-}
-
-// Responsive Design - More gradual breakpoints
-@media (max-width: 1200px) {
-  .gioiThieu-container {
-    .gioiThieu-device {
-      .container-body {
-        margin: 30px 30px;
-
-        .container-body-content {
-          .container-body-1 {
-            .body {
-              .body-1,
-              .body-2 {
-                flex-direction: column;
-                
-                h6, .pic {
-                  flex: 1 1 100%;
-                }
-                
-                .pic {
-                  min-height: 12rem;
-                  order: 2; // Text first, image second
-                }
-                
-                h6 {
-                  order: 1;
-                }
-              }
-            }
-          }
-          
-          .container-body-2,
-          .container-body-4 {
-            flex-direction: column;
-            
-            .content, .images {
-              flex: 1 1 100%;
-            }
-          }
-        }
       }
     }
   }
 }
 
-@media (max-width: 900px) {
-  .gioiThieu-container {
-    .gioiThieu-device {
-      .container-body {
-        margin: 20px 20px;
+// Responsive Design
+@media (min-width: 768px) {
+  .gioiThieu-container .gioiThieu-device {
+    .container-header {
+      min-height: 180px;
+
+      .container-header-content {
+        padding: 0 10%;
+        text-align: right;
+
+        h1 {
+          font-size: clamp(2rem, 5vw, 3.5rem);
+        }
+      }
+    }
+
+    .container-body {
+      padding: 0 30px;
+
+      .container-body-center {
+        margin: 30px 15px;
+        padding: 30px;
+
+        .container-body-content {
+          padding: 30px;
+
+          .container-body-1 .body {
+            .body-1,
+            .body-2 {
+              flex-direction: row;
+              align-items: center;
+              justify-content: space-between;
+
+              h6,
+              .pic {
+                flex: 1 1 48%;
+                min-width: 250px;
+              }
+
+              .pic {
+                min-height: 15rem;
+              }
+            }
+          }
+
+          .container-body-2,
+          .container-body-4 {
+            flex-direction: row;
+            align-items: center;
+
+            .content,
+            .images {
+              flex: 1 1 48%;
+              min-width: 250px;
+            }
+
+            .images {
+              .img-1,
+              .img-2,
+              .img-3,
+              .img-4 {
+                height: 12rem;
+              }
+            }
+          }
+        }
       }
     }
   }
 }
 
 @media (max-width: 768px) {
-  .gioiThieu-container {
-    .gioiThieu-device {
-      .container-header {
-        max-height: 150px;
-        min-height: 100px;
-        .container-header-bg{
-          height: 100%; 
-        }
-        .container-header-content {
-          padding: 2% 3%;
-          
-          h1 {
-            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-          }
-        }
-      }
+  .gioiThieu-container .gioiThieu-device {
+    .container-header {
+      min-height: 100px;
 
-      .container-body {
-        margin: 15px 15px;
-        
-        .container-body-content {
-          padding: 15px;
-          
-          .container-body-1 {
-            .body {
-              .body-1, 
-              .body-2 {
-                padding: 1rem;
-              }
-            }
-          }
-          
-          .container-body-2,
-          .container-body-4 {
-            padding: 1rem;
-            
-            .images {
-              .img-1, 
-              .img-2, 
-              .img-3, 
-              .img-4 {
-                height: 10rem;
-              }
-            }
-          }
+      .container-header-content {
+        padding: 0 10px;
+
+        h1 {
+          font-size: clamp(1.2rem, 4vw, 1.8rem);
         }
       }
     }
-  }
-}
 
-@media (max-width: 580px) {
-  .gioiThieu-container {
-    .gioiThieu-device {
-      .container-header {
-        max-height: 100px;
-        min-height: 100px;
-        .container-header-bg{
-          height: 100%; 
+    .container-body {
+      padding: 0 10px;
+
+      .container-body-center {
+        margin: 15px 5px;
+        padding: 15px;
+        border-radius: 10px;
+
+        .container-body-bg {
+          border-radius: 10px;
         }
-        .container-header-content {
-          padding: 2% 3%;
-          
-          h1 {
-            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-          }
-        }
-      }
-      
-      .container-body {
-        margin: 10px 10px;
-        
+
         .container-body-content {
-          .container-body-1
+          padding: 15px;
+
+          .container-body-1 .body {
+            .body-1,
+            .body-2 {
+              padding: 0.75rem;
+
+              .pic {
+                min-height: 10rem;
+              }
+            }
+          }
+
           .container-body-2,
           .container-body-4 {
             .images {
-              .img-1, 
-              .img-2, 
-              .img-3, 
+              .img-1,
+              .img-2,
+              .img-3,
               .img-4 {
-                flex: 1 1 100%; // One image per row on very small screens
-                height: 9rem;
-
+                flex: 1 1 calc(50% - 0.5rem);
+                height: 8rem;
               }
             }
           }
@@ -415,34 +363,14 @@ html, body {
 }
 
 @media (max-width: 480px) {
-  .gioiThieu-container {
-    .gioiThieu-device {
-      .container-header {
-        max-height: 100px;
-        min-height: 80px;
-        .container-header-bg{
-          height: 100%; 
-        }
-        .container-header-content {
-          padding: 2% 3%;
-          
-          h1 {
-            font-size: clamp(1.2rem, 3.5vw, 1.5rem);
-          }
-        }
-      }
+  .gioiThieu-container .gioiThieu-device {
+    .container-body {
+      .container-body-center {
+        margin: 10px 0;
 
-      .container-body {
-        margin: 5px 0;
-        border-radius: 15px;
-        
-        .container-body-bg {
-          border-radius: 15px;
-        }
-        
         .container-body-content {
           padding: 10px;
-          
+
           .container-body-1,
           .container-body-2,
           .container-body-3,
@@ -456,11 +384,11 @@ html, body {
               .content-2,
               .content-3,
               h6 {
-                font-size: clamp(0.8rem, 2vw, 0.9rem);
+                font-size: clamp(0.85rem, 2.2vw, 0.95rem);
               }
             }
           }
-          
+
           .container-body-2,
           .container-body-4 {
             .images {
@@ -468,15 +396,14 @@ html, body {
               .img-2,
               .img-3,
               .img-4 {
-                height: 8rem;
+                flex: 1 1 100%;
+                height: 7rem;
               }
             }
           }
-          
-          .container-body-3 {
-            .content {
-              padding: 0 0.5rem;
-            }
+
+          .container-body-3 .content {
+            padding: 0 0.5rem;
           }
         }
       }
@@ -484,38 +411,27 @@ html, body {
   }
 }
 
-// Fix for very small screens
 @media (max-width: 360px) {
-  .gioiThieu-container {
-    .gioiThieu-device {
-      .container-header {
-        min-height: 120px;
-      }
-      
-      .container-body {
-        .container-body-content {
-          .container-body-1 {
-            .body {
-              .body-1, 
-              .body-2 {
-                padding: 0.75rem;
-                
-                .pic {
-                  min-height: 10rem;
-                }
-              }
+  .gioiThieu-container .gioiThieu-device {
+    .container-body {
+      .container-body-content {
+        .container-body-1 .body {
+          .body-1,
+          .body-2 {
+            .pic {
+              min-height: 8rem;
             }
           }
-          
-          .container-body-2,
-          .container-body-4 {
-            .images {
-              .img-1,
-              .img-2,
-              .img-3,
-              .img-4 {
-                height: 7rem;
-              }
+        }
+
+        .container-body-2,
+        .container-body-4 {
+          .images {
+            .img-1,
+            .img-2,
+            .img-3,
+            .img-4 {
+              height: 6rem;
             }
           }
         }

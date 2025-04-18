@@ -114,7 +114,7 @@ const Header = () => {
           </li>
           <li>
             <NavLink to="/dan-su" onClick={toggleSidebar}>
-            <i class="fa-solid fa-building"></i> Doanh Nghiệp
+              <i className="fa fa-users"></i> Doanh Nghiệp 
             </NavLink>
           </li>
           <li>
