@@ -58,6 +58,7 @@ $Font: "Raleway", sans-serif;
           color: $TC-gray;
           // font-family: 'Times New Roman', Times, serif;
           font-style: none; 
+          margin-left: 20px;
           
         }
       }
@@ -137,7 +138,7 @@ $Font: "Raleway", sans-serif;
     padding: 40px 50px;
 
     .news__grid {
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 15px;
 
       .news__card {

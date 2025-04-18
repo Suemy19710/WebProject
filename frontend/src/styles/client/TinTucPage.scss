@@ -55,4 +55,59 @@ html, body {
         position: relative; 
         z-index: 1;
       }
+      .floating-buttons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        z-index: 1000; 
+      }
+    
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+        color: $TC-white;
+        font-weight: bold;
+        font-family: $Font; 
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        transition: transform 0.1s ease;
+    
+        i {
+          margin-right: 8px;
+          font-size: 20px;
+        }
+    
+        &:hover {
+          transform: scale(1.1);
+          animation: none; 
+        }
+        animation: shake 1.5s infinite;
+      }
+    
+      .chat-btn {
+        background-color: $BC-blue-opacity;
+        animation-delay: 0s; 
+      }
+    
+      .call-btn {
+        background-color: $TC-green;
+        animation-delay: 0.3s; 
+      }
+    
+      @keyframes shake {
+        0% { transform: translateX(0); }
+        10% { transform: translateX(-3px); }
+        20% { transform: translateX(3px); }
+        30% { transform: translateX(-3px); }
+        40% { transform: translateX(3px); }
+        50% { transform: translateX(-3px); }
+        60% { transform: translateX(0); }
+        100% { transform: translateX(0); }
+      }
 }

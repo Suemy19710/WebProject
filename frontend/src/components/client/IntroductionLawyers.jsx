@@ -44,7 +44,7 @@ const LuatSu = () => {
                                 <p>Email: {lawyer.email}</p>
                             </div>
                         </div>
-                        <button onClick={() => handleClick(lawyer.slug)}>View Profile</button>
+                        <button onClick={() => handleClick(lawyer.slug)}>Xem luật sư</button>
                     </div>
                 ))}
             </div>

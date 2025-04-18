@@ -90,8 +90,8 @@ const TinTucDetail = () => {
                         <div className="content">
                             <div className="title">{post.title}</div>
                             <div className="dateOfRelease">
-                                <i className="fa-regular fa-clock"></i>
-                                <div className="date">{formattedDate}</div>
+                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <div className="date">Đăng bài: {formattedDate}</div>
                             </div>
                             <div className="body">
                                 {/* {post.image && (

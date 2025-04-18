@@ -18,6 +18,25 @@ const SoHuuTrituePage = () => {
                 <RegisterForm/>
                 <Footer/>
             </div>
+            <div className="floating-buttons">
+                <a
+                href="https://zalo.me/0913899933"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn chat-btn"
+                aria-label="Chat with us on Zalo"
+                >
+                <i className="fas fa-comment"></i>
+                </a>
+                <a
+                href="tel:0913899933"
+                className="btn call-btn"
+                aria-label="Call us"
+                >
+                <i className="fas fa-phone"></i>
+                </a>
+
+            </div>
         </div>
     )
 }

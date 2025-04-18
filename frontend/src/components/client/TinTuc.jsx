@@ -90,8 +90,8 @@ const TinTuc = () => {
                                                     )}
                                                 </div>
                                                 <div className="news__date">
-                                                    <i className="fa-regular fa-clock"></i>
-                                                    <div className="date"><em>{formattedDate}</em></div>
+                                                    {/* <i className="fa-regular fa-clock"></i> */}
+                                                    <div className="date">Đăng bài: <em>{formattedDate}</em></div>
                                                 </div>
                                                 <div className="news__title">{truncateText(post.title, 60)}</div>
                                                 <div className="news__excerpt">
