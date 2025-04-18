@@ -35,7 +35,7 @@ const registerCustomer = async (req, res) => {
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
-      to: 'nguyennhatkhanhlinh0710@gmail.com',
+      to: 'luatkimngoc@gmail.com',
       subject: `Thông báo yêu cầu tư vấn khách hàng từ ${nameCustomer}`,
       html: `
         <h2>Yêu cầu tư vấn khách hàng mới</h2>
