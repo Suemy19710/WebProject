@@ -14,8 +14,11 @@ const HinhSuPage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
+                <div className="body">
                 <HinhSu/>
                 <RegisterForm/>
+                </div>
+               
                 <Footer/>
             </div>
             <div className="floating-buttons">

@@ -28,7 +28,8 @@ body {
 }
 
 .carousel-container {
-  width: 1256px;
+  max-width: 1256px;
+  // width: 100vw;
   height: 300px;
   overflow: hidden;
   position: relative;
@@ -109,6 +110,27 @@ body {
 }
 
 /* Tablet devices */
+@media only screen and (max-width: 1230px) {
+  .carousel-container {
+    width: 100vw;
+    height: 200px;
+  }
+
+  .carousel-slide {
+    width: 100vw;
+    height: 200px;
+  }
+
+  .carousel-arrow {
+    padding: 6px 10px;
+    font-size: 18px;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+  }
+}
 @media only screen and (max-width: 958px) {
   .carousel-container {
     width: 100vw;

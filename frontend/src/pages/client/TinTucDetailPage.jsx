@@ -14,8 +14,11 @@ const TinTucDetailPage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
+                <div className="body">
                 <TinTucDetail/>
                 <RegisterForm/>
+                </div>
+               
                 <Footer/>
             </div>
             <div className="floating-buttons">

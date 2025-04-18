@@ -13,8 +13,10 @@ const LuatSuDetailPage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
-                <LuatSuDetail/>
-                <RegisterForm/>
+                <div className="body">
+                    <LuatSuDetail/>
+                    <RegisterForm/>
+                </div>
                 <Footer/>
             </div>
             <div className="floating-buttons">

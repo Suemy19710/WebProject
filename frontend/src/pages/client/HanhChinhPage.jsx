@@ -14,8 +14,11 @@ const HanhChinhPage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
+                <div className="body">
                 <HanhChinh/>
                 <RegisterForm/>
+                </div>
+               
                 <Footer/>
             </div>
             <div className="floating-buttons">

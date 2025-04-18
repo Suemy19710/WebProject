@@ -14,8 +14,10 @@ function DichVuPage () {
             <div className="background"></div>
             <div className="content">
                 <Header/>
+                <div className="body">
                 <DichVu/>
                 <RegisterForm/>
+                </div>
                 <Footer/>
             </div>
             <div className="floating-buttons">

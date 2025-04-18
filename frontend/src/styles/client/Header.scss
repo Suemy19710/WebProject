@@ -35,7 +35,9 @@ html, body {
   width: 100%;
   height: 80px;
   z-index: 1000;
-  background-color: $BC-black-light;
+  // background-color: $BC-black-light;
+  // background-color: #B5CACE;
+  background-color: $BC-green-opacity;
   margin-bottom: -1px; 
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -62,18 +64,20 @@ html, body {
 
     a {
       text-decoration: none;
-      color: $TC-gray;
+      // color: $TC-gray;
+      color: $BC-black-light; 
       font-size: 20px;
       font-family: $Font;
       font-weight: 700;
       transition: color 0.3s ease;
 
       &.active {
-        color: $TC-yellow;
+        color: $BC-blue;
+        text-decoration: underline 3px; 
       }
 
       &:hover {
-        color: $TC-yellow;
+        color: $BC-blue;
       }
     }
   }
@@ -85,7 +89,7 @@ html, body {
   border: none;
   font-size: 24px;
   cursor: pointer;
-  color: $TC-white;
+  color: $BC-blue;
   z-index: 1001;
 }
 
@@ -173,7 +177,7 @@ html, body {
 }
 
 /* Responsive Breakpoints */
-@media only screen and (max-width: 11374px) {
+@media only screen and (max-width: 1137px) {
   .header-nav {
     li {
       // margin-left: 20px;
@@ -185,8 +189,16 @@ html, body {
     }
   }
 }
-
-@media only screen and (max-width: 960px) {
+@media (max-width: 1070px)  {
+  .header{
+    li{
+      a{
+        font-size: 11px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 973px) {
   .header {
     padding: 0 15px;
   }

@@ -21,16 +21,18 @@ function Homepage() {
       <div className="content">
         <TopBar/>
         <Header />
-        <ReponsiveCarousel/>
-        <Introduction/>
-        <RegisterForm/>
-        <IntroductionService />
-        <div className="decoration"></div>
-        <div className="decoration-circle-large"></div>
-        <div className="decoration-circle-small"></div>
-        <IntroductionPictures/>
-        <IntroductionLawyers/>
-        <IntroductionNews/>
+        <div className="body">
+          <ReponsiveCarousel/>
+          <Introduction/>
+          <RegisterForm/>
+          <IntroductionService />
+          <div className="decoration"></div>
+          <div className="decoration-circle-large"></div>
+          <div className="decoration-circle-small"></div>
+          <IntroductionPictures/>
+          <IntroductionLawyers/>
+          <IntroductionNews/>
+        </div>
         <Footer/>
       </div>
       <div className="floating-buttons">

@@ -14,8 +14,10 @@ const DanSuPage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
-                <DanSu/>
-                <RegisterForm/>
+                <div className="body">
+                    <DanSu/>
+                    <RegisterForm/>
+                </div>
                 <Footer/>
             </div>
             <div className="floating-buttons">

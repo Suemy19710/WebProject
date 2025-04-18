@@ -14,8 +14,11 @@ const DoanhNghiepPage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
-                <DoanhNghiep/>
-                <RegisterForm/>
+                <div className="body">
+                    <DoanhNghiep/>
+                    <RegisterForm/>
+                </div>
+               
                 <Footer/>
             </div>
             <div className="floating-buttons">

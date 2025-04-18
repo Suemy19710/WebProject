@@ -52,8 +52,17 @@ html, body {
       }
     
       .content {
-        position: relative; 
+        position: relative;
         z-index: 1;
+       .body{
+        width: 100%;
+        max-width: 1740px;
+        margin: 0 auto;
+        display: flex; 
+        flex-direction: column;
+        // align-items: center;
+        justify-content: center;
+       }
       }
       .floating-buttons {
         position: fixed;
@@ -90,13 +99,14 @@ html, body {
         animation: shake 1.5s infinite;
       }
     
+     
       .chat-btn {
-        background-color: $BC-blue-opacity;
+        background-color: $BC-blue;
         animation-delay: 0s; 
       }
-    
+
       .call-btn {
-        background-color: $TC-green;
+        background-color: $BC-green-opacity;
         animation-delay: 0.3s; 
       }
     

@@ -14,8 +14,11 @@ const SoHuuTrituePage = () => {
             <div className="background"></div>
             <div className="content">
                 <Header/>
-                <SoHuuTritue/>
-                <RegisterForm/>
+                <div className="body">
+                    <SoHuuTritue/>
+                    <RegisterForm/>
+                </div>
+            
                 <Footer/>
             </div>
             <div className="floating-buttons">
