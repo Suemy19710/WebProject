@@ -85,7 +85,8 @@ html, body {
       
       .intro-lawyers__grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); // Responsive grid
+        grid-template-columns: repeat(4, minmax(100px, 1fr)); // Responsive grid\
+        gap: 10px;
         justify-content: center;
         max-width: 1200px;
         margin: 0 100px;
