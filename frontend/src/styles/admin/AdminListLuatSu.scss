@@ -1,13 +1,13 @@
 $BC-blue-opacity: #186BE8;
-$BC-green-opacity: #B5CACE; 
+$BC-green-opacity: #B5CACE;
 $BC-white: #F8F9FA;
 $BC-blue: #2E3C61;
-$BC-black-light: #222222; 
+$BC-black-light: #222222;
 $TC-black: #000;
-$TC-green: #5EDCD4; 
+$TC-green: #5EDCD4;
 $TC-yellow: #CB935D;
 $TC-white: #FFF;
-$TC-gray: #B5CACE; 
+$TC-gray: #B5CACE;
 $Font: "Raleway", sans-serif;
 
 html, body {
@@ -19,108 +19,139 @@ html, body {
 }
 
 .adminListLuatSu-container {
-    width: 100%;
-    padding: 20px;
-  
-    .adminListLuatSu-device {
-      max-width: 1200px;
-      margin: 0 auto;
-  
-      .container-header {
-        position: relative;
-        text-align: center;
-  
-        .container-header-bg {
-          background: #f0f0f0;
-          height: 100px;
-        }
-  
-        .container-header-content {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          
-          h1 {
-            font-size: 2rem;
-            color: #333;
-          }
+  width: 100%;
+  padding: 20px;
+
+  .adminListLuatSu-device {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    .container-header {
+      position: relative;
+      text-align: center;
+
+      .container-header-bg {
+        background: #f0f0f0;
+        height: 100px;
+      }
+
+      .container-header-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        h1 {
+          font-size: 2rem;
+          color: #333;
         }
       }
-  
-      .container-body {
-        padding: 20px 0;
-        padding-left: 150px;
-        .container-body-content {
-          .intro-lawyers__grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-  
-            .intro-lawyers__card {
-              border: 1px solid #ddd;
-              padding: 15px;
-              border-radius: 8px;
-              text-align: center;
-              background: #fff;
-  
-              img {
-                width: 100%;
-                height: 200px;
-                object-fit: cover;
+    }
+
+    .container-body {
+      padding: 20px 0;
+      padding-left: 150px;
+      .container-body-content {
+        .intro-lawyers__grid {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(100px, 1fr));
+          gap: 10px;
+          justify-content: center;
+          max-width: 1200px;
+          margin: 0 100px;
+          padding: 20px;
+
+          .intro-lawyers__card {
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba($BC-blue, 0.5);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            padding: 10px 0;
+
+            &:hover {
+              transform: translateY(-5px);
+            }
+
+            img {
+              width: calc(90% - 9px);
+              max-width: 230px;
+              height: 180px;
+              object-fit: cover;
+              border-radius: 20px;
+              margin-bottom: 15px;
+            }
+
+            h3 {
+              font-size: clamp(1rem, 3vw, 1.25rem);
+              font-weight: 600;
+              color: $TC-white;
+              margin-bottom: 5px;
+              width: 80%;
+              max-width: 200px;
+              cursor: pointer;
+
+              &:hover {
+                color: $TC-yellow;
+              }
+            }
+
+            .short-description {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              padding-top: 5px;
+              width: 80%;
+              max-width: 200px;
+              border-top: 1px solid $BC-green-opacity;
+              gap: 5px;
+
+              p {
+                font-size: clamp(0.625rem, 1.5vw, 0.75rem);
+                font-weight: 400;
+                color: $TC-gray;
+                text-align: left;
+              }
+            }
+
+            .admin-actions {
+              margin-top: 10px;
+              display: flex;
+              justify-content: center;
+              gap: 10px;
+
+              .edit-btn {
+                padding: 8px 15px;
+                background-color: #28a745;
+                color: white;
+                border: none;
                 border-radius: 4px;
-              }
-  
-              h3 {
-                font-size: 1.2rem;
-                margin: 10px 0;
-                color: #007bff;
                 cursor: pointer;
-  
+
                 &:hover {
-                  text-decoration: underline;
+                  background-color: #218838;
                 }
               }
-  
-              .short-description {
-                font-size: 0.9rem;
-                color: #666;
-  
-                p {
-                  margin: 5px 0;
-                }
-              }
-  
-              .admin-actions {
-                margin-top: 10px;
-                display: flex;
-                justify-content: center;
-                gap: 10px;
-  
-                .edit-btn {
-                  padding: 8px 15px;
-                  background-color: #28a745;
-                  color: white;
-                  border: none;
-                  border-radius: 4px;
-                  cursor: pointer;
-  
-                  &:hover {
-                    background-color: #218838;
-                  }
-                }
-  
-                .delete-btn {
-                  padding: 8px 15px;
-                  background-color: #dc3545;
-                  color: white;
-                  border: none;
-                  border-radius: 4px;
-                  cursor: pointer;
-  
-                  &:hover {
-                    background-color: #c82333;
-                  }
+
+              .delete-btn {
+                padding: 8px 15px;
+                background-color: #dc3545;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+
+                &:hover {
+                  background-color: #c82333;
                 }
               }
             }
@@ -129,3 +160,102 @@ html, body {
       }
     }
   }
+}
+
+// Media queries for better responsiveness
+@media (max-width: 1200px) {
+  .adminListLuatSu-container {
+    .adminListLuatSu-device {
+      .container-body {
+        .container-body-content {
+          .intro-lawyers__grid {
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .adminListLuatSu-container {
+    .adminListLuatSu-device {
+      .container-body {
+        .container-body-content {
+          .intro-lawyers__grid {
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .adminListLuatSu-container {
+    .adminListLuatSu-device {
+      .container-body {
+        .container-body-content {
+          .intro-lawyers__grid {
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            padding: 15px;
+
+            .intro-lawyers__card {
+              img {
+                height: 120px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .adminListLuatSu-container {
+    .adminListLuatSu-device {
+      .container-body {
+        .container-body-content {
+          .intro-lawyers__grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            padding: 10px;
+
+            .intro-lawyers__card {
+              width: 300px;
+
+              img {
+                height: 100px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .adminListLuatSu-container {
+    .adminListLuatSu-device {
+      .container-body {
+        .container-body-content {
+          .intro-lawyers__grid {
+            grid-template-columns: repeat(1, 1fr);
+
+            .intro-lawyers__card {
+              max-width: 250px;
+
+              img {
+                height: 150px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
