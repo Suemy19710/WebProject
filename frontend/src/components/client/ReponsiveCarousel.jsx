@@ -3,16 +3,19 @@ import '../../styles/client/ReponsiveCarousel.scss';
 import carousel1 from '../../assets/carousel-1.png'; 
 import carousel2 from '../../assets/carousel-2.png'; 
 import carousel3 from '../../assets/carousel-3.png'; 
+import carousel4 from '../../assets/carousel-3.png'; 
+import carousel5 from '../../assets/carousel-2.png'; 
+import carousel6 from '../../assets/carousel-1.png'; 
 
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const images = [ carousel1,carousel2,carousel3  ];
+  const images = [ carousel1, carousel2, carousel3, carousel4, carousel5, carousel6  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 80000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);

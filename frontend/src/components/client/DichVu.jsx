@@ -1,69 +1,99 @@
-import React, { useEffect, useState } from 'react';
-import '../../styles/client/DichVu.scss';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'; 
+import '../../styles/client/DichVu.scss'; 
 
 const DichVu = () => {
-  const [services, setServices] = useState([]);
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await axios.get('https://luatkimngoc-vn.onrender.com/api/dich-vu');
-        setServices(response.data);
-      } catch (error) {
-        console.error('Error fetching services:', error);
-      }
+    const handleNavigate = (url) => {
+        window.location.href = url;
     };
-    fetchServices();
-  }, []);
 
-  const handleNavigate = (id) => {
-    navigate(`/dich-vu/${id}`);
-  };
-
-  return (
-    <div className="dichVu-container">
-      <div className="dichVu-device">
-        <div className="container-header">
-          <div className="container-header-bg"></div>
-          <div className="container-header-content">
-            <h1>Dịch Vụ</h1>
-          </div>
-        </div>
-        <div className="container-body">
-          <div className="container-body-bg"></div>
-          <div className="container-body-content">
-            <div className="body">
-              {services.map((category) => (
-                <div className="small-container" key={category.id}>
-                  <h1 id={category.id}>
-                    Dịch vụ <span>{category.title}</span>
-                  </h1>
-                  <ul className="small-container-description">
-                    {category.items.map((item) => (
-                      <li key={item._id}>
-                        <a
-                          href={`/dich-vu/${item._id}`}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            handleNavigate(item._id);
-                          }}
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
+    return(
+        <div className="dichVu-container">
+            <div className="dichVu-device">
+                <div className="container-header">
+                    <div className="container-header-bg"></div>
+                    <div className="container-header-content">
+                        <h1>Dịch Vụ</h1>
+                    </div>
                 </div>
-              ))}
+                <div className="container-body">
+                    <div className="container-body-bg"></div>
+                    <div className="container-body-content">
+                    <div className="body">
+                    <div className="small-container">
+                        <h1 id="tu-van-phap-ly">Dịch vụ <span>tư vấn pháp lý</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="" onClick={(e) => { e.preventDefault(); handleNavigate(''); }}>Tư vấn luật doanh nghiệp (thành lập, giải thể, thay đổi đăng ký kinh doanh, hợp đồng…)</a></li>
+                            <li><a href="">Tư vấn luật đất đai, bất động sản (mua bán, chuyển nhượng, thừa kế, tranh chấp…)</a></li>
+                            <li><a href="">Tư vấn luật hôn nhân & gia đình (ly hôn, tranh chấp tài sản, quyền nuôi con, chế độ tài sản…)</a></li>
+                            <li><a href="">Tư vấn luật lao động (hợp đồng lao động, sa thải, bảo hiểm xã hội, tranh chấp lao động…)</a></li>
+                            <li><a href="">Tư vấn luật thuế và tài chính (kê khai thuế, xử lý tranh chấp thuế, tối ưu thuế doanh nghiệp…)</a></li>
+                            <li><a href="">Tư vấn luật sở hữu trí tuệ (đăng ký nhãn hiệu, bản quyền, xử lý vi phạm…)</a></li>
+                            <li><a href="">Tư vấn luật bảo hiểm (bảo hiểm xã hội, bảo hiểm nhân thọ, tranh chấp bảo hiểm…)</a></li>
+                            <li><a href="">Tư vấn luật giao thông (tai nạn giao thông, xử phạt vi phạm hành chính…)</a></li>
+                            <li><a href="">Tư vấn luật hành chính (khiếu nại, tố cáo, thủ tục cấp giấy phép…)</a></li>
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="dai-dien-phap-ly">Dịch vụ <span>đại diện pháp lý</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Đại diện đàm phán hợp đồng, giải quyết tranh chấp thương mại</a></li>    
+                            <li><a href="">Đại diện khách hàng trong các vụ kiện dân sự, hình sự, hành chính</a></li>    
+                            <li><a href="">Đại diện trước cơ quan nhà nước (tòa án, công an, thuế, sở hữu trí tuệ…)</a></li>      
+                            <li><a href="">Đại diện làm việc với ngân hàng, tổ chức tín dụng, đối tác kinh doanh</a></li>           
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="tranh-tung-tai-toa-an">Dịch vụ <span> tranh tụng tại tòa án</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Luật sư bào chữa trong các vụ án hình sự</a></li> 
+                            <li><a href="">Luật sư đại diện trong các vụ án dân sự (tranh chấp hợp đồng, thừa kế, đất đai…)</a></li>
+                            <li><a href="">Luật sư bảo vệ quyền lợi trong các vụ án hành chính (khiếu kiện quyết định hành chính…)</a></li>
+                            <li><a href="">Luật sư tham gia tố tụng trong các vụ án lao động, kinh tế, thương mại</a></li>
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="soan-thao">Dịch vụ <span>soạn thảo và rà soát hợp đồng, văn bản pháp lý</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Soạn thảo hợp đồng thương mại, hợp đồng lao động, hợp đồng thuê nhà…</a></li>
+                            <li><a href="">Rà soát, đánh giá rủi ro pháp lý của hợp đồng</a></li>
+                            <li><a href="">Soạn thảo đơn từ pháp lý (đơn khởi kiện, đơn khiếu nại, tố cáo, yêu cầu thi hành án…)</a></li>
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="phap-ly-doanh-nghiep">Dịch vụ <span>pháp lý cho doanh nghiệp</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Thành lập, giải thể, mua bán, sáp nhập doanh nghiệp</a></li>
+                            <li><a href="">Xây dựng điều lệ công ty, nội quy lao động, quy chế hoạt động</a></li>
+                            <li><a href="">Hỗ trợ pháp lý cho doanh nghiệp trong quá trình hoạt động</a></li>
+                            <li><a href="">Dịch vụ luật sư nội bộ (theo tháng, theo vụ việc)</a></li>
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="ho-tro-thu-tuc">Dịch vụ <span>hỗ trợ thủ tục hành chính</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Đăng ký kinh doanh, giấy phép đầu tư, giấy phép lao động cho người nước ngoài</a></li>
+                            <li><a href="">Đăng ký nhãn hiệu, bản quyền, sáng chế</a></li>
+                            <li><a href="">Cấp sổ đỏ, chuyển mục đích sử dụng đất, thủ tục sang tên sổ đỏ</a></li>
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="luat-su-rieng-ca-nhan">Dịch vụ <span>Luật sư Riêng cho Cá nhân</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Chi tiết</a></li>
+                        </ul>
+                    </div>
+                    <div className="small-container">
+                        <h1 id="luat-su-rieng-doanh-nghiep">Dịch vụ <span>Luật sư Riêng cho Doanh nghiệp</span></h1>
+                        <ul className="small-container-description">
+                            <li><a href="">Chi tiết</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default DichVu;
