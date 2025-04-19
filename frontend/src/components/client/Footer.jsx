@@ -21,7 +21,7 @@ const Footer = () => {
           </p>
           <p className="footer__info">
             <i className="fa-solid fa-phone"></i>
-            <a href="tel:+0919146222">0919.146.222</a>
+            <a className="phoneNo" href="tel:+0919146222">0919.146.222</a>
           </p>
           <p className="footer__info">
             <i className="fa-solid fa-envelope"></i>

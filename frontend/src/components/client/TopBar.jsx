@@ -16,7 +16,7 @@ const TopBar = () => {
   return (
     <div className={`topBar-container ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container-left">
-        <h1>Đoàn Luật Sư Thành phố Hồ Chí Minh</h1>
+        <h1>Đoàn Luật Sư TP.Hồ Chí Minh</h1>
         <h3>Công Ty Luật Kim Ngọc</h3>
       </div>
       <div className="container-right">
