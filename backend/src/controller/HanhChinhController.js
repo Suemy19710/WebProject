@@ -1,4 +1,9 @@
 const HanhChinhService = require('../services/HanhChinhService');
+const redis = require('redis'); 
+const client=redis.createClient(); 
+client.on('error', (err) => {
+    console.log('Error ' + err);
+});
 
 const uploadDocument = async (req, res) => {
     const { content } = req.body;
@@ -7,6 +12,7 @@ const uploadDocument = async (req, res) => {
     }
     try {
         const savedDocument = await HanhChinhService.saveDocument(content);
+        client.del('hanh-chinh-documents'); // Clear cached data when content is updated
         res.status(200).send({ message: 'Document saved', documentId: savedDocument._id });
     } catch (error) {
         console.log('Error saving document: ', error);
@@ -23,6 +29,7 @@ const getAllDocument = async (req, res) => {
         res.status(500).send('Error fetching documents');
     }
 };
+
 
 const getDocument = async (req, res) => {
     const { id } = req.params;
