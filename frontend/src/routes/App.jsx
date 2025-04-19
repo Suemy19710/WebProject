@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import Slider from 'react-slick';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { verifyToken } from '../utils/api';
+import { Helmet } from 'react-helmet';
 import Homepage from '../pages/client/Homepage';
 import GioithieuYNghiaPage from '../pages/client/GioiThieuYNghiaPage';
 import LuatSuPage from '../pages/client/LuatSuPage';
@@ -63,6 +64,21 @@ function App() {
   }, []);
   return (
     <Router>
+        <Helmet>
+        {/* Default Meta Tags */}
+        <title>Công Ty Luật Kim Ngọc | Pháp lý vững chắc - Cuộc sống bình an, thịnh vượng</title>
+        <meta name="description" content="Công Ty Luật Kim Ngọc cung cấp các dịch vụ pháp lý chất lượng, giúp bạn xây dựng một cuộc sống bình an và thịnh vượng." />
+        <meta name="keywords" content="công ty luật, luật sư, pháp lý, dịch vụ pháp lý, công ty luật kim ngọc, luật sư Vũ Duy Nam" />
+        <meta name="robots" content="index, follow" />
+        {/* You can also add Open Graph and Twitter cards for richer results on social platforms */}
+        <meta property="og:title" content="Công Ty Luật Kim Ngọc | Pháp lý vững chắc - Cuộc sống bình an, thịnh vượng" />
+        <meta property="og:description" content="Công Ty Luật Kim Ngọc cung cấp các dịch vụ pháp lý chất lượng, giúp bạn xây dựng một cuộc sống bình an và thịnh vượng." />
+        <meta property="og:url" content="https://luatkimngoc.com" />
+        <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://luatkimngoc.com/logo.png" />
+      </Helmet>
+
+      
       <Routes>
         {/* Client Routes */}
         <Route path="/" element={<Homepage/>}/>
