@@ -113,7 +113,7 @@ const Header = () => {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/dan-su" onClick={toggleSidebar}>
+            <NavLink to="/doanh-nghiep" onClick={toggleSidebar}>
               <i className="fa fa-users"></i> Doanh Nghiệp 
             </NavLink>
           </li>
