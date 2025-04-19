@@ -21,6 +21,7 @@ const NewsRoutes = require('./src/routes/NewsRoutes');
 const TinTucRoutes = require('./src/routes/TinTucRoutes');
 const LuatSuRoutes = require('./src/routes/LuatSuRoutes');
 const DoanhNghiepRoutes = require('./src/routes/DoanhNghiepRoutes'); 
+const DichVuRoutes = require('./src/routes/DichVuRoutes'); 
 
 dotenv.config();
 const allowedOrigins = [
@@ -90,21 +91,17 @@ const verifyToken = (req, res, next) => {
   });
 };
 
-// Token verification endpoint
 app.get('/api/admin/verify-token', verifyToken, (req, res) => {
-  // If the middleware passes, the token is valid
   res.status(200).json({ 
     valid: true,
     user: req.user.username
   });
 });
 
-// Apply middleware to all admin API routes
 const protectRoute = (route) => {
   app.use(route, verifyToken);
 };
 
-// Protect all admin routes
 protectRoute('/api/admin/customers');
 protectRoute('/api/admin/dan-su');
 protectRoute('/api/admin/hinh-su');
@@ -115,8 +112,8 @@ protectRoute('/api/admin/tin-tuc');
 protectRoute('/api/admin/tin-tuc-&-su-kien');
 protectRoute('/api/admin/luat-su');
 protectRoute('/api/admin/doanh-nghiep');
+protectRoute('/api/admin/dich-vu'); 
 
-// Now register your routes
 app.use('/api/customers', CustomerRoutes);
 app.use('/api/dan-su', DanSuRoutes);
 app.use('/api/hinh-su', HinhSuRoutes);
@@ -127,6 +124,7 @@ app.use('/api/tin-tuc', NewsRoutes);
 app.use('/api/tin-tuc-&-su-kien', TinTucRoutes);
 app.use('/api/luat-su', LuatSuRoutes);
 app.use('/api/doanh-nghiep', DoanhNghiepRoutes);
+app.use('/api/dich-vu', DichVuRoutes); 
 
 
 const adminUser = {

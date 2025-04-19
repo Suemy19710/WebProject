@@ -13,9 +13,11 @@ import HinhSu from '../pages/client/HinhSuPage';
 import HanhChinh from '../pages/client/HanhChinhPage';  
 import SoHuuTriTue from '../pages/client/SoHuuTriTuePage';  
 // import LuatSuDetailPage from '../pages/client/Lawyer/LuatSuDetailPage'; 
-import DichVuPage from '../pages/client/DichVuPage'; 
+// import DichVuPage from '../pages/client/DichVuPage'; 
 import LuatSuDetailPage from '../pages/client/LuatSuDetailPage'; 
 import DoanhNghiepPage from '../pages/client/DoanhNghiepPage'; 
+import DichVuPage from '../pages/client/DichVuPage'; 
+import DichVuDetailPage from '../pages/client/DichVuDetailPage'; 
 
 import AdminNotificationCustomerPage from '../pages/admin/AdminNotificationCustomerPage';
 import AdminDanSuPage from '../pages/admin/AdminDanSuPage';
@@ -34,6 +36,8 @@ import AdminListTinTucPage from '../pages/admin/AdminListTinTucPage';
 import AdminEditTinTucPage from '../pages/admin/AdminEditTinTucPage';
 import PrivateRoute from '../components/admin/PrivateRoute'; 
 import AdminDoanhNghiepPage from '../pages/admin/AdminDoanhNghiepPage'; 
+import AdminListDichVuPage from '../pages/admin/AdminListDichVuPage'; 
+import AdminDichVuEditorPage from '../pages/admin/AdminDichVuEditorPage'; 
 
 function App() {
   useEffect(() => {
@@ -74,6 +78,8 @@ function App() {
         <Route path="/so-huu-tri-tue" element={<SoHuuTriTue/>}/>
         {/* <Route path="/gioi-thieu/luat-su-vu-duy-nam" element={<LuatSuDetailPage/>}/> */}
         <Route path="/dich-vu" element={<DichVuPage/>}/>
+        <Route path="/dich-vu/:id" element={<DichVuDetailPage/>}/>
+
 
 
         {/* Admin Routes */}
@@ -93,7 +99,11 @@ function App() {
         <Route path="/admin/edit-tin-tuc/:slug" element={<PrivateRoute><AdminEditTinTucPage /></PrivateRoute>} />
         <Route path="/admin/tin-tuc-&-su-kien" element={<PrivateRoute><AdminTinTucPage /></PrivateRoute>} />
         <Route path="/admin/doanh-nghiep" element={<PrivateRoute><AdminDoanhNghiepPage/></PrivateRoute>}/>
-        
+        <Route path="/admin/dich-vu" element={<PrivateRoute><AdminListDichVuPage/></PrivateRoute>}/>
+        <Route path="/admin/dich-vu/new" element={<PrivateRoute><AdminDichVuEditorPage/></PrivateRoute>}/>
+        <Route path="/admin/dich-vu/edit/:id" element={<PrivateRoute><AdminDichVuEditorPage/></PrivateRoute>}/>
+
+
         {/* <Route path='/admin/blog' element={<AdminBlog/>}/> */}
 
       </Routes>
