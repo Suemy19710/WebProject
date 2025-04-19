@@ -75,7 +75,7 @@ function App() {
         <meta property="og:description" content="Công Ty Luật Kim Ngọc cung cấp các dịch vụ pháp lý chất lượng, giúp bạn xây dựng một cuộc sống bình an và thịnh vượng." />
         <meta property="og:url" content="https://luatkimngoc.com" />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://luatkimngoc.com/logo.png" />
+        <meta property="og:image" content="https://ibb.co/PZBzPD5g" />
       </Helmet>
 
       
