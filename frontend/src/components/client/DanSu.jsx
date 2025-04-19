@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'; 
 import '../../styles/client/DanSu.scss'; 
 const DanSu = () => {
-    const [content, setContent] = useState('<p>Đang tải nội dung...</p>'); 
+    const [content, setContent] = useState(''); 
     useEffect(() => {
         const fetchContent = async () => {
         console.time('loadData'); 
