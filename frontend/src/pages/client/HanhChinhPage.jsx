@@ -4,6 +4,8 @@ import HanhChinh from '../../components/client/HanhChinh';
 import '../../styles/client/DanSuPage.scss'; 
 import RegisterForm from '../../components/client/RegisterForm';   
 import Footer from '../../components/client/Footer';
+import IntroductionNews from '../../components/client/IntroductionNews'; 
+
 
 const HanhChinhPage = () => {
     useEffect(()=>{
@@ -16,6 +18,7 @@ const HanhChinhPage = () => {
                 <Header/>
                 <div className="body">
                 <HanhChinh/>
+                <IntroductionNews/>
                 <RegisterForm/>
                 </div>
                

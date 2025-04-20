@@ -38,6 +38,10 @@ const HinhSu = () => {
                         
                     </div>
                 </div>
+                {/* <div className="container-footer">
+                    <div className="pic-left"></div>
+                    <div className="pic-right"></div>
+                </div> */}
             </div>
         </div>
     )

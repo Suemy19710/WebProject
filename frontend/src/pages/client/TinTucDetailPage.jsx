@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react'; 
 import Header from '../../components/client/Header';
 import TinTucDetail from '../../components/client/TinTucDetail';  
+import IntroductionNews from '../../components/client/IntroductionNews'; 
 import '../../styles/client/TinTucDetailPage.scss'; 
 import RegisterForm from '../../components/client/RegisterForm';   
 import Footer from '../../components/client/Footer';
@@ -15,8 +16,9 @@ const TinTucDetailPage = () => {
             <div className="content">
                 <Header/>
                 <div className="body">
-                <TinTucDetail/>
-                <RegisterForm/>
+                    <TinTucDetail/>
+                    <IntroductionNews/>
+                    <RegisterForm/>
                 </div>
                
                 <Footer/>

@@ -16,6 +16,7 @@ const SoHuuTrituePage = () => {
                 <Header/>
                 <div className="body">
                     <SoHuuTritue/>
+                    <SoHuuTrituePage/>
                     <RegisterForm/>
                 </div>
             
