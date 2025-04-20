@@ -79,6 +79,7 @@ const AdminHeader = () => {
           <NavLink
             to="/admin/tin-tuc-&-su-kien"
             className={({ isActive }) => (isActive ? "menu-item active" : "menu-item")}
+            id="tinTuc"
           >
             <i className="fa-solid fa-file"></i>
             <span>Tin Tức</span>
